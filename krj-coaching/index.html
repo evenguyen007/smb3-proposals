@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Proposal for @krj.coaching — Evelyn</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Inter", "Helvetica Neue", Arial, sans-serif;
+    background: #faf3ec;
+    color: #2a1f1f;
+    line-height: 1.6;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap {
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 56px 48px 80px;
+  }
+
+  .hero {
+    border-radius: 28px;
+    background: linear-gradient(135deg, #f3dfd9 0%, #f9e8dd 100%);
+    padding: 48px 44px 44px;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 56px;
+  }
+  .hero .label {
+    font-size: 13px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #9a3d54;
+    font-weight: 600;
+    margin-bottom: 18px;
+  }
+  .hero h1 {
+    font-size: 38px;
+    line-height: 1.18;
+    font-weight: 700;
+    color: #2a1f1f;
+    letter-spacing: -0.02em;
+    margin-bottom: 16px;
+  }
+  .hero h1 .name { color: #b8546a; }
+  .hero p.lede {
+    font-size: 18px;
+    line-height: 1.55;
+    color: #4a3535;
+    max-width: 640px;
+  }
+  .hero .from {
+    margin-top: 28px;
+    font-size: 14px;
+    color: #7a4f5c;
+    font-style: italic;
+  }
+
+  section { margin-bottom: 56px; }
+  h2 {
+    font-size: 24px;
+    font-weight: 700;
+    color: #2a1f1f;
+    margin-bottom: 14px;
+    letter-spacing: -0.01em;
+  }
+  h2 .mark { color: #b8546a; margin-right: 6px; }
+  h3 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #2a1f1f;
+    margin-bottom: 10px;
+  }
+  p { margin-bottom: 14px; color: #2a1f1f; }
+  p:last-child { margin-bottom: 0; }
+
+  .quote {
+    border-left: 3px solid #b8546a;
+    padding: 6px 0 6px 16px;
+    margin: 12px 0 18px;
+    font-style: italic;
+    color: #5a3942;
+    font-size: 15px;
+  }
+
+  .gap-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 14px;
+    margin-top: 6px;
+  }
+  .gap {
+    background: #fff;
+    border: 1px solid #ecd6cf;
+    border-radius: 14px;
+    padding: 18px 22px;
+  }
+  .gap .num {
+    display: inline-block;
+    background: #b8546a;
+    color: #fff;
+    width: 24px; height: 24px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 24px;
+    font-size: 13px;
+    font-weight: 700;
+    margin-right: 10px;
+    vertical-align: 2px;
+  }
+  .gap strong { color: #2a1f1f; }
+  .gap p { margin-top: 8px; font-size: 14.5px; color: #4a3535; line-height: 1.55; }
+
+  .services {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+  .card {
+    background: #fff;
+    border: 1px solid #ecd6cf;
+    border-radius: 16px;
+    padding: 22px 24px;
+    display: flex;
+    flex-direction: column;
+    min-height: 192px;
+  }
+  .card.featured {
+    border-color: #b8546a;
+    background: linear-gradient(180deg, #fff5f0 0%, #ffffff 80%);
+  }
+  .card.premium {
+    background: #2a1f1f;
+    color: #fbeae0;
+    border-color: #2a1f1f;
+  }
+  .card.premium h3 { color: #fbeae0; }
+  .card.premium .price-line { color: #f3c8b8; }
+  .card.premium .desc { color: #d9c4b8; }
+  .card .tag {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #9a3d54;
+    margin-bottom: 8px;
+  }
+  .card.featured .tag { color: #b8546a; }
+  .card.premium .tag { color: #f3c8b8; }
+  .card h3 { margin-bottom: 6px; font-size: 17px; }
+  .card .desc { font-size: 14px; color: #4a3535; line-height: 1.55; flex-grow: 1; margin-bottom: 14px; }
+  .card .price-line {
+    font-size: 13.5px;
+    font-weight: 600;
+    color: #2a1f1f;
+    border-top: 1px dashed #e6d2cb;
+    padding-top: 10px;
+  }
+  .card.premium .price-line { border-top-color: #4a3535; }
+
+  .sample {
+    background: #fff;
+    border: 1px solid #ecd6cf;
+    border-radius: 16px;
+    padding: 26px 28px;
+    margin-bottom: 18px;
+  }
+  .sample .meta {
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: #b8546a;
+    margin-bottom: 6px;
+  }
+  .sample h3 { font-size: 20px; margin-bottom: 14px; }
+  .slide {
+    border-left: 2px solid #f3c8b8;
+    padding: 8px 0 8px 18px;
+    margin-bottom: 14px;
+  }
+  .slide:last-child { margin-bottom: 0; }
+  .slide .slide-num {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: #9a3d54;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .slide .headline {
+    font-weight: 700;
+    color: #2a1f1f;
+    margin-bottom: 4px;
+    font-size: 15.5px;
+  }
+  .slide .body {
+    font-size: 14.5px;
+    color: #4a3535;
+    line-height: 1.55;
+  }
+  .slide .body em {
+    color: #7a4f5c;
+    font-style: italic;
+  }
+  .sample-note {
+    margin-top: 14px;
+    padding-top: 14px;
+    border-top: 1px dashed #ecd6cf;
+    font-size: 13.5px;
+    color: #6a4f4f;
+    line-height: 1.55;
+    font-style: italic;
+  }
+
+  .cta {
+    margin-top: 8px;
+    text-align: center;
+    background: linear-gradient(135deg, #2a1f1f 0%, #4a2a2e 100%);
+    color: #fbeae0;
+    border-radius: 24px;
+    padding: 48px 32px;
+  }
+  .cta h2 { color: #fbeae0; font-size: 28px; margin-bottom: 12px; }
+  .cta p { color: #d9c4b8; margin-bottom: 24px; }
+  .cta a.btn {
+    display: inline-block;
+    background: #b8546a;
+    color: #fff;
+    padding: 14px 32px;
+    border-radius: 999px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 15px;
+    letter-spacing: 0.02em;
+    transition: opacity .15s;
+  }
+  .cta a.btn:hover { opacity: 0.9; }
+  .cta .ig {
+    margin-top: 18px;
+    font-size: 13px;
+    color: #d9c4b8;
+    letter-spacing: 0.06em;
+  }
+  .cta .ig a { color: #f3c8b8; text-decoration: none; }
+
+  @media print {
+    .wrap { max-width: 100%; padding: 24px 32px; }
+    .hero { page-break-after: avoid; }
+    section { page-break-inside: avoid; }
+    .card, .sample { page-break-inside: avoid; }
+    .cta { page-break-before: auto; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="hero">
+    <div class="label">Proposal · prepared for Kim</div>
+    <h1>Hi <span class="name">Kim</span> — your reach is already here. Let's stop leaving <span class="name">the harvest</span> on the table.</h1>
+    <p class="lede">Forty-five thousand verified followers in seven months. A reel at 1M+. A trademarked program. The engine works. What's missing is the layer underneath that turns reach into a list, and a list into the Hypermobile Hypermind Map waitlist. This proposal is about that layer.</p>
+    <p class="from">— Evelyn</p>
+  </header>
+
+  <section>
+    <h2><span class="mark">·</span>What I noticed before writing this</h2>
+    <p>I read 100 of your posts before drafting a line. A few things stuck:</p>
+    <p class="quote">"You don't look hypermobile. The truth? That's because you're watching the management, not the condition."</p>
+    <p>That reel hit 1.07M views — your highest by 2x — and it wasn't an accident. It's a contrarian-claim hook with a clean reframe, and it's the same structure your second-biggest reel (the one about out-bending Neil, 477k views) uses. You have a viral formula. It just hasn't been productized yet.</p>
+    <p>Two more things before services:</p>
+    <p>The Hypermobile Hypermind Map, Anchor Points, and Oppositional Resistance all carry the trademark symbol. Most creators in this niche don't bother. That tells me you're building IP, not just content — and that distinction shapes everything below. I'm not pitching a content factory. I'm pitching a way to surface the IP you already own.</p>
+    <p>And — the part I keep coming back to — you went from zero to 45k verified in roughly seven months while running a clinic, managing a team, and recovering from surgery. The strategy I'd build for you cannot ask you to produce more. Every recommendation here compounds what you already publish.</p>
+  </section>
+
+  <section>
+    <h2><span class="mark">·</span>The three gaps I'd close first</h2>
+    <div class="gap-list">
+      <div class="gap">
+        <strong><span class="num">1</span>The harvest layer is missing.</strong>
+        <p>Your reels reach hundreds of thousands of women in your exact niche. The Hypermobile Hypermind Map is mentioned in 2 of your last 100 captions. The free Hypermobility Training in your bio surfaces in zero. A viral reel today returns thousands of views and approximately zero new emails. A keyword-based DM trigger on every reel — "Comment MAP for the waitlist," "Comment FREE for the training" — converts the same reach into a list within 30 days. This is the highest-ROI change on the account.</p>
+      </div>
+      <div class="gap">
+        <strong><span class="num">2</span>The Hypermind Map launch was a static image.</strong>
+        <p>The original program announcement was a single still image and got 104 likes — buried by the algorithm. Your audience has never seen a proper launch reel for the product that's meant to be the commercial center of gravity. A 60-second reel re-launch ("I built this for the patients I can't see in clinic"), pinned to the profile, paired with a waitlist DM trigger, would conservatively bring in 500 to 1,500 signups in two weeks.</p>
+      </div>
+      <div class="gap">
+        <strong><span class="num">3</span>Your highest-leverage content type is your smallest pillar.</strong>
+        <p>Personal-story posts — Neil, the breast reduction, the ADHD-at-40 turning point, the burnout cycles — make up roughly 10% of your feed but contain 2 of your top 5 reels. Clinical education compounds; personal story converts. A weekly story-format reel (a mini-series, not one-offs) shifts the ratio without adding production load — most of these you can voice-record from your couch.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="mark">·</span>What I can do for you</h2>
+    <div class="services">
+
+      <div class="card featured">
+        <div class="tag">Set scope · fixed price</div>
+        <h3>Landing page</h3>
+        <p class="desc">A single conversion-focused landing page to replace your bio link. Three audiences served in one page: hypermobile patients (Hypermind Map waitlist), in-person clinic enquiries, and brand/speaking partnerships. Self-contained, mobile-first, fast.</p>
+        <div class="price-line">Investment: <strong>$200 · 2-hour build</strong></div>
+      </div>
+
+      <div class="card">
+        <div class="tag">Foundational</div>
+        <h3>Strategy &amp; content audit</h3>
+        <p class="desc">Full audit of your last 100 posts, hook-formula extraction from the reels that broke 100k views, content-pillar rebalance, and a 90-day priority roadmap. The doc that makes everything else easier.</p>
+        <div class="price-line">Investment: quoted per scope</div>
+      </div>
+
+      <div class="card">
+        <div class="tag">Production</div>
+        <h3>Carousel + post packs</h3>
+        <p class="desc">Niche-tight educational carousels that protect your trademarked frameworks and route saves into the Hypermind Map waitlist. Designed in your visual register, written in your voice, ready to post.</p>
+        <div class="price-line">Investment: quoted per pack</div>
+      </div>
+
+      <div class="card">
+        <div class="tag">Production</div>
+        <h3>Reels &amp; story scripts</h3>
+        <p class="desc">Hook-first reel scripts using your contrarian-claim formula, shot-by-shot direction, captions, and one keyword-CTA per reel. Story sequences for Hypermind Map launch cycles and waitlist nurture.</p>
+        <div class="price-line">Investment: quoted per pack</div>
+      </div>
+
+      <div class="card">
+        <div class="tag">Upside-aligned</div>
+        <h3>Growth partnership</h3>
+        <p class="desc">For accounts ready to scale revenue alongside reach — a milestone-and-commission structure where the work is tied to results, not hours. Designed for creators with productized offers ready to convert at volume.</p>
+        <div class="price-line">Mechanics walked through on the intro call</div>
+      </div>
+
+      <div class="card premium">
+        <div class="tag">Reserved</div>
+        <h3>Premium retainer</h3>
+        <p class="desc">Daily publishing, DM triage, waitlist nurture sequences, sponsor coordination, auto-posting infrastructure. The "I take this off your plate" tier — built for ongoing partnerships, not one-offs.</p>
+        <div class="price-line">Custom scope · not publicly quoted</div>
+      </div>
+
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="mark">·</span>Sample work — so you can judge before we talk</h2>
+
+    <div class="sample">
+      <div class="meta">Sample 1 · Carousel</div>
+      <h3>Stop trying to "stand up straight." Here's what neutral actually looks like in a hypermobile body.</h3>
+
+      <div class="slide">
+        <div class="slide-num">Slide 1 · Cover</div>
+        <div class="headline">"Stand up straight" is the worst cue you can give a hypermobile body.</div>
+        <div class="body"><em>Visual:</em> Soft cream backdrop. Side-profile silhouette of someone over-correcting — ribs flared, chin poking, knees locked. Caption overlay in your handwriting font.</div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-num">Slide 2 · The trap</div>
+        <div class="headline">Most of us heard it as kids.</div>
+        <div class="body">Shoulders back. Don't slouch. Stand up straight. For a body with end-range joints, that cue creates a brand new pattern — shoulders squeeze back, chest pushes forward, ribs lift, and now the whole system is bracing on top of an unstable base. ❤️</div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-num">Slide 3 · What changes</div>
+        <div class="headline">Neutral isn't rest.</div>
+        <div class="body">Neutral is the supported playground where nothing is overworking or collapsing. It's not effort-free — it's effort that's <em>distributed</em>. That's a different skill, and most hypermobile people have never been taught it.</div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-num">Slide 4 · The reset (1 of 5)</div>
+        <div class="headline">Feet under hips. Wider than you think.</div>
+        <div class="body">A narrow base = a wobbly foundation. Spread the feet. Spread the toes. The big toe joint, the little-toe-side kickstand, and the heel — three contact points to start with.</div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-num">Slide 5 · The reset (2 of 5)</div>
+        <div class="headline">Soften the knees. Don't lock them.</div>
+        <div class="body">Locked knees feel "stable" because the joint is hanging on the ligament. Soft knees feel destabilizing at first — that's the work. That's where strength and joint safety live.</div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-num">Slide 6 · The reset (3 of 5)</div>
+        <div class="headline">Pelvic floor flashlight pointing down.</div>
+        <div class="body">Between the arches and heels. Ribs long. Stack the ribcage over the pelvis. ✨</div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-num">Slide 7 · The reset (4 of 5)</div>
+        <div class="headline">Breathe into the back of the ribcage.</div>
+        <div class="body">The bra-line zone. The sneaky tight spot for bendy bodies. 360-degree expansion, not chest-up.</div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-num">Slide 8 · The reset (5 of 5)</div>
+        <div class="headline">Tear the floor apart. 5 to 10% effort.</div>
+        <div class="body">Light side-hip activation. Wakes up the support team that "stand up straight" has been hiding from you for years.</div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-num">Slide 9 · CTA</div>
+        <div class="headline">This is your North Star position. Save this.</div>
+        <div class="body">Hold for 30 seconds. Re-check feet → knees → pelvis → breath. Micro-reps = deep change.<br><br><strong>Comment STAND</strong> and I'll send you the 5-minute reset video I use with patients in clinic. ❤️<br><br><em>Educational only. Not medical advice.</em></div>
+      </div>
+
+      <div class="sample-note">I read 20 of your full captions before writing this. The structure mirrors your own North Star post (DQkYM1UE4Jj) — same five anchor points, same "neutral isn't rest" reframe — but rebuilt as a save-and-share carousel with a keyword CTA at the end. Same soul, new packaging.</div>
+    </div>
+
+    <div class="sample">
+      <div class="meta">Sample 2 · Carousel</div>
+      <h3>Pushing harder is the worst thing you can do for a hypermobile nervous system. (A diary entry, sort of.)</h3>
+
+      <div class="slide">
+        <div class="slide-num">Slide 1 · Cover</div>
+        <div class="headline">I got my ADHD diagnosis at 40. It changed how I treat hypermobile bodies.</div>
+        <div class="body"><em>Visual:</em> A photo of you mid-flow in clinic, or a still moment at home. Soft natural light. Title overlay in serif handwriting.</div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-num">Slide 2 · The pattern</div>
+        <div class="headline">There was always a sense that my system worked differently.</div>
+        <div class="body">Highly capable in some areas, completely overwhelmed in others. Years of wondering why my brain kept pushing while my body felt stressed. Several full cycles of burnout — frikking hard, sometimes devastating.</div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-num">Slide 3 · The connection</div>
+        <div class="headline">Then I learned: hypermobility and ADHD overlap more often than chance.</div>
+        <div class="body">Both involve differences in nervous system processing — proprioception, sensory filtering, regulation, coordination. The bendy body and the ADHD brain don't just live in the same person by coincidence. They're running on the same wiring.</div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-num">Slide 4 · The clinical lens</div>
+        <div class="headline">In clinic, this changed everything.</div>
+        <div class="body">When a hypermobile body runs at a higher baseline cost, and the ADHD brain has fewer reliable internal signals to pace, you get the boom-bust cycle. Long stretches of running on adrenaline, then a crash that feels abrupt and total. Heavy limbs, fog, no buffer left.</div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-num">Slide 5 · The shift</div>
+        <div class="headline">"Push through" stops being the goal.</div>
+        <div class="body">Pacing is not avoidance. Pacing is learning your current capacity, working within it, and gradually expanding. In a hypermobile body, this is especially relevant — joints rely more on muscle coordination, nervous system regulation, and load sharing than passive ligament support. When activity drops too low, those systems lose practice.</div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-num">Slide 6 · What it looks like</div>
+        <div class="headline">Steadier exposure beats heroic effort. Every time.</div>
+        <div class="body">Adjust the amount, the intensity, or the form so the body can keep moving while symptoms stay manageable. Over time, this builds tissue tolerance, coordination, and confidence in movement — the things a sensitive system actually responds to.</div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-num">Slide 7 · The personal piece</div>
+        <div class="headline">I run a clinic. I manage a team. I have hEDS.</div>
+        <div class="body">I live this. Realising there wasn't a quick fix shifted me out of panic and into management. ❤️ That shift is the work I now do with my patients — and it's the foundation of everything inside the Hypermobile Hypermind Map.</div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-num">Slide 8 · CTA</div>
+        <div class="headline">If this is your pattern, the Map was built for you.</div>
+        <div class="body">A progressive program for hypermobile bodies that pushed too hard for too long, and need a path back that respects the system.<br><br><strong>Comment MAP</strong> and I'll send you the waitlist link. ✨<br><br><em>Educational only. Not medical advice.</em></div>
+      </div>
+
+      <div class="sample-note">This sample pulls together three threads from your existing content (DUzAXb2EqHr on ADHD-at-40, DUGtPteAcrE on the boom-bust crash, DV7N-CGDxyk on pacing) into a single story-format carousel that ends in a Hypermind Map waitlist trigger. It doesn't ask you to record anything new — most of the language is yours, lifted from posts you've already shipped.</div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="mark">·</span>Why I'm different from a generic SMM agency</h2>
+    <div class="gap-list">
+      <div class="gap"><strong>I read the account before I pitched.</strong><p>This proposal references real post URLs, real numbers, and your trademarked frameworks by their exact names. No template was used. No language was paraphrased away.</p></div>
+      <div class="gap"><strong>I work with the load you actually have.</strong><p>You're post-surgery, running a clinic, managing hEDS. Every recommendation here compounds what you already publish — repurposing, harvest layer, hook formula. Not a "post more" strategy.</p></div>
+      <div class="gap"><strong>I write in your voice, not mine.</strong><p>The samples above were drafted after reading 20+ full captions. The opening moves, sentence rhythm, sign-off boilerplate, and emoji vocabulary all match yours. If we work together, every piece runs through that same voice-check.</p></div>
+      <div class="gap"><strong>I protect the IP.</strong><p>Hypermind Map. Anchor Points. Oppositional Resistance. These stay trademarked, named exactly, and surfaced regularly — not paraphrased into generic content. The moat is the moat.</p></div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <h2>If this lands — let's talk.</h2>
+    <p>One DM. No deck, no commitment. We figure out which piece comes first and what it costs.</p>
+    <a class="btn" href="https://www.instagram.com/evelyn.contentally/">DM me on Instagram</a>
+    <div class="ig">@<a href="https://www.instagram.com/evelyn.contentally/">evelyn.contentally</a></div>
+  </section>
+
+</div>
+</body>
+</html>
