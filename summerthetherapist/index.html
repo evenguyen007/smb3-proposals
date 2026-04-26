@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Proposal for @summerthetherapist — Evelyn</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Inter", "Helvetica Neue", Arial, sans-serif;
+    background: #f4f0ea;
+    color: #2a2526;
+    line-height: 1.6;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 880px; margin: 0 auto; padding: 56px 48px 80px; }
+
+  .hero {
+    border-radius: 28px;
+    background: linear-gradient(135deg, #ece4e7 0%, #efeae3 100%);
+    padding: 48px 44px 44px;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 56px;
+  }
+  .hero .label {
+    font-size: 13px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #6e5a6e;
+    font-weight: 600;
+    margin-bottom: 18px;
+  }
+  .hero h1 {
+    font-size: 38px;
+    line-height: 1.18;
+    font-weight: 700;
+    color: #2a2526;
+    letter-spacing: -0.02em;
+    margin-bottom: 16px;
+  }
+  .hero h1 .name { color: #6e5a6e; }
+  .hero p.lede {
+    font-size: 18px;
+    line-height: 1.55;
+    color: #4a3f44;
+    max-width: 640px;
+  }
+  .hero .from {
+    margin-top: 28px;
+    font-size: 14px;
+    color: #6e5a6e;
+    font-style: italic;
+  }
+
+  section { margin-bottom: 56px; }
+  h2 {
+    font-size: 24px;
+    font-weight: 700;
+    color: #2a2526;
+    margin-bottom: 14px;
+    letter-spacing: -0.01em;
+  }
+  h2 .mark { color: #6e5a6e; margin-right: 6px; }
+  h3 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #2a2526;
+    margin-bottom: 10px;
+  }
+  p { margin-bottom: 14px; color: #2a2526; }
+  p:last-child { margin-bottom: 0; }
+
+  .quote {
+    border-left: 3px solid #6e5a6e;
+    padding: 6px 0 6px 16px;
+    margin: 12px 0 18px;
+    font-style: italic;
+    color: #5a4f54;
+    font-size: 15px;
+  }
+
+  .gap-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 14px;
+    margin-top: 6px;
+  }
+  .gap {
+    background: #fff;
+    border: 1px solid #e3dad9;
+    border-radius: 14px;
+    padding: 18px 22px;
+  }
+  .gap .num {
+    display: inline-block;
+    background: #6e5a6e;
+    color: #fff;
+    width: 24px; height: 24px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 24px;
+    font-size: 13px;
+    font-weight: 700;
+    margin-right: 10px;
+    vertical-align: 2px;
+  }
+  .gap strong { color: #2a2526; }
+  .gap p { margin-top: 8px; font-size: 14.5px; color: #4a3f44; line-height: 1.55; }
+
+  .services {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+  .card {
+    background: #fff;
+    border: 1px solid #e3dad9;
+    border-radius: 16px;
+    padding: 22px 24px;
+    display: flex;
+    flex-direction: column;
+    min-height: 192px;
+  }
+  .card.featured {
+    border-color: #6e5a6e;
+    background: linear-gradient(180deg, #f6f0f3 0%, #ffffff 80%);
+  }
+  .card.premium {
+    background: #2a2526;
+    color: #f0e9e6;
+    border-color: #2a2526;
+  }
+  .card.premium h3 { color: #f0e9e6; }
+  .card.premium .price-line { color: #d6c4cc; }
+  .card.premium .desc { color: #c9b9be; }
+  .card .tag {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #6e5a6e;
+    margin-bottom: 8px;
+  }
+  .card.featured .tag { color: #6e5a6e; }
+  .card.premium .tag { color: #d6b9c4; }
+  .card h3 { margin-bottom: 6px; font-size: 17px; }
+  .card .desc { font-size: 14px; color: #4a3f44; line-height: 1.55; flex-grow: 1; margin-bottom: 14px; }
+  .card .price-line {
+    font-size: 13.5px;
+    font-weight: 600;
+    color: #2a2526;
+    border-top: 1px dashed #d8cdcb;
+    padding-top: 10px;
+  }
+  .card.premium .price-line { border-top-color: #4a3f44; }
+
+  .sample {
+    background: #fff;
+    border: 1px solid #e3dad9;
+    border-radius: 16px;
+    padding: 26px 28px;
+    margin-bottom: 18px;
+  }
+  .sample .meta {
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: #6e5a6e;
+    margin-bottom: 6px;
+  }
+  .sample h3 { font-size: 20px; margin-bottom: 14px; }
+  .slide {
+    border-left: 2px solid #d6c4cc;
+    padding: 8px 0 8px 18px;
+    margin-bottom: 14px;
+  }
+  .slide:last-child { margin-bottom: 0; }
+  .slide .slide-num {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: #6e5a6e;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .slide .headline {
+    font-weight: 700;
+    color: #2a2526;
+    margin-bottom: 4px;
+    font-size: 15.5px;
+  }
+  .slide .body {
+    font-size: 14.5px;
+    color: #4a3f44;
+    line-height: 1.55;
+  }
+  .slide .body em {
+    color: #6e5a6e;
+    font-style: italic;
+  }
+  .sample-note {
+    margin-top: 14px;
+    padding-top: 14px;
+    border-top: 1px dashed #e3dad9;
+    font-size: 13.5px;
+    color: #5a4f54;
+    line-height: 1.55;
+    font-style: italic;
+  }
+
+  .cta {
+    margin-top: 8px;
+    text-align: center;
+    background: linear-gradient(135deg, #2a2526 0%, #3d2f3a 100%);
+    color: #f0e9e6;
+    border-radius: 24px;
+    padding: 48px 32px;
+  }
+  .cta h2 { color: #f0e9e6; font-size: 28px; margin-bottom: 12px; }
+  .cta p { color: #c9b9be; margin-bottom: 24px; }
+  .cta a.btn {
+    display: inline-block;
+    background: #6e5a6e;
+    color: #fff;
+    padding: 14px 32px;
+    border-radius: 999px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 15px;
+    letter-spacing: 0.02em;
+    transition: opacity .15s;
+  }
+  .cta a.btn:hover { opacity: 0.9; }
+  .cta .ig {
+    margin-top: 18px;
+    font-size: 13px;
+    color: #c9b9be;
+    letter-spacing: 0.06em;
+  }
+  .cta .ig a { color: #d6b9c4; text-decoration: none; }
+
+  @media print {
+    .wrap { max-width: 100%; padding: 24px 32px; }
+    .hero { page-break-after: avoid; }
+    section { page-break-inside: avoid; }
+    .card, .sample { page-break-inside: avoid; }
+    .cta { page-break-before: auto; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="hero">
+    <div class="label">Proposal · prepared for Summer</div>
+    <h1>Hi <span class="name">Summer</span> — you already found the vein. <span class="name">Let's just go back to it.</span></h1>
+    <p class="lede">Six months, 91 posts, one reel at 13,067 likes — and 80,126 people who watched you name a feeling no one else in your niche was naming. The audience told you what they came for. The next ninety days are about pointing the rest of the feed at the same vein and turning that reach into therapy intakes you can actually book.</p>
+    <p class="from">— Evelyn</p>
+  </header>
+
+  <section>
+    <h2><span class="mark">·</span>What I noticed before writing this</h2>
+    <p>I read every one of your 91 posts before writing a line. The math tells most of the story:</p>
+    <p class="quote">"Chronic illness comes with a special kind of grief. Grieving your old body, old life, or the pace that the world expects."</p>
+    <p>That reel hit 13,067 likes on a 1,900-follower account. Your second-best post got 256. The drop is fifty-one times. That's not variance — it's a clear signal that one post broke containment and the rest of the feed has not been pointed at the same vein since.</p>
+    <p>The honest version of the audit: median post on your account is 7 likes. The viral wasn't luck. It was a hook formula — name a specific feeling with clinical precision, validate it, offer belonging — that the audience told you they want. The rest of the feed is mostly generic somatic-care tips, soft yoga, and book reviews that don't use the same structure.</p>
+    <p>Two more things before services:</p>
+    <p>Your bio tagline is "you're not overreacting." That is the entire content strategy if you let it be. Most accounts can't pick a tagline. Yours is already chosen, already validated, already in your bio. The work below is mostly about taking it seriously.</p>
+    <p>And — the part that matters most — you are a working therapist with real clients, and the account doesn't say so. There is no intake CTA, no clear offer for Utah-licensed therapy, no funnel from "watched the viral" to "booked a session." Affiliate links to books at this size convert at single dollars per year. A therapy client converts at four figures over a season. The math points one direction.</p>
+  </section>
+
+  <section>
+    <h2><span class="mark">·</span>The three gaps I'd close first</h2>
+    <div class="gap-list">
+      <div class="gap">
+        <strong><span class="num">1</span>The viral structure has not been replicated.</strong>
+        <p>The 13k reel was: a clinically-precise pain name, a validation, an offer of belonging. That's a template — and you've used it once. A 30-hook bank in this exact register, shipped at two reels per week, would put another 30k+ view post within ninety days based on the existing audience signal. Right now the formula lives in one post.</p>
+      </div>
+      <div class="gap">
+        <strong><span class="num">2</span>The feed is diluting the topic that's actually working.</strong>
+        <p>Yoga-with-NASA reels, generic mindfulness tips, motherhunger book affiliate plugs, and chronic-illness-grief content are all on the same feed. The algorithm needs a clear topical signal to push content. For ninety days, every post in pillar one (chronic-illness and nervous-system reframes) — and pause the rest. Algorithmic re-classification follows within thirty to forty-five days.</p>
+      </div>
+      <div class="gap">
+        <strong><span class="num">3</span>Therapy intake is invisible.</strong>
+        <p>You are a Utah-licensed therapist with real clients, and the account doesn't say so. Bio reads "↓ support + tools" — vague. No pinned post about working together. No keyword CTA on any reel that ends in an intake form. A single new therapy client is the equivalent of years of affiliate revenue at this size. The funnel just needs to exist — and it can be one Calendly link, one rewrite of the bio, and one keyword DM trigger.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="mark">·</span>What I can do for you</h2>
+    <div class="services">
+
+      <div class="card featured">
+        <div class="tag">Set scope · fixed price</div>
+        <h3>Landing page</h3>
+        <p class="desc">A single conversion-focused page to replace your bio link. Built around the therapy intake CTA — Utah residents booking sessions, online clients in licensed states, plus a soft secondary path for chronic-illness audience to join the email list. Self-contained, mobile-first, fast.</p>
+        <div class="price-line">Investment: <strong>$200 · 2-hour build</strong></div>
+      </div>
+
+      <div class="card">
+        <div class="tag">Foundational</div>
+        <h3>Strategy &amp; content audit</h3>
+        <p class="desc">Frame-by-frame audit of the 13k viral, hook-formula extraction, content-pillar consolidation plan, ninety-day priority roadmap, intake-funnel architecture. The doc that turns "post more" into a system.</p>
+        <div class="price-line">Investment: quoted per scope</div>
+      </div>
+
+      <div class="card">
+        <div class="tag">Production</div>
+        <h3>Carousel + post packs</h3>
+        <p class="desc">Save-and-share carousels in your soft-therapist register — built to surface chronic-illness grief content in the format your audience actually saves. Designed to route saves into the email list and the intake form.</p>
+        <div class="price-line">Investment: quoted per pack</div>
+      </div>
+
+      <div class="card">
+        <div class="tag">Production</div>
+        <h3>Reels &amp; story scripts</h3>
+        <p class="desc">Hook-first reel scripts using the exact structure from your viral — pain-name, validation, belonging, keyword CTA. Shot-by-shot direction. Story sequences for intake nurture and email-list growth.</p>
+        <div class="price-line">Investment: quoted per pack</div>
+      </div>
+
+      <div class="card">
+        <div class="tag">Upside-aligned</div>
+        <h3>Growth partnership</h3>
+        <p class="desc">For accounts ready to scale revenue alongside reach — a milestone-and-commission structure where the work is tied to results. Suited for creators with productized offers ready to convert at volume.</p>
+        <div class="price-line">Mechanics walked through on the intro call</div>
+      </div>
+
+      <div class="card premium">
+        <div class="tag">Reserved</div>
+        <h3>Premium retainer</h3>
+        <p class="desc">Daily publishing, DM triage, intake-form follow-up, email-list nurture, sponsor coordination, auto-posting infrastructure. The "I take this off your plate" tier — built for ongoing partnerships, not one-offs.</p>
+        <div class="price-line">Custom scope · not publicly quoted</div>
+      </div>
+
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="mark">·</span>Sample work — so you can judge before we talk</h2>
+
+    <div class="sample">
+      <div class="meta">Sample 1 · Carousel</div>
+      <h3>You're not overreacting if...</h3>
+
+      <div class="slide">
+        <div class="slide-num">Slide 1 · Cover</div>
+        <div class="headline">You're not overreacting if...</div>
+        <div class="body"><em>Visual:</em> Soft cream backdrop. Title in serif handwriting font, lowercase. 🖤 small in the bottom-right corner. No other elements.</div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-num">Slide 2</div>
+        <div class="headline">You cried after a doctor said "your labs look fine."</div>
+        <div class="body">When a body has been ringing the alarm for years, "fine" is not relief. It's another door closing. That cry is grief, not drama. 🖤</div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-num">Slide 3</div>
+        <div class="headline">You canceled plans and felt the guilt for three days.</div>
+        <div class="body">The guilt is not proof you should have pushed through. It's the residue of a culture that taught you your body's signals were optional. They are not.</div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-num">Slide 4</div>
+        <div class="headline">Your nervous system braces when someone says "let me know how you're doing."</div>
+        <div class="body">For some bodies, that question is an invitation. For others, it's a quiz with a wrong answer waiting. If "I'm fine" comes out automatically, that's a survival skill. We can soften it later.</div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-num">Slide 5</div>
+        <div class="headline">You're tired in a way sleep doesn't touch.</div>
+        <div class="body">It might be unfinished stress. Sleep doesn't fix it because the body never got to complete the cycle it was holding onto. That's nervous system, not laziness. 🖤</div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-num">Slide 6</div>
+        <div class="headline">You said "I'm sorry" for needing accommodations you actually need.</div>
+        <div class="body">Asking for what your body requires is not an inconvenience to be apologized for. It's information. The world will adjust. You don't owe the apology.</div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-num">Slide 7</div>
+        <div class="headline">You wondered if you're "making it worse" by paying attention to it.</div>
+        <div class="body">Naming a feeling does not create it. Bodies that have been dismissed for years often need extra time and language to unhide what was already there. That's not making it worse. That's metabolizing it.</div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-num">Slide 8 · CTA</div>
+        <div class="headline">If any of these landed — you're in the right place.</div>
+        <div class="body">I'm Summer. I'm a therapist who works with chronic-illness clients in Utah and online (licensed states). Save this for the next time you start to apologize for needing what you need.<br><br><strong>Comment INTAKE</strong> and I'll send you the form. 🖤</div>
+      </div>
+
+      <div class="sample-note">This is a direct extension of your bio tagline — "you're not overreacting" — turned into a save-and-share carousel that ends in a therapy intake CTA. Each slide names a specific situation your audience has been told was an overreaction, in your soft register and short-caption rhythm, with the 🖤 placement that's already part of your visual signature. Same voice, structured for saves.</div>
+    </div>
+
+    <div class="sample">
+      <div class="meta">Sample 2 · Carousel</div>
+      <h3>The kinds of grief no one prepared you for.</h3>
+
+      <div class="slide">
+        <div class="slide-num">Slide 1 · Cover</div>
+        <div class="headline">The kinds of chronic illness grief no one prepared you for.</div>
+        <div class="body"><em>Visual:</em> Off-white background, title in lowercase serif, soft natural light. 🖤 small in the corner.</div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-num">Slide 2</div>
+        <div class="headline">Grieving the old body.</div>
+        <div class="body">The body that woke up easily. The one that didn't keep score. The one you didn't have to negotiate with before getting out of bed. That body is gone and a new one is here, and the gap between them is grief.</div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-num">Slide 3</div>
+        <div class="headline">Grieving the old pace.</div>
+        <div class="body">You used to do five things in a day without thinking. Now five things is a project. The pace the world expects hasn't slowed down. You did. That mismatch is grief, not failure.</div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-num">Slide 4</div>
+        <div class="headline">Grieving the friends who didn't stay.</div>
+        <div class="body">Some people only show up for the version of you that's easy. When a body changes, that test gets run whether you wanted it to or not. The losses are real. So is the relief, sometimes.</div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-num">Slide 5</div>
+        <div class="headline">Grieving the future you'd already started planning.</div>
+        <div class="body">The trip. The job. The version of yourself at 35 you imagined at 25. Chronic illness re-shapes timelines without asking permission. It's allowed to ache.</div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-num">Slide 6</div>
+        <div class="headline">Grieving the years you spent being told it was anxiety.</div>
+        <div class="body">When a diagnosis finally lands, there's relief — and underneath the relief, a quiet rage at every doctor, every "you're probably just stressed," every internal monologue you ran while your body kept telling the truth. That rage is grief too. 🖤</div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-num">Slide 7</div>
+        <div class="headline">Your life didn't end. It changed shape.</div>
+        <div class="body">And it's still meaningful. Still yours. Still becoming. Grieving the old version is not a betrayal of the new one — it's how you make room for it.</div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-num">Slide 8 · CTA</div>
+        <div class="headline">If you're naming any of these for the first time — you're in the right place.</div>
+        <div class="body">I write a weekly letter for chronic-illness women who are tired of being told to stay positive. Soft, slow, named correctly.<br><br><strong>Comment LETTER</strong> and I'll send the link. 🖤<br><br><em>Therapy clients welcome too — Utah and licensed states. Comment INTAKE for that form.</em></div>
+      </div>
+
+      <div class="sample-note">This pulls directly from your 13k viral language ("old body," "old life," "old pace") and expands it into a carousel — the format your audience saves and your feed has only used five times in 91 posts. The CTA opens both funnel paths (email list for the wider audience, intake for Utah/licensed clients) so a single post can route different reader intents. Same soul as the viral, repackaged for saves.</div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="mark">·</span>Why I'm different from a generic SMM agency</h2>
+    <div class="gap-list">
+      <div class="gap"><strong>I read the account before I pitched.</strong><p>This proposal references your viral by post code, your median engagement honestly, your bio tagline, and the specific dilution patterns in your feed. No template. The samples above were written after reading 91 captions.</p></div>
+      <div class="gap"><strong>I write in your register, not mine.</strong><p>Short captions. The 🖤 in the right places. "You're in the right place" and "name it correctly" rhythms. Soft-therapist register, not creator-bro register. If we work together, every piece runs through that same voice-check.</p></div>
+      <div class="gap"><strong>I treat therapy intake as the actual product.</strong><p>For a working clinician with a small audience, IG is a lead-gen tool, not a creator economy. Recommendations point at the offer that converts at four figures, not the affiliate links that converts at single dollars.</p></div>
+      <div class="gap"><strong>Your size is the leverage, not the limit.</strong><p>You are six months in with one viral and clean discipline. Most strategy work has to undo entrenched habits at 50k followers. We get to set them now.</p></div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <h2>If this lands — let's talk.</h2>
+    <p>One DM. No deck, no commitment. We figure out which piece comes first and what it costs.</p>
+    <a class="btn" href="https://www.instagram.com/evelyn.contentally/">DM me on Instagram</a>
+    <div class="ig">@<a href="https://www.instagram.com/evelyn.contentally/">evelyn.contentally</a></div>
+  </section>
+
+</div>
+</body>
+</html>
