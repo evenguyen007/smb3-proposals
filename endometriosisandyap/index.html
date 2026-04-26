@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Proposal for @endometriosisandyap — Evelyn</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Inter", "Helvetica Neue", Arial, sans-serif;
+    background: #faf3e6;
+    color: #1c1414;
+    line-height: 1.6;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 880px; margin: 0 auto; padding: 56px 48px 80px; }
+
+  .hero {
+    border-radius: 28px;
+    background: linear-gradient(135deg, #fce4cb 0%, #faecd1 100%);
+    padding: 48px 44px 44px;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 56px;
+  }
+  .hero .label {
+    font-size: 13px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #b35a23;
+    font-weight: 600;
+    margin-bottom: 18px;
+  }
+  .hero h1 {
+    font-size: 38px;
+    line-height: 1.18;
+    font-weight: 700;
+    color: #1c1414;
+    letter-spacing: -0.02em;
+    margin-bottom: 16px;
+  }
+  .hero h1 .name { color: #c8531e; }
+  .hero p.lede {
+    font-size: 18px;
+    line-height: 1.55;
+    color: #3a2a22;
+    max-width: 640px;
+  }
+  .hero .from {
+    margin-top: 28px;
+    font-size: 14px;
+    color: #7a4a2a;
+    font-style: italic;
+  }
+
+  section { margin-bottom: 56px; }
+  h2 {
+    font-size: 24px;
+    font-weight: 700;
+    color: #1c1414;
+    margin-bottom: 14px;
+    letter-spacing: -0.01em;
+  }
+  h2 .mark { color: #c8531e; margin-right: 6px; }
+  h3 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #1c1414;
+    margin-bottom: 10px;
+  }
+  p { margin-bottom: 14px; color: #1c1414; }
+  p:last-child { margin-bottom: 0; }
+
+  .quote {
+    border-left: 3px solid #c8531e;
+    padding: 6px 0 6px 16px;
+    margin: 12px 0 18px;
+    font-style: italic;
+    color: #5a3a26;
+    font-size: 15px;
+  }
+
+  .gap-list { display: grid; grid-template-columns: 1fr; gap: 14px; margin-top: 6px; }
+  .gap {
+    background: #fff;
+    border: 1px solid #ecd9bc;
+    border-radius: 14px;
+    padding: 18px 22px;
+  }
+  .gap .num {
+    display: inline-block;
+    background: #c8531e;
+    color: #fff;
+    width: 24px; height: 24px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 24px;
+    font-size: 13px;
+    font-weight: 700;
+    margin-right: 10px;
+    vertical-align: 2px;
+  }
+  .gap strong { color: #1c1414; }
+  .gap p { margin-top: 8px; font-size: 14.5px; color: #3a2a22; line-height: 1.55; }
+
+  .services { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .card {
+    background: #fff;
+    border: 1px solid #ecd9bc;
+    border-radius: 16px;
+    padding: 22px 24px;
+    display: flex;
+    flex-direction: column;
+    min-height: 192px;
+  }
+  .card.featured {
+    border-color: #c8531e;
+    background: linear-gradient(180deg, #fff5e8 0%, #ffffff 80%);
+  }
+  .card.premium {
+    background: #1c1414;
+    color: #faecd1;
+    border-color: #1c1414;
+  }
+  .card.premium h3 { color: #faecd1; }
+  .card.premium .price-line { color: #f3c890; }
+  .card.premium .desc { color: #d9c4a8; }
+  .card .tag {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #b35a23;
+    margin-bottom: 8px;
+  }
+  .card.featured .tag { color: #c8531e; }
+  .card.premium .tag { color: #f3c890; }
+  .card h3 { margin-bottom: 6px; font-size: 17px; }
+  .card .desc { font-size: 14px; color: #3a2a22; line-height: 1.55; flex-grow: 1; margin-bottom: 14px; }
+  .card .price-line {
+    font-size: 13.5px;
+    font-weight: 600;
+    color: #1c1414;
+    border-top: 1px dashed #e8d4b6;
+    padding-top: 10px;
+  }
+  .card.premium .price-line { border-top-color: #4a3a26; }
+
+  .sample {
+    background: #fff;
+    border: 1px solid #ecd9bc;
+    border-radius: 16px;
+    padding: 26px 28px;
+    margin-bottom: 18px;
+  }
+  .sample .meta {
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: #c8531e;
+    margin-bottom: 6px;
+  }
+  .sample h3 { font-size: 20px; margin-bottom: 14px; }
+  .slide {
+    border-left: 2px solid #f3c890;
+    padding: 8px 0 8px 18px;
+    margin-bottom: 14px;
+  }
+  .slide:last-child { margin-bottom: 0; }
+  .slide .slide-num {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: #b35a23;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .slide .headline {
+    font-weight: 700;
+    color: #1c1414;
+    margin-bottom: 4px;
+    font-size: 15.5px;
+  }
+  .slide .body {
+    font-size: 14.5px;
+    color: #3a2a22;
+    line-height: 1.55;
+  }
+  .slide .body em { color: #7a4a2a; font-style: italic; }
+  .reel-beat {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 16px;
+    padding: 12px 0;
+    border-bottom: 1px dashed #ecd9bc;
+  }
+  .reel-beat:last-child { border-bottom: none; }
+  .reel-beat .timecode {
+    font-family: "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12.5px;
+    font-weight: 700;
+    color: #c8531e;
+    padding-top: 2px;
+  }
+  .reel-beat .visual {
+    font-size: 14px;
+    color: #3a2a22;
+    line-height: 1.55;
+  }
+  .reel-beat .visual strong { color: #1c1414; }
+  .reel-beat .vo {
+    margin-top: 6px;
+    font-size: 14.5px;
+    color: #1c1414;
+    line-height: 1.5;
+  }
+  .reel-caption {
+    margin-top: 18px;
+    background: #fff5e8;
+    border-radius: 10px;
+    padding: 14px 16px;
+    font-size: 14px;
+    color: #1c1414;
+    line-height: 1.6;
+  }
+  .reel-caption strong { color: #c8531e; }
+  .sample-note {
+    margin-top: 14px;
+    padding-top: 14px;
+    border-top: 1px dashed #ecd9bc;
+    font-size: 13.5px;
+    color: #5a3a26;
+    line-height: 1.55;
+    font-style: italic;
+  }
+
+  .cta {
+    margin-top: 8px;
+    text-align: center;
+    background: linear-gradient(135deg, #1c1414 0%, #3a1f10 100%);
+    color: #faecd1;
+    border-radius: 24px;
+    padding: 48px 32px;
+  }
+  .cta h2 { color: #faecd1; font-size: 28px; margin-bottom: 12px; }
+  .cta p { color: #d9c4a8; margin-bottom: 24px; }
+  .cta a.btn {
+    display: inline-block;
+    background: #c8531e;
+    color: #fff;
+    padding: 14px 32px;
+    border-radius: 999px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 15px;
+    letter-spacing: 0.02em;
+    transition: opacity .15s;
+  }
+  .cta a.btn:hover { opacity: 0.9; }
+  .cta .ig {
+    margin-top: 18px;
+    font-size: 13px;
+    color: #d9c4a8;
+    letter-spacing: 0.06em;
+  }
+  .cta .ig a { color: #f3c890; text-decoration: none; }
+
+  @media print {
+    .wrap { max-width: 100%; padding: 24px 32px; }
+    .hero { page-break-after: avoid; }
+    section { page-break-inside: avoid; }
+    .card, .sample, .reel-beat { page-break-inside: avoid; }
+    .cta { page-break-before: auto; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="hero">
+    <div class="label">Proposal · prepared for Endometriosis &amp; Yap</div>
+    <h1>The reach is already here. <span class="name">Let's stop sending it to a store your audience didn't come for.</span></h1>
+    <p class="lede">Ten thousand followers. Eighteen percent engagement. A 33,360-like thesis reel that's been watched 188,945 times. The engine is tuned. The bottleneck is one click after the profile view: the bio link sends every endo visitor to a generic trauma-survivor self-care store. This proposal closes that gap first, then builds the harvest layer underneath the reach you already have.</p>
+    <p class="from">— Evelyn</p>
+  </header>
+
+  <section>
+    <h2><span class="mark">·</span>What I noticed before writing this</h2>
+    <p>I read 100 of your posts before drafting a line. The numbers tell the first half of the story:</p>
+    <p class="quote">"I have learned more from my endometriosis peers than I have learned from most of my doctors. I can honestly say I'm not sure I would still be here without the other endometriosis patients who reached a hand back."</p>
+    <p>That's your thesis — not your most-liked post, your <em>thesis</em> — and 188,945 people watched you say it. Stage IV. Four organs lost. Thirty years between first dismissal and full diagnosis. Professional writer. The credentials are real and they've already been validated by your audience at scale.</p>
+    <p>The gap I keep coming back to: every visitor who lands on your profile clicks a bio link that says "Self Care Store for Trauma Survivors." Not endometriosis. Not Stage IV. Not adeno. The audience came for the disease that runs your body and gets handed a generic store. The viral reels currently return ~0 owned subscribers, ~0 endo-specific intake conversions, and a small fraction of traffic to a store whose name doesn't include the word your followers searched for.</p>
+    <p>Two more things before services:</p>
+    <p>You post 1.5 times a day at Stage IV with ongoing surgeries. That cadence is the engine and the threat. The strategy below cannot ask for more output. Every recommendation compounds what you've already shipped — repurposing reels into carousels, harvesting comments into an email list, productizing the "Did you know..." structure that's already producing 50k+ view reels.</p>
+    <p>And — your philosophy on grift is on record. <em>"Any doctor or wellness professional trying to sell you a definitive source or cure should be approached with extreme caution."</em> I'm not pitching cures, hacks, or anything that mimics what you call out. The work below is advocacy infrastructure, not growth tactics dressed up.</p>
+  </section>
+
+  <section>
+    <h2><span class="mark">·</span>The three gaps I'd close first</h2>
+    <div class="gap-list">
+      <div class="gap">
+        <strong><span class="num">1</span>The bio link is sending endo traffic to a store that doesn't say "endo."</strong>
+        <p>Your audience came for endometriosis content. Bio link reads "Self Care Store for Trauma Survivors." The conversion leaks before the visitor sees a product. A single landing page that segments visitors by intent — endo email list, Survivors Apothecary store, speaking and media inquiries — would close the gap with no rebrand needed. This is the highest-leverage fix on the account.</p>
+      </div>
+      <div class="gap">
+        <strong><span class="num">2</span>Carousels are 5% of the feed when they should be 25–30%.</strong>
+        <p>Chronic-illness audiences save carousels heavily. Saves are the strongest algorithmic signal in this niche. Five carousels in 100 posts is leaving the format that ranks the hardest on the table. The same educational content you ship as reels can be re-cut as 7-slide explainer carousels at no incremental research cost — and routed through one consistent keyword DM trigger that builds the email list every reel currently fails to.</p>
+      </div>
+      <div class="gap">
+        <strong><span class="num">3</span>The viral structure has not been productized.</strong>
+        <p>Your "Did you know..." reels (extracellular vesicles, central sensitization, nervous system hijack) all hit five-figure likes. They're a structure: body-horror-tier fact + advocacy reframe + sources tagged in follow-up. Right now each one is improvised from scratch. A 30-fact bank built around this structure means four months of viral-format content shipping at zero improvisation cost — and frees the cadence pressure that 1.5 posts/day is putting on a Stage IV body.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="mark">·</span>What I can do for you</h2>
+    <div class="services">
+
+      <div class="card featured">
+        <div class="tag">Starter bundle · fixed price</div>
+        <h3>Landing page + 3 sample content pieces</h3>
+        <p class="desc">A single conversion-focused landing page to replace your bio link — three intent paths (endo email list, Survivors Apothecary store, speaking &amp; media) — plus three pieces of sample content (mix of carousels and reel scripts) written in your voice and ready to post. Self-contained, mobile-first, fast.</p>
+        <div class="price-line">Investment: <strong>$120 · bundle</strong></div>
+      </div>
+
+      <div class="card">
+        <div class="tag">Foundational</div>
+        <h3>Strategy &amp; content audit</h3>
+        <p class="desc">Frame-by-frame audit of the 33k thesis viral, hook-formula extraction across your top ten reels, content-pillar consolidation plan, ninety-day priority roadmap, intake-funnel architecture for both email list and speaking inquiries.</p>
+        <div class="price-line">Investment: quoted per scope</div>
+      </div>
+
+      <div class="card">
+        <div class="tag">Production</div>
+        <h3>Carousel + post packs</h3>
+        <p class="desc">Save-and-share carousels in your sharp-advocacy register — built around the "Did you know..." fact bank, designed for the format your audience saves and shares the most. Citation-tagged, ready to post, in your voice.</p>
+        <div class="price-line">Investment: quoted per pack</div>
+      </div>
+
+      <div class="card">
+        <div class="tag">Production</div>
+        <h3>Reels &amp; story scripts</h3>
+        <p class="desc">Hook-first reel scripts using your viral structures (thesis declaration, stakes naming, "Did you know..." body horror, peer-over-doctor reframes), shot-by-shot direction, source-tagged follow-up reels, and story sequences for email-list nurture.</p>
+        <div class="price-line">Investment: quoted per pack</div>
+      </div>
+
+      <div class="card">
+        <div class="tag">Upside-aligned</div>
+        <h3>Growth partnership</h3>
+        <p class="desc">For accounts ready to scale revenue alongside reach — a milestone-and-commission structure where the work is tied to results, not hours. Suited for creators with productized offers ready to convert at volume.</p>
+        <div class="price-line">Mechanics walked through on the intro call</div>
+      </div>
+
+      <div class="card premium">
+        <div class="tag">Reserved</div>
+        <h3>Premium retainer</h3>
+        <p class="desc">Daily publishing, DM triage, email-list nurture, speaking/podcast outreach packets, sponsor coordination, auto-posting infrastructure. The "I take this off your plate" tier — built for ongoing partnerships, designed for cadence sustainability.</p>
+        <div class="price-line">Custom scope · not publicly quoted</div>
+      </div>
+
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="mark">·</span>Sample work — so you can judge before we talk</h2>
+
+    <div class="sample">
+      <div class="meta">Sample 1 · Carousel</div>
+      <h3>Things your OBGYN might say that mean you need a new OBGYN.</h3>
+
+      <div class="slide">
+        <div class="slide-num">Slide 1 · Cover</div>
+        <div class="headline">Things your OBGYN might say that mean you need a new OBGYN.</div>
+        <div class="body"><em>Visual:</em> Warm cream backdrop. Title in bold serif. 💛 in the corner. No other elements.</div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-num">Slide 2</div>
+        <div class="headline">"Painful periods are normal."</div>
+        <div class="body">Painful is not the same as debilitating. If your period stops you from working, walking, eating, or sleeping — that is not a "normal period." That is a symptom. Save this. Show it to the next doctor who tries this line on you.</div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-num">Slide 3</div>
+        <div class="headline">"You're too young to have endometriosis."</div>
+        <div class="body">Endometriosis has been documented in patients as young as 8. The average diagnostic delay is still 7-10 years. "Too young" is the phrase that costs people their fertility, their organs, and their twenties. 🫠</div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-num">Slide 4</div>
+        <div class="headline">"Just go on birth control and see if it helps."</div>
+        <div class="body">Hormonal suppression can manage symptoms for some people. It does not treat endometriosis. The disease is still there, still spreading, still planting nerve fibers and growing extracellular vesicles. "See if it helps" is not a treatment plan — it's a stalling tactic.</div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-num">Slide 5</div>
+        <div class="headline">"Pregnancy will cure your endo."</div>
+        <div class="body">It will not. Endometriosis is not cured by anything except, possibly, expert excision — and even then, central sensitization can persist. Telling a sick patient to get pregnant as a treatment is medical malpractice with a smile.</div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-num">Slide 6</div>
+        <div class="headline">"I can do your excision surgery — I do gyn surgeries all the time."</div>
+        <div class="body">A general OBGYN doing endo surgery is not the same as a confirmed endometriosis excision specialist doing endo surgery. The disease is complex, systemic, and often missed by surgeons who don't specialize in it. Many patients leave general-OBGYN excisions worse than they started. Ask for a confirmed excision specialist. Always.</div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-num">Slide 7</div>
+        <div class="headline">"Your imaging is clean — there's nothing there."</div>
+        <div class="body">Imaging cannot reliably detect endometriosis. Most lesions are too flat, too superficial, or in places imaging doesn't see well. A "clean MRI" or "normal ultrasound" does not rule out endo. Your symptoms still count.</div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-num">Slide 8 · CTA</div>
+        <div class="headline">If any of these landed — you're in the right place.</div>
+        <div class="body">I lost four organs to endometriosis & counting. I learned more from my endo peers than from most of my doctors. Save this. Send it to a friend who's still being told to "just try birth control."<br><br><strong>Comment LIST</strong> for my list of confirmed excision specialists by region. 💛<br><br><em>Advocacy, not medical advice. Always work with a qualified care team.</em></div>
+      </div>
+
+      <div class="sample-note">This is built directly off your existing pillars: the general-OBGYN-vs-excision-specialist post (DU3JqCsDYTw), the "any wellness pro selling a cure" post (DVyXRiRDWTx), the "30 years of dismissal" frame (DVeTW62D0p5). It uses your Roman-numeral Stage IV style, the 💛 in the corner, the "🫠" beat, and your closing "Advocacy, not medical advice" disclaimer. Same voice — restructured for the format your audience saves and shares.</div>
+    </div>
+
+    <div class="sample">
+      <div class="meta">Sample 2 · Reel script</div>
+      <h3>Did you know endometriosis can grow on your DIAPHRAGM? And your LUNGS?</h3>
+
+      <div class="reel-beat">
+        <div class="timecode">0:00–0:03<br>HOOK</div>
+        <div>
+          <div class="visual"><strong>Visual:</strong> Tight on your face. Hand gesture toward your chest, then your shoulder. Slight head tilt with raised eyebrow.</div>
+          <div class="vo">"Did you know that endometriosis can grow on your DIAPHRAGM?"</div>
+        </div>
+      </div>
+
+      <div class="reel-beat">
+        <div class="timecode">0:03–0:06<br>BEAT 1</div>
+        <div>
+          <div class="visual"><strong>Visual:</strong> Bold text overlay punches in: <em>"Diaphragm. Lungs. Sciatic nerve. Even the BRAIN (rarely)."</em></div>
+          <div class="vo">"And your lungs. And your sciatic nerve. And in the rarest cases — your brain."</div>
+        </div>
+      </div>
+
+      <div class="reel-beat">
+        <div class="timecode">0:06–0:10<br>BEAT 2</div>
+        <div>
+          <div class="visual"><strong>Visual:</strong> Cut to direct-to-camera. Frustrated-but-controlled energy, the same register you used in the gaslighting reel.</div>
+          <div class="vo">"This is called extra-pelvic endometriosis. It's rare-ish, but it's real, and it's why endo is NOT a reproductive disorder."</div>
+        </div>
+      </div>
+
+      <div class="reel-beat">
+        <div class="timecode">0:10–0:14<br>BEAT 3</div>
+        <div>
+          <div class="visual"><strong>Visual:</strong> Tap your shoulder/diaphragm. Light "🫠" emoji animates in.</div>
+          <div class="vo">"Symptoms include: shoulder pain that flares with your cycle. Difficulty breathing. Cyclical chest pain. Sciatic pain that comes and goes with your period."</div>
+        </div>
+      </div>
+
+      <div class="reel-beat">
+        <div class="timecode">0:14–0:18<br>BEAT 4</div>
+        <div>
+          <div class="visual"><strong>Visual:</strong> Back to direct camera. The "broadcasting itself" reaction face.</div>
+          <div class="vo">"How many of these have we been told for YEARS were 'just stress'? How does endo keep getting away with this?"</div>
+        </div>
+      </div>
+
+      <div class="reel-beat">
+        <div class="timecode">0:18–0:22<br>BEAT 5 · Payoff</div>
+        <div>
+          <div class="visual"><strong>Visual:</strong> Calm again, looking at camera. Sources slide in as on-screen text.</div>
+          <div class="vo">"If your shoulder hurts when you bleed, that is not a coincidence. Endo can be there. Find an excision specialist who knows extra-pelvic disease — they exist."</div>
+        </div>
+      </div>
+
+      <div class="reel-beat">
+        <div class="timecode">0:22–0:25<br>END CARD</div>
+        <div>
+          <div class="visual"><strong>Visual:</strong> Sources on-screen. 💛 + handle. End text: "Sources tagged in follow-up reel."</div>
+          <div class="vo">"Follow for the next part — sources, surgeons, &amp; how I'd ask my doctor."</div>
+        </div>
+      </div>
+
+      <div class="reel-caption">
+        <strong>Caption:</strong><br>
+        Endometriosis is not a reproductive disorder. It's a systemic inflammatory disease that can grow on your diaphragm, your lungs, your sciatic nerve, &amp; in the rarest cases — your brain. If your shoulder hurts when you bleed, that is not stress. That is a symptom you deserve to be heard about. 💛<br><br>
+        <strong>Comment SOURCES</strong> for the citation list, or <strong>comment LIST</strong> for my confirmed excision specialists by region.<br><br>
+        Advocacy, not medical advice.<br><br>
+        #endometriosis #endometriosisawareness
+      </div>
+
+      <div class="sample-note">This uses the exact "Did you know..." structure that produced your top educational reels (DW-NnCXjYlY, DVoRKW8DXOZ, DVzWm1_DeUf — all in the 9–10k like range). Stays in your sharp-advocacy register, ends with the source-tagged follow-up pattern you've already established. Two distinct DM keywords (SOURCES + LIST) so the reel routes both research-curious viewers and treatment-seekers into the email list. Same voice as your viral, stretched into a fact you haven't covered yet.</div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="mark">·</span>Why I'm different from a generic SMM agency</h2>
+    <div class="gap-list">
+      <div class="gap"><strong>I read the account before I pitched.</strong><p>This proposal references your thesis viral by post code, your Roman-numeral Stage IV style, your specific bio-link mismatch, and the existing mention graph you've already started with @mallorystuparichmd, @drjolenebrighten, and @drliu_endometriosis_surgeon. No template. The samples were drafted after reading 100 captions.</p></div>
+      <div class="gap"><strong>I work with the load you actually have.</strong><p>Stage IV. Ongoing surgeries. 1.5 posts/day already. Every recommendation here compounds what you've already published — landing page, email list, fact bank, carousel re-cuts. Not a "post more" strategy. A "harvest what's already working" strategy.</p></div>
+      <div class="gap"><strong>I won't pitch you anything you've already called out.</strong><p>Your philosophy on grift is on the record. No coaching scripts. No "manifest your audience" tactics. No paraphrased versions of what you've publicly named as suspicious. The work is advocacy infrastructure for a working creator.</p></div>
+      <div class="gap"><strong>I write in your voice, not mine.</strong><p>Roman-numeral Stage IV. The 💛. The "🫠" beat. "Advocacy, not medical advice" closing. The casual register and the AAVE-inflected moments. Sample 1 and Sample 2 above were written after a full voice audit and pass that test. Every piece going forward would.</p></div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <h2>If this lands — let's talk.</h2>
+    <p>One DM. No deck, no commitment. We figure out which piece comes first and what it costs.</p>
+    <a class="btn" href="https://www.instagram.com/evelyn.contentally/">DM me on Instagram</a>
+    <div class="ig">@<a href="https://www.instagram.com/evelyn.contentally/">evelyn.contentally</a></div>
+  </section>
+
+</div>
+</body>
+</html>
