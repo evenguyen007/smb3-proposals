@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Proposal for @its.rachelwilliams — Evelyn</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Inter", "Helvetica Neue", Arial, sans-serif;
+    background: #fdf6f3;
+    color: #2a1f24;
+    line-height: 1.6;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 880px; margin: 0 auto; padding: 56px 48px 80px; }
+
+  .hero {
+    border-radius: 28px;
+    background: linear-gradient(135deg, #f6e3e8 0%, #fbeae0 100%);
+    padding: 48px 44px 44px;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 56px;
+  }
+  .hero .label {
+    font-size: 13px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #b86477;
+    font-weight: 600;
+    margin-bottom: 18px;
+  }
+  .hero h1 {
+    font-size: 38px;
+    line-height: 1.18;
+    font-weight: 700;
+    color: #2a1f24;
+    letter-spacing: -0.02em;
+    margin-bottom: 16px;
+  }
+  .hero h1 .name { color: #d97a93; }
+  .hero p.lede {
+    font-size: 18px;
+    line-height: 1.55;
+    color: #4a3540;
+    max-width: 640px;
+  }
+  .hero .from {
+    margin-top: 28px;
+    font-size: 14px;
+    color: #7a4f5c;
+    font-style: italic;
+  }
+
+  section { margin-bottom: 56px; }
+  h2 {
+    font-size: 24px;
+    font-weight: 700;
+    color: #2a1f24;
+    margin-bottom: 14px;
+    letter-spacing: -0.01em;
+  }
+  h2 .mark { color: #d97a93; margin-right: 6px; }
+  h3 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #2a1f24;
+    margin-bottom: 10px;
+  }
+  p { margin-bottom: 14px; color: #2a1f24; }
+  p:last-child { margin-bottom: 0; }
+
+  .quote {
+    border-left: 3px solid #d97a93;
+    padding: 6px 0 6px 16px;
+    margin: 12px 0 18px;
+    font-style: italic;
+    color: #5a3a48;
+    font-size: 15px;
+  }
+
+  .gap-list { display: grid; grid-template-columns: 1fr; gap: 14px; margin-top: 6px; }
+  .gap {
+    background: #fff;
+    border: 1px solid #f0d9d9;
+    border-radius: 14px;
+    padding: 18px 22px;
+  }
+  .gap .num {
+    display: inline-block;
+    background: #d97a93;
+    color: #fff;
+    width: 24px; height: 24px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 24px;
+    font-size: 13px;
+    font-weight: 700;
+    margin-right: 10px;
+    vertical-align: 2px;
+  }
+  .gap strong { color: #2a1f24; }
+  .gap p { margin-top: 8px; font-size: 14.5px; color: #4a3540; line-height: 1.55; }
+
+  .options-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-top: 6px;
+  }
+  .option {
+    background: #fff;
+    border: 1px solid #f0d9d9;
+    border-radius: 14px;
+    padding: 18px 18px 16px;
+  }
+  .option .opt-tag {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    color: #b86477;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .option strong { display: block; font-size: 15px; color: #2a1f24; margin-bottom: 8px; line-height: 1.3; }
+  .option p { font-size: 13.5px; color: #4a3540; line-height: 1.5; }
+
+  .services { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .card {
+    background: #fff;
+    border: 1px solid #f0d9d9;
+    border-radius: 16px;
+    padding: 22px 24px;
+    display: flex;
+    flex-direction: column;
+    min-height: 192px;
+  }
+  .card.featured {
+    border-color: #d97a93;
+    background: linear-gradient(180deg, #fff6f6 0%, #ffffff 80%);
+  }
+  .card.premium {
+    background: #2a1f24;
+    color: #fbe7e8;
+    border-color: #2a1f24;
+  }
+  .card.premium h3 { color: #fbe7e8; }
+  .card.premium .price-line { color: #f3c4cf; }
+  .card.premium .desc { color: #d9b9c0; }
+  .card .tag {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #b86477;
+    margin-bottom: 8px;
+  }
+  .card.featured .tag { color: #d97a93; }
+  .card.premium .tag { color: #f3c4cf; }
+  .card h3 { margin-bottom: 6px; font-size: 17px; }
+  .card .desc { font-size: 14px; color: #4a3540; line-height: 1.55; flex-grow: 1; margin-bottom: 14px; }
+  .card .price-line {
+    font-size: 13.5px;
+    font-weight: 600;
+    color: #2a1f24;
+    border-top: 1px dashed #ead5d5;
+    padding-top: 10px;
+  }
+  .card.premium .price-line { border-top-color: #4a3540; }
+
+  .sample {
+    background: #fff;
+    border: 1px solid #f0d9d9;
+    border-radius: 16px;
+    padding: 26px 28px;
+    margin-bottom: 18px;
+  }
+  .sample .meta {
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: #d97a93;
+    margin-bottom: 6px;
+  }
+  .sample h3 { font-size: 20px; margin-bottom: 14px; }
+  .slide {
+    border-left: 2px solid #f3c4cf;
+    padding: 8px 0 8px 18px;
+    margin-bottom: 14px;
+  }
+  .slide:last-child { margin-bottom: 0; }
+  .slide .slide-num {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: #b86477;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .slide .headline {
+    font-weight: 700;
+    color: #2a1f24;
+    margin-bottom: 4px;
+    font-size: 15.5px;
+  }
+  .slide .body {
+    font-size: 14.5px;
+    color: #4a3540;
+    line-height: 1.55;
+  }
+  .slide .body em { color: #7a4f5c; font-style: italic; }
+  .reel-beat {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 16px;
+    padding: 12px 0;
+    border-bottom: 1px dashed #f0d9d9;
+  }
+  .reel-beat:last-child { border-bottom: none; }
+  .reel-beat .timecode {
+    font-family: "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12.5px;
+    font-weight: 700;
+    color: #d97a93;
+    padding-top: 2px;
+  }
+  .reel-beat .visual {
+    font-size: 14px;
+    color: #4a3540;
+    line-height: 1.55;
+  }
+  .reel-beat .visual strong { color: #2a1f24; }
+  .reel-beat .vo {
+    margin-top: 6px;
+    font-size: 14.5px;
+    color: #2a1f24;
+    line-height: 1.5;
+  }
+  .reel-caption {
+    margin-top: 18px;
+    background: #fff6f6;
+    border-radius: 10px;
+    padding: 14px 16px;
+    font-size: 14px;
+    color: #2a1f24;
+    line-height: 1.6;
+  }
+  .reel-caption strong { color: #d97a93; }
+  .sample-note {
+    margin-top: 14px;
+    padding-top: 14px;
+    border-top: 1px dashed #f0d9d9;
+    font-size: 13.5px;
+    color: #6a4f55;
+    line-height: 1.55;
+    font-style: italic;
+  }
+
+  .cta {
+    margin-top: 8px;
+    text-align: center;
+    background: linear-gradient(135deg, #2a1f24 0%, #4a2a35 100%);
+    color: #fbe7e8;
+    border-radius: 24px;
+    padding: 48px 32px;
+  }
+  .cta h2 { color: #fbe7e8; font-size: 28px; margin-bottom: 12px; }
+  .cta p { color: #d9b9c0; margin-bottom: 24px; }
+  .cta a.btn {
+    display: inline-block;
+    background: #d97a93;
+    color: #fff;
+    padding: 14px 32px;
+    border-radius: 999px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 15px;
+    letter-spacing: 0.02em;
+    transition: opacity .15s;
+  }
+  .cta a.btn:hover { opacity: 0.9; }
+  .cta .ig {
+    margin-top: 18px;
+    font-size: 13px;
+    color: #d9b9c0;
+    letter-spacing: 0.06em;
+  }
+  .cta .ig a { color: #f3c4cf; text-decoration: none; }
+
+  @media print {
+    .wrap { max-width: 100%; padding: 24px 32px; }
+    .hero { page-break-after: avoid; }
+    section { page-break-inside: avoid; }
+    .card, .sample, .reel-beat { page-break-inside: avoid; }
+    .cta { page-break-before: auto; }
+  }
+
+  @media (max-width: 720px) {
+    .options-grid { grid-template-columns: 1fr; }
+    .services { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="hero">
+    <div class="label">Proposal · prepared for Rachel</div>
+    <h1>Hi <span class="name">Rachel</span> — your audience is voting for <span class="name">two niches at once</span>. Let's just decide which one leads.</h1>
+    <p class="lede">31k followers, a 220k-view viral on Instagram growth, a 101k-view essay-reel on ADHD truths, a healthy 2:1 reel-to-carousel mix, and a sustainable 2.76 posts/week. The engine is tuned. The strategic question isn't "post more" — it's "which lane gets the bio, the lead magnet, and the product, and which lane becomes the hidden upsell." This proposal walks through that decision and starts building the harvest layer underneath.</p>
+    <p class="from">— Evelyn</p>
+  </header>
+
+  <section>
+    <h2><span class="mark">·</span>What I noticed before writing this</h2>
+    <p>I read 94 of your posts before drafting a line. The data tells a specific story:</p>
+    <p class="quote">"Here's the secret hack…. There is no secret hack. I avoided this truth for so long…"</p>
+    <p>That reel hit 220,615 views and 37,468 likes — it's your highest-performing post. It's also <em>not</em> ADHD content. It's Instagram growth advice. And four of your other top ten posts are also growth-coaching content. Meanwhile, your bio sells "ADHD habits and routines," your handle is the same, and your second viral (the 5-truths essay-reel at 101k views) is a vulnerable ADHD long-form.</p>
+    <p>The honest read: you have <em>two</em> proven viral lanes. Not one. Most creators don't have one — you have two — and right now your bio claims one, your DM trigger fires for the other, and your audience is happily following both without knowing what they signed up for.</p>
+    <p>Two more things before services:</p>
+    <p>The 220k-view reel returned approximately zero owned subscribers. Same for the 101k essay-reel. Together that's 322,000+ views and a flat "follow" CTA. There is no email list, no surfaced product, no clear next step. The reach is real; the harvest layer doesn't exist yet.</p>
+    <p>And — your voice is too distinctive to template into. The lowercase rhythm, the 🩷, the parenthetical hedge ("you got this (probably)"), "ur coming w me," "the girls," the 🙃 + 🤭. Anything that runs through a generic content service will lose the sound. The samples below were written after a full voice audit and are designed to pass for yours.</p>
+  </section>
+
+  <section>
+    <h2><span class="mark">·</span>The decision underneath everything: which niche leads</h2>
+    <p>Three honest options. Each one is valid. The choice unblocks every downstream decision (product, bio, lead magnet, content pillar ratio, pricing). Naming it openly is the work; you don't have to commit on this proposal.</p>
+    <div class="options-grid">
+      <div class="option">
+        <div class="opt-tag">Option A</div>
+        <strong>Fused niche: "Instagram growth + habits for ADHD brains"</strong>
+        <p>Bio rewrites to claim the intersection. Almost no one else explicitly owns it. Both viral lanes feed the same product. Highest moat, requires the most rebrand work.</p>
+      </div>
+      <div class="option">
+        <div class="opt-tag">Option B</div>
+        <strong>ADHD primary, growth secondary</strong>
+        <p>Keep bio as-is. Move growth-advice content to a sub-account or refer it cleanly to @theintroverteditt. Stay tight in the lane the bio sells. Easiest to execute.</p>
+      </div>
+      <div class="option">
+        <div class="opt-tag">Option C</div>
+        <strong>Growth primary, ADHD as the cultural frame</strong>
+        <p>Pivot bio + display name to "lazy IG growth for the scattered." ADHD becomes the audience identity, growth becomes the commercial offer. Highest commercial potential.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="mark">·</span>The three gaps I'd close first (regardless of which niche you pick)</h2>
+    <div class="gap-list">
+      <div class="gap">
+        <strong><span class="num">1</span>The harvest layer doesn't exist yet.</strong>
+        <p>Your two virals together returned ~0 owned email subscribers from 322k+ views. One free PDF — designed to serve both lanes (e.g. "The Lazy Routine: ADHD Mornings + IG Growth in 30 Min/Day") — paired with a single keyword DM trigger ("Comment LAZY") deployed retroactively in pinned comments and on every new reel, would build the list every viral has been failing to. This is the highest-ROI fix on the account.</p>
+      </div>
+      <div class="gap">
+        <strong><span class="num">2</span>The viral structures haven't been productized.</strong>
+        <p>Your 220k reel uses a contrarian-reveal-permission three-beat ("Here's the secret… there is no secret… here's what actually works"). Your 101k essay-reel uses a long-form numbered truths structure. Both are formulas, not luck. A 20-hook bank for #1 and a quarterly 3–5 essay-reel cadence for #2 means roughly four months of viral-format content with zero improvisation cost — and protects the cadence from creative-burnout pressure.</p>
+      </div>
+      <div class="gap">
+        <strong><span class="num">3</span>Off-niche content is taxing the algorithm classification.</strong>
+        <p>Noah Kahan reels, bread-baking moments, generic "I wish more women knew" openers — they're charming personally, but the algo reads them as topical drift. Move personality moments to Stories. Feed becomes 100% pillar 1–4 content for 90 days. Baseline reach typically lifts 10–20% from this alone.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="mark">·</span>What I can do for you</h2>
+    <div class="services">
+
+      <div class="card featured">
+        <div class="tag">Starter bundle · fixed price</div>
+        <h3>Landing page + 3 sample content pieces</h3>
+        <p class="desc">A single conversion-focused landing page to replace your bio link — built around whichever niche direction you pick (or designed to serve both during the decision window) — plus three pieces of sample content (mix of carousels and reel scripts) written in your voice and ready to post. Self-contained, mobile-first.</p>
+        <div class="price-line">Investment: <strong>$120 · bundle</strong></div>
+      </div>
+
+      <div class="card">
+        <div class="tag">Foundational</div>
+        <h3>Strategy &amp; content audit</h3>
+        <p class="desc">Frame-by-frame audit of your two virals, hook-formula extraction, niche-direction recommendation memo, content-pillar consolidation plan, ninety-day priority roadmap, lead-magnet architecture for the harvest layer.</p>
+        <div class="price-line">Investment: quoted per scope</div>
+      </div>
+
+      <div class="card">
+        <div class="tag">Production</div>
+        <h3>Carousel + post packs</h3>
+        <p class="desc">Save-and-share carousels in your lowercase 🩷 register — built around your meta-ADHD humor formats and the 5-truths essay structure. Designed for saves, shares, and sends. Voice-checked against your existing top-performers.</p>
+        <div class="price-line">Investment: quoted per pack</div>
+      </div>
+
+      <div class="card">
+        <div class="tag">Production</div>
+        <h3>Reels &amp; story scripts</h3>
+        <p class="desc">Hook-first reel scripts using your "no secret hack" three-beat structure and your 5-truths long-form structure. Shot-by-shot direction, captions, keyword CTAs, and story sequences for lead-magnet nurture.</p>
+        <div class="price-line">Investment: quoted per pack</div>
+      </div>
+
+      <div class="card">
+        <div class="tag">Upside-aligned</div>
+        <h3>Growth partnership</h3>
+        <p class="desc">For accounts ready to scale revenue alongside reach — a milestone-and-commission structure where the work is tied to results, not hours. Suited for creators with a productized offer ready to convert at volume.</p>
+        <div class="price-line">Mechanics walked through on the intro call</div>
+      </div>
+
+      <div class="card premium">
+        <div class="tag">Reserved</div>
+        <h3>Premium retainer</h3>
+        <p class="desc">Daily publishing, DM triage, lead-magnet nurture, collab outreach, sponsor coordination, auto-posting infrastructure. The "I take this off your plate" tier — built for ongoing partnerships, not one-offs.</p>
+        <div class="price-line">Custom scope · not publicly quoted</div>
+      </div>
+
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="mark">·</span>Sample work — so you can judge before we talk</h2>
+
+    <div class="sample">
+      <div class="meta">Sample 1 · Reel script</div>
+      <h3>Here's the secret to consistency with ADHD… it's the one no one wants to hear.</h3>
+
+      <div class="reel-beat">
+        <div class="timecode">0:00–0:03<br>HOOK</div>
+        <div>
+          <div class="visual"><strong>Visual:</strong> You, direct to camera, slight head tilt. Mouth opens like you're about to share a tip.</div>
+          <div class="vo">"here's the secret to consistency with ADHD…."</div>
+        </div>
+      </div>
+
+      <div class="reel-beat">
+        <div class="timecode">0:03–0:06<br>BEAT 1</div>
+        <div>
+          <div class="visual"><strong>Visual:</strong> Cut. Same framing. Slight pause. Eye-roll-smile energy.</div>
+          <div class="vo">"there is no secret. you are not going to be consistent."</div>
+        </div>
+      </div>
+
+      <div class="reel-beat">
+        <div class="timecode">0:06–0:10<br>BEAT 2</div>
+        <div>
+          <div class="visual"><strong>Visual:</strong> You leaning in slightly. Small text overlay punches in: <em>"i avoided this truth for so long."</em></div>
+          <div class="vo">"i spent years trying to force consistency on a brain that does not work that way. and every plan failed."</div>
+        </div>
+      </div>
+
+      <div class="reel-beat">
+        <div class="timecode">0:10–0:14<br>BEAT 3</div>
+        <div>
+          <div class="visual"><strong>Visual:</strong> Light shift. Direct eye contact.</div>
+          <div class="vo">"the goal isn't consistency. the goal is <em>frequency of return</em>. how fast you come back after you fall off."</div>
+        </div>
+      </div>
+
+      <div class="reel-beat">
+        <div class="timecode">0:14–0:18<br>BEAT 4</div>
+        <div>
+          <div class="visual"><strong>Visual:</strong> Hand gesture, like you're stacking three things.</div>
+          <div class="vo">"three days off and back? winning. one bad week and back? still winning. the streak isn't the point. the return is."</div>
+        </div>
+      </div>
+
+      <div class="reel-beat">
+        <div class="timecode">0:18–0:22<br>BEAT 5 · Permission</div>
+        <div>
+          <div class="visual"><strong>Visual:</strong> Soft smile. Lower-third overlay: 🩷</div>
+          <div class="vo">"the girl who snoozed 6x is now up at 5am. but it took 47 returns. (you got this. probably.)"</div>
+        </div>
+      </div>
+
+      <div class="reel-beat">
+        <div class="timecode">0:22–0:25<br>END CARD</div>
+        <div>
+          <div class="visual"><strong>Visual:</strong> End card text: "comment LAZY for my ADHD-friendly routine."</div>
+          <div class="vo">"comment LAZY and i'll send you the routine that works <em>around</em> the brain instead of fighting it."</div>
+        </div>
+      </div>
+
+      <div class="reel-caption">
+        <strong>Caption:</strong><br>
+        the goal was never consistency. it was always frequency of return.<br><br>
+        consistency is what neurotypical brains are sold. for an ADHD brain, "consistency" is a setup for shame. but <em>return</em> — how fast you come back after the slip — is something an ADHD brain can actually train.<br><br>
+        i spent years failing at the wrong metric. i'm here to save you a few of those years. 🩷<br><br>
+        <strong>comment LAZY</strong> for the morning routine that works around the brain.
+      </div>
+
+      <div class="sample-note">This uses the exact contrarian-reveal-permission three-beat from your 220k viral (DN8hsN_kXm-) — applied to a fresh truth ("frequency of return, not consistency") that lives natively in the ADHD lane. Lowercase rhythm matched, parenthetical hedge ("you got this. probably.") preserved, "the girl who snoozed 6x is now up at 5am" callback to your bio, the 🩷, the ADHD-friendly framing. CTA routes to a lead magnet that fuses both lanes. If we work together, every reel runs through this same voice-check.</div>
+    </div>
+
+    <div class="sample">
+      <div class="meta">Sample 2 · Carousel</div>
+      <h3>Things ADHD brains do when trying to grow on Instagram. (a personal attack, again, sorry)</h3>
+
+      <div class="slide">
+        <div class="slide-num">Slide 1 · Cover</div>
+        <div class="headline">Things ADHD brains do when trying to grow on Instagram.</div>
+        <div class="body"><em>Visual:</em> Soft pink backdrop. Title in your handwriting font, lowercase. 🩷 + 🧠 emoji in the corner.</div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-num">Slide 2</div>
+        <div class="headline">Spend 3 hours studying viral hooks. Post nothing.</div>
+        <div class="body">classic "research is also work" delusion. nothing was made. but emotionally we worked very hard. 🙃</div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-num">Slide 3</div>
+        <div class="headline">Make a beautiful content calendar. Use it for one (1) week.</div>
+        <div class="body">the calendar is now a museum. the dopamine was in the planning. you got the whole reward upfront and then your brain went "ok we're done."</div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-num">Slide 4</div>
+        <div class="headline">Start a reel. Abandon it 70% in. Open the camera roll. See the abandoned reel. Open Reddit instead.</div>
+        <div class="body">the unfinished thing can't be judged. it's not perfectionism. it's "if i don't post i can't fail." we doing this on purpose.</div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-num">Slide 5</div>
+        <div class="headline">Decide to post daily. Post 4 days. Forget for 2 weeks. Spiral.</div>
+        <div class="body">the goal was never consistency. the goal is frequency of return. 4 days, gap, return. that's still winning. (we will be told this many times before it sticks.) 🩷</div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-num">Slide 6</div>
+        <div class="headline">Compare your account to someone with 500k followers. At 11pm. While in bed.</div>
+        <div class="body">revenge bedtime comparison. your brain is dysregulated. the 500k account also started at 0. you're borrowing tomorrow to pay for tonight's spiral.</div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-num">Slide 7</div>
+        <div class="headline">Save 47 hook templates. Use 0. Make a carousel about why you can't post.</div>
+        <div class="body">the meta-content. (this carousel is also that.) listen — sometimes you just need to chew gum on the floor and go goblin mode and that's valid. we work with what we got.</div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-num">Slide 8 · CTA</div>
+        <div class="headline">If you saw yourself in any of these — you're in the right place.</div>
+        <div class="body">i made a free routine that works <em>around</em> the brain instead of fighting it. mornings + IG growth, 30 min, no shame.<br><br><strong>comment LAZY</strong> for the routine. 🩷<br><br><em>follow for more ADHD habits and routines (and the occasional growth tip).</em></div>
+      </div>
+
+      <div class="sample-note">This is a meta-self-aware list-carousel — the same format that produced your 6.6k DXcK7EcFPpT and 6.4k DV9KRmRj6Eu posts. It bridges both your niches deliberately: the audience reads it as ADHD content (validating, save-worthy, "personal attack" energy) AND as growth content (about Instagram). It also previews how the fused-niche content would sound if you pick Option A. Voice match: lowercase, 🩷, "(probably)", goblin mode, "we work with what we got" — all yours.</div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="mark">·</span>Why I'm different from a generic SMM agency</h2>
+    <div class="gap-list">
+      <div class="gap"><strong>I read the account before I pitched.</strong><p>This proposal references your two virals by post code, your niche-conflict by name, your bio's specific tagline, your @theintroverteditt collab loop, and your lowercase + 🩷 + parenthetical-hedge voice. No template. The samples were drafted after reading 94 captions.</p></div>
+      <div class="gap"><strong>I name the strategic question, I don't paper over it.</strong><p>Your niche conflict isn't a problem — it's a leverage opportunity hiding as a question. Most creators with two viral lanes never name the choice. Naming it is the first piece of work; the rest follows.</p></div>
+      <div class="gap"><strong>I write in your voice, not mine.</strong><p>lowercase. 🩷. "(probably)". "the girls." "ur coming w me." goblin mode. "we work with what we got." sample 1 + 2 above pass that voice-check. every piece going forward would.</p></div>
+      <div class="gap"><strong>I work with the cadence you actually have.</strong><p>2.76 posts/week is sustainable and working. nothing in this proposal asks for more output. every recommendation compounds what you've already published — productize the hooks, harvest the comments, route the reach into a list.</p></div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <h2>If this lands — let's talk.</h2>
+    <p>One DM. No deck, no commitment. We figure out which piece comes first and what it costs.</p>
+    <a class="btn" href="https://www.instagram.com/evelyn.contentally/">DM me on Instagram</a>
+    <div class="ig">@<a href="https://www.instagram.com/evelyn.contentally/">evelyn.contentally</a></div>
+  </section>
+
+</div>
+</body>
+</html>
