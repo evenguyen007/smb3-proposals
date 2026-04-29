@@ -1,0 +1,558 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>A proposal for @aroadthrough</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#f5efe5;
+    --bg-deep:#ede4d3;
+    --ink:#2a1a14;
+    --ink-soft:#6b4f44;
+    --hero:#d96545;
+    --hero-deep:#b94a30;
+    --soft:#e8c8b6;
+    --line:#d9c8b6;
+    --highlight:#d96545;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Inter',-apple-system,Helvetica,Arial,sans-serif;
+    font-weight:400;
+    font-size:17px;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  .page{max-width:760px;margin:0 auto;padding:80px 32px 120px}
+  @media (max-width:640px){.page{padding:48px 22px 80px}}
+
+  /* typography */
+  h1,h2,h3{font-family:'Fraunces',Georgia,serif;font-weight:400;letter-spacing:-0.01em}
+  h1{font-size:clamp(48px,10vw,84px);line-height:0.98;font-weight:300}
+  h2{font-size:clamp(28px,5vw,40px);line-height:1.1;margin-bottom:18px;font-weight:400}
+  h3{font-size:22px;line-height:1.2;margin-bottom:8px;font-weight:500}
+  p{margin-bottom:14px}
+  em{font-style:italic;color:var(--ink-soft)}
+
+  /* small caps label */
+  .label{
+    font-family:'Inter',sans-serif;
+    font-size:11px;letter-spacing:0.18em;text-transform:uppercase;
+    color:var(--hero-deep);font-weight:500;
+  }
+  .num{
+    font-family:'Fraunces',serif;font-size:13px;letter-spacing:0.08em;
+    color:var(--ink-soft);text-transform:uppercase;
+  }
+
+  /* hero */
+  .hero{padding:24px 0 60px;border-bottom:1px solid var(--line);margin-bottom:64px}
+  .hero .label{margin-bottom:24px}
+  .hero h1{margin-bottom:20px}
+  .hero .at{color:var(--hero)}
+  .hero .tag{
+    font-family:'Fraunces',serif;font-style:italic;font-weight:300;
+    font-size:clamp(18px,2.4vw,22px);color:var(--ink-soft);
+    max-width:540px;line-height:1.45;margin-top:12px
+  }
+  .hero .by{margin-top:42px;font-size:14px;color:var(--ink-soft);letter-spacing:0.04em}
+
+  /* sections */
+  section{padding:64px 0;border-bottom:1px solid var(--line)}
+  section:last-of-type{border-bottom:none}
+  .section-head{display:flex;gap:24px;align-items:baseline;margin-bottom:32px}
+  .section-head .num{flex-shrink:0;width:60px}
+
+  .lead{font-size:19px;line-height:1.6;color:var(--ink);margin-bottom:18px}
+  .lead-soft{font-size:17px;color:var(--ink-soft);line-height:1.7;margin-bottom:14px}
+
+  /* quote block */
+  blockquote{
+    border-left:2px solid var(--hero);
+    padding:6px 0 6px 22px;margin:24px 0;
+    font-family:'Fraunces',serif;font-style:italic;font-size:18px;
+    line-height:1.5;color:var(--ink);
+  }
+  blockquote .src{
+    display:block;margin-top:10px;font-family:'Inter',sans-serif;
+    font-style:normal;font-size:12px;letter-spacing:0.1em;
+    text-transform:uppercase;color:var(--ink-soft);
+  }
+  blockquote .src a{color:var(--hero-deep);text-decoration:none;border-bottom:1px solid var(--soft)}
+
+  /* observation cards */
+  .obs{display:grid;gap:24px;margin-top:28px}
+  .obs-card{
+    background:var(--bg-deep);
+    border:1px solid var(--line);
+    padding:28px 28px 26px;
+    border-radius:2px;
+  }
+  .obs-card .label{margin-bottom:12px}
+  .obs-card h3{margin-bottom:10px;color:var(--ink)}
+  .obs-card p{font-size:15.5px;color:var(--ink-soft);margin-bottom:10px}
+  .obs-card .evidence{
+    font-size:13px;font-family:'Inter',sans-serif;color:var(--hero-deep);
+    border-top:1px solid var(--line);padding-top:12px;margin-top:14px;
+    letter-spacing:0.02em;
+  }
+
+  /* service grid */
+  .services{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:24px}
+  @media (max-width:640px){.services{grid-template-columns:1fr}}
+  .svc{
+    border:1px solid var(--line);background:#fbf7ee;
+    padding:24px 22px;border-radius:2px;display:flex;flex-direction:column;
+  }
+  .svc h3{font-size:19px;margin-bottom:6px}
+  .svc .scope{font-size:13.5px;color:var(--ink-soft);margin-bottom:12px;letter-spacing:0.02em}
+  .svc ul{list-style:none;padding:0;margin:0 0 16px;font-size:14.5px;color:var(--ink)}
+  .svc ul li{padding:5px 0;border-bottom:1px dashed var(--line);line-height:1.45}
+  .svc ul li:last-child{border-bottom:none}
+  .svc ul li::before{content:"·";margin-right:10px;color:var(--hero);font-weight:700}
+  .svc .price{
+    margin-top:auto;font-family:'Fraunces',serif;font-size:18px;
+    color:var(--hero-deep);padding-top:12px;border-top:1px solid var(--line);
+  }
+  .svc .price small{font-family:'Inter',sans-serif;font-size:12px;color:var(--ink-soft);letter-spacing:0.04em;display:block;margin-top:2px}
+
+  /* sample block */
+  .sample{
+    background:#fff;
+    border:1px solid var(--line);
+    padding:36px 32px;
+    margin-top:28px;border-radius:2px;
+  }
+  .sample h3{font-family:'Fraunces',serif;font-size:24px;font-weight:500;margin-bottom:6px}
+  .sample .meta{font-size:12px;letter-spacing:0.12em;text-transform:uppercase;color:var(--hero-deep);margin-bottom:24px}
+  .slide{padding:14px 0;border-bottom:1px dashed var(--line)}
+  .slide:last-child{border-bottom:none}
+  .slide .slide-label{font-family:'Fraunces',serif;font-size:13px;color:var(--hero-deep);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:6px}
+  .slide .slide-body{font-size:16px;line-height:1.55;color:var(--ink)}
+  .slide .slide-body .big{font-family:'Fraunces',serif;font-size:21px;line-height:1.3;color:var(--ink);display:block;margin-bottom:6px}
+  .slide .slide-body em{color:var(--ink-soft)}
+  .caption-block{
+    margin-top:24px;padding:24px;background:var(--bg-deep);
+    font-size:15px;line-height:1.65;border-radius:2px;
+  }
+  .caption-block .label{margin-bottom:14px}
+  .caption-block p{margin-bottom:10px}
+  .reel-beat{display:grid;grid-template-columns:90px 1fr;gap:18px;padding:14px 0;border-bottom:1px dashed var(--line)}
+  .reel-beat:last-child{border-bottom:none}
+  .reel-beat .timecode{font-family:'Fraunces',serif;font-size:14px;color:var(--hero-deep);letter-spacing:0.04em;padding-top:2px}
+  .reel-beat .body{font-size:15.5px;line-height:1.55}
+  .reel-beat .visual{font-size:13px;color:var(--ink-soft);font-style:italic;margin-bottom:4px}
+  .reel-beat .spoken{margin-bottom:4px}
+  .reel-beat .text-overlay{display:inline-block;background:var(--ink);color:var(--bg);padding:2px 8px;font-size:13px;letter-spacing:0.04em;border-radius:2px;margin-top:4px}
+
+  /* note */
+  .note{
+    margin-top:28px;padding:22px 26px;
+    background:#fbf7ee;border:1px dashed var(--hero);border-radius:2px;
+    font-size:14.5px;line-height:1.6;color:var(--ink-soft);font-style:italic;
+  }
+
+  /* positioning */
+  .pos-list{list-style:none;padding:0;margin-top:14px}
+  .pos-list li{padding:14px 0;border-bottom:1px solid var(--line);font-size:16px;line-height:1.55}
+  .pos-list li:last-child{border-bottom:none}
+  .pos-list li strong{display:block;font-family:'Fraunces',serif;font-weight:500;font-size:18px;margin-bottom:4px;color:var(--ink)}
+  .pos-list li span{color:var(--ink-soft)}
+
+  /* CTA */
+  .cta-block{
+    text-align:center;padding:48px 24px;background:var(--bg-deep);
+    border-radius:2px;margin-top:32px
+  }
+  .cta-block h2{margin-bottom:14px}
+  .cta-block p{font-size:17px;color:var(--ink-soft);max-width:520px;margin:0 auto 24px}
+  .cta-btn{
+    display:inline-block;padding:16px 40px;
+    background:var(--hero);color:#fff;text-decoration:none;
+    font-family:'Inter',sans-serif;font-weight:500;font-size:15px;
+    letter-spacing:0.06em;text-transform:uppercase;border-radius:2px;
+    transition:background 0.2s ease;
+  }
+  .cta-btn:hover{background:var(--hero-deep)}
+
+  /* footer */
+  footer{margin-top:80px;padding-top:32px;border-top:1px solid var(--line);font-size:13px;color:var(--ink-soft);text-align:center}
+  footer .sig{font-family:'Fraunces',serif;font-style:italic;font-size:18px;color:var(--ink);margin-bottom:8px}
+
+  /* misc */
+  a.inline{color:var(--hero-deep);text-decoration:none;border-bottom:1px solid var(--soft)}
+  a.inline:hover{border-bottom-color:var(--hero)}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="label">A proposal · For Amber Robinson</div>
+    <h1>For <span class="at">@aroadthrough</span></h1>
+    <p class="tag">A road through the algorithm — built around the brand you already have, not the one I'd impose.</p>
+    <p class="by">Written by Evelyn · Social Media Strategist</p>
+  </header>
+
+  <!-- 1. I SEE YOU -->
+  <section>
+    <div class="section-head">
+      <span class="num">01</span>
+      <h2>What I noticed</h2>
+    </div>
+    <p class="lead">A Road Through is one of the rare therapy brands where the name <em>is</em> the worldview. The road is the metaphor. The wall is the metaphor. And every post on your grid is, in some way, you walking someone from one to the other.</p>
+    <p class="lead-soft">I read 100 of your posts before writing a word of this. The thing that struck me first wasn't the press wall — Vogue, TIME, Women's Health — although that's not a small thing. It was the line in your re-introduction post:</p>
+    <blockquote>
+      I'm passionate about helping my clients heal from their past &amp; transform their present. I also love working with other therapists &amp; helping them grow — we're all in this together.
+      <span class="src"><a href="https://www.instagram.com/p/C-DpAO0ve8B/">Source · Re-introduction post</a></span>
+    </blockquote>
+    <p class="lead-soft">"We're all in this together" is something a person who built a one-woman practice into a group of clinicians actually means. Most therapist accounts I audit are selling individual sessions. You are quietly building something bigger — a place where new female clinicians can grow up safely. The Sherman Oaks office isn't an expansion. It's a thesis.</p>
+    <p class="lead-soft">And I noticed the smaller things too. The fact that your bio reads <em>Therapist | Creative | Human</em> in that exact order. The deadpan motorized-mini-bike-Olympics origin reel. The fact that you wrote "I wanted this office to feel cozy &amp; welcoming while being fun &amp; creative" on the day you walked into your new Sherman Oaks space. You are not trying to look like a therapist. You are trying to make therapy look the way you wish it had looked to you.</p>
+  </section>
+
+  <!-- 2. THREE OBSERVATIONS -->
+  <section>
+    <div class="section-head">
+      <span class="num">02</span>
+      <h2>Three things in the data</h2>
+    </div>
+    <p class="lead-soft">After 100 posts and the back end of your engagement, three patterns stood out. Each one is fixable without changing your voice.</p>
+
+    <div class="obs">
+      <div class="obs-card">
+        <div class="label">Observation 01 · Format</div>
+        <h3>Your carousels punch 7× harder than your single images, but you publish them half as often.</h3>
+        <p>In the 100-post sample, carousels averaged 80 likes vs single images at 11. Single images make up 36% of the grid. Carousels are 17%. The same psychoeducation, restructured into 8 slides, would lift engagement on content you've already written. No new ideas needed — just a different vehicle.</p>
+        <div class="evidence">Source · 100-post audit, sample window 2024-03 to 2026-04</div>
+      </div>
+
+      <div class="obs-card">
+        <div class="label">Observation 02 · Reach</div>
+        <h3>Press credibility outpacing audience growth. The Vogue line in the bio isn't being deployed in posts.</h3>
+        <p>Vogue, TIME, Women's Health, Yahoo Lifestyle — all referenced in bio, all rarely surfaced inside posts. A first-time profile visitor sees a sub-5K verified account before they see the press wall. There's a credibility-to-distribution gap that your content can close on its own, with the assets you already have.</p>
+        <div class="evidence">Source · profile audit + caption sweep</div>
+      </div>
+
+      <div class="obs-card">
+        <div class="label">Observation 03 · CTA</div>
+        <h3>Your top-performing post (37,377 views) ended with a comment trigger. Almost nothing else does.</h3>
+        <p>"Comment THERAPY 👇 to have this blog sent to you directly" — you've used a comment-trigger CTA exactly once in 100 posts. The reels that did break out used hooks like "If you were looking for a sign to leave" — the rest end with passive "link in bio." Your highest-converting CTA pattern is sitting unused.</p>
+        <div class="evidence">Source · post <a class="inline" href="https://www.instagram.com/p/C93FpF5yvTy/">C93FpF5yvTy</a> · top reel <a class="inline" href="https://www.instagram.com/p/C3-tqTfP8YX/">C3-tqTfP8YX</a></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. SERVICES -->
+  <section>
+    <div class="section-head">
+      <span class="num">03</span>
+      <h2>What I can build with you</h2>
+    </div>
+    <p class="lead-soft">Six ways we can work together. The first is the foundation. The middle four are tactical packs designed for your account specifically. The sixth is for if this becomes a longer relationship.</p>
+
+    <div class="services">
+      <div class="svc">
+        <h3>01 · Strategy &amp; Pillar Plan</h3>
+        <div class="scope">90-min audit call · 14-day delivery</div>
+        <ul>
+          <li>Six-pillar content map tailored to A Road Through</li>
+          <li>Hook bank · 30 hooks pulled from your viral patterns</li>
+          <li>90-day publishing calendar with clinician-friendly cadence</li>
+          <li>One workshop call with your team if relevant</li>
+        </ul>
+        <div class="price">Investment: quoted per scope <small>after the audit call</small></div>
+      </div>
+
+      <div class="svc">
+        <h3>02 · Lead Magnet System</h3>
+        <div class="scope">"Comment ROAD" funnel · 21-day build</div>
+        <ul>
+          <li>One free PDF guide designed in your brand (8–12 pages)</li>
+          <li>One promotional carousel + one promotional reel script</li>
+          <li>ManyChat / DM-trigger automation set up &amp; tested</li>
+          <li>Email capture page that matches the proposal aesthetic</li>
+        </ul>
+        <div class="price">$650 <small>one-time · includes one revision round</small></div>
+      </div>
+
+      <div class="svc">
+        <h3>03 · Carousel Production Pack</h3>
+        <div class="scope">4 carousels · monthly</div>
+        <ul>
+          <li>4 fully-designed carousels (8–10 slides each)</li>
+          <li>Long-form caption + hashtag set per carousel</li>
+          <li>Built from your existing blogs — zero new ideation required</li>
+          <li>Cream + coral brand system, matched to your feed</li>
+        </ul>
+        <div class="price">$400 / month <small>= $100 / carousel · billed monthly</small></div>
+      </div>
+
+      <div class="svc">
+        <h3>04 · Reel Hook Engineering</h3>
+        <div class="scope">4 reel scripts · monthly</div>
+        <ul>
+          <li>4 reel scripts written for your B-roll &amp; speaking style</li>
+          <li>First 1.5-second hook engineered to break median (currently 571 views)</li>
+          <li>Caption + on-screen text + CTA per reel</li>
+          <li>Optional: light edit on footage you record</li>
+        </ul>
+        <div class="price">$380 / month <small>= $95 / reel · billed monthly</small></div>
+      </div>
+
+      <div class="svc">
+        <h3>05 · Sherman Oaks Launch Series</h3>
+        <div class="scope">6-episode mini-doc · one-time</div>
+        <ul>
+          <li>Storyboard + script for 6 founder-led episodes</li>
+          <li>Office tour, design philosophy, hiring story, opening day, one-month-in</li>
+          <li>Post-production on footage you record</li>
+          <li>Distribution plan: reels, carousels, emails, press kit</li>
+        </ul>
+        <div class="price">$1,200 <small>flat · 6 weeks of publish-ready content</small></div>
+      </div>
+
+      <div class="svc">
+        <h3>06 · Ongoing Partnership</h3>
+        <div class="scope">Retainer · custom scope</div>
+        <ul>
+          <li>Daily content management, DM triage, trend routing</li>
+          <li>Press-pitch coordination for next tier-1 placements</li>
+          <li>Milestone-based growth partnership available</li>
+          <li>Reserved for clients we already have rhythm with</li>
+        </ul>
+        <div class="price">Custom scope <small>discussed after the first project</small></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. SAMPLE 1 — CAROUSEL -->
+  <section>
+    <div class="section-head">
+      <span class="num">04</span>
+      <h2>Sample · Carousel</h2>
+    </div>
+    <p class="lead-soft">Topic: <em>Adult children of emotionally immature parents.</em> This is the angle of your highest-comment post — I rebuilt it as a carousel because, in your sample, carousels outperform images 7×. Designed in your cream + coral brand system. Voice mirrored from your own captions.</p>
+
+    <div class="sample">
+      <h3>"7 signs you were raised by an emotionally immature parent"</h3>
+      <div class="meta">10-slide carousel · for @aroadthrough</div>
+
+      <div class="slide">
+        <div class="slide-label">Slide 01 · Cover</div>
+        <div class="slide-body">
+          <span class="big">7 signs you were raised by an emotionally immature parent.</span>
+          <em>and what to do about it.</em>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-label">Slide 02 · Open</div>
+        <div class="slide-body">
+          When you're a kid, you don't have words for it. You just learn to be small.
+          <br><br>
+          By the time you have the words, you've already built a whole life around the small version.
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-label">Slide 03 · Sign 1</div>
+        <div class="slide-body">
+          <span class="big">1. Your pain became their pain.</span>
+          You'd cry, and somehow they'd be the one comforted at the end of it. You'd share something hard, and the conversation would end with you reassuring them.
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-label">Slide 04 · Sign 2</div>
+        <div class="slide-body">
+          <span class="big">2. You learned to read the room before you learned to read.</span>
+          You knew which version of you got loved that day. You knew what mood to walk in on. You called it being sensitive. It was scanning.
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-label">Slide 05 · Sign 3</div>
+        <div class="slide-body">
+          <span class="big">3. Your needs were treated like burdens.</span>
+          Hunger was annoying. Sadness was inconvenient. Asking for help was "too much." So you stopped asking. You called it being independent. It wasn't.
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-label">Slide 06 · Sign 4</div>
+        <div class="slide-body">
+          <span class="big">4. Their love felt earned, not given.</span>
+          You got the warmth when you were impressive. You got the silence when you weren't. You're now an adult who still measures their worth by output.
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-label">Slide 07 · Sign 5</div>
+        <div class="slide-body">
+          <span class="big">5. They told you you "had it good."</span>
+          You did have a roof. You did have food. And you also had a parent who couldn't hold your sadness. Both can be true.
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-label">Slide 08 · Sign 6</div>
+        <div class="slide-body">
+          <span class="big">6. You're calmer with strangers than with them.</span>
+          The dysregulation around your parent isn't proof you're "not over it." It's proof your nervous system remembers something your conscious mind has forgiven.
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-label">Slide 09 · Sign 7</div>
+        <div class="slide-body">
+          <span class="big">7. You're the first one in your family doing the work.</span>
+          That's the loneliest part. It's also the part that ends the cycle. You can do hard things ✨
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-label">Slide 10 · CTA</div>
+        <div class="slide-body">
+          <span class="big">If any of this sounds like you, I made something for you.</span>
+          Comment <strong>ROAD</strong> below and I'll DM you a free reflection guide — the same one I use with my own clients in the first 90 days of work. 🫶🏼
+        </div>
+      </div>
+
+      <div class="caption-block">
+        <div class="label">Caption</div>
+        <p>This is what emotional immaturity looks like — when you're a kid, you don't have words for it. You just learn to be small.</p>
+        <p>If you've ever found yourself comforting your parent about your own childhood, you know exactly what I mean. You ended up holding the room for the person who was supposed to hold it for you.</p>
+        <p>Most of my clients are the only one in their family doing this work. That's the lonely part. It's also the part that ends the cycle.</p>
+        <p>Comment <strong>ROAD</strong> and I'll DM you a free reflection guide — "7 signs &amp; the first 5 things to do about it." Straight to your inbox, no email needed.</p>
+        <p>—</p>
+        <p>A Road Through is all about helping entrepreneurs and creatives heal &amp; transform their present. We offer online sessions to all California residents &amp; in-person sessions in LA + Sherman Oaks.</p>
+        <p style="font-size:13px;color:var(--ink-soft)">#emotionallyimmatureparents #childhoodtraumarecovery #losangelestherapist #brainspotting #emdr #healing #therapyworks #believewomen</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. SAMPLE 2 — REEL -->
+  <section>
+    <div class="section-head">
+      <span class="num">05</span>
+      <h2>Sample · Reel script</h2>
+    </div>
+    <p class="lead-soft">Topic: <em>Why calm feels unsafe to a chaos-trained nervous system.</em> The angle from your post that hit 5,931 views — restructured with a 1.5-second text-on-screen hook to break the median-views ceiling. 32 seconds total, designed for a single take against your usual greenery backdrop.</p>
+
+    <div class="sample">
+      <h3>"calm feels unsafe?"</h3>
+      <div class="meta">32-second reel · for @aroadthrough</div>
+
+      <div class="reel-beat">
+        <div class="timecode">0:00 – 1.5</div>
+        <div class="body">
+          <div class="visual">Visual · close-up, you mid-sentence already, no fade-in</div>
+          <div class="text-overlay">calm feels unsafe?</div>
+          <div class="spoken"><strong>Spoken:</strong> "If a calm relationship makes you anxious, you're not broken —"</div>
+        </div>
+      </div>
+
+      <div class="reel-beat">
+        <div class="timecode">1.5 – 4</div>
+        <div class="body">
+          <div class="visual">Visual · same shot, text overlay updates</div>
+          <div class="text-overlay">your nervous system is doing exactly what it learned</div>
+          <div class="spoken"><strong>Spoken:</strong> "— your nervous system is doing exactly what it learned to do."</div>
+        </div>
+      </div>
+
+      <div class="reel-beat">
+        <div class="timecode">4 – 14</div>
+        <div class="body">
+          <div class="visual">Visual · cut to walk-and-talk OR sit-and-explain, hands moving</div>
+          <div class="spoken"><strong>Spoken:</strong> "When chaos was your normal, calm doesn't feel like peace. It feels like the moment before something bad happens. So you start a fight. Or you pick a partner who keeps you guessing. Or you wait for the other shoe to drop."</div>
+        </div>
+      </div>
+
+      <div class="reel-beat">
+        <div class="timecode">14 – 25</div>
+        <div class="body">
+          <div class="visual">Visual · back to direct camera, softer tone, slow blink</div>
+          <div class="spoken"><strong>Spoken:</strong> "This isn't a character flaw. It's a survival skill that worked. Your job now isn't to feel ashamed of it — it's to teach your body that safe is a place you're allowed to live."</div>
+        </div>
+      </div>
+
+      <div class="reel-beat">
+        <div class="timecode">25 – 32</div>
+        <div class="body">
+          <div class="visual">Visual · sit back, gentle smile, slight pause before delivering CTA</div>
+          <div class="text-overlay">comment ROAD</div>
+          <div class="spoken"><strong>Spoken:</strong> "If you saw yourself in this — comment ROAD and I'll DM you a 5-minute reflection I use with my own clients."</div>
+        </div>
+      </div>
+
+      <div class="caption-block">
+        <div class="label">Caption</div>
+        <p>If you've had a history of childhood trauma, calm doesn't always feel like peace. It can feel like the moment before something bad happens.</p>
+        <p>So you start a fight. You pick the partner who keeps you guessing. You wait for the other shoe to drop in a relationship that genuinely is good — and call yourself self-sabotaging.</p>
+        <p>This isn't a character flaw. It's a survival skill that worked. The work isn't to "stop" wanting chaos. The work is to teach your body that safe is a place you're allowed to live.</p>
+        <p>Comment <strong>ROAD</strong> and I'll DM you "What does calm feel like in your body?" — a 5-minute reflection I use with my own clients in the first month of work. 🫶🏼</p>
+        <p>—</p>
+        <p>A Road Through is all about helping entrepreneurs and creatives heal &amp; transform their present. Online sessions for any California resident, in-person in LA + Sherman Oaks.</p>
+        <p style="font-size:13px;color:var(--ink-soft)">#nervoussystem #traumarecovery #brainspotting #emdr #losangelestherapist #healing #safespaces #anxiousattachment</p>
+      </div>
+    </div>
+
+    <div class="note">
+      I wrote both samples after reading 25+ of your captions in full. The em-dash separators, the closing footer pattern, the "I see you" register, the "comment ROAD" trigger — those are your moves, not mine. If we work together, every piece goes through this same forensic voice pass before it gets sent to you.
+    </div>
+  </section>
+
+  <!-- 6. WHY ME -->
+  <section>
+    <div class="section-head">
+      <span class="num">06</span>
+      <h2>Why I'm different from a generic SMM</h2>
+    </div>
+    <ul class="pos-list">
+      <li>
+        <strong>I read the account before I write the pitch.</strong>
+        <span>This proposal is built off your actual data — 100 posts, every viral and every flop. Most agencies send the same deck to ten therapists at once.</span>
+      </li>
+      <li>
+        <strong>I clone voice, not just format.</strong>
+        <span>If a sample doesn't sound like a post you'd write, I rewrite it before it ever reaches you. Voice match is the only proof that matters.</span>
+      </li>
+      <li>
+        <strong>I plan for your actual life — not a 7-post-a-week fantasy.</strong>
+        <span>You're a working clinician. The plan respects that. Every system is built to survive a busy quarter without going dark for 7 months.</span>
+      </li>
+      <li>
+        <strong>I work with the brand metaphor you already have.</strong>
+        <span>"A Road Through" is the spine. I don't rebrand. I sharpen.</span>
+      </li>
+    </ul>
+  </section>
+
+  <!-- 7. CTA -->
+  <section>
+    <div class="cta-block">
+      <h2>Want to talk about it?</h2>
+      <p>Easiest next step is a 20-minute call to walk through what you'd actually want — no obligation, no slide deck. If we don't fit, I'll tell you who in my network might.</p>
+      <a class="cta-btn" href="https://www.instagram.com/evelyn.contentally/">DM me on Instagram</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="sig">— Evelyn</div>
+    <div>Written for @aroadthrough · Not a template.</div>
+  </footer>
+
+</div>
+</body>
+</html>
