@@ -1,0 +1,535 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>A proposal for @nomadmelissa</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#f4ebde;
+    --bg-deep:#ead8c2;
+    --ink:#3a2418;
+    --ink-soft:#6e4f3d;
+    --hero:#c9783d;
+    --hero-deep:#a8542a;
+    --soft:#dec9a8;
+    --line:#d6c1a4;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Inter',-apple-system,Helvetica,Arial,sans-serif;
+    font-weight:400;
+    font-size:17px;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  .page{max-width:760px;margin:0 auto;padding:80px 32px 120px}
+  @media (max-width:640px){.page{padding:48px 22px 80px}}
+
+  h1,h2,h3{font-family:'Cormorant Garamond',Georgia,serif;font-weight:400;letter-spacing:-0.005em}
+  h1{font-size:clamp(48px,10vw,86px);line-height:0.98;font-weight:300}
+  h2{font-size:clamp(28px,5vw,42px);line-height:1.08;margin-bottom:18px;font-weight:400}
+  h3{font-size:22px;line-height:1.25;margin-bottom:8px;font-weight:500}
+  p{margin-bottom:14px}
+  em{font-style:italic;color:var(--ink-soft)}
+
+  .label{
+    font-family:'Inter',sans-serif;
+    font-size:11px;letter-spacing:0.2em;text-transform:uppercase;
+    color:var(--hero-deep);font-weight:500;
+  }
+  .num{
+    font-family:'Cormorant Garamond',serif;font-size:13px;letter-spacing:0.1em;
+    color:var(--ink-soft);text-transform:uppercase;font-weight:500;
+  }
+
+  .hero{padding:24px 0 60px;border-bottom:1px solid var(--line);margin-bottom:64px}
+  .hero .label{margin-bottom:24px}
+  .hero h1{margin-bottom:20px}
+  .hero .at{color:var(--hero)}
+  .hero .tag{
+    font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:300;
+    font-size:clamp(20px,2.6vw,24px);color:var(--ink-soft);
+    max-width:560px;line-height:1.4;margin-top:12px
+  }
+  .hero .by{margin-top:42px;font-size:14px;color:var(--ink-soft);letter-spacing:0.04em}
+
+  section{padding:64px 0;border-bottom:1px solid var(--line)}
+  section:last-of-type{border-bottom:none}
+  .section-head{display:flex;gap:24px;align-items:baseline;margin-bottom:32px}
+  .section-head .num{flex-shrink:0;width:60px}
+
+  .lead{font-size:19px;line-height:1.6;color:var(--ink);margin-bottom:18px}
+  .lead-soft{font-size:17px;color:var(--ink-soft);line-height:1.7;margin-bottom:14px}
+
+  blockquote{
+    border-left:2px solid var(--hero);
+    padding:6px 0 6px 22px;margin:24px 0;
+    font-family:'Cormorant Garamond',serif;font-style:italic;font-size:19px;
+    line-height:1.5;color:var(--ink);
+  }
+  blockquote .src{
+    display:block;margin-top:10px;font-family:'Inter',sans-serif;
+    font-style:normal;font-size:12px;letter-spacing:0.1em;
+    text-transform:uppercase;color:var(--ink-soft);
+  }
+  blockquote .src a{color:var(--hero-deep);text-decoration:none;border-bottom:1px solid var(--soft)}
+
+  .obs{display:grid;gap:24px;margin-top:28px}
+  .obs-card{
+    background:var(--bg-deep);
+    border:1px solid var(--line);
+    padding:28px 28px 26px;
+    border-radius:2px;
+  }
+  .obs-card .label{margin-bottom:12px}
+  .obs-card h3{margin-bottom:10px;color:var(--ink)}
+  .obs-card p{font-size:15.5px;color:var(--ink-soft);margin-bottom:10px}
+  .obs-card .evidence{
+    font-size:13px;font-family:'Inter',sans-serif;color:var(--hero-deep);
+    border-top:1px solid var(--line);padding-top:12px;margin-top:14px;
+    letter-spacing:0.02em;
+  }
+
+  .services{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:24px}
+  @media (max-width:640px){.services{grid-template-columns:1fr}}
+  .svc{
+    border:1px solid var(--line);background:#fbf3e5;
+    padding:24px 22px;border-radius:2px;display:flex;flex-direction:column;
+  }
+  .svc h3{font-size:20px;margin-bottom:6px}
+  .svc .scope{font-size:13.5px;color:var(--ink-soft);margin-bottom:12px;letter-spacing:0.02em}
+  .svc ul{list-style:none;padding:0;margin:0 0 16px;font-size:14.5px;color:var(--ink)}
+  .svc ul li{padding:6px 0;border-bottom:1px dashed var(--line);line-height:1.45}
+  .svc ul li:last-child{border-bottom:none}
+  .svc ul li::before{content:"·";margin-right:10px;color:var(--hero);font-weight:700}
+  .svc .price{
+    margin-top:auto;font-family:'Cormorant Garamond',serif;font-size:19px;
+    color:var(--hero-deep);padding-top:12px;border-top:1px solid var(--line);
+  }
+  .svc .price small{font-family:'Inter',sans-serif;font-size:12px;color:var(--ink-soft);letter-spacing:0.04em;display:block;margin-top:2px}
+
+  .sample{
+    background:#fffaf0;
+    border:1px solid var(--line);
+    padding:36px 32px;
+    margin-top:28px;border-radius:2px;
+  }
+  .sample h3{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:500;margin-bottom:6px}
+  .sample .meta{font-size:12px;letter-spacing:0.12em;text-transform:uppercase;color:var(--hero-deep);margin-bottom:24px}
+  .slide{padding:14px 0;border-bottom:1px dashed var(--line)}
+  .slide:last-child{border-bottom:none}
+  .slide .slide-label{font-family:'Cormorant Garamond',serif;font-size:13px;color:var(--hero-deep);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:6px;font-weight:500}
+  .slide .slide-body{font-size:16px;line-height:1.55;color:var(--ink)}
+  .slide .slide-body .big{font-family:'Cormorant Garamond',serif;font-size:23px;line-height:1.25;color:var(--ink);display:block;margin-bottom:6px;font-weight:500}
+  .slide .slide-body em{color:var(--ink-soft)}
+  .caption-block{
+    margin-top:24px;padding:24px;background:var(--bg-deep);
+    font-size:15px;line-height:1.65;border-radius:2px;
+  }
+  .caption-block .label{margin-bottom:14px}
+  .caption-block p{margin-bottom:10px}
+  .reel-beat{display:grid;grid-template-columns:90px 1fr;gap:18px;padding:14px 0;border-bottom:1px dashed var(--line)}
+  .reel-beat:last-child{border-bottom:none}
+  .reel-beat .timecode{font-family:'Cormorant Garamond',serif;font-size:15px;color:var(--hero-deep);letter-spacing:0.04em;padding-top:2px;font-weight:500}
+  .reel-beat .body{font-size:15.5px;line-height:1.55}
+  .reel-beat .visual{font-size:13px;color:var(--ink-soft);font-style:italic;margin-bottom:4px}
+  .reel-beat .text-overlay{display:inline-block;background:var(--ink);color:var(--bg);padding:2px 8px;font-size:13px;letter-spacing:0.04em;border-radius:2px;margin-top:4px}
+
+  .note{
+    margin-top:28px;padding:22px 26px;
+    background:#fbf3e5;border:1px dashed var(--hero);border-radius:2px;
+    font-size:14.5px;line-height:1.6;color:var(--ink-soft);font-style:italic;
+  }
+
+  .pos-list{list-style:none;padding:0;margin-top:14px}
+  .pos-list li{padding:14px 0;border-bottom:1px solid var(--line);font-size:16px;line-height:1.55}
+  .pos-list li:last-child{border-bottom:none}
+  .pos-list li strong{display:block;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:19px;margin-bottom:4px;color:var(--ink)}
+  .pos-list li span{color:var(--ink-soft)}
+
+  .cta-block{
+    text-align:center;padding:48px 24px;background:var(--bg-deep);
+    border-radius:2px;margin-top:32px
+  }
+  .cta-block h2{margin-bottom:14px}
+  .cta-block p{font-size:17px;color:var(--ink-soft);max-width:540px;margin:0 auto 24px}
+  .cta-btn{
+    display:inline-block;padding:16px 40px;
+    background:var(--hero);color:#fff;text-decoration:none;
+    font-family:'Inter',sans-serif;font-weight:500;font-size:15px;
+    letter-spacing:0.06em;text-transform:uppercase;border-radius:2px;
+    transition:background 0.2s ease;
+  }
+  .cta-btn:hover{background:var(--hero-deep)}
+
+  footer{margin-top:80px;padding-top:32px;border-top:1px solid var(--line);font-size:13px;color:var(--ink-soft);text-align:center}
+  footer .sig{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:20px;color:var(--ink);margin-bottom:8px}
+
+  a.inline{color:var(--hero-deep);text-decoration:none;border-bottom:1px solid var(--soft)}
+  a.inline:hover{border-bottom-color:var(--hero)}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header class="hero">
+    <div class="label">A proposal · For Melissa Schumacher</div>
+    <h1>For <span class="at">@nomadmelissa</span></h1>
+    <p class="tag">A strategy for what comes after the 1 million view reel. Built around your mosaic, not against it.</p>
+    <p class="by">Written by Evelyn</p>
+  </header>
+
+  <section>
+    <div class="section-head">
+      <span class="num">01</span>
+      <h2>What I noticed</h2>
+    </div>
+    <p class="lead">Most people who get a 1.15 million view reel pivot. They drop the rest of their work and become a "nervous system creator" or a "Bali creator" or a "self-publishing creator." You won't do that. I think that's the right call.</p>
+    <p class="lead-soft">I read 100 of your posts before I wrote a word of this. The line that decided this proposal was this one:</p>
+    <blockquote>
+      My joy comes from the mix. The mosaic. If I only wrote books, I wouldn't be happy. If I only coached, I wouldn't be happy. If I only did charity, I wouldn't be happy. If I only tested spas all day, definitely not.
+      <span class="src"><a href="https://www.instagram.com/p/DRb85u_kUmh/">Source · "What I love about my job"</a></span>
+    </blockquote>
+    <p class="lead-soft">The conventional advice would be to niche down. To pick "doing nothing" or to pick "Bali" or to pick "self-publishing" and force the algorithm to rank you for it. The conventional advice would also miss why you got the viral in the first place. The "doing nothing" reel was not a wellness post. It was a self-publisher in Bali, in her own home, sitting still next to a partner she met at the gym, with a six-month book project hanging over her head, doing nothing on purpose. The mosaic <em>is</em> the content.</p>
+    <p class="lead-soft">What needs to happen is not a niche. It is a frame strong enough to hold all the pieces. You already wrote the frame. <em>"Open-world game."</em> <em>"Stone Age brain."</em> <em>"Mosaic."</em> The strategy is to stop letting those metaphors live inside one caption at a time and let them carry the whole grid.</p>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <span class="num">02</span>
+      <h2>Three things in the data</h2>
+    </div>
+    <p class="lead-soft">After 100 posts and the back end of your numbers, three patterns stood out. None of them require you to change voice. All three are reversible inside 30 days.</p>
+
+    <div class="obs">
+      <div class="obs-card">
+        <div class="label">Observation 01 · Cadence</div>
+        <h3>Your output peaked at 23 posts in January, the month of the viral, then halved. The momentum is leaking now.</h3>
+        <p>October to January, 65 posts. February to April, 35 posts. The 1.15M view reel is from December. Most accounts that hit one viral see follower growth for 60 to 90 days afterward, then slow attrition unless they ship a follow-up category. You are inside that window right now.</p>
+        <div class="evidence">Source · 100-post audit, monthly cadence</div>
+      </div>
+
+      <div class="obs-card">
+        <div class="label">Observation 02 · Format</div>
+        <h3>91% Reels, 7% carousels. Your highest comment rate is on carousels.</h3>
+        <p>Reels averaged 27 comments. Carousels averaged 60. You have almost zero saved, screenshotted, or shared content despite a viral worth 99,720 likes. A carousel version of the same content saves and shares in ways a reel structurally cannot.</p>
+        <div class="evidence">Source · format breakdown, n=100</div>
+      </div>
+
+      <div class="obs-card">
+        <div class="label">Observation 03 · Lead capture</div>
+        <h3>The viral reel generated 99,720 likes and zero captured leads. The pattern that would have captured them already lives in your account.</h3>
+        <p>Comment "Kintamani" got 84 comments. Comment "bali view" got 68. Comment "jungle sauna" got 53. You already use comment-trigger CTAs for Bali content and they work. The same pattern was missing from the doing-nothing series. Same audience, same instinct, no funnel.</p>
+        <div class="evidence">Source · top comment-trigger posts, <a class="inline" href="https://www.instagram.com/p/DT6_xOyEXPk/">Kintamani</a>, <a class="inline" href="https://www.instagram.com/p/DQYrINkESMQ/">bali view</a></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <span class="num">03</span>
+      <h2>What I can build with you</h2>
+    </div>
+    <p class="lead-soft">Six ways we can work. The first is the foundation. The middle four are tactical packs sized for a working author. The last two are if this becomes a longer thing.</p>
+
+    <div class="services">
+      <div class="svc">
+        <h3>01 · Strategy &amp; Mosaic Plan</h3>
+        <div class="scope">DM-based intake · 14-day delivery</div>
+        <ul>
+          <li>A pillar map that holds all six niches without flattening any of them</li>
+          <li>Hook bank, 30 hooks pulled from your existing viral patterns</li>
+          <li>90-day bilingual rotation calendar (DE / EN / mixed)</li>
+          <li>Async written walkthrough you can read in your own time</li>
+        </ul>
+        <div class="price">Investment: quoted per scope <small>after we talk over DM</small></div>
+      </div>
+
+      <div class="svc">
+        <h3>02 · "Doing Nothing" Lead Magnet</h3>
+        <div class="scope">"Comment NOTHING" funnel · 21-day build</div>
+        <ul>
+          <li>Bilingual PDF guide, the 10 daily prompts you used (8 to 12 pages)</li>
+          <li>Simple landing page hosting both language versions, no email gate required</li>
+          <li>One promotional carousel + one promotional reel script</li>
+          <li>Saved-reply DM templates so each comment is a 30-second hand-off, no automation tools needed</li>
+        </ul>
+        <div class="price">$650 <small>one-time · includes one revision round</small></div>
+      </div>
+
+      <div class="svc">
+        <h3>03 · Bilingual Carousel Pack</h3>
+        <div class="scope">4 carousels · monthly</div>
+        <ul>
+          <li>4 fully-designed carousels (8 to 10 slides each)</li>
+          <li>Two languages per carousel, one master design, two text variants</li>
+          <li>Built from your existing reels, blogs, and book material</li>
+          <li>Earth-tone brand system that matches your feed</li>
+        </ul>
+        <div class="price">$440 / month <small>= $110 / carousel · billed monthly</small></div>
+      </div>
+
+      <div class="svc">
+        <h3>04 · Reel Hook Engineering</h3>
+        <div class="scope">4 reel scripts · monthly</div>
+        <ul>
+          <li>4 reel scripts written in your voice and shot list</li>
+          <li>First 1.5-second hook engineered to break median (currently 5,800 views)</li>
+          <li>Caption + on-screen text + comment-trigger CTA per reel</li>
+          <li>Light edit on footage you record, optional</li>
+        </ul>
+        <div class="price">$380 / month <small>= $95 / reel · billed monthly</small></div>
+      </div>
+
+      <div class="svc">
+        <h3>05 · 30-Day Viral Follow-Up</h3>
+        <div class="scope">12-post series · one-time</div>
+        <ul>
+          <li>Storyboard + scripts for 12 posts (6 reels, 4 carousels, 2 essays)</li>
+          <li>Branded series name and cover system, e.g. "30 Days of Less" or "The Open-World Reset"</li>
+          <li>Distribution plan that builds on the 1.15M reel rather than starting cold</li>
+          <li>Lead magnet integration so growth compounds into your email list</li>
+        </ul>
+        <div class="price">Custom scope <small>30 days of publish-ready content</small></div>
+      </div>
+
+      <div class="svc">
+        <h3>06 · Ongoing Partnership</h3>
+        <div class="scope">Retainer · custom scope</div>
+        <ul>
+          <li>Daily content management, DM triage, comment moderation</li>
+          <li>Sponsor coordination and brand-deal vetting on-brand for Indojunkie</li>
+          <li>English-language product launch when audience is ready</li>
+          <li>Reserved for clients we already have rhythm with</li>
+        </ul>
+        <div class="price">Custom scope <small>discussed after the first project</small></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <span class="num">04</span>
+      <h2>Sample · Reel script</h2>
+    </div>
+    <p class="lead-soft">Topic: <em>"Day 11 of 10. Six months later."</em> A bridge back to the viral series with a new angle. Honest reflection on what stuck and what did not. Hook engineered for the first 1.5 seconds. 32 seconds total, designed for a single take in your home or somewhere familiar from the original series.</p>
+
+    <div class="sample">
+      <h3>"Day 11 of 10. Six months later."</h3>
+      <div class="meta">32-second reel · for @nomadmelissa</div>
+
+      <div class="reel-beat">
+        <div class="timecode">0:00 to 1.5</div>
+        <div class="body">
+          <div class="visual">Visual · close-up, you on the floor cushion or somewhere familiar from the viral, mid-action</div>
+          <div class="text-overlay">Day 11 of 10. Six months later.</div>
+          <div><strong>Spoken:</strong> "Six months ago I did a 10-day 'doing nothing' challenge..."</div>
+        </div>
+      </div>
+
+      <div class="reel-beat">
+        <div class="timecode">1.5 to 5</div>
+        <div class="body">
+          <div class="visual">Visual · same shot, text overlay updates</div>
+          <div class="text-overlay">Here's what actually stuck.</div>
+          <div><strong>Spoken:</strong> "...one of the reels hit a million views. Today I'm telling you what changed in my nervous system, and what didn't."</div>
+        </div>
+      </div>
+
+      <div class="reel-beat">
+        <div class="timecode">5 to 16</div>
+        <div class="body">
+          <div class="visual">Visual · cut to walk-and-talk OR sit-and-explain in different room</div>
+          <div><strong>Spoken:</strong> "Before the challenge, my baseline was 'low-grade alert' all day. I called it being focused. It was just a tense version of awake. After, the surprising part wasn't that I learned to do nothing. It was that I started noticing the moments I couldn't."</div>
+        </div>
+      </div>
+
+      <div class="reel-beat">
+        <div class="timecode">16 to 26</div>
+        <div class="body">
+          <div class="visual">Visual · back to direct camera, soft tone</div>
+          <div><strong>Spoken:</strong> "Now when I open a Zoom call and feel my chest tighten, I know what's happening. Stone Age brain thinks Zoom is a tiger. Adult me drinks water, takes 3 breaths, shows up anyway. The challenge didn't make me 'calm.' It taught me to recognize when I'm not."</div>
+        </div>
+      </div>
+
+      <div class="reel-beat">
+        <div class="timecode">26 to 32</div>
+        <div class="body">
+          <div class="visual">Visual · settle in, soft smile</div>
+          <div class="text-overlay">comment NOTHING</div>
+          <div><strong>Spoken:</strong> "If you want to try the original 10 days, comment NOTHING and I'll DM you the daily prompts. Free. No email. No funnel."</div>
+        </div>
+      </div>
+
+      <div class="caption-block">
+        <div class="label">Caption</div>
+        <p>Six months ago I did a 10-day "doing nothing" challenge that turned into a 1 million view reel. People still DM me about it weekly.</p>
+        <p>Here's the part nobody tells you about going viral on a wellness series. The challenge ends, the views fade, and you're left with the actual question. Did the nervous system stuff stick?</p>
+        <p>Honestly. Some of it. Not all.</p>
+        <p>What stuck:<br>
+        👉 I notice when I'm dysregulated now (huge)<br>
+        👉 Bottom-up first. Sauna, walk, real food before any meditation app<br>
+        👉 "Doing nothing" 20 min a day, not 1 hour anymore. Realistic beats perfect<br>
+        👉 Zoom calls, deadlines, inbox = tiger. I name it now. Adult me handles it anyway</p>
+        <p>What didn't:<br>
+        👉 The 1-hour daily practice. I'm not built for it long-term<br>
+        👉 The illusion that calm is a destination</p>
+        <p>Doing nothing isn't the goal. Knowing when you're not is.</p>
+        <p>Comment <strong>NOTHING</strong> and I'll DM you the original 10 daily prompts I used 🫶 free, bilingual (DE / EN), no email needed.</p>
+        <p style="font-size:13px;color:var(--ink-soft)">#nervoussystemregulation #doingnothing #balilife #indojunkie</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <span class="num">05</span>
+      <h2>Sample · Carousel</h2>
+    </div>
+    <p class="lead-soft">Topic: <em>"Why your inbox feels like a deadly snake."</em> Your <a class="inline" href="https://www.instagram.com/p/DQ5wswykSy3/">Stone Age brain reel</a> got 16,904 views with one of your strongest hooks ever. Reels do not save and share. Carousels do. This is the same content, restructured for the format that grows your audience by ten percent rather than by three percent.</p>
+
+    <div class="sample">
+      <h3>"Why your inbox feels like a deadly snake."</h3>
+      <div class="meta">10-slide carousel · for @nomadmelissa</div>
+
+      <div class="slide">
+        <div class="slide-label">Slide 01 · Cover</div>
+        <div class="slide-body">
+          <span class="big">Why your inbox feels like a deadly snake.</span>
+          <em>And what to do when it does.</em>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-label">Slide 02 · Open</div>
+        <div class="slide-body">
+          We are running modern businesses with a brain that still thinks we live in the Stone Age. Your body still scans for tigers and snakes. Your calendar still thinks it is a Tuesday in 2026. They are not on the same page.
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-label">Slide 03 · Translation 1</div>
+        <div class="slide-body">
+          <span class="big">You open your inbox.</span>
+          Your body: "There is a deadly snake. WE'RE GONNA DIE."
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-label">Slide 04 · Translation 2</div>
+        <div class="slide-body">
+          <span class="big">A client says "Can we talk?"</span>
+          Your body hears something rustling in the bushes. Going live on Instagram? Tiger chasing you. Zoom call? Predator at the cave entrance.
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-label">Slide 05 · Translation 3</div>
+        <div class="slide-body">
+          <span class="big">Bad reviews. Hate comments. A client cancels.</span>
+          Your brain reads: "kicked out of the tribe." For a Stone Age brain, that meant death. So your body acts like death is on the way.
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-label">Slide 06 · The freak-out</div>
+        <div class="slide-body">
+          Panic attacks. Constant tiredness. Bad sleep. Numbness. Not because you are weak. Because your body thinks you live in a cave with a tiger that never leaves.
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-label">Slide 07 · Reframe</div>
+        <div class="slide-body">
+          Your body is not betraying you. It is protecting you. From a danger that hasn't existed for ten thousand years.
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-label">Slide 08 · The trap</div>
+        <div class="slide-body">
+          We were not built to chase "more business, more money, more of everything." Every "more" is also a "more tigers in the cave."
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-label">Slide 09 · The upgrade</div>
+        <div class="slide-body">
+          <span class="big">Build a business that feels like the nap after a warm meal in a quiet cave.</span>
+          With occasional fights with tigers. But not every day. Not every hour.
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-label">Slide 10 · CTA</div>
+        <div class="slide-body">
+          <span class="big">If your inbox feels like a tiger, I made something for you.</span>
+          Comment <strong>STONE</strong> below and I'll DM you the 5-minute reset I use before opening mine. 🫶 free, bilingual, no email needed.
+        </div>
+      </div>
+
+      <div class="caption-block">
+        <div class="label">Caption</div>
+        <p>You open your inbox and your nervous system gets ready to die.</p>
+        <p>Welcome to running a modern business with a Stone Age brain.</p>
+        <p>Your body still scans for tigers, snakes, and tribe rejection. Modern stressors (Zoom calls, hate comments, client cancellations) hit the same threat circuits. So of course you are tired. Of course you can't sleep. Your body thinks you live in a cave with a predator that never leaves.</p>
+        <p>The fix isn't "build a stronger mindset." The fix is teach the body that the inbox isn't a snake.</p>
+        <p>Comment <strong>STONE</strong> and I'll DM you the exact 5-minute reset I use before opening mine 🫶 free, bilingual (DE / EN), no email needed.</p>
+        <p style="font-size:13px;color:var(--ink-soft)">#nervoussystemregulation #stoneagedbrain #entrepreneurmentalhealth #indojunkie</p>
+      </div>
+    </div>
+
+    <div class="note">
+      I wrote both samples after reading 25+ of your captions in full. The "Day X of 10" framing, the bottom-up nervous system hierarchy, the Stone Age brain metaphor, the comment-trigger CTAs, the "no email, no funnel" honesty. Those are your moves, not mine. If we work together, every piece goes through this same forensic voice pass before it reaches you.
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <span class="num">06</span>
+      <h2>Why I'm different from a generic SMM</h2>
+    </div>
+    <ul class="pos-list">
+      <li>
+        <strong>I read the account before I write the pitch.</strong>
+        <span>This proposal is built off your actual data. 100 posts, every viral and every flop. Most agencies send the same deck to ten authors at once.</span>
+      </li>
+      <li>
+        <strong>I respect the mosaic.</strong>
+        <span>I will not pitch you on niching down. The strategy is to make the algorithm understand your range, not flatten it.</span>
+      </li>
+      <li>
+        <strong>I work bilingual.</strong>
+        <span>German for the book audience, English for the growth surface, both planned in the same calendar so neither feed dies on a busy week.</span>
+      </li>
+      <li>
+        <strong>I plan for an author's life, not a full-time creator's life.</strong>
+        <span>You write books. The system has to survive a manuscript week without going dark.</span>
+      </li>
+    </ul>
+  </section>
+
+  <section>
+    <div class="cta-block">
+      <h2>Want to talk about it?</h2>
+      <p>Just DM me. Tell me what you've been thinking about your account. What's been frustrating, what's working, what you keep wanting to write but haven't found the format for. I'll listen, and we'll figure out what (if anything) makes sense from there.</p>
+      <a class="cta-btn" href="https://www.instagram.com/evelyn.contentally/">DM me on Instagram</a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="sig">— Evelyn</div>
+    <div>Written for @nomadmelissa · Not a template.</div>
+  </footer>
+
+</div>
+</body>
+</html>
