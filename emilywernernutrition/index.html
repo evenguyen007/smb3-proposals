@@ -7,191 +7,286 @@
 <title>A proposal for @emilywernernutrition</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg:#f6f0e8;
-    --bg-deep:#ece0d2;
-    --ink:#281c14;
-    --ink-soft:#6e4838;
-    --hero:#bf6a52;
-    --hero-deep:#9a3e2c;
-    --soft:#ddc2b4;
-    --line:#d4bab0;
+    --bg:#eef2eb;
+    --bg-deep:#dde8d9;
+    --ink:#172014;
+    --ink-soft:#4a5f47;
+    --hero:#3a6641;
+    --hero-deep:#264730;
+    --soft:#b6ccb2;
+    --line:#c4d6c0;
+    --cream:#f8faf7;
   }
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth}
   body{
     background:var(--bg);
     color:var(--ink);
-    font-family:'Inter',-apple-system,Helvetica,Arial,sans-serif;
+    font-family:'Plus Jakarta Sans',-apple-system,Helvetica,Arial,sans-serif;
     font-weight:400;
-    font-size:17px;
-    line-height:1.65;
+    font-size:16.5px;
+    line-height:1.7;
     -webkit-font-smoothing:antialiased;
   }
-  .page{max-width:760px;margin:0 auto;padding:80px 32px 120px}
-  @media (max-width:640px){.page{padding:48px 22px 80px}}
+  .page{max-width:780px;margin:0 auto;padding:72px 36px 120px}
+  @media(max-width:640px){.page{padding:44px 20px 80px}}
 
-  h1,h2,h3{font-family:'Playfair Display',Georgia,serif;font-weight:400;letter-spacing:-0.005em}
-  h1{font-size:clamp(46px,9.5vw,82px);line-height:0.98;font-weight:400}
-  h2{font-size:clamp(26px,4.5vw,40px);line-height:1.1;margin-bottom:18px;font-weight:400}
-  h3{font-size:21px;line-height:1.25;margin-bottom:8px;font-weight:500}
+  h1,h2,h3{font-family:'DM Serif Display',Georgia,serif;font-weight:400;letter-spacing:0}
+  h1{font-size:clamp(52px,10vw,92px);line-height:0.94;font-style:italic}
+  h2{font-size:clamp(28px,4.5vw,42px);line-height:1.08;margin-bottom:20px}
+  h3{font-size:20px;line-height:1.3;margin-bottom:8px}
   p{margin-bottom:14px}
   em{font-style:italic;color:var(--ink-soft)}
 
   .label{
-    font-family:'Inter',sans-serif;
-    font-size:11px;letter-spacing:0.2em;text-transform:uppercase;
-    color:var(--hero-deep);font-weight:500;
+    font-size:10.5px;letter-spacing:0.22em;text-transform:uppercase;
+    color:var(--hero);font-weight:600;font-family:'Plus Jakarta Sans',sans-serif;
   }
   .num{
-    font-family:'Playfair Display',serif;font-size:13px;letter-spacing:0.1em;
-    color:var(--ink-soft);text-transform:uppercase;font-weight:500;
+    font-family:'DM Serif Display',serif;font-size:72px;line-height:1;
+    color:var(--line);font-style:italic;user-select:none;
   }
 
-  .hero{padding:24px 0 60px;border-bottom:1px solid var(--line);margin-bottom:64px}
-  .hero .label{margin-bottom:24px}
-  .hero h1{margin-bottom:20px}
-  .hero .at{color:var(--hero)}
+  /* HERO */
+  .hero{
+    padding:32px 0 72px;
+    border-bottom:2px solid var(--ink);
+    margin-bottom:72px;
+  }
+  .hero .label{margin-bottom:32px;display:block}
+  .hero h1{margin-bottom:0;color:var(--ink)}
+  .hero h1 .at{color:var(--hero)}
   .hero .tag{
-    font-family:'Playfair Display',serif;font-style:italic;font-weight:400;
-    font-size:clamp(19px,2.5vw,23px);color:var(--ink-soft);
-    max-width:580px;line-height:1.45;margin-top:12px
+    margin-top:28px;
+    font-family:'DM Serif Display',serif;font-style:italic;
+    font-size:clamp(18px,2.4vw,22px);
+    color:var(--ink-soft);line-height:1.45;max-width:580px;
   }
-  .hero .by{margin-top:42px;font-size:14px;color:var(--ink-soft);letter-spacing:0.04em}
+  .hero .by{
+    margin-top:48px;font-size:13px;
+    color:var(--ink-soft);letter-spacing:0.08em;text-transform:uppercase;
+    font-weight:500;
+  }
 
-  section{padding:64px 0;border-bottom:1px solid var(--line)}
+  /* GOODWILL */
+  .goodwill{
+    margin:0 0 56px;
+    padding:28px 32px;
+    background:var(--cream);
+    border-top:3px solid var(--hero);
+    border-bottom:1px solid var(--line);
+  }
+  .goodwill .banner-label{
+    font-size:10.5px;letter-spacing:0.22em;text-transform:uppercase;
+    color:var(--hero);font-weight:600;margin-bottom:12px;
+  }
+  .goodwill p{font-size:15px;line-height:1.65;color:var(--ink);margin:0}
+  .goodwill strong{color:var(--hero-deep);font-weight:600}
+
+  /* SECTIONS */
+  section{
+    display:grid;
+    grid-template-columns:80px 1fr;
+    gap:0 36px;
+    padding:64px 0;
+    border-bottom:1px solid var(--line);
+  }
   section:last-of-type{border-bottom:none}
-  .section-head{display:flex;gap:24px;align-items:baseline;margin-bottom:32px}
-  .section-head .num{flex-shrink:0;width:60px}
+  @media(max-width:640px){
+    section{grid-template-columns:1fr;gap:16px 0}
+    .num{font-size:40px;line-height:1}
+  }
+  .section-body{min-width:0}
 
-  .lead{font-size:19px;line-height:1.6;color:var(--ink);margin-bottom:18px}
-  .lead-soft{font-size:17px;color:var(--ink-soft);line-height:1.7;margin-bottom:14px}
+  .lead{
+    font-size:19px;line-height:1.6;
+    font-family:'DM Serif Display',serif;
+    color:var(--ink);margin-bottom:20px;
+  }
 
   blockquote{
-    border-left:2px solid var(--hero);
-    padding:6px 0 6px 22px;margin:24px 0;
-    font-family:'Playfair Display',serif;font-style:italic;font-size:19px;
-    line-height:1.5;color:var(--ink);
+    margin:24px 0;
+    padding:20px 24px;
+    background:var(--cream);
+    border-left:3px solid var(--hero);
+    font-family:'DM Serif Display',serif;font-style:italic;
+    font-size:18.5px;line-height:1.5;color:var(--ink);
   }
   blockquote .src{
-    display:block;margin-top:10px;font-family:'Inter',sans-serif;
-    font-style:normal;font-size:12px;letter-spacing:0.1em;
-    text-transform:uppercase;color:var(--ink-soft);
+    display:block;margin-top:10px;
+    font-family:'Plus Jakarta Sans',sans-serif;font-style:normal;
+    font-size:11.5px;letter-spacing:0.1em;text-transform:uppercase;
+    color:var(--ink-soft);
   }
   blockquote .src a{color:var(--hero-deep);text-decoration:none;border-bottom:1px solid var(--soft)}
 
-  .obs{display:grid;gap:24px;margin-top:28px}
+  /* OBSERVATIONS */
+  .obs{display:flex;flex-direction:column;gap:2px;margin-top:28px}
   .obs-card{
-    background:var(--bg-deep);
-    border:1px solid var(--line);
-    padding:28px 28px 26px;
-    border-radius:2px;
+    padding:24px 28px 22px;
+    background:var(--cream);
+    border-left:3px solid transparent;
+    transition:border-color 0.15s;
   }
-  .obs-card .label{margin-bottom:12px}
-  .obs-card h3{margin-bottom:10px;color:var(--ink)}
-  .obs-card p{font-size:15.5px;color:var(--ink-soft);margin-bottom:10px}
+  .obs-card:hover{border-left-color:var(--hero)}
+  .obs-card .label{margin-bottom:10px}
+  .obs-card h3{font-family:'Plus Jakarta Sans',sans-serif;font-size:15px;font-weight:600;margin-bottom:10px;line-height:1.4;color:var(--ink)}
+  .obs-card p{font-size:15px;color:var(--ink-soft);margin-bottom:8px;line-height:1.6}
   .obs-card .evidence{
-    font-size:13px;font-family:'Inter',sans-serif;color:var(--hero-deep);
-    border-top:1px solid var(--line);padding-top:12px;margin-top:14px;
-    letter-spacing:0.02em;
+    font-size:12.5px;color:var(--hero);margin-top:12px;
+    padding-top:10px;border-top:1px solid var(--line);
+    letter-spacing:0.03em;
   }
+  .obs-card .evidence a{color:var(--hero-deep);text-decoration:none;border-bottom:1px solid var(--soft)}
 
-  .services{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:24px}
-  @media (max-width:640px){.services{grid-template-columns:1fr}}
+  /* SERVICES */
+  .services{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-top:28px}
+  @media(max-width:640px){.services{grid-template-columns:1fr}}
   .svc{
-    border:1px solid var(--line);background:#fdf5ee;
-    padding:24px 22px;border-radius:2px;display:flex;flex-direction:column;
+    padding:24px 22px 22px;
+    background:var(--cream);
+    display:flex;flex-direction:column;
   }
-  .svc h3{font-size:20px;margin-bottom:6px}
-  .svc .scope{font-size:13.5px;color:var(--ink-soft);margin-bottom:12px;letter-spacing:0.02em}
-  .svc ul{list-style:none;padding:0;margin:0 0 16px;font-size:14.5px;color:var(--ink)}
-  .svc ul li{padding:6px 0;border-bottom:1px dashed var(--line);line-height:1.45}
+  .svc h3{
+    font-family:'Plus Jakarta Sans',sans-serif;
+    font-size:15px;font-weight:700;margin-bottom:5px;color:var(--ink);
+  }
+  .svc .scope{font-size:12.5px;color:var(--hero);margin-bottom:14px;letter-spacing:0.04em;font-weight:500}
+  .svc ul{list-style:none;padding:0;margin:0 0 16px;font-size:14px;color:var(--ink-soft)}
+  .svc ul li{
+    padding:5px 0;border-bottom:1px solid var(--line);line-height:1.4;
+  }
   .svc ul li:last-child{border-bottom:none}
-  .svc ul li::before{content:"·";margin-right:10px;color:var(--hero);font-weight:700}
+  .svc ul li::before{content:"→";margin-right:9px;color:var(--hero);font-size:12px}
   .svc .price{
-    margin-top:auto;font-family:'Playfair Display',serif;font-size:19px;
-    color:var(--hero-deep);padding-top:12px;border-top:1px solid var(--line);
+    margin-top:auto;
+    font-family:'DM Serif Display',serif;font-size:20px;
+    color:var(--hero-deep);
+    padding-top:14px;border-top:2px solid var(--bg-deep);
   }
-  .svc .price small{font-family:'Inter',sans-serif;font-size:12px;color:var(--ink-soft);letter-spacing:0.04em;display:block;margin-top:2px}
+  .svc .price small{
+    font-family:'Plus Jakarta Sans',sans-serif;font-size:11.5px;
+    color:var(--ink-soft);letter-spacing:0.04em;display:block;margin-top:3px;
+  }
 
+  /* SAMPLES */
   .sample{
-    background:#fdf8f2;
-    border:1px solid var(--line);
+    background:var(--cream);
     padding:36px 32px;
-    margin-top:28px;border-radius:2px;
+    margin-top:28px;
   }
-  .sample h3{font-family:'Playfair Display',serif;font-size:26px;font-weight:500;margin-bottom:6px}
-  .sample .meta{font-size:12px;letter-spacing:0.12em;text-transform:uppercase;color:var(--hero-deep);margin-bottom:24px}
-  .slide{padding:14px 0;border-bottom:1px dashed var(--line)}
+  @media(max-width:640px){.sample{padding:24px 18px}}
+  .sample-title{
+    font-family:'DM Serif Display',serif;font-size:28px;font-style:italic;
+    margin-bottom:6px;line-height:1.2;
+  }
+  .sample .meta{
+    font-size:11.5px;letter-spacing:0.14em;text-transform:uppercase;
+    color:var(--hero);font-weight:600;margin-bottom:28px;
+  }
+
+  .slide{padding:16px 0;border-bottom:1px solid var(--line)}
   .slide:last-child{border-bottom:none}
-  .slide .slide-label{font-family:'Playfair Display',serif;font-size:13px;color:var(--hero-deep);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:6px;font-weight:500}
-  .slide .slide-body{font-size:16px;line-height:1.55;color:var(--ink)}
-  .slide .slide-body .big{font-family:'Playfair Display',serif;font-size:23px;line-height:1.25;color:var(--ink);display:block;margin-bottom:6px;font-weight:500}
-  .slide .slide-body em{color:var(--ink-soft)}
-  .caption-block{
-    margin-top:24px;padding:24px;background:var(--bg-deep);
-    font-size:15px;line-height:1.65;border-radius:2px;
+  .slide-label{
+    font-size:10.5px;letter-spacing:0.18em;text-transform:uppercase;
+    color:var(--hero);font-weight:600;margin-bottom:8px;
   }
-  .caption-block .label{margin-bottom:14px}
+  .slide-body{font-size:15.5px;line-height:1.55;color:var(--ink)}
+  .slide-body .big{
+    font-family:'DM Serif Display',serif;font-size:22px;
+    line-height:1.25;color:var(--ink);display:block;margin-bottom:8px;
+  }
+  .slide-body em{color:var(--ink-soft)}
+
+  .caption-block{
+    margin-top:24px;padding:24px 26px;
+    background:var(--bg-deep);
+    font-size:14.5px;line-height:1.7;
+  }
+  .caption-block .label{margin-bottom:12px}
   .caption-block p{margin-bottom:10px}
-  .reel-beat{display:grid;grid-template-columns:90px 1fr;gap:18px;padding:14px 0;border-bottom:1px dashed var(--line)}
+
+  .reel-beat{
+    display:grid;grid-template-columns:84px 1fr;
+    gap:16px;padding:16px 0;border-bottom:1px solid var(--line);
+  }
   .reel-beat:last-child{border-bottom:none}
-  .reel-beat .timecode{font-family:'Playfair Display',serif;font-size:15px;color:var(--hero-deep);letter-spacing:0.04em;padding-top:2px;font-weight:500}
-  .reel-beat .body{font-size:15.5px;line-height:1.55}
-  .reel-beat .visual{font-size:13px;color:var(--ink-soft);font-style:italic;margin-bottom:4px}
-  .reel-beat .text-overlay{display:inline-block;background:var(--ink);color:var(--bg);padding:2px 8px;font-size:13px;letter-spacing:0.04em;border-radius:2px;margin-top:4px}
+  .reel-beat .timecode{
+    font-family:'DM Serif Display',serif;font-size:15px;
+    color:var(--hero-deep);letter-spacing:0.02em;padding-top:2px;
+    font-style:italic;
+  }
+  .reel-beat .body{font-size:15px;line-height:1.55}
+  .reel-beat .visual{font-size:13px;color:var(--ink-soft);font-style:italic;margin-bottom:6px}
+  .reel-beat .text-overlay{
+    display:inline-block;background:var(--ink);color:var(--cream);
+    padding:2px 9px;font-size:12.5px;letter-spacing:0.06em;
+    margin-top:5px;font-weight:600;
+  }
 
   .note{
-    margin-top:28px;padding:22px 26px;
-    background:#fdf5ee;border:1px dashed var(--hero);border-radius:2px;
-    font-size:14.5px;line-height:1.6;color:var(--ink-soft);font-style:italic;
+    margin-top:24px;padding:20px 24px;
+    border-left:3px solid var(--soft);
+    background:transparent;
+    font-size:14px;line-height:1.65;color:var(--ink-soft);font-style:italic;
   }
 
-  .pos-list{list-style:none;padding:0;margin-top:14px}
-  .pos-list li{padding:14px 0;border-bottom:1px solid var(--line);font-size:16px;line-height:1.55}
+  /* POSITIONING */
+  .pos-list{list-style:none;padding:0;margin-top:16px}
+  .pos-list li{
+    padding:16px 0;border-bottom:1px solid var(--line);
+    font-size:15.5px;line-height:1.55;
+    display:grid;grid-template-columns:3px 1fr;gap:0 20px;
+    align-items:start;
+  }
   .pos-list li:last-child{border-bottom:none}
-  .pos-list li strong{display:block;font-family:'Playfair Display',serif;font-weight:500;font-size:19px;margin-bottom:4px;color:var(--ink)}
+  .pos-list li::before{
+    content:"";display:block;width:3px;height:100%;
+    background:var(--hero);border-radius:2px;margin-top:4px;
+  }
+  .pos-list li strong{
+    display:block;font-family:'DM Serif Display',serif;
+    font-size:19px;font-weight:400;margin-bottom:4px;color:var(--ink);
+  }
   .pos-list li span{color:var(--ink-soft)}
 
+  /* CTA */
   .cta-block{
-    text-align:center;padding:48px 24px;background:var(--bg-deep);
-    border-radius:2px;margin-top:32px
+    margin-top:32px;padding:52px 40px;
+    background:var(--hero-deep);color:var(--cream);
+    text-align:center;
   }
-  .cta-block h2{margin-bottom:14px}
-  .cta-block p{font-size:17px;color:var(--ink-soft);max-width:540px;margin:0 auto 24px}
+  @media(max-width:640px){.cta-block{padding:36px 24px}}
+  .cta-block h2{color:var(--cream);margin-bottom:14px}
+  .cta-block p{
+    font-size:17px;color:rgba(248,250,247,0.75);
+    max-width:520px;margin:0 auto 28px;line-height:1.6;
+  }
   .cta-btn{
-    display:inline-block;padding:16px 40px;
-    background:var(--hero);color:#fff;text-decoration:none;
-    font-family:'Inter',sans-serif;font-weight:500;font-size:15px;
-    letter-spacing:0.06em;text-transform:uppercase;border-radius:2px;
-    transition:background 0.2s ease;
+    display:inline-block;padding:15px 44px;
+    background:var(--cream);color:var(--hero-deep);
+    text-decoration:none;
+    font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;
+    font-size:13px;letter-spacing:0.1em;text-transform:uppercase;
+    transition:opacity 0.2s;
   }
-  .cta-btn:hover{background:var(--hero-deep)}
+  .cta-btn:hover{opacity:0.85}
 
-  footer{margin-top:80px;padding-top:32px;border-top:1px solid var(--line);font-size:13px;color:var(--ink-soft);text-align:center}
-  footer .sig{font-family:'Playfair Display',serif;font-style:italic;font-size:20px;color:var(--ink);margin-bottom:8px}
+  footer{
+    margin-top:80px;padding-top:28px;
+    border-top:2px solid var(--ink);
+    font-size:13px;color:var(--ink-soft);text-align:center;
+  }
+  footer .sig{
+    font-family:'DM Serif Display',serif;font-style:italic;
+    font-size:22px;color:var(--ink);margin-bottom:8px;display:block;
+  }
 
   a.inline{color:var(--hero-deep);text-decoration:none;border-bottom:1px solid var(--soft)}
   a.inline:hover{border-bottom-color:var(--hero)}
-
-  .goodwill{
-    margin:0 0 48px;
-    padding:24px 28px 22px;
-    background:#fdf2ec;
-    border:1px solid var(--soft);
-    border-left:3px solid var(--hero);
-    border-radius:2px;
-  }
-  .goodwill .banner-label{
-    font-family:'Inter',sans-serif;
-    font-size:11px;letter-spacing:0.2em;text-transform:uppercase;
-    color:var(--hero-deep);font-weight:500;
-    margin-bottom:10px;
-  }
-  .goodwill p{font-size:15.5px;line-height:1.6;color:var(--ink);margin:0}
-  .goodwill strong{color:var(--hero-deep);font-weight:500}
 </style>
 </head>
 <body>
@@ -199,7 +294,7 @@
 
   <!-- HERO -->
   <header class="hero">
-    <p class="label">A proposal for</p>
+    <span class="label">A proposal for</span>
     <h1><span class="at">@emily</span><wbr>werner<wbr>nutrition</h1>
     <p class="tag">A content strategy built around the proof your body already gave you — and the women who haven't found you yet.</p>
     <p class="by">Written by Evelyn</p>
@@ -211,416 +306,407 @@
     <p>The two sample pieces inside this proposal (a 10-slide anchor story carousel and a 32-second reel script) are <strong>on me</strong>. No charge, not part of any package below, not a sales sample I'm asking you to pay for. They're a gesture of goodwill so you can see actual work in your voice before we ever talk. If you want to publish them as is, they're yours, whether we end up working together or not.</p>
   </div>
 
-  <!-- SECTION 01: WHAT I NOTICED -->
+  <!-- 01 WHAT I NOTICED -->
   <section>
-    <div class="section-head">
-      <span class="num">01</span>
+    <div class="num">01</div>
+    <div class="section-body">
       <h2>What I noticed</h2>
+
+      <p class="lead">I read your pregnancy announcement caption three times before I moved on.</p>
+
+      <p>Not because it was beautiful writing — though it was. Because of the structural fact inside it: one woman, stage 3 endometriosis and adenomyosis, told by three different IVF doctors not to try with her own eggs, now 26 weeks pregnant because she refused to let a statistic be the period at the end of her sentence.</p>
+
+      <p>In the endo nutrition space, that is the most powerful product-market proof I have seen. It is not an origin story. It is a case study with a living result. And right now it is scattered across 100 posts instead of structured into a content arc that compounds.</p>
+
+      <p>I read 100 of your posts before writing a word of this. The line I kept coming back to wasn't the pregnancy update. It was this one, which shows up across at least four separate captions:</p>
+
+      <blockquote>
+        "Your body is not broken. It's been trying to heal without the right support."
+        <span class="src">Recurring brand line — <a href="https://www.instagram.com/p/DW6qb_7Eb4M/" target="_blank">DW6qb_7Eb4M</a> and others</span>
+      </blockquote>
+
+      <p>That is the spine. Every service you offer, every protocol you run, every post you write is a variation on that sentence. The endo girlie who has been dismissed for 20 years needs to hear it. The woman three days out of laparoscopy wondering why nothing changed needs to hear it. The one staring at a failed IVF cycle needs to hear it most of all.</p>
+
+      <p>You already know this. The question isn't what to say. It's how to make sure it reaches the people it's meant for — and right now your median reel is getting 289 views. That's the problem this proposal is built to solve.</p>
     </div>
-
-    <p class="lead">I read your pregnancy announcement caption three times before I moved on.</p>
-
-    <p>Not because it was beautiful writing — though it was. Because of the structural fact inside it: one woman, stage 3 endometriosis and adenomyosis, told by three different IVF doctors not to try with her own eggs, now 26 weeks pregnant because she refused to let a statistic be the period at the end of her sentence.</p>
-
-    <p>In the endo nutrition space, that is the most powerful product-market proof I have seen. It is not an origin story. It is a case study with a living result. And right now, it is scattered across 100 posts instead of structured into a content arc that compounds.</p>
-
-    <p>I read 100 of your posts before writing a word of this. The line I kept coming back to wasn't the pregnancy update. It was this one, which shows up across at least four separate captions:</p>
-
-    <blockquote>
-      "Your body is not broken. It's been trying to heal without the right support."
-      <span class="src">Recurring brand line, <a href="https://www.instagram.com/p/DW6qb_7Eb4M/" target="_blank">DW6qb_7Eb4M</a> and others</span>
-    </blockquote>
-
-    <p>That is the spine. Every service you offer, every protocol you run, every post you write is a variation on that sentence. The endo girlie who has been dismissed for 20 years needs to hear it. The woman three days out of laparoscopy wondering why nothing changed needs to hear it. The one staring at a failed IVF cycle needs to hear it most of all.</p>
-
-    <p>You already know this. The question isn't what to say. It's how to make sure it reaches the people it's meant for — and right now, your median reel is getting 289 views. That's the problem this proposal is built to solve.</p>
   </section>
 
-  <!-- SECTION 02: THREE THINGS IN THE DATA -->
+  <!-- 02 THREE THINGS IN THE DATA -->
   <section>
-    <div class="section-head">
-      <span class="num">02</span>
+    <div class="num">02</div>
+    <div class="section-body">
       <h2>Three things in the data</h2>
-    </div>
 
-    <p>After 100 posts and the engagement numbers behind them, three patterns stood out. None of them require you to change your voice. All three are fixable without adding a single new content idea.</p>
+      <p>After 100 posts and the engagement numbers behind them, three patterns stood out. None require you to change your voice. All three are fixable without adding a single new content idea.</p>
 
-    <div class="obs">
-      <div class="obs-card">
-        <p class="label">Observation 01 &middot; Format</p>
-        <h3>Your carousels generate 7&times; more comments than your reels, but you publish one carousel for every eight reels.</h3>
-        <p>Reels average 2.5 comments per post. Carousels average 17.5. Your format mix is 88% Reels and 11% Carousels. The pregnancy announcement carousel (170 comments, 506 likes) is your highest-performing post by every metric. Carousels save and share in ways reels structurally cannot — they are the format that builds word-of-mouth at the sub-5K account stage.</p>
-        <p class="evidence">Source: 100-post format audit. Carousel n=11 vs Reel n=88.</p>
-      </div>
+      <div class="obs">
+        <div class="obs-card">
+          <p class="label">Observation 01 &middot; Format</p>
+          <h3>Your carousels generate 7&times; more comments than your reels — but you publish one carousel for every eight reels.</h3>
+          <p>Reels average 2.5 comments per post. Carousels average 17.5. The pregnancy announcement carousel hit 170 comments and 506 likes — your highest-performing post by every metric. Carousels save and share in ways reels structurally can't. They're the format that builds word-of-mouth at the sub-5K stage.</p>
+          <p class="evidence">Source: 100-post format audit. Carousel n=11 vs Reel n=88.</p>
+        </div>
 
-      <div class="obs-card">
-        <p class="label">Observation 02 &middot; Story vs. Educational</p>
-        <h3>Your personal story content generates 5&ndash;10&times; the engagement of your educational reels, but it's only about 10% of what you post.</h3>
-        <p>Your three highest-comment posts are all story content: the pregnancy announcement (170C), the 19-weeks post (53C), and the 26-weeks update (33C). Your best educational reel sits at 36 comments. Most educational posts get zero. The asymmetry is the opportunity — you are putting 90% of your output into the format that earns the least engagement, and holding back the one that earns the most.</p>
-        <p class="evidence">Source: top-comment post breakdown, story vs. educational segmentation.</p>
-      </div>
+        <div class="obs-card">
+          <p class="label">Observation 02 &middot; Story vs. Educational</p>
+          <h3>Your story content generates 5–10&times; the engagement of your educational reels — but it's only about 10% of what you post.</h3>
+          <p>Your three highest-comment posts are all story: the pregnancy announcement (170C), the 19-weeks post (53C), the 26-weeks update (33C). Your best educational reel sits at 36 comments. Most educational posts get zero. You're putting 90% of output into the format that earns the least, and holding back the one that earns the most.</p>
+          <p class="evidence">Source: top-comment breakdown, story vs. educational segmentation.</p>
+        </div>
 
-      <div class="obs-card">
-        <p class="label">Observation 03 &middot; Hooks</p>
-        <h3>Your 84,550-view reel proves the algorithm will distribute you. Your median of 289 views proves most reels are not earning the first 1.5 seconds.</h3>
-        <p>The viral reel ("It's less about restriction and more about understanding which foods tend to pour fuel on the inflammation") has a listicle-promise hook with permission framing. The post-surgery reel ("You're not crazy for wondering if it actually worked") names a specific feeling. The majority of your educational reels open on a generic statement or mid-explanation. The hook gap between 84k views and 289 views is not algorithm luck — it is the difference between earning the first second and not.</p>
-        <p class="evidence">Source: post <a href="https://www.instagram.com/p/DXW_D_NkQnE/" class="inline" target="_blank">DXW_D_NkQnE</a> (84,550 views) vs. median across 88 reels.</p>
+        <div class="obs-card">
+          <p class="label">Observation 03 &middot; Hooks</p>
+          <h3>Your 84,550-view reel proves the algorithm will distribute you. Your median of 289 proves most reels aren't earning the first 1.5 seconds.</h3>
+          <p>The viral reel has a listicle-promise hook with permission framing. The post-surgery reel names a specific feeling. Most of your educational openers are generic or mid-explanation. The gap between 84k and 289 is not algorithm luck — it's the difference between earning the first second and not.</p>
+          <p class="evidence">Source: <a href="https://www.instagram.com/p/DXW_D_NkQnE/" target="_blank">DXW_D_NkQnE</a> (84,550 views) vs. median across 88 reels.</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- SECTION 03: SERVICES -->
+  <!-- 03 SERVICES -->
   <section>
-    <div class="section-head">
-      <span class="num">03</span>
+    <div class="num">03</div>
+    <div class="section-body">
       <h2>What I can build with you</h2>
-    </div>
 
-    <p>Six ways we can work together. The first is the foundation. The middle four are tactical packs designed for your account specifically. The last two are for if this becomes a longer relationship.</p>
+      <p>Six ways we can work together. The first is the foundation. The middle four are tactical packs built for your account. The last two are for if this becomes a longer thing.</p>
 
-    <div class="services">
+      <div class="services">
 
-      <div class="svc">
-        <h3>Strategy &amp; Endo Pillar Plan</h3>
-        <p class="scope">DM-based intake &middot; 14-day delivery</p>
-        <ul>
-          <li>Pregnancy story arc storyboard — 12-post structure from diagnosis through postpartum</li>
-          <li>Six content pillars mapped to your actual engagement data, not a generic template</li>
-          <li>Hook bank — 30 hooks pulled from your viral and near-viral patterns</li>
-          <li>90-day publishing calendar with pregnancy-arc cadence built in</li>
-          <li>Async written walkthrough you can read in your own time</li>
-        </ul>
-        <div class="price">
-          Quoted per scope
-          <small>After we talk over DM</small>
+        <div class="svc">
+          <h3>Strategy &amp; Endo Pillar Plan</h3>
+          <p class="scope">DM-based intake &middot; 14-day delivery</p>
+          <ul>
+            <li>Pregnancy story arc storyboard — 12 posts from diagnosis through postpartum</li>
+            <li>6 content pillars mapped to your actual engagement data</li>
+            <li>Hook bank — 30 hooks from your viral patterns</li>
+            <li>90-day calendar with pregnancy-arc cadence built in</li>
+            <li>Async written walkthrough, read in your own time</li>
+          </ul>
+          <div class="price">Quoted per scope<small>After we talk over DM</small></div>
         </div>
-      </div>
 
-      <div class="svc">
-        <h3>Non-Tox Toolkit Lead Magnet</h3>
-        <p class="scope">"Comment TOX" funnel &middot; 21-day build</p>
-        <ul>
-          <li>Non-Tox Toolkit PDF — vetted brands for kitchen, home, and personal care (15&ndash;20 pages)</li>
-          <li>Simple landing page hosting the PDF, no email gate required</li>
-          <li>One promotional carousel + one promotional reel script</li>
-          <li>Saved-reply DM templates so each comment is a 30-second hand-off, no automation tools needed</li>
-        </ul>
-        <div class="price">
-          $650 one-time
-          <small>Includes one revision round</small>
+        <div class="svc">
+          <h3>Non-Tox Toolkit Lead Magnet</h3>
+          <p class="scope">"Comment TOX" funnel &middot; 21-day build</p>
+          <ul>
+            <li>Non-Tox Toolkit PDF — vetted brands, kitchen through personal care (15–20p)</li>
+            <li>Simple landing page, no email gate required</li>
+            <li>One promotional carousel + one reel script</li>
+            <li>Saved-reply DM templates, no automation tools needed</li>
+          </ul>
+          <div class="price">$650 one-time<small>Includes one revision round</small></div>
         </div>
-      </div>
 
-      <div class="svc">
-        <h3>Carousel Production Pack</h3>
-        <p class="scope">4 carousels &middot; monthly</p>
-        <ul>
-          <li>4 fully designed carousels (8&ndash;10 slides each)</li>
-          <li>Long-form caption + hashtag set per carousel</li>
-          <li>Built from your existing reel topics — zero new ideation required</li>
-          <li>Warm cream and blush brand system matched to your feed</li>
-        </ul>
-        <div class="price">
-          $400 / month
-          <small>= $100 / carousel &middot; billed monthly</small>
+        <div class="svc">
+          <h3>Carousel Production Pack</h3>
+          <p class="scope">4 carousels &middot; monthly</p>
+          <ul>
+            <li>4 fully designed carousels, 8–10 slides each</li>
+            <li>Long-form caption + hashtag set per carousel</li>
+            <li>Built from your existing reel topics — no new ideation</li>
+            <li>Brand system matched to your feed</li>
+          </ul>
+          <div class="price">$400 / month<small>= $100 / carousel · billed monthly</small></div>
         </div>
-      </div>
 
-      <div class="svc">
-        <h3>Reel Hook Engineering</h3>
-        <p class="scope">4 reel scripts &middot; monthly</p>
-        <ul>
-          <li>4 reel scripts written for your speaking style and existing footage</li>
-          <li>First 1.5-second hook engineered to break median (currently 289 views)</li>
-          <li>Caption + on-screen text + comment-trigger CTA per reel</li>
-          <li>Optional: light edit on footage you record</li>
-        </ul>
-        <div class="price">
-          $380 / month
-          <small>= $95 / reel &middot; billed monthly</small>
+        <div class="svc">
+          <h3>Reel Hook Engineering</h3>
+          <p class="scope">4 reel scripts &middot; monthly</p>
+          <ul>
+            <li>4 reel scripts in your speaking style</li>
+            <li>First 1.5-sec hook engineered to break median (currently 289 views)</li>
+            <li>Caption + on-screen text + comment-trigger CTA per reel</li>
+            <li>Optional: light edit on footage you record</li>
+          </ul>
+          <div class="price">$380 / month<small>= $95 / reel · billed monthly</small></div>
         </div>
-      </div>
 
-      <div class="svc">
-        <h3>Pregnancy Story Arc Series</h3>
-        <p class="scope">12-post arc &middot; one-time</p>
-        <ul>
-          <li>Storyboard + scripts for 12 posts (8 carousels, 4 reels) across the full arc</li>
-          <li>From 20-year diagnosis odyssey through third trimester, birth, and postpartum protocol</li>
-          <li>Distribution plan that builds on existing pregnancy content, not starting cold</li>
-          <li>Comment-trigger CTAs woven into each post so the arc feeds your coaching funnel</li>
-        </ul>
-        <div class="price">
-          Custom scope
-          <small>12 weeks of anchor content</small>
+        <div class="svc">
+          <h3>Pregnancy Story Arc Series</h3>
+          <p class="scope">12-post arc &middot; one-time</p>
+          <ul>
+            <li>Storyboard + scripts for 12 posts (8 carousels, 4 reels)</li>
+            <li>Full arc: 20-year odyssey through third trimester, birth, postpartum</li>
+            <li>Distribution plan builds on existing pregnancy content</li>
+            <li>Comment-trigger CTAs feed your coaching funnel throughout</li>
+          </ul>
+          <div class="price">Custom scope<small>12 weeks of anchor content</small></div>
         </div>
-      </div>
 
-      <div class="svc">
-        <h3>Ongoing Partnership</h3>
-        <p class="scope">Retainer &middot; custom scope</p>
-        <ul>
-          <li>Daily content management and DM triage</li>
-          <li>Podcast pitch outreach (endo, fertility, functional medicine spaces)</li>
-          <li>Scaled offer launch planning when the group program is ready</li>
-          <li>Reserved for clients we already have rhythm with</li>
-        </ul>
-        <div class="price">
-          Custom scope
-          <small>Discussed after the first project</small>
+        <div class="svc">
+          <h3>Ongoing Partnership</h3>
+          <p class="scope">Retainer &middot; custom scope</p>
+          <ul>
+            <li>Daily content management and DM triage</li>
+            <li>Podcast pitch outreach — endo, fertility, functional medicine</li>
+            <li>Scaled offer launch planning when the group program is ready</li>
+            <li>Reserved for clients we already have rhythm with</li>
+          </ul>
+          <div class="price">Custom scope<small>Discussed after the first project</small></div>
         </div>
-      </div>
 
+      </div>
     </div>
   </section>
 
-  <!-- SECTION 04: SAMPLE CAROUSEL -->
+  <!-- 04 SAMPLE CAROUSEL -->
   <section>
-    <div class="section-head">
-      <span class="num">04</span>
+    <div class="num">04</div>
+    <div class="section-body">
       <h2>Sample &middot; Carousel</h2>
-    </div>
 
-    <p>Topic: <em>Your full origin arc compressed into one shareable anchor post.</em></p>
+      <p>Topic: <em>Your full origin arc compressed into one shareable anchor post.</em></p>
 
-    <p>This is the founder story carousel you don't have yet. Right now your pregnancy arc is scattered — a post at 19 weeks, one at 26 weeks, the announcement carousel, the "three doctors" reel. This 10-slide piece pulls it into one asset that can be pinned to the top of your grid permanently. It's the post that closes cold visitors. It's the post that gets shared. It's the post that answers "but what makes her different" before anyone has to ask.</p>
+      <p>This is the founder story carousel you don't have yet. Right now your pregnancy arc is scattered — 19 weeks here, 26 weeks there, the announcement carousel, the "three doctors" reel. This 10-slide piece pulls it into one pinned asset. The post that closes cold visitors. The post that gets shared. The post that answers "what makes her different" before anyone has to ask.</p>
 
-    <div class="sample">
-      <h3>20 years. A stage 3 diagnosis. Three doctors. And now &mdash; 26 weeks pregnant.</h3>
-      <p class="meta">10-slide carousel &middot; for @emilywernernutrition</p>
+      <div class="sample">
+        <p class="sample-title">20 years. A stage 3 diagnosis. Three doctors. And now — 26 weeks pregnant.</p>
+        <p class="meta">10-slide carousel &middot; for @emilywernernutrition</p>
 
-      <div class="slide">
-        <p class="slide-label">Slide 01 &middot; Cover</p>
-        <div class="slide-body">
-          <span class="big">20 years undiagnosed.<br>A stage 3 diagnosis.<br>Three IVF doctors who said no.<br>And now &mdash; 26 weeks pregnant.</span>
+        <div class="slide">
+          <p class="slide-label">Slide 01 &middot; Cover</p>
+          <div class="slide-body">
+            <span class="big">20 years undiagnosed.<br>A stage 3 diagnosis.<br>Three IVF doctors who said no.<br>And now — 26 weeks pregnant.</span>
+          </div>
         </div>
-      </div>
 
-      <div class="slide">
-        <p class="slide-label">Slide 02 &middot; The years</p>
-        <div class="slide-body">
-          <p>For over 20 years, I was dismissed.</p>
-          <p>Cramping that stopped my week. Fatigue that never lifted. Periods so painful I questioned my own pain tolerance.</p>
-          <p>Every appointment ended the same way.</p>
-          <p><em>"Your labs look fine."</em><br><em>"Some women just have harder periods."</em><br><em>"Try ibuprofen."</em></p>
-          <p>So I started to believe them. Maybe I was just sensitive.</p>
+        <div class="slide">
+          <p class="slide-label">Slide 02 &middot; The years</p>
+          <div class="slide-body">
+            <p>For over 20 years, I was dismissed.</p>
+            <p>Cramping that stopped my week. Fatigue that never lifted. Periods so painful I questioned my own pain tolerance.</p>
+            <p>Every appointment ended the same way.</p>
+            <p><em>"Your labs look fine."<br>"Some women just have harder periods."<br>"Try ibuprofen."</em></p>
+            <p>So I started to believe them. Maybe I was just sensitive.</p>
+          </div>
         </div>
-      </div>
 
-      <div class="slide">
-        <p class="slide-label">Slide 03 &middot; The diagnosis</p>
-        <div class="slide-body">
-          <p>I was 35 when someone finally looked deeper.</p>
-          <p>Stage 3 endometriosis. Adenomyosis.</p>
-          <p>The diagnosis was validating. It was also devastating. Because it came while I was trying to start a family.</p>
-          <p>Twenty years of being dismissed. Twenty years of thinking I was dramatic. Both truths, at once.</p>
+        <div class="slide">
+          <p class="slide-label">Slide 03 &middot; The diagnosis</p>
+          <div class="slide-body">
+            <p>I was 35 when someone finally looked deeper.</p>
+            <p>Stage 3 endometriosis. Adenomyosis.</p>
+            <p>The diagnosis was validating. It was also devastating. Because it came while I was trying to start a family.</p>
+            <p>Twenty years of being dismissed. Twenty years of thinking I was dramatic. Both truths, at once.</p>
+          </div>
         </div>
-      </div>
 
-      <div class="slide">
-        <p class="slide-label">Slide 04 &middot; The doctors</p>
-        <div class="slide-body">
-          <p>Three IVF doctors. Three conversations.</p>
-          <p>Three versions of the same sentence:</p>
-          <p><em>Don't try with your own eggs.</em></p>
-          <p>If you've ever had someone tell you what your body can't do, you know what that room felt like.</p>
+        <div class="slide">
+          <p class="slide-label">Slide 04 &middot; The doctors</p>
+          <div class="slide-body">
+            <p>Three IVF doctors. Three conversations.</p>
+            <p>Three versions of the same sentence:</p>
+            <p><em>Don't try with your own eggs.</em></p>
+            <p>If you've ever had someone tell you what your body can't do, you know what that room felt like.</p>
+          </div>
         </div>
-      </div>
 
-      <div class="slide">
-        <p class="slide-label">Slide 05 &middot; The refusal</p>
-        <div class="slide-body">
-          <p>I didn't accept it.</p>
-          <p>Not because I was naive. Because I already knew that statistics tell you what happened to a group of people. They don't tell you what's possible for YOUR body.</p>
-          <p>I refused to let a statistic be the period at the end of my sentence.</p>
+        <div class="slide">
+          <p class="slide-label">Slide 05 &middot; The refusal</p>
+          <div class="slide-body">
+            <p>I didn't accept it.</p>
+            <p>Not because I was naive. Because statistics tell you what happened to a group of people. They don't tell you what's possible for YOUR body.</p>
+            <p>I refused to let a statistic be the period at the end of my sentence.</p>
+          </div>
         </div>
-      </div>
 
-      <div class="slide">
-        <p class="slide-label">Slide 06 &middot; The work</p>
-        <div class="slide-body">
-          <p>So I went all in on understanding what my body actually needed.</p>
-          <p>GI-MAP testing. Full thyroid panels. Estrogen metabolism support. Targeted nutrient repletion. Lowering the toxic load.</p>
-          <p>Not a diet. Not another prescription that masked the problem.</p>
-          <p>Strategy. 💛</p>
+        <div class="slide">
+          <p class="slide-label">Slide 06 &middot; The work</p>
+          <div class="slide-body">
+            <p>So I went all in on understanding what my body actually needed.</p>
+            <p>GI-MAP testing. Full thyroid panels. Estrogen metabolism support. Targeted nutrient repletion. Lowering the toxic load.</p>
+            <p>Not a diet. Not another prescription that masked the problem.</p>
+            <p>Strategy. 💛</p>
+          </div>
         </div>
-      </div>
 
-      <div class="slide">
-        <p class="slide-label">Slide 07 &middot; The result</p>
-        <div class="slide-body">
-          <p>I got pregnant. Naturally.</p>
-          <p>There was a time I genuinely didn't know if I'd ever get to say that. 🥹</p>
+        <div class="slide">
+          <p class="slide-label">Slide 07 &middot; The result</p>
+          <div class="slide-body">
+            <p>I got pregnant. Naturally.</p>
+            <p>There was a time I genuinely didn't know if I'd ever get to say that. 🥹</p>
+          </div>
         </div>
-      </div>
 
-      <div class="slide">
-        <p class="slide-label">Slide 08 &middot; What it means</p>
-        <div class="slide-body">
-          <p>I am not a miracle story.</p>
-          <p>I am an example of what happens when the body gets the right environment to heal in.</p>
-          <p>The doctors weren't wrong about the statistics. They just weren't reading my story.</p>
+        <div class="slide">
+          <p class="slide-label">Slide 08 &middot; What it means</p>
+          <div class="slide-body">
+            <p>I am not a miracle story.</p>
+            <p>I am an example of what happens when the body gets the right environment to heal in.</p>
+            <p>The doctors weren't wrong about the statistics. They just weren't reading my story.</p>
+          </div>
         </div>
-      </div>
 
-      <div class="slide">
-        <p class="slide-label">Slide 09 &middot; For you</p>
-        <div class="slide-body">
-          <p>Your body is not broken.</p>
-          <p>It's been trying to heal without the right support.</p>
-          <p>200+ women have done this work with me. Not every story looks the same. But the foundation is the same: root-cause functional testing, YOUR body, not a generic checklist. 💪🏼</p>
+        <div class="slide">
+          <p class="slide-label">Slide 09 &middot; For you</p>
+          <div class="slide-body">
+            <p>Your body is not broken.</p>
+            <p>It's been trying to heal without the right support.</p>
+            <p>200+ women have done this work with me. Not every story looks the same. But the foundation is the same: root-cause functional testing, YOUR body, not a generic checklist. 💪🏼</p>
+          </div>
         </div>
-      </div>
 
-      <div class="slide">
-        <p class="slide-label">Slide 10 &middot; CTA</p>
-        <div class="slide-body">
-          <p>If you've been dismissed, gaslit, or handed ibuprofen and a pamphlet —</p>
-          <p>This is what the other side can look like.</p>
-          <p>Comment <strong>STORY</strong> below and I'll DM you the 5 things I changed first. 💛<br><em>Free. No email. No funnel.</em></p>
+        <div class="slide">
+          <p class="slide-label">Slide 10 &middot; CTA</p>
+          <div class="slide-body">
+            <p>If you've been dismissed, gaslit, or handed ibuprofen and a pamphlet —</p>
+            <p>This is what the other side can look like.</p>
+            <p>Comment <strong>STORY</strong> below and I'll DM you the 5 things I changed first. 💛<br><em>Free. No email. No funnel.</em></p>
+          </div>
         </div>
-      </div>
 
-      <div class="caption-block">
-        <p class="label">Caption</p>
-        <p>Twenty years of being told it was normal.</p>
-        <p>A stage 3 endometriosis and adenomyosis diagnosis at 35, while trying to conceive.</p>
-        <p>Three IVF doctors who told me not to try with my own eggs.</p>
-        <p>And now? 26 weeks pregnant. 🥹</p>
-        <p>I don't share this to be inspirational content. I share it because I work with women every single day who are exactly where I was five years ago. Doing everything they've been told should work. Still not feeling better. Still being dismissed.</p>
-        <p>Your body is not broken. It has been trying to heal without the right support.</p>
-        <p>The difference between where I was and where I am is root-cause work. GI-MAP testing to understand what's actually driving the symptoms. Estrogen metabolism support. Targeted nutrient repletion. Lowering the toxic load that was feeding the inflammation.</p>
-        <p>Not a diet. Not another prescription. Strategy. 💛</p>
-        <p>Comment <strong>STORY</strong> and I'll DM you the 5 things I changed first. Free. No email.</p>
-        <p><em>#endometriosis #endometriosiswarrior #adenomyosis #endofertility #naturalpregnancy #functionalnutrition #endometriosisnutrition #endometriosissurvivor</em></p>
+        <div class="caption-block">
+          <p class="label">Caption</p>
+          <p>Twenty years of being told it was normal.</p>
+          <p>A stage 3 endometriosis and adenomyosis diagnosis at 35, while trying to conceive.</p>
+          <p>Three IVF doctors who told me not to try with my own eggs.</p>
+          <p>And now? 26 weeks pregnant. 🥹</p>
+          <p>I don't share this to be inspirational content. I share it because I work with women every single day who are exactly where I was five years ago. Doing everything they've been told should work. Still not feeling better. Still being dismissed.</p>
+          <p>Your body is not broken. It has been trying to heal without the right support.</p>
+          <p>The difference is root-cause work. GI-MAP testing to understand what's actually driving the symptoms. Estrogen metabolism support. Targeted nutrient repletion. Lowering the toxic load that was feeding the inflammation.</p>
+          <p>Not a diet. Not another prescription. Strategy. 💛</p>
+          <p>Comment <strong>STORY</strong> and I'll DM you the 5 things I changed first. Free. No email.</p>
+          <p><em>#endometriosis #endometriosiswarrior #adenomyosis #endofertility #naturalpregnancy #functionalnutrition #endometriosisnutrition #endometriosissurvivor</em></p>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- SECTION 05: SAMPLE REEL -->
+  <!-- 05 SAMPLE REEL -->
   <section>
-    <div class="section-head">
-      <span class="num">05</span>
+    <div class="num">05</div>
+    <div class="section-body">
       <h2>Sample &middot; Reel script</h2>
-    </div>
 
-    <p>Topic: <em>The work that matters most for endo happens before your period even starts.</em></p>
+      <p>Topic: <em>The work that matters most for endo happens before your period even starts.</em></p>
 
-    <p>This is your <a href="https://www.instagram.com/p/DXMS0jUkR1W/" class="inline" target="_blank">DXMS0jUkR1W</a> angle — "most women are taught to manage pain once it starts" — rebuilt with a hook engineered for the first 1.5 seconds. The original posted that observation inside a caption; this version opens on it, makes it the hook, and earns the algorithm's attention before the scroll. 32 seconds, one location, direct to camera.</p>
+      <p>Your <a href="https://www.instagram.com/p/DXMS0jUkR1W/" class="inline" target="_blank">DXMS0jUkR1W</a> angle — "most women are taught to manage pain once it starts" — rebuilt with a hook engineered for the first 1.5 seconds. 32 seconds, one location, direct to camera.</p>
 
-    <div class="sample">
-      <h3>If you're treating endo symptoms during your period &mdash; you're missing half the protocol.</h3>
-      <p class="meta">32-second reel &middot; for @emilywernernutrition</p>
+      <div class="sample">
+        <p class="sample-title">If you're treating endo symptoms during your period — you're missing half the protocol.</p>
+        <p class="meta">32-second reel &middot; for @emilywernernutrition</p>
 
-      <div class="reel-beat">
-        <div class="timecode">0:00 &ndash; 1.5</div>
-        <div class="body">
-          <p class="visual">Close-up, mid-sentence, direct camera. Already talking.</p>
-          <span class="text-overlay">treating endo symptoms during your period?</span>
-          <p style="margin-top:8px"><strong>Spoken:</strong> "If you have endo and you're only managing your symptoms once the pain starts —"</p>
+        <div class="reel-beat">
+          <div class="timecode">0:00 – 1.5</div>
+          <div class="body">
+            <p class="visual">Close-up, mid-sentence, direct camera. Already talking.</p>
+            <span class="text-overlay">treating endo symptoms during your period?</span>
+            <p style="margin-top:10px"><strong>Spoken:</strong> "If you have endo and you're only managing your symptoms once the pain starts —"</p>
+          </div>
+        </div>
+
+        <div class="reel-beat">
+          <div class="timecode">1.5 – 4</div>
+          <div class="body">
+            <span class="text-overlay">you're missing the most important part of the protocol</span>
+            <p style="margin-top:10px"><strong>Spoken:</strong> "— you're missing the most important part of the protocol."</p>
+          </div>
+        </div>
+
+        <div class="reel-beat">
+          <div class="timecode">4 – 16</div>
+          <div class="body">
+            <p class="visual">Cut to walk-and-explain or sit-and-talk, hands moving.</p>
+            <p><strong>Spoken:</strong> "The inflammation, the estrogen dominance, the gut imbalances that drive your symptoms — those aren't just period problems. They're daily-body problems. The pain you feel on day one of your cycle is the result of an environment that's been building for 28 days. When you only treat it on day one, you're managing the fire without touching what's feeding it."</p>
+          </div>
+        </div>
+
+        <div class="reel-beat">
+          <div class="timecode">16 – 25</div>
+          <div class="body">
+            <p class="visual">Back to direct camera, softer tone.</p>
+            <p><strong>Spoken:</strong> "What actually changes endo symptoms is the work between your periods. Anti-inflammatory eating. Supporting estrogen detox. Addressing the gut imbalances that keep your inflammatory load high. Not because any of that makes your period painless tomorrow — but because it changes the internal environment your endo has been feeding on for years."</p>
+          </div>
+        </div>
+
+        <div class="reel-beat">
+          <div class="timecode">25 – 32</div>
+          <div class="body">
+            <p class="visual">Settle back, warm close, soft pause before CTA.</p>
+            <span class="text-overlay">comment CYCLE</span>
+            <p style="margin-top:10px"><strong>Spoken:</strong> "Comment CYCLE and I'll DM you the 5 things I'd focus on between periods. Free. 💛"</p>
+          </div>
+        </div>
+
+        <div class="caption-block">
+          <p class="label">Caption</p>
+          <p>If you have endometriosis and you're only thinking about your symptoms when your period starts — I want to show you a different way to see this.</p>
+          <p>The pain you feel on day 1 is the result of an inflammatory environment that's been building for 28 days.</p>
+          <p>Endometriosis is not just a period problem. It's:<br>✨ an inflammation problem<br>✨ a gut health problem<br>✨ an estrogen metabolism problem</p>
+          <p>And all of those are happening in your body every single day. Not just when you're hurting.</p>
+          <p>The work that changes endo symptoms isn't "take this on day 1." It's: what are you doing on days 2 through 28?</p>
+          <p>Anti-inflammatory eating. Supporting estrogen detox. Addressing the gut imbalances that keep your inflammatory load high.</p>
+          <p>Not a diet. Not endless restriction. Strategy. 💛</p>
+          <p>Comment <strong>CYCLE</strong> and I'll DM you the 5 things I'd focus on between cycles. Free. No email needed.</p>
+          <p><em>#endometriosis #endometriosiswarrior #endometriosisjourney #functionalnutrition #endolife #hormonalhealth #guthealth #endometriosissymptoms</em></p>
         </div>
       </div>
 
-      <div class="reel-beat">
-        <div class="timecode">1.5 &ndash; 4</div>
-        <div class="body">
-          <span class="text-overlay">you're missing the most important part of the protocol</span>
-          <p style="margin-top:8px"><strong>Spoken:</strong> "— you're missing the most important part of the protocol."</p>
-        </div>
+      <div class="note">
+        I wrote both samples after reading 25+ of your captions in full. The "endo girlie" pronoun, the fragment openers ("Three doctors. Three versions of the same sentence."), the "your body is not broken" closer, the emoji set (💛 🥹 💪🏼 ✨), the comment-trigger CTA format — those are your moves, not mine. If we work together, every piece goes through this same forensic voice pass before it reaches you.
       </div>
-
-      <div class="reel-beat">
-        <div class="timecode">4 &ndash; 16</div>
-        <div class="body">
-          <p class="visual">Cut to walk-and-explain or sit and face camera, hands moving.</p>
-          <p><strong>Spoken:</strong> "The inflammation, the estrogen dominance, the gut imbalances that drive your symptoms — those aren't just period problems. They're daily-body problems. The pain you feel on day one of your cycle is the result of an environment that's been building for 28 days. When you only treat it on day one, you're managing the fire without touching what's feeding it."</p>
-        </div>
-      </div>
-
-      <div class="reel-beat">
-        <div class="timecode">16 &ndash; 25</div>
-        <div class="body">
-          <p class="visual">Back to direct camera, softer tone.</p>
-          <p><strong>Spoken:</strong> "What actually changes endo symptoms is the work between your periods. Anti-inflammatory eating. Supporting estrogen detox. Addressing the gut imbalances that keep your inflammatory load high. Not because any of that makes your period painless tomorrow — but because it changes the internal environment your endo has been feeding on for years."</p>
-        </div>
-      </div>
-
-      <div class="reel-beat">
-        <div class="timecode">25 &ndash; 32</div>
-        <div class="body">
-          <p class="visual">Settle back, warm close, soft pause before CTA.</p>
-          <span class="text-overlay">comment CYCLE</span>
-          <p style="margin-top:8px"><strong>Spoken:</strong> "Comment CYCLE and I'll DM you the 5 things I'd focus on between periods. Free. 💛"</p>
-        </div>
-      </div>
-
-      <div class="caption-block">
-        <p class="label">Caption</p>
-        <p>If you have endometriosis and you're only thinking about your symptoms when your period starts — I want to show you a different way to see this.</p>
-        <p>The pain you feel on day 1 is the result of an inflammatory environment that's been building for 28 days.</p>
-        <p>Endometriosis is not just a period problem. It's:</p>
-        <p>✨ an inflammation problem<br>✨ a gut health problem<br>✨ an estrogen metabolism problem</p>
-        <p>And all of those are happening in your body every single day. Not just when you're hurting.</p>
-        <p>The work that changes endo symptoms isn't "take this on day 1." It's: what are you doing on days 2 through 28?</p>
-        <p>Anti-inflammatory eating. Supporting estrogen detox. Addressing the gut imbalances that keep your inflammatory load high.</p>
-        <p>Not a diet. Not endless restriction. Strategy. 💛</p>
-        <p>Comment <strong>CYCLE</strong> and I'll DM you the 5 things I'd focus on between cycles. Free. No email needed.</p>
-        <p><em>#endometriosis #endometriosiswarrior #endometriosisjourney #functionalnutrition #endolife #hormonalhealth #guthealth #endometriosissymptoms</em></p>
-      </div>
-    </div>
-
-    <div class="note">
-      I wrote both samples after reading 25+ of your captions in full. The "endo girlie" pronoun, the fragment openers ("Three doctors. Three versions of the same sentence."), the "your body is not broken" closer, the emoji set (💛 🥹 💪🏼 ✨), the comment-trigger CTA format — those are your moves, not mine. If we work together, every piece goes through this same forensic voice pass before it reaches you.
     </div>
   </section>
 
-  <!-- SECTION 06: WHY I'M DIFFERENT -->
+  <!-- 06 DIFFERENTIATION -->
   <section>
-    <div class="section-head">
-      <span class="num">06</span>
+    <div class="num">06</div>
+    <div class="section-body">
       <h2>Why I'm different from a generic SMM</h2>
-    </div>
 
-    <ul class="pos-list">
-      <li>
-        <strong>I read the account before I write the pitch.</strong>
-        <span>This proposal is built off your actual data — 100 posts, every viral and every flop. Most agencies send the same wellness deck to ten nutritionists at once.</span>
-      </li>
-      <li>
-        <strong>I center the story, not just the clinical content.</strong>
-        <span>The endo space is full of creators teaching anti-inflammatory protocols. You are the one who ran the protocol while 3 doctors said it wouldn't work and is now 26 weeks pregnant. That distinction is your entire content strategy — and most SMMs would bury it in section four of an educational carousel.</span>
-      </li>
-      <li>
-        <strong>I write for a 1,300-character-reading audience, not a scroll audience.</strong>
-        <span>Your median caption is 1,322 characters. That is unusual. It is also load-bearing — your audience reads. The fix to your distribution problem is structural (better hooks, more carousels), not editorial. I will not tell you to shorten your captions.</span>
-      </li>
-      <li>
-        <strong>I work with the CTA patterns you've already proven and extend them.</strong>
-        <span>"Comment BALANCE" and "Comment PLAN" are working. The pattern needs to be deployed across more posts and built into a fuller funnel — not replaced with something new that your audience has to learn.</span>
-      </li>
-      <li>
-        <strong>I plan for the arc that's closing.</strong>
-        <span>Your pregnancy content closes in roughly 14 weeks. I can build the post-baby roadmap now — postpartum protocol, scaled offer launch, the follow-up category — so the account doesn't lose momentum at the exact moment your audience peaks.</span>
-      </li>
-    </ul>
+      <ul class="pos-list">
+        <li>
+          <div>
+            <strong>I read the account before I write the pitch.</strong>
+            <span>This proposal is built off your actual data — 100 posts, every viral and every flop. Most agencies send the same wellness deck to ten nutritionists at once.</span>
+          </div>
+        </li>
+        <li>
+          <div>
+            <strong>I center the story, not just the clinical content.</strong>
+            <span>The endo space is full of creators teaching anti-inflammatory protocols. You are the one who ran the protocol while 3 doctors said it wouldn't work and is now 26 weeks pregnant. That distinction is your entire content strategy — and most SMMs would bury it in section four of an educational carousel.</span>
+          </div>
+        </li>
+        <li>
+          <div>
+            <strong>I write for a 1,300-character-reading audience.</strong>
+            <span>Your median caption is 1,322 characters. That is unusual. It is also load-bearing — your audience reads. I will not tell you to shorten your captions. The fix is structural (better hooks, more carousels), not editorial.</span>
+          </div>
+        </li>
+        <li>
+          <div>
+            <strong>I work with the CTAs you've already proven.</strong>
+            <span>"Comment BALANCE" and "Comment PLAN" are working. The pattern needs to be deployed across more posts and built into a fuller funnel — not replaced with something new your audience has to learn.</span>
+          </div>
+        </li>
+        <li>
+          <div>
+            <strong>I plan for the arc that's closing.</strong>
+            <span>Your pregnancy content closes in roughly 14 weeks. I can build the post-baby roadmap now — postpartum protocol, scaled offer launch, the follow-up category — so the account doesn't lose momentum at the exact moment your audience peaks.</span>
+          </div>
+        </li>
+      </ul>
+    </div>
   </section>
 
-  <!-- SECTION 07: CTA -->
+  <!-- 07 CTA -->
   <section>
-    <div class="section-head">
-      <span class="num">07</span>
+    <div class="num">07</div>
+    <div class="section-body">
       <h2>Want to talk about it?</h2>
-    </div>
 
-    <div class="cta-block">
-      <h2>Just DM me.</h2>
-      <p>Tell me what you've been thinking about your account — what's been frustrating, what's clicking, what you've been wanting to build but haven't had time to structure. I'll listen, and we'll figure out what (if anything) makes sense from there.</p>
-      <a href="https://www.instagram.com/evelyn.contentally/" class="cta-btn" target="_blank">DM me on Instagram</a>
+      <div class="cta-block">
+        <h2>Just DM me.</h2>
+        <p>Tell me what you've been thinking about your account — what's been frustrating, what's clicking, what you've been wanting to build but haven't had time to structure. I'll listen, and we'll figure out what (if anything) makes sense from there.</p>
+        <a href="https://www.instagram.com/evelyn.contentally/" class="cta-btn" target="_blank">DM me on Instagram</a>
+      </div>
     </div>
   </section>
 
   <footer>
-    <p class="sig">&mdash; Evelyn</p>
+    <span class="sig">— Evelyn</span>
     <p>Written for @emilywernernutrition &middot; Not a template.</p>
   </footer>
 
