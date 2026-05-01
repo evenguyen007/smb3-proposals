@@ -16,8 +16,6 @@
     --ink-soft:#4a5f47;
     --hero:#3a6641;
     --hero-deep:#264730;
-    --soft:#b6ccb2;
-    --line:#c4d6c0;
     --cream:#f8faf7;
   }
   *{box-sizing:border-box;margin:0;padding:0}
@@ -47,14 +45,14 @@
   }
   .num{
     font-family:'DM Serif Display',serif;font-size:72px;line-height:1;
-    color:var(--line);font-style:italic;user-select:none;
+    color:var(--bg-deep);font-style:italic;user-select:none;
   }
 
   /* HERO */
   .hero{
-    padding:32px 0 72px;
-    border-bottom:2px solid var(--ink);
+    padding:32px 0 80px;
     margin-bottom:72px;
+    background:var(--bg);
   }
   .hero .label{margin-bottom:32px;display:block}
   .hero h1{margin-bottom:0;color:var(--ink)}
@@ -73,11 +71,9 @@
 
   /* GOODWILL */
   .goodwill{
-    margin:0 0 56px;
+    margin:0 0 64px;
     padding:28px 32px;
     background:var(--cream);
-    border-top:3px solid var(--hero);
-    border-bottom:1px solid var(--line);
   }
   .goodwill .banner-label{
     font-size:10.5px;letter-spacing:0.22em;text-transform:uppercase;
@@ -91,10 +87,8 @@
     display:grid;
     grid-template-columns:80px 1fr;
     gap:0 36px;
-    padding:64px 0;
-    border-bottom:1px solid var(--line);
+    padding:72px 0;
   }
-  section:last-of-type{border-bottom:none}
   @media(max-width:640px){
     section{grid-template-columns:1fr;gap:16px 0}
     .num{font-size:40px;line-height:1}
@@ -109,9 +103,8 @@
 
   blockquote{
     margin:24px 0;
-    padding:20px 24px;
+    padding:22px 28px;
     background:var(--cream);
-    border-left:3px solid var(--hero);
     font-family:'DM Serif Display',serif;font-style:italic;
     font-size:18.5px;line-height:1.5;color:var(--ink);
   }
@@ -121,29 +114,25 @@
     font-size:11.5px;letter-spacing:0.1em;text-transform:uppercase;
     color:var(--ink-soft);
   }
-  blockquote .src a{color:var(--hero-deep);text-decoration:none;border-bottom:1px solid var(--soft)}
+  blockquote .src a{color:var(--hero-deep);text-decoration:none}
 
   /* OBSERVATIONS */
-  .obs{display:flex;flex-direction:column;gap:2px;margin-top:28px}
+  .obs{display:flex;flex-direction:column;gap:8px;margin-top:28px}
   .obs-card{
     padding:24px 28px 22px;
     background:var(--cream);
-    border-left:3px solid transparent;
-    transition:border-color 0.15s;
   }
-  .obs-card:hover{border-left-color:var(--hero)}
   .obs-card .label{margin-bottom:10px}
   .obs-card h3{font-family:'Plus Jakarta Sans',sans-serif;font-size:15px;font-weight:600;margin-bottom:10px;line-height:1.4;color:var(--ink)}
   .obs-card p{font-size:15px;color:var(--ink-soft);margin-bottom:8px;line-height:1.6}
   .obs-card .evidence{
-    font-size:12.5px;color:var(--hero);margin-top:12px;
-    padding-top:10px;border-top:1px solid var(--line);
+    font-size:12.5px;color:var(--hero);margin-top:14px;
     letter-spacing:0.03em;
   }
-  .obs-card .evidence a{color:var(--hero-deep);text-decoration:none;border-bottom:1px solid var(--soft)}
+  .obs-card .evidence a{color:var(--hero-deep);text-decoration:none}
 
   /* SERVICES */
-  .services{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-top:28px}
+  .services{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:28px}
   @media(max-width:640px){.services{grid-template-columns:1fr}}
   .svc{
     padding:24px 22px 22px;
@@ -157,15 +146,14 @@
   .svc .scope{font-size:12.5px;color:var(--hero);margin-bottom:14px;letter-spacing:0.04em;font-weight:500}
   .svc ul{list-style:none;padding:0;margin:0 0 16px;font-size:14px;color:var(--ink-soft)}
   .svc ul li{
-    padding:5px 0;border-bottom:1px solid var(--line);line-height:1.4;
+    padding:5px 0;margin-bottom:2px;line-height:1.4;
   }
-  .svc ul li:last-child{border-bottom:none}
   .svc ul li::before{content:"→";margin-right:9px;color:var(--hero);font-size:12px}
   .svc .price{
     margin-top:auto;
     font-family:'DM Serif Display',serif;font-size:20px;
     color:var(--hero-deep);
-    padding-top:14px;border-top:2px solid var(--bg-deep);
+    padding-top:16px;
   }
   .svc .price small{
     font-family:'Plus Jakarta Sans',sans-serif;font-size:11.5px;
@@ -188,8 +176,7 @@
     color:var(--hero);font-weight:600;margin-bottom:28px;
   }
 
-  .slide{padding:16px 0;border-bottom:1px solid var(--line)}
-  .slide:last-child{border-bottom:none}
+  .slide{padding:16px 0;margin-bottom:4px}
   .slide-label{
     font-size:10.5px;letter-spacing:0.18em;text-transform:uppercase;
     color:var(--hero);font-weight:600;margin-bottom:8px;
@@ -211,9 +198,8 @@
 
   .reel-beat{
     display:grid;grid-template-columns:84px 1fr;
-    gap:16px;padding:16px 0;border-bottom:1px solid var(--line);
+    gap:16px;padding:16px 0;margin-bottom:4px;
   }
-  .reel-beat:last-child{border-bottom:none}
   .reel-beat .timecode{
     font-family:'DM Serif Display',serif;font-size:15px;
     color:var(--hero-deep);letter-spacing:0.02em;padding-top:2px;
@@ -228,24 +214,15 @@
   }
 
   .note{
-    margin-top:24px;padding:20px 24px;
-    border-left:3px solid var(--soft);
-    background:transparent;
+    margin-top:24px;padding:20px 0;
     font-size:14px;line-height:1.65;color:var(--ink-soft);font-style:italic;
   }
 
   /* POSITIONING */
   .pos-list{list-style:none;padding:0;margin-top:16px}
   .pos-list li{
-    padding:16px 0;border-bottom:1px solid var(--line);
+    padding:18px 0;
     font-size:15.5px;line-height:1.55;
-    display:grid;grid-template-columns:3px 1fr;gap:0 20px;
-    align-items:start;
-  }
-  .pos-list li:last-child{border-bottom:none}
-  .pos-list li::before{
-    content:"";display:block;width:3px;height:100%;
-    background:var(--hero);border-radius:2px;margin-top:4px;
   }
   .pos-list li strong{
     display:block;font-family:'DM Serif Display',serif;
@@ -276,8 +253,7 @@
   .cta-btn:hover{opacity:0.85}
 
   footer{
-    margin-top:80px;padding-top:28px;
-    border-top:2px solid var(--ink);
+    margin-top:80px;padding-top:40px;
     font-size:13px;color:var(--ink-soft);text-align:center;
   }
   footer .sig{
@@ -285,8 +261,8 @@
     font-size:22px;color:var(--ink);margin-bottom:8px;display:block;
   }
 
-  a.inline{color:var(--hero-deep);text-decoration:none;border-bottom:1px solid var(--soft)}
-  a.inline:hover{border-bottom-color:var(--hero)}
+  a.inline{color:var(--hero-deep);text-decoration:none;font-weight:500}
+  a.inline:hover{opacity:0.75}
 </style>
 </head>
 <body>
