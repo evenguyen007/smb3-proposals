@@ -1,0 +1,432 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>A proposal for @bloomwithbella_</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#F7F2EC;
+    --bg-deep:#EDE4D8;
+    --ink:#1A2B20;
+    --ink-soft:#4A6255;
+    --grove:#1E3A2B;
+    --grove-deep:#142A1E;
+    --rose:#C4897E;
+    --cream:#FDFAF6;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Inter',-apple-system,Helvetica,Arial,sans-serif;
+    font-weight:400;
+    font-size:16.5px;
+    line-height:1.7;
+    -webkit-font-smoothing:antialiased;
+  }
+  .page{max-width:780px;margin:0 auto;padding:72px 36px 120px}
+  @media(max-width:640px){.page{padding:44px 20px 80px}}
+
+  h1,h2,h3{font-family:'Playfair Display',Georgia,serif;font-weight:400;letter-spacing:0}
+  h1{font-size:clamp(52px,10vw,88px);line-height:0.95;font-style:italic}
+  h2{font-size:clamp(26px,4vw,38px);line-height:1.1;margin-bottom:20px}
+  h3{font-size:19px;line-height:1.3;margin-bottom:8px}
+  p{margin-bottom:14px}
+  em{font-style:italic;color:var(--ink-soft)}
+
+  .label{
+    font-size:10.5px;letter-spacing:0.22em;text-transform:uppercase;
+    color:var(--grove);font-weight:600;font-family:'Inter',sans-serif;
+  }
+  .num{
+    font-family:'Playfair Display',serif;font-size:72px;line-height:1;
+    color:var(--bg-deep);font-style:italic;user-select:none;
+  }
+
+  .hero{padding:32px 0 80px;margin-bottom:72px}
+  .hero .label{margin-bottom:32px;display:block}
+  .hero h1{margin-bottom:0;color:var(--ink)}
+  .hero h1 .at{color:var(--grove)}
+  .hero .tag{
+    margin-top:28px;
+    font-family:'Playfair Display',serif;font-style:italic;
+    font-size:clamp(18px,2.4vw,22px);
+    color:var(--ink-soft);line-height:1.5;max-width:600px;
+  }
+  .hero .by{
+    margin-top:48px;font-size:13px;
+    color:var(--ink-soft);letter-spacing:0.08em;text-transform:uppercase;font-weight:500;
+  }
+
+  .goodwill{
+    margin:0 0 64px;
+    padding:28px 32px;
+    background:var(--cream);
+  }
+  .goodwill .banner-label{
+    font-size:10.5px;letter-spacing:0.22em;text-transform:uppercase;
+    color:var(--grove);font-weight:600;margin-bottom:12px;
+  }
+  .goodwill p{font-size:15px;line-height:1.65;color:var(--ink);margin:0}
+  .goodwill strong{color:var(--grove-deep);font-weight:600}
+
+  section{
+    display:grid;
+    grid-template-columns:80px 1fr;
+    gap:0 36px;
+    padding:72px 0;
+  }
+  @media(max-width:640px){
+    section{grid-template-columns:1fr;gap:16px 0}
+    .num{font-size:40px;line-height:1}
+  }
+  .section-body{min-width:0}
+
+  .lead{
+    font-size:19px;line-height:1.6;
+    font-family:'Playfair Display',serif;
+    color:var(--ink);margin-bottom:20px;
+    font-style:italic;
+  }
+
+  blockquote{
+    margin:24px 0;padding:22px 28px;
+    background:var(--cream);
+    font-family:'Playfair Display',serif;font-style:italic;
+    font-size:18.5px;line-height:1.5;color:var(--ink);
+  }
+  blockquote .src{
+    display:block;margin-top:10px;
+    font-family:'Inter',sans-serif;font-style:normal;
+    font-size:11.5px;letter-spacing:0.1em;text-transform:uppercase;
+    color:var(--ink-soft);
+  }
+  blockquote .src a{color:var(--grove-deep);text-decoration:none}
+
+  .obs{display:flex;flex-direction:column;gap:8px;margin-top:28px}
+  .obs-card{padding:24px 28px 22px;background:var(--cream);}
+  .obs-card .label{margin-bottom:10px}
+  .obs-card h3{font-family:'Inter',sans-serif;font-size:15px;font-weight:600;margin-bottom:10px;line-height:1.4;color:var(--ink)}
+  .obs-card p{font-size:15px;color:var(--ink-soft);margin-bottom:8px;line-height:1.6}
+  .obs-card .evidence{font-size:12.5px;color:var(--grove);margin-top:14px;letter-spacing:0.03em;}
+  .obs-card .evidence a{color:var(--grove-deep);text-decoration:none}
+
+  .services{display:flex;flex-direction:column;gap:8px;margin-top:28px}
+  .svc{
+    padding:28px 26px 24px;
+    background:var(--cream);
+    display:flex;flex-direction:column;
+  }
+  .svc h3{
+    font-family:'Inter',sans-serif;
+    font-size:15px;font-weight:700;margin-bottom:5px;color:var(--ink);
+  }
+  .svc .scope{font-size:12.5px;color:var(--grove);margin-bottom:14px;letter-spacing:0.04em;font-weight:500}
+  .svc ul{list-style:none;padding:0;margin:0 0 16px;font-size:14px;color:var(--ink-soft)}
+  .svc ul li{padding:5px 0;margin-bottom:2px;line-height:1.4;}
+  .svc ul li::before{content:"→";margin-right:9px;color:var(--grove);font-size:12px}
+  .svc .price{
+    margin-top:auto;
+    font-family:'Playfair Display',serif;font-size:22px;
+    color:var(--grove-deep);padding-top:16px;
+  }
+  .svc .price small{
+    font-family:'Inter',sans-serif;font-size:11.5px;
+    color:var(--ink-soft);letter-spacing:0.04em;display:block;margin-top:3px;
+  }
+  .svc.featured{background:var(--grove);}
+  .svc.featured h3{color:var(--bg);}
+  .svc.featured .scope{color:var(--rose);}
+  .svc.featured ul{color:rgba(250,244,238,0.7);}
+  .svc.featured ul li::before{color:var(--rose);}
+  .svc.featured .price{color:var(--bg);}
+  .svc.featured .price small{color:rgba(250,244,238,0.55);}
+  .svc.featured p{color:rgba(250,244,238,0.75);font-size:13.5px;margin-top:8px;}
+
+  .sample{background:var(--cream);padding:36px 32px;margin-top:28px;}
+  @media(max-width:640px){.sample{padding:24px 18px}}
+  .sample-title{
+    font-family:'Playfair Display',serif;font-size:28px;font-style:italic;
+    margin-bottom:6px;line-height:1.2;
+  }
+  .sample .meta{
+    font-size:11.5px;letter-spacing:0.14em;text-transform:uppercase;
+    color:var(--grove);font-weight:600;margin-bottom:28px;
+  }
+
+  .slide{padding:16px 0;margin-bottom:4px;}
+  .slide-label{
+    font-size:10.5px;letter-spacing:0.18em;text-transform:uppercase;
+    color:var(--grove);font-weight:600;margin-bottom:8px;
+  }
+  .slide-body{font-size:15.5px;line-height:1.55;color:var(--ink)}
+  .slide-body .big{
+    font-family:'Playfair Display',serif;font-size:22px;
+    line-height:1.25;color:var(--ink);display:block;margin-bottom:8px;font-style:italic;
+  }
+  .slide-body em{color:var(--ink-soft)}
+
+  .note{
+    margin-top:24px;padding:20px 0;
+    font-size:14px;line-height:1.65;color:var(--ink-soft);font-style:italic;
+  }
+
+  .cta-block{
+    margin-top:80px;padding:56px 48px;
+    background:var(--grove);
+    text-align:center;
+  }
+  @media(max-width:640px){.cta-block{padding:36px 24px}}
+  .cta-block h2{color:var(--bg);margin-bottom:14px;font-style:italic}
+  .cta-block p{
+    font-size:16px;color:rgba(250,244,238,0.7);
+    max-width:480px;margin:0 auto 32px;line-height:1.65;
+  }
+  .cta-btn{
+    display:inline-block;
+    background:var(--rose);color:#fff;
+    font-family:'Inter',sans-serif;font-size:15px;font-weight:600;
+    letter-spacing:0.06em;text-transform:uppercase;
+    padding:17px 44px;text-decoration:none;
+  }
+  .cta-btn:hover{opacity:0.85}
+
+  .sep{height:1px;background:var(--bg-deep);margin:0}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HERO -->
+  <div class="hero">
+    <span class="label">A proposal for</span>
+    <h1><span class="at">@</span>bloomwithbella_</h1>
+    <p class="tag">Your two viral reels prove the formula works. Here is how to make it work every week.</p>
+    <p class="by">Prepared by Evelyn</p>
+  </div>
+
+  <!-- GOODWILL -->
+  <div class="goodwill">
+    <div class="banner-label">What I noticed first</div>
+    <p>You turned 10 years of endometriosis into a story that reached over <strong>130,000 people</strong> across two reels. The formula is right there: personal story, root cause clarity, a direct DM trigger. <strong>The question is why that same energy isn't in your carousels every week</strong>, because your audience is ready for it and your list is ready to grow.</p>
+  </div>
+
+
+  <!-- SECTION 01 — OBSERVATIONS -->
+  <section>
+    <div><div class="num">01</div></div>
+    <div class="section-body">
+      <h2>What the data says</h2>
+      <p class="lead">Two posts. A combined 128,650 views, 12,028 likes, and 838 comments. Both are personal story reels about endo. Both use the same hook.</p>
+      <p>The rest of your feed averages around 186 likes per post. That is a real gap, and it is not a content quality problem. It is a format problem. When the story is yours and the education is specific, your audience responds at a completely different level.</p>
+
+      <blockquote>
+        "A Dr told me 'your only options are the pill or surgery... or you could get pregnant.' And for a while, I believed it."
+        <span class="src">Bella's top post, <a href="https://www.instagram.com/p/DU7fMa8EkLK/" target="_blank">DU7fMa8EkLK</a> &mdash; 90,718 views</span>
+      </blockquote>
+
+      <div class="obs">
+        <div class="obs-card">
+          <div class="label">Observation 01</div>
+          <h3>Posting frequency dropped significantly in April</h3>
+          <p>Daily in February, twice a week in March, weekly in April. You even posted about it: "this past week I've felt a little burnt out." Content burnout is a content strategy problem, not a discipline problem. You need a system, not a schedule.</p>
+        </div>
+        <div class="obs-card">
+          <div class="label">Observation 02</div>
+          <h3>Your carousels underperform your reels by a wide margin</h3>
+          <p>Your average carousel earns roughly 110 likes. But the one time you created a specific, practical carousel with clear alternatives ("here's what to try instead"), it earned 1,409 likes. The format can work. The executions so far have been too abstract.</p>
+          <p class="evidence">Source: <a href="https://www.instagram.com/p/DWYQDIvEQUa/" target="_blank">DWYQDIvEQUa</a> (1,409 likes) vs. carousel median across 9 posts</p>
+        </div>
+        <div class="obs-card">
+          <div class="label">Observation 03</div>
+          <h3>Your lead funnel has no anchor content driving it</h3>
+          <p>The RESET quiz is the right offer. But it is only discoverable through your bio link. There is no high-save carousel that frames the root cause question, earns the follow, and funnels people to that quiz. That piece is missing.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="sep"></div>
+
+  <!-- SECTION 02 — SERVICES -->
+  <section>
+    <div><div class="num">02</div></div>
+    <div class="section-body">
+      <h2>What I would create</h2>
+      <p class="lead">Three options, designed to fit where you are right now.</p>
+
+      <div class="services">
+
+        <div class="svc">
+          <h3>Anchor Story Carousel</h3>
+          <div class="scope">One-off · delivered in 5 business days</div>
+          <ul>
+            <li>10-slide carousel: "From 10 years of endo to symptom-free — what actually changed"</li>
+            <li>Full caption written in your voice</li>
+            <li>Hashtag set (30 tags, 3 tiers)</li>
+            <li>Designed to earn saves, drive RESET quiz DMs, and act as your evergreen introduction piece</li>
+          </ul>
+          <div class="price">$150 <small>One-time</small></div>
+        </div>
+
+        <div class="svc featured">
+          <h3>Monthly Carousel Retainer</h3>
+          <div class="scope">Ongoing · 2 carousels per month</div>
+          <ul>
+            <li>1 evergreen root-cause carousel (saves-driven, e.g. "gut health and endo", "how cortisol drives period pain")</li>
+            <li>1 trending or hook-driven carousel (current conversation in your niche)</li>
+            <li>Full captions and hashtag sets for both</li>
+            <li>Revisions included</li>
+          </ul>
+          <p>Frees you from the part of content creation that is burning you out, while keeping your voice consistent and your funnel active.</p>
+          <div class="price">$350 <small>Per month · cancel anytime</small></div>
+        </div>
+
+        <div class="svc">
+          <h3>Bundle: Anchor + 2 Months</h3>
+          <div class="scope">Best value · start strong, stay consistent</div>
+          <ul>
+            <li>Everything in the Anchor Story Carousel</li>
+            <li>Two full months of the Monthly Carousel Retainer (4 carousels total)</li>
+            <li>Priority turnaround</li>
+          </ul>
+          <div class="price">$650 <small>One-time payment for the full bundle</small></div>
+        </div>
+
+      </div>
+
+      <p class="note">All carousels are written from scratch using your existing captions, your voice, and your root cause framework. Nothing generic, nothing recycled from other clients.</p>
+    </div>
+  </section>
+
+  <div class="sep"></div>
+
+  <!-- SECTION 03 — SAMPLE -->
+  <section>
+    <div><div class="num">03</div></div>
+    <div class="section-body">
+      <h2>A sample carousel for you</h2>
+      <p class="lead">This is what a Monthly Retainer carousel looks like — written using your exact framework, your language, your root causes.</p>
+      <p>Every line below comes from reading your 30 most recent posts in full. The root causes are yours. The voice is yours. I just built the structure that earns the save.</p>
+
+      <div class="sample">
+        <div class="sample-title">8 Root Causes of Endo Your Doctor Never Told You</div>
+        <div class="meta">Sample carousel · 10 slides · @bloomwithbella_</div>
+
+        <div class="slide">
+          <div class="slide-label">Slide 1 — Cover</div>
+          <div class="slide-body">
+            <span class="big">8 root causes of endo your doctor never told you</span>
+            <em>If you have endo, read this. Your symptoms have reasons. None of them are "just the way it is."</em>
+          </div>
+        </div>
+
+        <div class="slide">
+          <div class="slide-label">Slide 2 — Frame</div>
+          <div class="slide-body">
+            <span class="big">You've been told endo is incurable.</span>
+            That the pill or surgery are your only options. That pain is just part of being a woman. That your body is working against you.<br><br>
+            <em>That's not the full story. Here's what's actually going on.</em>
+          </div>
+        </div>
+
+        <div class="slide">
+          <div class="slide-label">Slide 3 — Root cause /01</div>
+          <div class="slide-body">
+            <span class="big">Chronic inflammation</span>
+            Endo is an immune condition at its core. Your body is stuck in firefighting mode. Diet, environment, and stress levels all either fan those flames or help put them out.
+          </div>
+        </div>
+
+        <div class="slide">
+          <div class="slide-label">Slide 4 — Root cause /02</div>
+          <div class="slide-body">
+            <span class="big">Gut dysbiosis</span>
+            Up to 80% of your immune system lives in your gut. When the gut lining is damaged, toxins leak into the bloodstream and trigger the immune overreaction that drives endo.
+          </div>
+        </div>
+
+        <div class="slide">
+          <div class="slide-label">Slide 5 — Root cause /03</div>
+          <div class="slide-body">
+            <span class="big">A nervous system stuck in survival</span>
+            Trauma, chronic stress, a body that never feels safe enough to rest. Healing is biologically impossible when your nervous system won't leave fight-or-flight.
+          </div>
+        </div>
+
+        <div class="slide">
+          <div class="slide-label">Slide 6 — Root cause /04</div>
+          <div class="slide-body">
+            <span class="big">Estrogen dominance and liver stagnation</span>
+            Endo thrives in a high-estrogen environment. Your liver clears excess estrogen, but when those detox pathways are sluggish, it keeps recirculating and feeding the condition.
+          </div>
+        </div>
+
+        <div class="slide">
+          <div class="slide-label">Slide 7 — Root cause /05</div>
+          <div class="slide-body">
+            <span class="big">Blood sugar chaos and cortisol spikes</span>
+            Coffee on an empty stomach. Skipped meals. Chronic stress. These spike cortisol, suppress progesterone, and stoke inflammation. The hormonal knock-on is real.
+          </div>
+        </div>
+
+        <div class="slide">
+          <div class="slide-label">Slide 8 — Root cause /06</div>
+          <div class="slide-body">
+            <span class="big">Mineral and nutrient depletion</span>
+            Zinc, magnesium, B vitamins, omega-3s. Essential for immune regulation and hormone clearance. Heavy periods alone deplete levels most women never recover from without support.
+          </div>
+        </div>
+
+        <div class="slide">
+          <div class="slide-label">Slide 9 — Root cause /07</div>
+          <div class="slide-body">
+            <span class="big">Suppressed emotions and unresolved trauma</span>
+            The body keeps score. Unprocessed grief and rage live in the tissue. When felt safety is absent, the nervous system stays dysregulated. And so does the immune system.
+          </div>
+        </div>
+
+        <div class="slide">
+          <div class="slide-label">Slide 10 — Root cause /08 + CTA</div>
+          <div class="slide-body">
+            <span class="big">Disrupted sleep and circadian rhythm</span>
+            Your body repairs itself overnight. Melatonin reduces inflammation. Cortisol resets. Without consistent deep sleep, none of that happens. And endo gets more fuel.<br><br>
+            <em>Want to know which root causes are driving your symptoms? DM RESET to find out. It's free.</em>
+          </div>
+        </div>
+
+        <p class="note">The visual version of this carousel is available as a designed HTML file. Every slide is built at 1080x1350 and downloadable as individual PNGs — ready to post as-is or hand to a designer for final polish.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="sep"></div>
+
+  <!-- SECTION 04 — HOW I WORK -->
+  <section>
+    <div><div class="num">04</div></div>
+    <div class="section-body">
+      <h2>How this works</h2>
+      <p class="lead">No onboarding calls. No complicated workflows. Just DM.</p>
+      <p>You send me a few words about the topic or angle you want each month. I research it against your existing content, write it in your voice, and send it back for revisions. You approve and post.</p>
+      <p>Everything I write is built from your captions, your framework, and your audience's language. Nothing goes out that doesn't sound like you wrote it yourself.</p>
+      <p>I have read every caption in your last 30 posts. The "symptoms are messages not mistakes" framing, the immune system as the real driver of endo, the frustration with medical dismissal, the warmth in the CTAs. Those are your moves. I work with them, not around them.</p>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <div class="cta-block">
+    <h2>Just DM me.</h2>
+    <p>If any of this resonates, the easiest next step is a quick message. No pressure, no pitch call.</p>
+    <a href="https://www.instagram.com/evelyn.contentally/" class="cta-btn" target="_blank">DM me on Instagram</a>
+  </div>
+
+</div>
+</body>
+</html>
