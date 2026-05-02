@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>A Proposal for @soulfulpsychfatima</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400;1,9..144,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:        #1C2635;
+      --navy-mid:    #243244;
+      --navy-card:   #2C3D54;
+      --cream:       #F5EDE0;
+      --cream-deep:  #EDE3D2;
+      --teal:        #5BBAB0;
+      --teal-faint:  #EBF5F4;
+      --terra:       #C47B56;
+      --text-dark:   #F0E8DA;
+      --text-muted:  rgba(240,232,218,0.6);
+      --body-mid:    #2E3D50;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--cream);
+      color: var(--navy);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* HERO */
+    header {
+      background: var(--navy);
+      padding: 88px 40px 80px;
+      text-align: center;
+    }
+
+    .hero-eyebrow {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 40px;
+    }
+
+    .hero-hook {
+      font-family: 'Fraunces', serif;
+      font-style: italic;
+      font-weight: 300;
+      font-size: clamp(2.4rem, 5.5vw, 4rem);
+      line-height: 1.12;
+      color: var(--text-dark);
+      max-width: 700px;
+      margin: 0 auto 44px;
+    }
+
+    .hero-hook span {
+      color: var(--teal);
+    }
+
+    .hero-byline {
+      font-size: 11px;
+      font-weight: 300;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    /* GOODWILL */
+    .goodwill-wrap {
+      background: var(--navy-mid);
+      padding: 52px 40px;
+    }
+
+    .goodwill {
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .goodwill-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 16px;
+    }
+
+    .goodwill p {
+      font-size: 15px;
+      font-weight: 300;
+      color: var(--text-dark);
+      line-height: 1.8;
+    }
+
+    /* SECTION SHELL */
+    .section-cream  { background: var(--cream); }
+    .section-navy   { background: var(--navy); }
+    .section-deep   { background: var(--cream-deep); }
+    .section-teal   { background: var(--teal-faint); }
+
+    .inner {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 84px 40px;
+    }
+
+    .section-num {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 14px;
+    }
+
+    .section-navy .section-num { color: var(--teal); }
+
+    h2 {
+      font-family: 'Fraunces', serif;
+      font-style: italic;
+      font-weight: 400;
+      font-size: clamp(1.8rem, 3.2vw, 2.5rem);
+      line-height: 1.18;
+      margin-bottom: 56px;
+      color: var(--navy);
+    }
+
+    .section-navy h2 { color: var(--text-dark); }
+
+    /* OBSERVATIONS */
+    .obs {
+      margin-bottom: 52px;
+    }
+
+    .obs:last-child { margin-bottom: 0; }
+
+    .obs-tag {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--terra);
+      margin-bottom: 10px;
+    }
+
+    .obs h3 {
+      font-family: 'Fraunces', serif;
+      font-weight: 400;
+      font-size: 1.22rem;
+      line-height: 1.3;
+      margin-bottom: 14px;
+      color: var(--navy);
+    }
+
+    .obs p {
+      font-size: 14.5px;
+      font-weight: 300;
+      line-height: 1.82;
+      color: var(--body-mid);
+    }
+
+    /* SERVICE GRID */
+    .svc-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    @media (max-width: 620px) {
+      .svc-grid { grid-template-columns: 1fr; }
+    }
+
+    .svc-card {
+      background: var(--navy-card);
+      padding: 32px 28px;
+      border-radius: 3px;
+    }
+
+    .svc-badge {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 12px;
+    }
+
+    .svc-name {
+      font-family: 'Fraunces', serif;
+      font-style: italic;
+      font-weight: 400;
+      font-size: 1.18rem;
+      line-height: 1.3;
+      color: var(--text-dark);
+      margin-bottom: 14px;
+    }
+
+    .svc-desc {
+      font-size: 13.5px;
+      font-weight: 300;
+      line-height: 1.75;
+      color: rgba(240,232,218,0.75);
+      margin-bottom: 22px;
+    }
+
+    .svc-price {
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--teal);
+      letter-spacing: 0.06em;
+    }
+
+    /* SAMPLES */
+    .sample-block {
+      margin-bottom: 72px;
+    }
+
+    .sample-block:last-child { margin-bottom: 0; }
+
+    .sample-eyebrow {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--terra);
+      margin-bottom: 8px;
+    }
+
+    .sample-title {
+      font-family: 'Fraunces', serif;
+      font-style: italic;
+      font-weight: 400;
+      font-size: 1.55rem;
+      line-height: 1.2;
+      color: var(--navy);
+      margin-bottom: 6px;
+    }
+
+    .sample-meta {
+      font-size: 12.5px;
+      font-weight: 300;
+      color: #7A8B9A;
+      margin-bottom: 32px;
+    }
+
+    /* CAROUSEL SLIDES */
+    .slides {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+
+    @media (max-width: 620px) {
+      .slides { grid-template-columns: 1fr 1fr; }
+    }
+
+    .slide {
+      background: var(--navy);
+      padding: 26px 22px 28px;
+      border-radius: 3px;
+      display: flex;
+      flex-direction: column;
+      min-height: 220px;
+    }
+
+    .slide-num {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 14px;
+    }
+
+    .slide-head {
+      font-family: 'Fraunces', serif;
+      font-style: italic;
+      font-weight: 400;
+      font-size: 1.05rem;
+      line-height: 1.3;
+      color: var(--text-dark);
+      margin-bottom: 12px;
+    }
+
+    .slide-body {
+      font-size: 12.5px;
+      font-weight: 300;
+      line-height: 1.72;
+      color: rgba(240,232,218,0.75);
+      flex: 1;
+    }
+
+    /* REEL SCRIPT */
+    .reel-wrap {
+      background: var(--navy);
+      border-radius: 3px;
+      overflow: hidden;
+    }
+
+    .reel-header {
+      padding: 28px 32px 24px;
+      background: var(--navy-card);
+    }
+
+    .reel-header-title {
+      font-family: 'Fraunces', serif;
+      font-style: italic;
+      font-weight: 400;
+      font-size: 1.1rem;
+      color: var(--text-dark);
+      margin-bottom: 6px;
+    }
+
+    .reel-header-meta {
+      font-size: 12px;
+      font-weight: 300;
+      color: var(--text-muted);
+    }
+
+    .beat {
+      display: grid;
+      grid-template-columns: 130px 1fr;
+      gap: 24px;
+      padding: 26px 32px;
+      align-items: start;
+    }
+
+    .beat:nth-child(odd) {
+      background: rgba(255,255,255,0.03);
+    }
+
+    .beat-tag {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--teal);
+      padding-top: 2px;
+    }
+
+    .beat-copy {
+      font-size: 13.5px;
+      font-weight: 300;
+      line-height: 1.78;
+      color: rgba(240,232,218,0.85);
+    }
+
+    .beat-copy strong {
+      display: block;
+      font-weight: 500;
+      font-size: 12px;
+      color: var(--terra);
+      margin-bottom: 6px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    @media (max-width: 500px) {
+      .beat { grid-template-columns: 1fr; gap: 8px; }
+    }
+
+    /* INVESTMENT */
+    .invest-list {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .invest-row {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 24px;
+      align-items: center;
+      padding: 20px 0;
+    }
+
+    .invest-row:nth-child(even) {
+      background: rgba(91,186,176,0.08);
+      padding: 20px 18px;
+      margin: 0 -18px;
+      border-radius: 2px;
+    }
+
+    .invest-name {
+      font-family: 'Fraunces', serif;
+      font-style: italic;
+      font-weight: 400;
+      font-size: 1.05rem;
+      color: var(--navy);
+    }
+
+    .invest-val {
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--teal);
+      white-space: nowrap;
+      letter-spacing: 0.04em;
+    }
+
+    /* CTA */
+    .cta-wrap {
+      background: var(--navy);
+      padding: 96px 40px;
+      text-align: center;
+    }
+
+    .cta-wrap h2 {
+      color: var(--text-dark);
+      margin-bottom: 20px;
+    }
+
+    .cta-sub {
+      font-size: 15px;
+      font-weight: 300;
+      color: var(--text-muted);
+      max-width: 520px;
+      margin: 0 auto 44px;
+      line-height: 1.8;
+    }
+
+    .cta-btn {
+      display: inline-block;
+      padding: 16px 44px;
+      background: var(--teal);
+      color: var(--navy);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-radius: 2px;
+    }
+
+    .footer-note {
+      margin-top: 52px;
+      font-size: 12px;
+      font-weight: 300;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    @media (max-width: 500px) {
+      header, .goodwill-wrap, .inner, .cta-wrap { padding-left: 24px; padding-right: 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HERO -->
+  <header>
+    <p class="hero-eyebrow">A Proposal for @soulfulpsychfatima</p>
+    <h1 class="hero-hook">
+      You hit <span>229,000 views</span><br>with a structure<br>you have not named yet.
+    </h1>
+    <p class="hero-byline">Written by Evelyn</p>
+  </header>
+
+  <!-- GOODWILL -->
+  <div class="goodwill-wrap">
+    <div class="goodwill">
+      <p class="goodwill-label">Before you read</p>
+      <p>The two sample pieces inside this proposal — a carousel and a Reel script — are on me. No charge, not part of any package below. They are a gesture of goodwill so you can see actual work in your voice before we ever talk. Publish them as-is if you want, whether we end up working together or not.</p>
+    </div>
+  </div>
+
+  <!-- 01 / WHAT I SEE -->
+  <div class="section-cream">
+    <div class="inner">
+      <p class="section-num">01</p>
+      <h2>Four things I noticed<br>reading your last 100 posts.</h2>
+
+      <div class="obs">
+        <p class="obs-tag">The formula</p>
+        <h3>You have a viral structure and you deploy it instinctively. Both 229K posts use it.</h3>
+        <p>Controversial claim. Preemptive defense. Compassionate reframe. "Regulated does not mean calm 24/7" (228K views). "Talking about trauma too early is harmful" (229K views). "Therapy is just science" (119K). Every one of them leads with something that sounds wrong, catches the objection before the comment section can, then lands on something that makes the viewer feel understood. Your audience does not just watch it. They share it, because it changes how they feel about themselves. Most accounts never develop one format that fires reliably. You have one and have not written it down.</p>
+      </div>
+
+      <div class="obs">
+        <p class="obs-tag">The translation gap</p>
+        <h3>Your nervous system content outperforms your clinical content every time it simplifies.</h3>
+        <p>"Whatever you silence will only get louder" (29K views). "Therapy is just biology" (119K). "Regulated does not mean calm" (228K). The pattern across all of them: you take something clinical and translate it into something a person can physically feel. The posts that underperform are the ones that stay inside the clinical frame. The ones that break through are the ones that close the distance between the lab and the living room. That translation skill is the thing. It is not evenly distributed across your content yet.</p>
+      </div>
+
+      <div class="obs">
+        <p class="obs-tag">The saves gap</p>
+        <h3>You have four comment funnels giving away free resources and nothing for someone to save and come back to.</h3>
+        <p>95 of your last 100 posts are Reels. Your five carousels average 116 likes each with zero video views. You have built a sophisticated lead funnel (weird, panic, rude, consult) that shows you understand conversion — but the content layer that earns saves is missing entirely. Saves are a different signal to the algorithm than views or likes. They indicate depth of engagement and bring followers back. A carousel library built around your nervous system translation voice would turn scroll-past browsers into people who save your content, come back to it, and eventually book a consult.</p>
+      </div>
+
+      <div class="obs">
+        <p class="obs-tag">The bilingual gap</p>
+        <h3>You are the only bilingual clinical psychologist in Kuwait with this reach. You post almost entirely in English.</h3>
+        <p>The Arabic mental health conversation on Instagram is sparse and clinical. Nobody with your reach is posting warm, dark-humored, credentialed Arabic content in the GCC. You have the voice, the credentials, and the cultural context. One Arabic post per week would not dilute your English audience. It would open a discovery lane that no one else is standing in and position you as the psychologist the Arabic-speaking Gulf audience did not know they were waiting for.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 02 / WHAT I WOULD BUILD -->
+  <div class="section-navy">
+    <div class="inner">
+      <p class="section-num">02</p>
+      <h2>Six ways we could<br>work together.</h2>
+
+      <div class="svc-grid">
+
+        <div class="svc-card">
+          <p class="svc-badge">One-time</p>
+          <p class="svc-name">Reframe Formula System</p>
+          <p class="svc-desc">Your viral format named, mapped, and turned into a content calendar template. Hook bank for the "before you come at me" structure, topic queue organized by your strongest content lanes, caption frameworks and hashtag stack. Async written walkthrough so you can run it yourself or hand it to a team.</p>
+          <p class="svc-price">Investment: let's talk over DM</p>
+        </div>
+
+        <div class="svc-card">
+          <p class="svc-badge">Monthly</p>
+          <p class="svc-name">Carousel Series</p>
+          <p class="svc-desc">4 designed, save-worthy educational carousels per month. Your science-translation voice in the format the algorithm rewards for depth. Nervous system myths, therapy misconceptions, defense mechanisms, emotion regulation. 6 to 8 slides, fully captioned, one revision round included.</p>
+          <p class="svc-price">Investment: let's talk over DM</p>
+        </div>
+
+        <div class="svc-card">
+          <p class="svc-badge">Monthly</p>
+          <p class="svc-name">Reel Script Pack</p>
+          <p class="svc-desc">4 hook-engineered Reel scripts per month built around your reframe formula. On-screen text and voiceover copy, caption and hashtag stack included, music suggestion per script. Systematizes what you already do instinctively so it becomes weekly output instead of occasional viral luck.</p>
+          <p class="svc-price">Investment: let's talk over DM</p>
+        </div>
+
+        <div class="svc-card">
+          <p class="svc-badge">Monthly add-on</p>
+          <p class="svc-name">Bilingual Content Track</p>
+          <p class="svc-desc">One Arabic Reel script or carousel per week in the same voice and same quality as your English content. Opens the GCC discovery lane that no credentialed psychologist with your reach is currently in. Captions adapted for Arabic-speaking Gulf audience without losing your tone.</p>
+          <p class="svc-price">Investment: let's talk over DM</p>
+        </div>
+
+        <div class="svc-card">
+          <p class="svc-badge">One-time</p>
+          <p class="svc-name">Funnel Sequencing</p>
+          <p class="svc-desc">Your four comment triggers connected into a single escalation path. Someone who DMs "panic" becomes a warm lead toward "consult." Written DM bridges, saved-reply templates for each step, no automation tools required. The structure is already there. This connects the wires.</p>
+          <p class="svc-price">Investment: let's talk over DM</p>
+        </div>
+
+        <div class="svc-card">
+          <p class="svc-badge">Ongoing</p>
+          <p class="svc-name">Growth Partnership</p>
+          <p class="svc-desc">Commission and milestone-based structure built around your intake goals. Designed for accounts where organic reach and client acquisition are directly tied. Scope and terms discussed over DM after we understand what you are building toward.</p>
+          <p class="svc-price">Investment: let's talk over DM</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- 03 / SAMPLE WORK -->
+  <div class="section-deep">
+    <div class="inner">
+      <p class="section-num">03</p>
+      <h2>Sample work.<br>Written in your voice.</h2>
+
+      <!-- Sample A: Carousel -->
+      <div class="sample-block">
+        <p class="sample-eyebrow">Sample A — Carousel</p>
+        <p class="sample-title">"5 'Anxiety' Symptoms That Are Actually Your Nervous System Doing Its Job"</p>
+        <p class="sample-meta">6-slide educational carousel · Nervous system translation format · CTA: comment "weird"</p>
+
+        <div class="slides">
+
+          <div class="slide">
+            <p class="slide-num">01 / Cover</p>
+            <p class="slide-head">You do not have an anxiety problem.</p>
+            <p class="slide-body">Your nervous system is working exactly the way it was designed to. Here is what that actually looks like.</p>
+          </div>
+
+          <div class="slide">
+            <p class="slide-num">02</p>
+            <p class="slide-head">Hypervigilance</p>
+            <p class="slide-body">You cannot stop scanning the room. Checking the tone in a text. Waiting for something to go wrong.<br><br>Your nervous system learned that threats were real. It is not broken. It is doing its job — for an environment that no longer exists.</p>
+          </div>
+
+          <div class="slide">
+            <p class="slide-num">03</p>
+            <p class="slide-head">Avoidance</p>
+            <p class="slide-body">You cancel plans. Go quiet. Withdraw before you get a chance to be hurt.<br><br>Avoidance is a protection response, not a character flaw. The nervous system learned: distance equals safety. It is still running that rule.</p>
+          </div>
+
+          <div class="slide">
+            <p class="slide-num">04</p>
+            <p class="slide-head">People-pleasing</p>
+            <p class="slide-body">You say yes when you mean no. You read every room before you speak.<br><br>Your nervous system learned that keeping the peace was how you stayed safe. That reflex does not care that you are an adult now. It runs automatically.</p>
+          </div>
+
+          <div class="slide">
+            <p class="slide-num">05</p>
+            <p class="slide-head">Overthinking</p>
+            <p class="slide-body">Your brain will not stop. You replay conversations, run scenarios, plan for outcomes that have not happened.<br><br>The brain churns when the body does not feel safe enough to rest. Overthinking is not a thinking problem. It is a nervous system problem.</p>
+          </div>
+
+          <div class="slide">
+            <p class="slide-num">06 / CTA</p>
+            <p class="slide-head">This is what regulated means.</p>
+            <p class="slide-body">Not calm. Not fearless. Safe enough to stay.<br><br>If any of these landed, comment "weird" and I will send you 36 free ways to help your nervous system feel safer. No breathing exercises required.</p>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Sample B: Reel Script -->
+      <div class="sample-block">
+        <p class="sample-eyebrow">Sample B — Reel Script</p>
+        <p class="sample-title">"Why 'just breathe' never actually works"</p>
+        <p class="sample-meta">Hook-first reframe format · 30 to 45 sec · Music suggestion: anything slow and ambient · Funnels to "weird" trigger</p>
+
+        <div class="reel-wrap">
+
+          <div class="reel-header">
+            <p class="reel-header-title">Why "just breathe" never actually works</p>
+            <p class="reel-header-meta">Hook-first / reframe format / 30 to 45 sec</p>
+          </div>
+
+          <div class="beat">
+            <p class="beat-tag">Hook / On-screen</p>
+            <p class="beat-copy">If breathing exercises haven't fixed your anxiety — this is why.</p>
+          </div>
+
+          <div class="beat">
+            <p class="beat-tag">Beat 1 / VO</p>
+            <p class="beat-copy">Your nervous system doesn't respond to instructions. It responds to signals.</p>
+          </div>
+
+          <div class="beat">
+            <p class="beat-tag">Beat 2 / On-screen</p>
+            <p class="beat-copy"><strong>On-screen text</strong>Telling yourself to calm down is not a signal. It is a request. And your nervous system doesn't take requests.</p>
+          </div>
+
+          <div class="beat">
+            <p class="beat-tag">Beat 3 / VO</p>
+            <p class="beat-copy">Breathing actually works — but not because you commanded it to. A long, slow exhale physically activates the vagus nerve. It tells the nervous system the threat is over. The body changes state first. The mind follows.</p>
+          </div>
+
+          <div class="beat">
+            <p class="beat-tag">Beat 4 / On-screen</p>
+            <p class="beat-copy"><strong>On-screen text</strong>You can't think your way out of a body response. You have to signal your way out.</p>
+          </div>
+
+          <div class="beat">
+            <p class="beat-tag">CTA / VO + On-screen</p>
+            <p class="beat-copy">Comment "weird" and I will send you 36 free ways to regulate your nervous system that actually work. Most of them take less than two minutes.</p>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 04 / INVESTMENT -->
+  <div class="section-teal">
+    <div class="inner">
+      <p class="section-num">04</p>
+      <h2>Let's figure out<br>the right fit.</h2>
+
+      <div class="invest-list">
+        <div class="invest-row">
+          <p class="invest-name">Reframe Formula System</p>
+          <p class="invest-val">DM to discuss</p>
+        </div>
+        <div class="invest-row">
+          <p class="invest-name">Carousel Series (4 per month)</p>
+          <p class="invest-val">DM to discuss</p>
+        </div>
+        <div class="invest-row">
+          <p class="invest-name">Reel Script Pack (4 per month)</p>
+          <p class="invest-val">DM to discuss</p>
+        </div>
+        <div class="invest-row">
+          <p class="invest-name">Bilingual Content Track (monthly add-on)</p>
+          <p class="invest-val">DM to discuss</p>
+        </div>
+        <div class="invest-row">
+          <p class="invest-name">Funnel Sequencing</p>
+          <p class="invest-val">DM to discuss</p>
+        </div>
+        <div class="invest-row">
+          <p class="invest-name">Growth Partnership</p>
+          <p class="invest-val">DM to discuss</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 05 / CTA -->
+  <div class="cta-wrap">
+    <div class="inner" style="padding-top: 0; padding-bottom: 0;">
+      <p class="section-num">05</p>
+      <h2>Let's talk.</h2>
+      <p class="cta-sub">Just DM me. Tell me what has been frustrating, what is clicking, what you want to build toward. I will listen and we will figure out what makes sense from there.</p>
+      <a href="https://www.instagram.com/evelyn.contentally/" class="cta-btn">Message on Instagram</a>
+      <p class="footer-note">Prepared for @soulfulpsychfatima by Evelyn.<br>The sample content in this proposal was written for your voice and your audience. It is yours to use regardless of whether we work together.</p>
+    </div>
+  </div>
+
+</body>
+</html>
