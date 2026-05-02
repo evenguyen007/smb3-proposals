@@ -1,0 +1,583 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>A proposal for @therapy.with.emilee</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#F8F5EF;
+    --bg-card:#FFFFFF;
+    --bg-muted:#F0EBE2;
+    --ink:#1C1C1C;
+    --ink-soft:#6E6860;
+    --teal:#3B7A8E;
+    --teal-deep:#2A5F70;
+    --coral:#E8826A;
+    --coral-light:#F7EAE4;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Nunito',-apple-system,Helvetica,Arial,sans-serif;
+    font-weight:400;
+    font-size:16.5px;
+    line-height:1.75;
+    -webkit-font-smoothing:antialiased;
+  }
+  .page{max-width:780px;margin:0 auto;padding:72px 36px 120px}
+  @media(max-width:640px){.page{padding:44px 20px 80px}}
+
+  h1,h2,h3{font-family:'Cormorant Garamond',Georgia,serif;font-weight:400;letter-spacing:0}
+  h1{font-size:clamp(56px,11vw,100px);line-height:0.92;font-style:italic}
+  h2{font-size:clamp(30px,5vw,46px);line-height:1.06;margin-bottom:20px}
+  h3{font-size:21px;line-height:1.3;margin-bottom:8px;font-family:'Nunito',sans-serif;font-weight:700}
+  p{margin-bottom:14px}
+  em{font-style:italic;color:var(--ink-soft)}
+
+  .label{
+    font-size:10.5px;letter-spacing:0.24em;text-transform:uppercase;
+    color:var(--teal);font-weight:700;font-family:'Nunito',sans-serif;
+  }
+  .num{
+    font-family:'Cormorant Garamond',serif;font-size:76px;line-height:1;
+    color:var(--bg-muted);font-style:italic;user-select:none;
+  }
+
+  /* HERO */
+  .hero{padding:36px 0 88px;margin-bottom:64px}
+  .hero .label{margin-bottom:36px;display:block}
+  .hero h1{margin-bottom:0;color:var(--ink)}
+  .hero h1 .at{color:var(--teal)}
+  .hero .tag{
+    margin-top:28px;
+    font-family:'Cormorant Garamond',serif;font-style:italic;
+    font-size:clamp(18px,2.5vw,23px);
+    color:var(--ink-soft);line-height:1.45;max-width:600px;
+  }
+  .hero .by{
+    margin-top:48px;font-size:13px;
+    color:var(--ink-soft);letter-spacing:0.09em;text-transform:uppercase;
+    font-weight:600;
+  }
+
+  /* GOODWILL */
+  .goodwill{
+    margin:0 0 64px;
+    padding:28px 32px;
+    background:var(--coral-light);
+    border-left:3px solid var(--coral);
+  }
+  .goodwill .banner-label{
+    font-size:10.5px;letter-spacing:0.22em;text-transform:uppercase;
+    color:var(--coral);font-weight:700;margin-bottom:12px;
+    font-family:'Nunito',sans-serif;
+  }
+  .goodwill p{font-size:15px;line-height:1.65;color:var(--ink);margin:0}
+  .goodwill strong{color:var(--teal-deep);font-weight:700}
+
+  /* SECTIONS */
+  section{
+    display:grid;
+    grid-template-columns:80px 1fr;
+    gap:0 36px;
+    padding:72px 0;
+  }
+  @media(max-width:640px){
+    section{grid-template-columns:1fr;gap:16px 0}
+    .num{font-size:44px;line-height:1}
+  }
+  .section-body{min-width:0}
+
+  .lead{
+    font-size:19.5px;line-height:1.6;
+    font-family:'Cormorant Garamond',serif;
+    color:var(--ink);margin-bottom:20px;
+  }
+
+  blockquote{
+    margin:24px 0;
+    padding:22px 28px;
+    background:var(--bg-card);
+    border-left:3px solid var(--teal);
+    font-family:'Cormorant Garamond',serif;font-style:italic;
+    font-size:20px;line-height:1.5;color:var(--ink);
+  }
+  blockquote .src{
+    display:block;margin-top:10px;
+    font-family:'Nunito',sans-serif;font-style:normal;
+    font-size:11.5px;letter-spacing:0.1em;text-transform:uppercase;
+    color:var(--ink-soft);
+  }
+  blockquote .src a{color:var(--teal-deep);text-decoration:none}
+
+  /* OBSERVATIONS */
+  .obs{display:flex;flex-direction:column;gap:8px;margin-top:28px}
+  .obs-card{padding:24px 28px 22px;background:var(--bg-card)}
+  .obs-card .label{margin-bottom:10px}
+  .obs-card h3{font-size:15px;font-weight:700;margin-bottom:10px;line-height:1.4;color:var(--ink)}
+  .obs-card p{font-size:15px;color:var(--ink-soft);margin-bottom:8px;line-height:1.65}
+  .obs-card .evidence{
+    font-size:12.5px;color:var(--teal);margin-top:14px;letter-spacing:0.03em;
+  }
+  .obs-card .evidence a{color:var(--teal-deep);text-decoration:none}
+
+  /* SERVICES */
+  .services{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:28px}
+  @media(max-width:640px){.services{grid-template-columns:1fr}}
+  .svc{padding:24px 22px 22px;background:var(--bg-card);display:flex;flex-direction:column}
+  .svc h3{font-size:15px;font-weight:700;margin-bottom:5px;color:var(--ink)}
+  .svc .scope{font-size:12.5px;color:var(--teal);margin-bottom:14px;letter-spacing:0.04em;font-weight:600}
+  .svc ul{list-style:none;padding:0;margin:0 0 16px;font-size:14px;color:var(--ink-soft)}
+  .svc ul li{padding:5px 0;margin-bottom:2px;line-height:1.4}
+  .svc ul li::before{content:"→";margin-right:9px;color:var(--teal);font-size:12px}
+  .svc .price{
+    margin-top:auto;
+    font-family:'Cormorant Garamond',serif;font-size:22px;
+    color:var(--teal-deep);
+    padding-top:16px;
+  }
+  .svc .price small{
+    font-family:'Nunito',sans-serif;font-size:11.5px;
+    color:var(--ink-soft);letter-spacing:0.04em;display:block;margin-top:3px;
+  }
+  .svc .price-dm{
+    margin-top:auto;padding-top:16px;
+    font-size:13px;color:var(--ink-soft);font-style:italic;
+    font-family:'Cormorant Garamond',serif;
+  }
+
+  /* SAMPLES */
+  .sample{background:var(--bg-card);padding:36px 32px;margin-top:28px}
+  @media(max-width:640px){.sample{padding:24px 18px}}
+  .sample-title{
+    font-family:'Cormorant Garamond',serif;font-size:30px;font-style:italic;
+    margin-bottom:6px;line-height:1.2;color:var(--ink);
+  }
+  .sample .meta{
+    font-size:11.5px;letter-spacing:0.14em;text-transform:uppercase;
+    color:var(--teal);font-weight:700;margin-bottom:28px;
+    font-family:'Nunito',sans-serif;
+  }
+
+  .slide{padding:16px 0;margin-bottom:4px}
+  .slide-label{
+    font-size:10.5px;letter-spacing:0.18em;text-transform:uppercase;
+    color:var(--teal);font-weight:700;margin-bottom:8px;
+    font-family:'Nunito',sans-serif;
+  }
+  .slide-body{font-size:15.5px;line-height:1.6;color:var(--ink)}
+  .slide-body .big{
+    font-family:'Cormorant Garamond',serif;font-size:24px;
+    line-height:1.25;color:var(--ink);display:block;margin-bottom:8px;
+  }
+  .slide-body em{color:var(--ink-soft)}
+  .slide-body ul{list-style:none;padding:0;margin:8px 0}
+  .slide-body ul li{padding:4px 0;font-size:15px;line-height:1.5}
+  .slide-body ul li::before{content:"·";margin-right:10px;color:var(--coral);font-weight:700}
+
+  .caption-block{
+    margin-top:24px;padding:24px 26px;
+    background:var(--bg-muted);
+    font-size:14.5px;line-height:1.75;
+  }
+  .caption-block .label{margin-bottom:12px}
+  .caption-block p{margin-bottom:10px}
+
+  .reel-beat{
+    display:grid;grid-template-columns:84px 1fr;
+    gap:14px;padding:16px 0;margin-bottom:4px;
+    border-bottom:1px solid var(--bg-muted);
+  }
+  .reel-beat:last-of-type{border-bottom:none}
+  .reel-beat .timecode{
+    font-family:'Cormorant Garamond',serif;font-size:15px;
+    color:var(--teal-deep);letter-spacing:0.02em;padding-top:2px;
+    font-style:italic;line-height:1.4;
+  }
+  .reel-beat .body{font-size:15px;line-height:1.6}
+  .reel-beat .visual{
+    font-size:13px;color:var(--ink-soft);font-style:italic;
+    margin-bottom:6px;line-height:1.5;
+  }
+  .reel-beat .overlay{
+    display:inline-block;background:var(--ink);color:#F8F5EF;
+    padding:3px 10px;font-size:12.5px;letter-spacing:0.06em;
+    margin:5px 0 8px;font-weight:700;font-family:'Nunito',sans-serif;
+  }
+
+  /* CTA */
+  .cta-block{
+    margin-top:32px;padding:56px 40px;
+    background:var(--teal-deep);color:#F8F5EF;
+    text-align:center;
+  }
+  @media(max-width:640px){.cta-block{padding:36px 24px}}
+  .cta-block h2{color:#F8F5EF;margin-bottom:14px}
+  .cta-block p{
+    font-size:17px;color:rgba(248,245,239,0.75);
+    max-width:520px;margin:0 auto 28px;line-height:1.65;
+  }
+  .cta-btn{
+    display:inline-block;padding:16px 48px;
+    background:#F8F5EF;color:var(--teal-deep);
+    text-decoration:none;
+    font-family:'Nunito',sans-serif;font-weight:700;
+    font-size:13px;letter-spacing:0.1em;text-transform:uppercase;
+    transition:opacity 0.2s;
+  }
+  .cta-btn:hover{opacity:0.85}
+
+  footer{
+    margin-top:80px;padding-top:40px;
+    font-size:13px;color:var(--ink-soft);text-align:center;
+  }
+  footer .sig{
+    font-family:'Cormorant Garamond',serif;font-style:italic;
+    font-size:24px;color:var(--ink);margin-bottom:8px;display:block;
+  }
+  a.inline{color:var(--teal-deep);text-decoration:none;font-weight:600}
+  a.inline:hover{opacity:0.75}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HERO -->
+  <header class="hero">
+    <span class="label">A proposal for</span>
+    <h1><span class="at">@therapy</span><wbr>.with<wbr>.emilee</h1>
+    <p class="tag">You have a formula that gets 4,000 likes every time you use it. Here is what it looks like as a system.</p>
+    <p class="by">Written by Evelyn</p>
+  </header>
+
+  <!-- GOODWILL -->
+  <div class="goodwill">
+    <div class="banner-label">Before you read</div>
+    <p>The two samples in this proposal — a Weekly Reset reel script and a six-slide people-pleasing carousel — are <strong>yours, no charge</strong>. Publish them as-is if you want. They are not a preview of a paid service. They are a gesture of goodwill so you can see real work in your voice before we ever talk.</p>
+  </div>
+
+  <!-- 01 WHAT I NOTICED -->
+  <section>
+    <div class="num">01</div>
+    <div class="section-body">
+      <h2>What I noticed</h2>
+
+      <p class="lead">I watched your April 21st office reset three times before I moved on.</p>
+
+      <p>Not because it was pretty, though it was. Because of what the number behind it means: 4,379 likes. 87 comments. On a 58,000-follower account where your educational carousels average 270 likes.</p>
+
+      <p>That is not a lucky video. That is a formula. And your April 7th reset — 3,204 likes, tulips in the office, same structure — confirms it. Two resets, both your highest-performing posts in the past six weeks, by a margin of more than three to one.</p>
+
+      <blockquote>
+        "i love making my space warm, inviting &amp; comforting"
+        <span class="src"><a href="https://www.instagram.com/p/DXZ1eTEj7lb/" target="_blank">DXZ1eTEj7lb</a> &middot; 4,379 likes &middot; 87 comments</span>
+      </blockquote>
+
+      <p>The account around this video is excellent. Your therapist-journey carousel got 1,168 likes and 72 comments — that is community-level engagement, the kind you cannot buy. Your voice is warm, lowercase, real. Dallas women who are in therapy or thinking about it feel genuinely seen when they land on your profile.</p>
+
+      <p>The gap is not your content. It is that your most viral format is being published twice a month and your lowest-performing format — abstract educational carousels — is being published four times as often. This proposal is built around closing that gap.</p>
+    </div>
+  </section>
+
+  <!-- 02 THREE THINGS IN THE DATA -->
+  <section>
+    <div class="num">02</div>
+    <div class="section-body">
+      <h2>Three things in the data</h2>
+
+      <p>After reading 12 recent posts and the engagement behind them, three patterns stood out.</p>
+
+      <div class="obs">
+        <div class="obs-card">
+          <p class="label">Observation 01 &middot; Format</p>
+          <h3>Your two Weekly Reset Reels are averaging 3,792 likes. Your eight carousels are averaging 421 likes. The formats are inverted.</h3>
+          <p>The reset formula is simple: your real space, your actual aesthetic, your voice in the caption. No therapy framework required. Yet in the past 38 days it has out-performed every other format by a factor of nine. Publishing it twice a month instead of four times a month is the most fixable thing on this entire account.</p>
+          <p class="evidence">Source: 12-post scrape. Weekly Reset n=2, avg 3,792 likes. Carousel n=8, avg 421 likes.</p>
+        </div>
+
+        <div class="obs-card">
+          <p class="label">Observation 02 &middot; Story vs. Education</p>
+          <h3>Your personal story content earns three to four times what your educational content earns — but it is 17% of your feed.</h3>
+          <p>The therapist-journey carousel (<a href="https://www.instagram.com/p/DW30r-2AN1u/" class="inline" target="_blank">DW30r-2AN1u</a>, 1,168 likes, 72 comments) is not just your best carousel. It is your best argument for what the rest of your carousels could be. Your people-pleasing carousel — a genuinely good topic — got 359 likes because it opened with a clinical frame instead of a human one. The gap between 1,168 and 359 is not topic quality. It is hook structure.</p>
+          <p class="evidence">Source: story carousel avg 792 likes vs. educational carousel avg 271 likes.</p>
+        </div>
+
+        <div class="obs-card">
+          <p class="label">Observation 03 &middot; Discovery ceiling</p>
+          <h3>You are running three to four hashtags per post, all brand-specific. Your content is only reaching people who already follow you.</h3>
+          <p>Tags like #dallastherapist and #weeklyreset confirm your identity to existing followers. They do not reach new ones. A single discovery-oriented tag per post — #traumahealing, #dallasmentalhealth, #therapistsofinstagram — costs nothing and compounds over time. At 58K followers, even a modest reach lift on your strongest posts translates to real intake volume.</p>
+          <p class="evidence">Source: hashtag audit across 12 posts. All 4 recurring tags are brand-only.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 03 SERVICES -->
+  <section>
+    <div class="num">03</div>
+    <div class="section-body">
+      <h2>What we can build together</h2>
+
+      <p>Six ways to work together. The first two have clear scope and price because they are the highest-leverage and most repeatable. The rest are custom — DM me and we will figure out the right shape.</p>
+
+      <div class="services">
+
+        <div class="svc">
+          <h3>Weekly Reset Reel Series</h3>
+          <p class="scope">4 scripts + captions + visual notes &middot; monthly</p>
+          <ul>
+            <li>4 Weekly Reset reel scripts in your voice, one per week</li>
+            <li>Visual direction notes for each (what to capture, what to move, how to frame)</li>
+            <li>Caption written to close with a therapy-intake nudge that does not feel like a pitch</li>
+            <li>Hashtag set with two discovery tags per reel</li>
+            <li>You film, you post, you keep the formula going</li>
+          </ul>
+          <div class="price">$380 / month<small>= $95 per reel script &middot; billed monthly</small></div>
+        </div>
+
+        <div class="svc">
+          <h3>Educational Carousel Pack</h3>
+          <p class="scope">4 carousels &middot; monthly</p>
+          <ul>
+            <li>4 fully written carousels, 6 to 8 slides each</li>
+            <li>Every carousel opens with a scene from real life, not a clinical frame</li>
+            <li>Long caption with a soft DM-based CTA built into every post</li>
+            <li>Discovery hashtag set per carousel</li>
+            <li>Topics pulled from your existing content gaps (people-pleasing, boundaries, trauma responses, etc.)</li>
+          </ul>
+          <div class="price">$420 / month<small>= $105 per carousel &middot; billed monthly</small></div>
+        </div>
+
+        <div class="svc">
+          <h3>Personal Story Series</h3>
+          <p class="scope">Monthly anchor carousel &middot; custom scope</p>
+          <ul>
+            <li>One long-form story carousel per month built from your real experience</li>
+            <li>Topics: therapist origin, hardest case (anonymized), what your own therapy taught you</li>
+            <li>Written in your lowercase, self-disclosing voice</li>
+            <li>Designed to be pinned and shared — your highest-comment format</li>
+          </ul>
+          <div class="price-dm">Let's talk over DM first</div>
+        </div>
+
+        <div class="svc">
+          <h3>Lead Magnet Creation</h3>
+          <p class="scope">Free resource + funnel copy &middot; one-time</p>
+          <ul>
+            <li>One free PDF resource (e.g. "5 Signs Your People-Pleasing Is Trauma-Based")</li>
+            <li>Comment-trigger DM funnel — no third-party tools required</li>
+            <li>One promotional carousel + one reel script for the launch</li>
+            <li>Saved-reply DM templates written in your voice</li>
+          </ul>
+          <div class="price-dm">Let's talk over DM first</div>
+        </div>
+
+        <div class="svc">
+          <h3>Content Strategy Session</h3>
+          <p class="scope">Full audit + 90-day plan &middot; one-time</p>
+          <ul>
+            <li>Full feed audit with engagement breakdown</li>
+            <li>Weekly Reset systemization — exact format, cadence, CTA structure</li>
+            <li>90-day content calendar with pillar distribution</li>
+            <li>Hook bank, 30 hooks built from your proven viral patterns</li>
+            <li>Delivered async, written walkthrough, read in your own time</li>
+          </ul>
+          <div class="price-dm">Let's talk over DM first</div>
+        </div>
+
+        <div class="svc">
+          <h3>Ongoing Partnership</h3>
+          <p class="scope">Retainer &middot; custom scope</p>
+          <ul>
+            <li>Full monthly content management across reels, carousels, captions</li>
+            <li>Intake-funnel management built entirely through DMs, no paid tools</li>
+            <li>Ongoing strategy refinement based on weekly performance data</li>
+            <li>Reserved for clients we already have rhythm with</li>
+          </ul>
+          <div class="price-dm">Discussed after the first project</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 04 SAMPLE — REEL SCRIPT -->
+  <section>
+    <div class="num">04</div>
+    <div class="section-body">
+      <h2>Sample &middot; Weekly Reset Reel</h2>
+
+      <p>Topic: <em>A Tuesday morning office reset — fresh flowers, warm light, one small thing that makes the week feel possible.</em></p>
+
+      <p>This is built on your exact formula — the one that got 4,379 likes on April 21. Same warm-space energy, same lowercase voice in the caption, same cozy-but-real register. The difference from your current resets is the caption structure: this one closes with a soft intake nudge that does not feel like an ad.</p>
+
+      <div class="sample">
+        <p class="sample-title">the small tuesday reset that makes the whole week feel different</p>
+        <p class="meta">30-second Weekly Reset reel &middot; for @therapy.with.emilee</p>
+
+        <div class="reel-beat">
+          <div class="timecode">0:00 to 2s</div>
+          <div class="body">
+            <p class="visual">Close on a half-reset desk: coffee cup, scattered notes, morning light. Already mid-motion.</p>
+            <span class="overlay">the tuesday reset that makes the week feel possible</span>
+            <p style="margin-top:8px"><strong>Spoken (or text-only):</strong> no words — let the space speak for the first two seconds.</p>
+          </div>
+        </div>
+
+        <div class="reel-beat">
+          <div class="timecode">2s to 8s</div>
+          <div class="body">
+            <p class="visual">Time-lapse or slow pan: clearing the desk surface, wiping down, stacking books.</p>
+            <p><strong>Text overlay:</strong> "fresh start, even if the week already started"</p>
+          </div>
+        </div>
+
+        <div class="reel-beat">
+          <div class="timecode">8s to 16s</div>
+          <div class="body">
+            <p class="visual">Flower arrangement moment — placing tulips or whatever's in season. Close on petals, then pull to the full desk.</p>
+            <span class="overlay">one fresh thing changes the whole energy of a room</span>
+          </div>
+        </div>
+
+        <div class="reel-beat">
+          <div class="timecode">16s to 24s</div>
+          <div class="body">
+            <p class="visual">Lighting a candle or adjusting a lamp. Warm light flooding in. The "before" energy is gone.</p>
+            <p><strong>Text overlay:</strong> "warm, inviting, ready for whoever walks through the door today"</p>
+          </div>
+        </div>
+
+        <div class="reel-beat">
+          <div class="timecode">24s to 30s</div>
+          <div class="body">
+            <p class="visual">Wide shot of the full reset space. You walking in, sitting down, opening a notebook.</p>
+            <span class="overlay">this is the part they don't show you in therapy school</span>
+            <p style="margin-top:8px;font-size:14px;color:var(--ink-soft)">Hold 2 seconds. End on the space, not on you — the room is the message.</p>
+          </div>
+        </div>
+
+        <div class="caption-block">
+          <p class="label">Caption</p>
+          <p>tuesday reset complete 🌷</p>
+          <p>there's something about a clean, warm space that just makes everything feel more possible. doesn't have to be a whole overhaul — fresh flowers, cleared surfaces, a little light. that's it.</p>
+          <p>i've been a therapist for a while now and one thing i know for certain: the room matters. how a space feels when you walk in tells your nervous system whether it's safe to open up or not. i think about that every time i reset mine.</p>
+          <p>if you're based in dallas and looking for a therapist who thinks about the whole environment, not just the session — come say hi. ↓</p>
+          <p><em>#dallastherapist #weeklyreset #therapyoffice #traumatherapist #dallasmentalhealth</em></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 05 SAMPLE — CAROUSEL -->
+  <section>
+    <div class="num">05</div>
+    <div class="section-body">
+      <h2>Sample &middot; Educational Carousel</h2>
+
+      <p>Topic: <em>Why you keep saying yes when you mean no — people-pleasing from a trauma lens.</em></p>
+
+      <p>This is the same topic as your March 24th carousel, which got 359 likes. The difference is the opening: instead of a clinical frame, it opens with a specific scene. That one structural change is what separates your people-pleasing post from your therapist-journey post in terms of engagement. Here is what it looks like applied.</p>
+
+      <div class="sample">
+        <p class="sample-title">why you can't just "start saying no"</p>
+        <p class="meta">6-slide carousel &middot; for @therapy.with.emilee</p>
+
+        <div class="slide">
+          <p class="slide-label">Slide 01 &middot; Cover</p>
+          <div class="slide-body">
+            <span class="big">why you can't<br>just "start saying no"<br>(it's not willpower)</span>
+          </div>
+        </div>
+
+        <div class="slide">
+          <p class="slide-label">Slide 02 &middot; The scene</p>
+          <div class="slide-body">
+            <p>a client sat down last week and said something i hear constantly:</p>
+            <p><em>"i said yes again. i don't even know why. i was exhausted. i didn't want to go. i said yes anyway."</em></p>
+            <p>she wasn't being a pushover. she wasn't "bad at boundaries." something else was happening — and once she understood it, the whole pattern finally made sense.</p>
+          </div>
+        </div>
+
+        <div class="slide">
+          <p class="slide-label">Slide 03 &middot; The real reason</p>
+          <div class="slide-body">
+            <p>people-pleasing is not a personality trait.</p>
+            <p>it is a nervous system response.</p>
+            <p>at some point, saying yes kept you safe. saying no felt like a risk — losing someone's approval, triggering someone's anger, becoming "too much" or "not enough."</p>
+            <p>your brain learned: yes = safe. no = danger.</p>
+            <p>and brains that learn something is dangerous do not unlearn it just because you decided to try harder. 🤍</p>
+          </div>
+        </div>
+
+        <div class="slide">
+          <p class="slide-label">Slide 04 &middot; What it actually feels like</p>
+          <div class="slide-body">
+            <p>here is what that looks like in real life:</p>
+            <ul>
+              <li>you say yes and immediately feel resentful</li>
+              <li>you rehearse the "no" a hundred times and still can't say it out loud</li>
+              <li>you feel physically anxious when someone seems disappointed in you</li>
+              <li>you apologize for things that aren't your fault</li>
+              <li>you feel relief when plans get cancelled — because then you didn't have to cancel them yourself</li>
+            </ul>
+            <p style="margin-top:12px">this is not a character flaw. it is a very logical response to something that happened.</p>
+          </div>
+        </div>
+
+        <div class="slide">
+          <p class="slide-label">Slide 05 &middot; What actually helps</p>
+          <div class="slide-body">
+            <p>so what do you do with this?</p>
+            <p>you don't just "start saying no." you start by understanding what the yes has been protecting.</p>
+            <p>when my client figured out that her yes was keeping a very old version of herself safe — the one who grew up in a house where disapproval felt genuinely threatening — everything shifted.</p>
+            <p>she didn't need a script. she needed to understand that the current moment was different from the one she was protecting herself from.</p>
+            <p>that's the work. 🤍</p>
+          </div>
+        </div>
+
+        <div class="slide">
+          <p class="slide-label">Slide 06 &middot; Close</p>
+          <div class="slide-body">
+            <p>if you're reading this and thinking "that's me" — you are not broken, and you are not stuck.</p>
+            <p>you just haven't had someone help you understand the why yet.</p>
+            <p>if you're in dallas (or open to online) and want to do that work — my DMs are open. 🤍</p>
+          </div>
+        </div>
+
+        <div class="caption-block">
+          <p class="label">Caption</p>
+          <p>a client told me last week: "i don't even know why i said yes. i just... did."</p>
+          <p>i hear this ALL the time. and the answer almost never has anything to do with willpower or knowing what to say instead.</p>
+          <p>people-pleasing is a nervous system response. at some point, saying yes kept you safe. your brain learned that pattern and it is doing its very best to keep protecting you — even when you no longer need it to.</p>
+          <p>the shift doesn't come from learning a better script. it comes from understanding what the yes has been protecting.</p>
+          <p>slide through for what that actually looks like. 🤍</p>
+          <p>and if you're in the dallas area (or open to telehealth) and want to explore this with someone — my inbox is always open.</p>
+          <p><em>#dallastherapist #traumatherapy #peoplepleasing #boundaries #traumahealing #therapistsofinstagram #nervoussystemhealing</em></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <div class="cta-block">
+    <h2>Let's talk.</h2>
+    <p>DM me on Instagram and we'll figure out the right starting point — no calls, no forms, just a conversation about what would actually be useful for you right now.</p>
+    <a href="https://www.instagram.com/evelyn.contentally" target="_blank" class="cta-btn">Send me a DM</a>
+  </div>
+
+  <footer>
+    <span class="sig">Evelyn</span>
+    <p>@evelyn.contentally &middot; content strategy for mental health creators</p>
+  </footer>
+
+</div>
+</body>
+</html>
