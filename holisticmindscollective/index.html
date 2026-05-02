@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>A Proposal for @holisticmindscollective</title>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Lora:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink:       #0E2340;
+      --ink-mid:   #2B4265;
+      --ink-soft:  #5B7399;
+      --ocean:     #1A5276;
+      --ocean-pale:#EAF2FB;
+      --gold:      #C47B28;
+      --gold-lt:   #E5A84A;
+      --cream:     #FAF8F4;
+      --cream-alt: #F2EDE5;
+      --white:     #FFFFFF;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background: var(--cream);
+      color: var(--ink);
+      line-height: 1.65;
+    }
+
+    /* ─── HERO ─────────────────────────────────── */
+    .hero {
+      background: var(--ink);
+      color: var(--white);
+      padding: 96px 40px 80px;
+      text-align: center;
+    }
+    .hero-eyebrow {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold-lt);
+      margin-bottom: 32px;
+    }
+    .hero h1 {
+      font-family: 'Lora', serif;
+      font-size: clamp(30px, 5vw, 54px);
+      font-weight: 600;
+      line-height: 1.18;
+      max-width: 740px;
+      margin: 0 auto 28px;
+    }
+    .hero h1 em {
+      font-style: italic;
+      color: var(--gold-lt);
+    }
+    .hero-sub {
+      font-size: 17px;
+      font-weight: 400;
+      color: rgba(255,255,255,0.68);
+      max-width: 500px;
+      margin: 0 auto 56px;
+      line-height: 1.75;
+    }
+    .hero-stats {
+      display: flex;
+      gap: 48px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .hstat .n {
+      font-family: 'Lora', serif;
+      font-size: 36px;
+      font-weight: 600;
+      color: var(--gold-lt);
+      display: block;
+      line-height: 1;
+    }
+    .hstat .l {
+      font-size: 12px;
+      color: rgba(255,255,255,0.48);
+      margin-top: 6px;
+      letter-spacing: 0.05em;
+    }
+    .hero-byline {
+      margin-top: 56px;
+      font-size: 13px;
+      color: rgba(255,255,255,0.3);
+    }
+
+    /* ─── SECTIONS ──────────────────────────────── */
+    section { padding: 80px 40px; }
+
+    .wrap { max-width: 880px; margin: 0 auto; }
+
+    .eyebrow {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 16px;
+    }
+    .section-title {
+      font-family: 'Lora', serif;
+      font-size: clamp(24px, 3.5vw, 38px);
+      font-weight: 600;
+      line-height: 1.22;
+      margin-bottom: 16px;
+    }
+    .section-body {
+      font-size: 17px;
+      color: var(--ink-mid);
+      line-height: 1.8;
+      max-width: 620px;
+      margin-bottom: 48px;
+    }
+
+    /* ─── OBSERVATIONS ──────────────────────────── */
+    .sec-obs { background: var(--white); }
+    .obs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+    }
+    .obs-card {
+      background: var(--ocean-pale);
+      border-radius: 18px;
+      padding: 32px 28px;
+    }
+    .obs-num {
+      font-family: 'Lora', serif;
+      font-size: 52px;
+      font-weight: 400;
+      color: var(--ocean);
+      opacity: 0.18;
+      line-height: 1;
+      margin-bottom: 14px;
+    }
+    .obs-card h3 {
+      font-family: 'Lora', serif;
+      font-size: 19px;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 10px;
+      line-height: 1.3;
+    }
+    .obs-card p {
+      font-size: 15px;
+      color: var(--ink-mid);
+      line-height: 1.72;
+    }
+    .obs-card p strong {
+      color: var(--ocean);
+      font-weight: 600;
+    }
+
+    /* ─── OPPORTUNITY ────────────────────────────── */
+    .sec-opp { background: var(--ocean-pale); }
+    .opp-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+    }
+    .opp-card {
+      background: var(--white);
+      border-radius: 18px;
+      padding: 32px 28px;
+    }
+    .opp-icon {
+      font-size: 26px;
+      margin-bottom: 18px;
+    }
+    .opp-card h3 {
+      font-family: 'Lora', serif;
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 8px;
+      line-height: 1.3;
+    }
+    .opp-card p {
+      font-size: 15px;
+      color: var(--ink-mid);
+      line-height: 1.72;
+    }
+
+    /* ─── SAMPLE: REEL ───────────────────────────── */
+    .sec-reel { background: var(--cream); }
+    .reel-card {
+      background: var(--ink);
+      color: var(--white);
+      border-radius: 22px;
+      padding: 52px 44px;
+      max-width: 660px;
+    }
+    .reel-tag {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold-lt);
+      margin-bottom: 36px;
+    }
+    .script-block { margin-bottom: 32px; }
+    .script-lbl {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.35);
+      margin-bottom: 12px;
+    }
+    .script-text {
+      font-size: 16px;
+      line-height: 1.85;
+      color: rgba(255,255,255,0.88);
+    }
+    .script-text em {
+      font-style: italic;
+      color: var(--gold-lt);
+    }
+    .script-text strong {
+      color: var(--white);
+      font-weight: 600;
+    }
+
+    /* ─── SAMPLE: CAROUSEL ───────────────────────── */
+    .sec-carousel { background: var(--white); }
+    .carousel-deck {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(175px, 1fr));
+      gap: 14px;
+      margin-top: 36px;
+    }
+    .slide {
+      background: var(--ocean-pale);
+      border-radius: 16px;
+      padding: 24px 20px;
+      min-height: 170px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .slide.dark {
+      background: var(--ocean);
+      color: var(--white);
+    }
+    .slide-n {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+      margin-bottom: 14px;
+    }
+    .slide.dark .slide-n { color: rgba(255,255,255,0.42); }
+    .slide .en {
+      font-family: 'Lora', serif;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--ink);
+      line-height: 1.45;
+      margin-bottom: 8px;
+    }
+    .slide.dark .en { color: var(--white); }
+    .slide .es {
+      font-size: 12.5px;
+      font-style: italic;
+      color: var(--ink-soft);
+      line-height: 1.45;
+    }
+    .slide.dark .es { color: rgba(255,255,255,0.62); }
+
+    /* ─── SERVICES ───────────────────────────────── */
+    .sec-services { background: var(--ocean-pale); }
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 24px;
+      margin-top: 48px;
+    }
+    .price-card {
+      background: var(--white);
+      border-radius: 22px;
+      padding: 44px 38px;
+    }
+    .price-card.featured {
+      background: var(--ink);
+      color: var(--white);
+    }
+    .price-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 10px;
+    }
+    .price-card.featured .price-label { color: var(--gold-lt); }
+    .price-card h3 {
+      font-family: 'Lora', serif;
+      font-size: 26px;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 4px;
+    }
+    .price-card.featured h3 { color: var(--white); }
+    .price-num {
+      font-family: 'Lora', serif;
+      font-size: 44px;
+      font-weight: 600;
+      color: var(--ocean);
+      margin: 22px 0 4px;
+      line-height: 1;
+    }
+    .price-card.featured .price-num { color: var(--gold-lt); }
+    .price-note {
+      font-size: 13px;
+      color: var(--ink-soft);
+      margin-bottom: 32px;
+    }
+    .price-card.featured .price-note { color: rgba(255,255,255,0.48); }
+    .price-list {
+      list-style: none;
+      margin-bottom: 32px;
+    }
+    .price-list li {
+      font-size: 15px;
+      color: var(--ink-mid);
+      padding: 9px 0;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      line-height: 1.5;
+    }
+    .price-card.featured .price-list li { color: rgba(255,255,255,0.82); }
+    .price-list li::before {
+      content: '✓';
+      color: var(--gold);
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .price-card.featured .price-list li::before { color: var(--gold-lt); }
+    .price-foot {
+      font-size: 14px;
+      color: var(--ink-soft);
+      line-height: 1.7;
+      padding-top: 16px;
+    }
+    .price-card.featured .price-foot { color: rgba(255,255,255,0.48); }
+
+    /* ─── CTA ────────────────────────────────────── */
+    .sec-cta {
+      background: var(--ink);
+      color: var(--white);
+      text-align: center;
+      padding: 108px 40px 96px;
+    }
+    .sec-cta .eyebrow { color: var(--gold-lt); }
+    .sec-cta .section-title { color: var(--white); max-width: 560px; margin: 0 auto 20px; }
+    .sec-cta .section-body { color: rgba(255,255,255,0.62); margin: 0 auto 44px; }
+    .cta-btn {
+      display: inline-block;
+      background: var(--gold);
+      color: var(--white);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 700;
+      font-size: 15px;
+      padding: 17px 40px;
+      border-radius: 100px;
+      text-decoration: none;
+      letter-spacing: 0.02em;
+    }
+    .footer-note {
+      margin-top: 56px;
+      font-size: 13px;
+      color: rgba(255,255,255,0.28);
+      line-height: 1.7;
+    }
+
+    @media (max-width: 640px) {
+      section { padding: 60px 24px; }
+      .hero { padding: 72px 24px 64px; }
+      .reel-card { padding: 36px 28px; }
+      .price-card { padding: 36px 28px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HERO -->
+  <section class="hero">
+    <p class="hero-eyebrow">A Proposal for @holisticmindscollective</p>
+    <h1>Your most powerful post<br>didn't happen by accident.<br><em>It happened because you were real.</em></h1>
+    <p class="hero-sub">A content strategy built around the voice that's already working and the community you're uniquely positioned to serve.</p>
+    <div class="hero-stats">
+      <div class="hstat"><span class="n">702</span><div class="l">Followers</div></div>
+      <div class="hstat"><span class="n">144</span><div class="l">Likes, top post</div></div>
+      <div class="hstat"><span class="n">10x</span><div class="l">Engagement gap</div></div>
+    </div>
+    <p class="hero-byline">Written by Evelyn</p>
+  </section>
+
+  <!-- OBSERVATIONS -->
+  <section class="sec-obs">
+    <div class="wrap">
+      <p class="eyebrow">What I noticed</p>
+      <h2 class="section-title">You have something most therapy accounts don't.</h2>
+      <p class="section-body">Three things stood out before I got past your first scroll.</p>
+      <div class="obs-grid">
+
+        <div class="obs-card">
+          <div class="obs-num">01</div>
+          <h3>Your authentic voice gets 10x everyone else's engagement</h3>
+          <p>"Exhausting? Worth it?" earned <strong>144 likes</strong>. Every generic education carousel after it got 5 to 13. That is not random. Your audience is telling you exactly what they want from you and it is not mental health tips they can Google.</p>
+        </div>
+
+        <div class="obs-card">
+          <div class="obs-num">02</div>
+          <h3>Bilingual therapy in Miami is an open lane nobody is claiming</h3>
+          <p>Dr. Uribe put it plainly: <strong>"healing should never have a language barrier."</strong> That is a founding value. It is also barely visible anywhere in your content. Miami has one of the largest bicultural communities in the US. Nobody else in your area is owning this.</p>
+        </div>
+
+        <div class="obs-card">
+          <div class="obs-num">03</div>
+          <h3>Your whole-person brand is your differentiator but it is invisible</h3>
+          <p>Nutrition plus movement plus mental health is what you actually believe and how you actually practice. It is the first thing that makes you different from every other therapist account. <strong>It never shows up in your feed.</strong></p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- OPPORTUNITY -->
+  <section class="sec-opp">
+    <div class="wrap">
+      <p class="eyebrow">What is possible</p>
+      <h2 class="section-title">Three directions that could change how your account grows.</h2>
+      <p class="section-body">Based on what your audience has already responded to and what your competitors are not doing.</p>
+      <div class="opp-grid">
+
+        <div class="opp-card">
+          <div class="opp-icon">🎙️</div>
+          <h3>Therapist Voice Series</h3>
+          <p>Your top post proves the format. A consistent series of Reels in your own voice about the privilege, the weight, and the why of this work builds the kind of trust that no educational carousel ever could. People follow people before they follow practices.</p>
+        </div>
+
+        <div class="opp-card">
+          <div class="opp-icon">🌎</div>
+          <h3>Bilingual Content for Miami</h3>
+          <p>EN and ES carousels and Reels that speak directly to Miami's bicultural community. Each bilingual post tells someone scrolling in Spanish that there is a place for them here. That is not just content. That is a first contact for someone who has never felt seen by mental health accounts.</p>
+        </div>
+
+        <div class="opp-card">
+          <div class="opp-icon">🌿</div>
+          <h3>Whole-Person Brand Content</h3>
+          <p>Carousels and Reels connecting mental health to nutrition, movement, and lifestyle the way you actually practice. This positions you outside the generic therapy account category entirely and gives your followers something they cannot get anywhere else in your niche.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SAMPLE: REEL -->
+  <section class="sec-reel">
+    <div class="wrap">
+      <p class="eyebrow">Sample Content</p>
+      <h2 class="section-title">What a Therapist Voice Reel could look like.</h2>
+      <p class="section-body">Written in your voice. Built on the format that already proved itself on your account.</p>
+
+      <div class="reel-card">
+        <div class="reel-tag">Sample Reel Script &nbsp;·&nbsp; Therapist Voice Series</div>
+
+        <div class="script-block">
+          <div class="script-lbl">Hook &nbsp; 0 to 3 sec</div>
+          <div class="script-text"><em>Cuando alguien te dice:</em>&nbsp;&nbsp;"I've never told anyone this before."</div>
+        </div>
+
+        <div class="script-block">
+          <div class="script-lbl">Body &nbsp; 3 to 30 sec</div>
+          <div class="script-text">
+            That's the moment.<br><br>
+            Not the breakthrough. Not the goal finally met.<br><br>
+            <em>That</em> moment. When someone trusts you with the thing they have been carrying alone for years.<br><br>
+            This work is heavy. We know that.<br><br>
+            But we also get a front row seat to some of the most profound moments of a person's life.<br><br>
+            We watch people go from barely holding on to building a life they actually want to live.<br><br>
+            <em>En inglés. En español. Con toda la persona.</em><br><br>
+            <strong>That is why we do this.</strong>
+          </div>
+        </div>
+
+        <div class="script-block">
+          <div class="script-lbl">CTA &nbsp; last 5 sec</div>
+          <div class="script-text">If something in you has been quietly wondering if things could feel different, we are ready when you are. Link in bio.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SAMPLE: CAROUSEL -->
+  <section class="sec-carousel">
+    <div class="wrap">
+      <p class="eyebrow">Sample Content</p>
+      <h2 class="section-title">A bilingual carousel for your Miami community.</h2>
+      <p class="section-body">Each slide speaks to someone who has been holding it together for a long time in both their languages.</p>
+
+      <div class="carousel-deck">
+
+        <div class="slide">
+          <div class="slide-n">01</div>
+          <div>
+            <div class="en">Your mind never fully rests.</div>
+            <div class="es">Tu mente nunca descansa de verdad.</div>
+          </div>
+        </div>
+
+        <div class="slide">
+          <div class="slide-n">02</div>
+          <div>
+            <div class="en">You hold it together for everyone else.</div>
+            <div class="es">Eres el soporte de todos los demás.</div>
+          </div>
+        </div>
+
+        <div class="slide">
+          <div class="slide-n">03</div>
+          <div>
+            <div class="en">Big emotions feel impossible to name.</div>
+            <div class="es">Las emociones grandes son difíciles de nombrar.</div>
+          </div>
+        </div>
+
+        <div class="slide">
+          <div class="slide-n">04</div>
+          <div>
+            <div class="en">You have been "fine" for so long you forgot what fine actually feels like.</div>
+            <div class="es">Llevas tanto tiempo diciendo "estoy bien" que ya no sabes lo que significa.</div>
+          </div>
+        </div>
+
+        <div class="slide">
+          <div class="slide-n">05</div>
+          <div>
+            <div class="en">Something in you knows it is time.</div>
+            <div class="es">Algo en ti sabe que es el momento.</div>
+          </div>
+        </div>
+
+        <div class="slide dark">
+          <div class="slide-n">06</div>
+          <div>
+            <div class="en">Therapy in English and Spanish. South Florida. Telehealth available.</div>
+            <div class="es">@holisticmindscollective</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="sec-services">
+    <div class="wrap">
+      <p class="eyebrow">How we work together</p>
+      <h2 class="section-title">Two ways to start.</h2>
+      <p class="section-body">Both scoped clearly, delivered fast, and built for your voice specifically — not repurposed from a template.</p>
+
+      <div class="pricing-grid">
+
+        <div class="price-card">
+          <p class="price-label">Starter</p>
+          <h3>Content Starter Pack</h3>
+          <div class="price-num">$300</div>
+          <p class="price-note">One-time. Delivered in 5 business days.</p>
+          <ul class="price-list">
+            <li>2 Reel scripts in your authentic therapist voice</li>
+            <li>1 bilingual EN/ES carousel (6 slides, fully written)</li>
+            <li>Caption copy and hashtag sets for all three pieces</li>
+          </ul>
+          <p class="price-foot">A low-commitment way to see the work before anything ongoing. If you like what you get, we can talk about a monthly rhythm from there.</p>
+        </div>
+
+        <div class="price-card featured">
+          <p class="price-label">Monthly</p>
+          <h3>Monthly Content Pack</h3>
+          <div class="price-num">$650</div>
+          <p class="price-note">Per month. Delivered in weekly batches.</p>
+          <ul class="price-list">
+            <li>4 Reel scripts (series-based, not one-offs)</li>
+            <li>2 carousels, one of them bilingual EN/ES</li>
+            <li>1 team spotlight Reel per month</li>
+            <li>All caption copy and hashtag sets</li>
+            <li>Content calendar outline</li>
+          </ul>
+          <p class="price-foot">Consistent content in your real voice, every week. Built for the account you are growing toward — not just where you are standing right now.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="sec-cta">
+    <div class="wrap">
+      <p class="eyebrow">Next step</p>
+      <h2 class="section-title">If any of this resonated, send me a DM.</h2>
+      <p class="section-body">No calls, no forms. Just tell me what stood out and we go from there.</p>
+      <a href="https://www.instagram.com/evelyn.contentally/" class="cta-btn">Message on Instagram</a>
+      <p class="footer-note">Prepared for @holisticmindscollective by Evelyn.<br>The sample content in this proposal was written for your voice and your audience. It is yours to use regardless of whether we work together.</p>
+    </div>
+  </section>
+
+</body>
+</html>
