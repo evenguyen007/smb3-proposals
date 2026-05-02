@@ -1,0 +1,665 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>A proposal for @everpaththerapy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,300;1,400;1,700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:       #F5F1E9;
+  --forest:   #243830;
+  --forest2:  #385748;
+  --sage:     #7DAE91;
+  --sage-bg:  #E8F2EC;
+  --rose:     #BC7B6E;
+  --rose-bg:  #F3E8E5;
+  --gold:     #C09050;
+  --gold-bg:  #FAF1E2;
+  --card:     #FFFFFF;
+  --ink:      #1A1B1A;
+  --muted:    #6B6A62;
+  --faint:    #EDEBE4;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg);
+  color:var(--ink);
+  font-family:'DM Sans',system-ui,sans-serif;
+  font-size:16px;
+  line-height:1.75;
+  -webkit-font-smoothing:antialiased;
+}
+
+/* HERO */
+.hero{
+  background:var(--forest);
+  color:#F5F1E9;
+  padding:96px 40px 112px;
+  text-align:center;
+}
+.hero .eyebrow{
+  display:block;
+  font:600 9.5px/1 'DM Sans',sans-serif;
+  letter-spacing:.32em;
+  text-transform:uppercase;
+  color:rgba(245,241,233,.38);
+  margin-bottom:52px;
+}
+.hero h1{
+  font-family:'Playfair Display',Georgia,serif;
+  font-weight:400;
+  font-style:italic;
+  font-size:clamp(50px,10vw,98px);
+  line-height:.93;
+  color:#F5F1E9;
+  margin-bottom:10px;
+}
+.hero h1 strong{
+  display:block;
+  font-weight:700;
+  font-style:italic;
+  color:var(--sage);
+}
+.hero .deck{
+  font-size:clamp(15px,1.85vw,17px);
+  color:rgba(245,241,233,.68);
+  max-width:580px;
+  margin:36px auto 0;
+  line-height:1.72;
+}
+.hero .by{
+  display:block;
+  font-size:12px;
+  letter-spacing:.12em;
+  color:rgba(245,241,233,.3);
+  margin-top:56px;
+}
+
+/* GOODWILL */
+.goodwill{
+  background:var(--sage-bg);
+  max-width:780px;
+  margin:40px auto;
+  padding:30px 40px;
+  border-radius:10px;
+}
+.goodwill strong{color:var(--forest2);font-weight:600}
+.goodwill p{font-size:15px;color:var(--ink);line-height:1.7}
+
+/* LAYOUT */
+.wrap{max-width:900px;margin:0 auto;padding:80px 40px}
+.wrap-wide{padding:80px 40px}
+.inner{max-width:900px;margin:0 auto}
+
+.sec-label{
+  display:block;
+  font:600 9.5px/1 'DM Sans',sans-serif;
+  letter-spacing:.3em;
+  text-transform:uppercase;
+  color:var(--sage);
+  margin-bottom:22px;
+}
+.dark .sec-label{color:rgba(125,174,145,.7)}
+h2{
+  font-family:'Playfair Display',serif;
+  font-weight:700;
+  font-style:italic;
+  font-size:clamp(30px,5vw,50px);
+  line-height:1.1;
+  color:var(--forest);
+  margin-bottom:28px;
+}
+.dark h2{color:#F5F1E9}
+.lead{
+  font-size:clamp(15px,1.8vw,17px);
+  color:var(--muted);
+  max-width:660px;
+  margin-bottom:52px;
+  line-height:1.75;
+}
+.dark .lead{color:rgba(245,241,233,.62)}
+.dark{background:var(--forest);color:#F5F1E9}
+
+/* OBS LIST */
+.obs-list{display:grid;gap:20px}
+.obs{
+  background:var(--card);
+  border-radius:12px;
+  padding:28px 32px;
+  display:grid;
+  grid-template-columns:44px 1fr;
+  gap:20px;
+  align-items:start;
+}
+.obs-n{
+  font-family:'Playfair Display',serif;
+  font-style:italic;
+  font-size:34px;
+  color:var(--sage);
+  line-height:1;
+  padding-top:2px;
+}
+.obs-b strong{display:block;font-weight:600;font-size:15.5px;color:var(--forest);margin-bottom:7px}
+.obs-b p{font-size:14px;color:var(--muted);line-height:1.65}
+
+/* SERVICES */
+.svc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(256px,1fr));gap:18px}
+.svc{background:var(--card);border-radius:14px;padding:26px 26px 22px;display:flex;flex-direction:column}
+.svc.svc-premium{background:var(--forest2)}
+.svc.svc-growth{background:var(--gold-bg)}
+.svc-tag{
+  display:block;
+  font:600 9px/1 'DM Sans',sans-serif;
+  letter-spacing:.28em;
+  text-transform:uppercase;
+  color:var(--sage);
+  margin-bottom:13px;
+}
+.svc-premium .svc-tag{color:rgba(245,241,233,.45)}
+.svc-growth .svc-tag{color:var(--gold)}
+.svc h3{
+  font-family:'Playfair Display',serif;
+  font-style:italic;
+  font-weight:700;
+  font-size:19px;
+  line-height:1.2;
+  color:var(--forest);
+  margin-bottom:10px;
+}
+.svc-premium h3{color:#F5F1E9}
+.svc p.svc-d{font-size:13px;color:var(--muted);line-height:1.6;margin-bottom:16px}
+.svc-premium p.svc-d{color:rgba(245,241,233,.6)}
+.svc ul{list-style:none;margin-bottom:16px;flex:1}
+.svc ul li{
+  font-size:12.5px;
+  color:var(--muted);
+  line-height:1.55;
+  padding:4px 0 4px 14px;
+  position:relative;
+}
+.svc ul li::before{content:"·";position:absolute;left:0;color:var(--sage)}
+.svc-premium ul li{color:rgba(245,241,233,.62)}
+.svc-premium ul li::before{color:var(--sage)}
+.svc-price{
+  font:600 12.5px/1 'DM Sans',sans-serif;
+  letter-spacing:.04em;
+  color:var(--forest2);
+  padding-top:14px;
+  margin-top:auto;
+}
+.svc-premium .svc-price{color:rgba(245,241,233,.45)}
+
+/* SAMPLES */
+.sample{margin-bottom:56px}
+.sample-tag{
+  display:block;
+  font:600 9px/1 'DM Sans',sans-serif;
+  letter-spacing:.28em;
+  text-transform:uppercase;
+  color:var(--rose);
+  margin-bottom:14px;
+}
+.sample h3{
+  font-family:'Playfair Display',serif;
+  font-style:italic;
+  font-weight:700;
+  font-size:22px;
+  color:var(--forest);
+  margin-bottom:6px;
+}
+.sample-sub{font-size:13px;color:var(--muted);margin-bottom:28px}
+
+/* Carousel slides */
+.slides{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:12px;
+}
+.slide{
+  background:var(--forest);
+  border-radius:12px;
+  padding:22px 20px;
+  min-height:230px;
+  display:flex;
+  flex-direction:column;
+}
+.slide.s-cover{background:var(--forest2)}
+.slide.s-cta{background:var(--sage)}
+.sl-num{
+  font:600 8.5px/1 'DM Sans',sans-serif;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  color:rgba(245,241,233,.35);
+  margin-bottom:14px;
+}
+.s-cta .sl-num{color:rgba(245,241,233,.55)}
+.slide h4{
+  font-family:'Playfair Display',serif;
+  font-style:italic;
+  font-weight:700;
+  font-size:14.5px;
+  line-height:1.35;
+  color:#F5F1E9;
+  margin-bottom:10px;
+  flex:1;
+}
+.slide p{font-size:11.5px;color:rgba(245,241,233,.7);line-height:1.55}
+.s-cta p{color:rgba(245,241,233,.88)}
+
+/* Reel script */
+.reel{background:var(--card);border-radius:14px;overflow:hidden}
+.reel-head{background:var(--rose-bg);padding:20px 28px}
+.reel-head .rtag{
+  display:block;
+  font:600 9px/1 'DM Sans',sans-serif;
+  letter-spacing:.26em;
+  text-transform:uppercase;
+  color:var(--rose);
+  margin-bottom:6px;
+}
+.reel-head .rtitle{
+  font-family:'Playfair Display',serif;
+  font-style:italic;
+  font-size:20px;
+  color:var(--forest);
+}
+.reel-body{padding:24px 28px;display:grid;gap:18px}
+.beat{display:grid;grid-template-columns:88px 1fr;gap:16px;align-items:start}
+.blabel{
+  font:600 9px/1.45 'DM Sans',sans-serif;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:var(--muted);
+  padding-top:3px;
+}
+.btext .bscreen{display:block;font-weight:600;font-size:14px;color:var(--forest);margin-bottom:4px;line-height:1.5}
+.btext .bvo{display:block;font-size:13.5px;color:var(--muted);font-style:italic;line-height:1.6}
+.reel-foot{background:var(--faint);padding:14px 28px;font-size:12.5px;color:var(--forest2)}
+.reel-foot span{font-weight:600}
+
+/* INVEST */
+.invest-list{display:grid;gap:12px}
+.invest-row{
+  background:var(--card);
+  border-radius:10px;
+  padding:18px 24px;
+  display:grid;
+  grid-template-columns:1fr auto;
+  align-items:center;
+  gap:16px;
+}
+.invest-row h4{font-weight:600;font-size:15px;color:var(--forest);margin-bottom:3px}
+.invest-row p{font-size:13px;color:var(--muted)}
+.invest-row .ip{
+  font:600 13.5px/1 'DM Sans',sans-serif;
+  color:var(--forest2);
+  text-align:right;
+  white-space:nowrap;
+}
+
+/* CTA */
+.s-cta-sec{text-align:center;padding:100px 40px}
+.s-cta-sec h2{color:var(--forest);margin-bottom:18px}
+.s-cta-sec .deck{
+  font-size:clamp(15px,1.8vw,17px);
+  color:var(--muted);
+  max-width:520px;
+  margin:0 auto 44px;
+  line-height:1.72;
+}
+.btn{
+  display:inline-block;
+  background:var(--forest);
+  color:#F5F1E9;
+  font:600 13.5px/1 'DM Sans',sans-serif;
+  letter-spacing:.06em;
+  padding:17px 38px;
+  border-radius:60px;
+  text-decoration:none;
+}
+.btn:hover{background:var(--forest2)}
+
+footer{
+  background:var(--forest);
+  color:rgba(245,241,233,.38);
+  text-align:center;
+  padding:40px 24px;
+  font-size:13px;
+}
+footer strong{color:rgba(245,241,233,.68)}
+
+@media(max-width:700px){
+  .hero{padding:72px 24px 88px}
+  .goodwill{margin:24px 16px;padding:24px}
+  .wrap{padding:60px 24px}
+  .wrap-wide{padding:60px 24px}
+  .obs{grid-template-columns:1fr;gap:10px}
+  .slides{grid-template-columns:1fr 1fr}
+  .beat{grid-template-columns:1fr;gap:4px}
+  .invest-row{grid-template-columns:1fr}
+  .invest-row .ip{text-align:left}
+  .s-cta-sec{padding:72px 24px}
+}
+@media(max-width:420px){
+  .slides{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<header class="hero">
+  <span class="eyebrow">A proposal for @everpaththerapy</span>
+  <h1>The pattern<strong>is already there.</strong></h1>
+  <p class="deck">A 5,000-follower account. One post: 144,000 views and 11,600 likes. That is not luck. That is a formula. What I would do is name it, build around it, and fill the one content layer you are missing to turn viral reach into consistent intake.</p>
+  <span class="by">Written by Evelyn</span>
+</header>
+
+<!-- GOODWILL -->
+<div class="goodwill">
+  <p><strong>Before you read.</strong> The two sample pieces inside this proposal — a carousel and a Reel script — are on me. No charge, not part of any package below, not a sales sample I am asking you to pay for. They are a gesture of goodwill so you can see actual work in your voice before we ever talk. Publish them as-is if you want, whether we end up working together or not.</p>
+</div>
+
+<!-- 01 WHAT I SEE -->
+<div class="wrap">
+  <span class="sec-label">01 / What I see</span>
+  <h2>Four things I noticed reading your last 100 posts.</h2>
+  <p class="lead">I went through every caption, every Reel, every comment thread. Here is what the data actually says.</p>
+  <div class="obs-list">
+    <div class="obs">
+      <div class="obs-n">1</div>
+      <div class="obs-b">
+        <strong>Your viral formula has a name — and you are already using it.</strong>
+        <p>Every one of your top posts follows the same structure: take a therapy fear or misconception, invert it, make the viewer feel understood. "Therapy is not fixing you" (32K views). "Why therapists ask about childhood" (34K). "When you had to grow up too fast" (67K). "Problems are subjective" (144K). All variations on the same reframe. Most accounts never figure this out. You already have.</p>
+      </div>
+    </div>
+    <div class="obs">
+      <div class="obs-n">2</div>
+      <div class="obs-b">
+        <strong>The parentification lane is your highest-performing niche and you have barely touched it.</strong>
+        <p>"Grow up too fast" hit 67,000 views. The "mature for your age" carousel generated saves and meaningful comments. This audience — adults who managed the room before they knew how to ask for help — is everywhere in your content themes but gets maybe 15% of your posts. It deserves 30%.</p>
+      </div>
+    </div>
+    <div class="obs">
+      <div class="obs-n">3</div>
+      <div class="obs-b">
+        <strong>You have zero save-worthy content.</strong>
+        <p>Your audience are high-achievers. They screenshot resources. They save carousels to revisit. Right now you have almost no carousel content — 12 in 100 posts, none structured as a save-and-reference educational piece. That is a direct cap on algorithm depth-of-engagement signals and a lost retention tool for exactly the kind of follower who books consults.</p>
+      </div>
+    </div>
+    <div class="obs">
+      <div class="obs-n">4</div>
+      <div class="obs-b">
+        <strong>97 of your last 100 posts have zero hashtags.</strong>
+        <p>For a geography-dependent practice — virtual across Ontario, in-person Burlington — hashtag discovery is the lowest-effort reach lever you are not using. A targeted stack of 10 to 15 tags per post (#therapyontario, #highfunctioninganxiety, #peoplepleaserhealing, #burlingtontherapist) could meaningfully expand reach without changing a single thing about your content.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 02 SERVICES -->
+<div class="wrap-wide dark">
+  <div class="inner">
+    <span class="sec-label">02 / What I would build</span>
+    <h2>Six ways we could work together.</h2>
+    <p class="lead">Start with what solves the biggest gap first. Or stack two layers and run them in parallel.</p>
+    <div class="svc-grid">
+
+      <div class="svc">
+        <span class="svc-tag">Strategy</span>
+        <h3>Content Strategy &amp; Growth Blueprint</h3>
+        <p class="svc-d">One-time deliverable. A full strategic foundation before any content is created.</p>
+        <ul>
+          <li>Content pillar map with % targets and engagement benchmarks</li>
+          <li>Hashtag stack built for Ontario therapy discovery</li>
+          <li>Series naming for your reframe formula</li>
+          <li>Posting calendar template (3 to 4 posts per week)</li>
+          <li>Async written walkthrough, no calls needed</li>
+        </ul>
+        <div class="svc-price">Investment: quoted after DM intake</div>
+      </div>
+
+      <div class="svc">
+        <span class="svc-tag">Monthly</span>
+        <h3>Carousel Pack</h3>
+        <p class="svc-d">4 fully designed, save-worthy educational carousels per month. Your single biggest content gap.</p>
+        <ul>
+          <li>High-functioning anxiety, people-pleasing, nervous system, parentification</li>
+          <li>6 to 8 slides per carousel, fully captioned</li>
+          <li>Built to save and share, not just scroll past</li>
+          <li>One revision round included</li>
+        </ul>
+        <div class="svc-price">$480 / month</div>
+      </div>
+
+      <div class="svc">
+        <span class="svc-tag">Monthly</span>
+        <h3>Reel Script Pack</h3>
+        <p class="svc-d">4 hook-engineered Reel scripts per month, systematizing the reframe formula your top posts already run on.</p>
+        <ul>
+          <li>Hooks written for your specific viral pattern</li>
+          <li>On-screen text and voiceover copy</li>
+          <li>Caption and hashtag stack included per script</li>
+          <li>Suggested music per script</li>
+        </ul>
+        <div class="svc-price">$440 / month</div>
+      </div>
+
+      <div class="svc">
+        <span class="svc-tag">One-time</span>
+        <h3>Therapy Intake Landing Page</h3>
+        <p class="svc-d">A designed, single-page intake flow to replace "link in bio / generic website" with something that actually converts curious followers into booked consults.</p>
+        <ul>
+          <li>Written in Janna's voice, nervous system language intact</li>
+          <li>Free consult CTA, insurance messaging, affordable-tier framing</li>
+          <li>Mobile-first, hosted wherever you prefer</li>
+          <li>No third-party automation tools required</li>
+        </ul>
+        <div class="svc-price">$220</div>
+      </div>
+
+      <div class="svc svc-growth">
+        <span class="svc-tag">Partnership</span>
+        <h3>Growth Partnership</h3>
+        <p class="svc-d">Commission and milestone-based model for when you are ready to scale beyond organic. Structured around your intake goals and follower targets, not a flat monthly fee.</p>
+        <ul>
+          <li>Milestone-tied structure (DM me for specifics)</li>
+          <li>Shared upside when content drives measurable intake</li>
+          <li>Built for accounts on the way to 10K and beyond</li>
+        </ul>
+        <div class="svc-price">Commission / milestone model — DM to discuss</div>
+      </div>
+
+      <div class="svc svc-premium">
+        <span class="svc-tag">Full-service</span>
+        <h3>Premium Partnership</h3>
+        <p class="svc-d">Full-service content management. Daily publishing, DM triage, trend routing, and everything in between. Reserved for ongoing partners.</p>
+        <ul>
+          <li>Daily publishing and scheduling</li>
+          <li>DM template library maintained and refreshed</li>
+          <li>Weekly trend briefing for therapy and wellness niche</li>
+          <li>Priority turnaround across all content</li>
+        </ul>
+        <div class="svc-price">Custom scope — not publicly quoted</div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- 03 SAMPLES -->
+<div class="wrap">
+  <span class="sec-label">03 / Sample work</span>
+  <h2>Two pieces, written in your voice.</h2>
+  <p class="lead">The carousel fills the gap that your feed is missing. The Reel script uses the exact formula your best posts already run on.</p>
+
+  <!-- SAMPLE A -->
+  <div class="sample">
+    <span class="sample-tag">Sample A / Carousel (6 slides)</span>
+    <h3>"5 Signs You Have High-Functioning Anxiety (And Why They're So Easy to Dismiss)"</h3>
+    <p class="sample-sub">6-slide educational carousel · High-functioning anxiety niche · CTA: book free consult</p>
+    <div class="slides">
+      <div class="slide s-cover">
+        <span class="sl-num">Slide 01 / Cover</span>
+        <h4>"You seem fine. But inside, it never stops."</h4>
+        <p>5 signs of high-functioning anxiety, even when life looks together.</p>
+      </div>
+      <div class="slide">
+        <span class="sl-num">Slide 02</span>
+        <h4>"Your to-do list is how you feel safe."</h4>
+        <p>You do not plan because you love organizing. You plan because your nervous system needs somewhere to put the worry. The moment your calendar clears, the anxiety floods in.</p>
+      </div>
+      <div class="slide">
+        <span class="sl-num">Slide 03</span>
+        <h4>"You apologize before you know what you did wrong."</h4>
+        <p>Automatic. Before you have had a second to assess, sorry is already out of your mouth. That reflex is not politeness. It is what happens when being "too much" was once a real threat.</p>
+      </div>
+      <div class="slide">
+        <span class="sl-num">Slide 04</span>
+        <h4>"Rest makes you more anxious than being busy."</h4>
+        <p>A free day should feel like relief. Instead it feels restless, guilty, on edge. Because being busy was never about productivity. It was about staying one step ahead of the feelings.</p>
+      </div>
+      <div class="slide">
+        <span class="sl-num">Slide 05</span>
+        <h4>"You have been called 'mature for your age' your whole life."</h4>
+        <p>What that actually meant: you learned to manage the room before you were old enough to need to. Those early patterns do not disappear. They show up as anxiety in adulthood.</p>
+      </div>
+      <div class="slide s-cta">
+        <span class="sl-num">Slide 06 / CTA</span>
+        <h4>"You are not broken. You adapted."</h4>
+        <p>High-functioning anxiety is real, exhausting, and responds to therapy. If 2 or more of these landed, this is worth exploring. Book a free consult at Everpath.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- SAMPLE B -->
+  <div class="sample">
+    <span class="sample-tag">Sample B / Reel Script (30 to 45 sec)</span>
+    <h3>"The exhaustion no one warns you about"</h3>
+    <p class="sample-sub">Hook-first reframe format · Music suggestion: Where Is My Mind? (2007 Remaster)</p>
+    <div class="reel">
+      <div class="reel-head">
+        <span class="rtag">Reel Script</span>
+        <span class="rtitle">"The exhaustion no one warns you about"</span>
+      </div>
+      <div class="reel-body">
+        <div class="beat">
+          <span class="blabel">Hook<br>On-screen</span>
+          <div class="btext">
+            <span class="bscreen">The reason you are exhausted even when nothing is technically wrong.</span>
+          </div>
+        </div>
+        <div class="beat">
+          <span class="blabel">Beat 1<br>VO</span>
+          <div class="btext">
+            <span class="bvo">If you are the kind of person who holds it together for everyone — this is for you.</span>
+          </div>
+        </div>
+        <div class="beat">
+          <span class="blabel">Beat 2<br>On-screen + VO</span>
+          <div class="btext">
+            <span class="bscreen">High-functioning anxiety does not look like falling apart.</span>
+            <span class="bvo">It looks like doing everything right, while your nervous system works overtime to make sure nothing goes wrong.</span>
+          </div>
+        </div>
+        <div class="beat">
+          <span class="blabel">Beat 3<br>On-screen + VO</span>
+          <div class="btext">
+            <span class="bscreen">You manage everyone's emotions. You anticipate problems before they happen. You stay three steps ahead.</span>
+            <span class="bvo">And when someone asks how you are doing — you say fine.</span>
+          </div>
+        </div>
+        <div class="beat">
+          <span class="blabel">Beat 4<br>On-screen + VO</span>
+          <div class="btext">
+            <span class="bscreen">That gap between how you look and how you feel?</span>
+            <span class="bvo">That is the exhaustion. Not from doing too much. From carrying too much. Alone.</span>
+          </div>
+        </div>
+        <div class="beat">
+          <span class="blabel">CTA<br>On-screen + VO</span>
+          <div class="btext">
+            <span class="bscreen">Therapy is not about fixing you. It is about finally putting some of it down.</span>
+            <span class="bvo">Free consult — link in bio.</span>
+          </div>
+        </div>
+      </div>
+      <div class="reel-foot"><span>Music:</span> "Where Is My Mind?" (2007 Remaster) — or any of your go-to melancholic tracks</div>
+    </div>
+  </div>
+</div>
+
+<!-- 04 INVESTMENT -->
+<div class="wrap-wide dark">
+  <div class="inner">
+    <span class="sec-label">04 / Investment</span>
+    <h2>What each layer costs.</h2>
+    <p class="lead">Productized packs have fixed rates. Strategy and premium work gets scoped after we talk over DM so the numbers are right.</p>
+    <div class="invest-list">
+      <div class="invest-row">
+        <div>
+          <h4>Content Strategy &amp; Growth Blueprint</h4>
+          <p>One-time · Full pillar map, hashtag stack, series naming, posting calendar</p>
+        </div>
+        <div class="ip">Quoted after DM</div>
+      </div>
+      <div class="invest-row">
+        <div>
+          <h4>Carousel Pack</h4>
+          <p>Monthly · 4 designed educational carousels, fully captioned</p>
+        </div>
+        <div class="ip">$480 / mo</div>
+      </div>
+      <div class="invest-row">
+        <div>
+          <h4>Reel Script Pack</h4>
+          <p>Monthly · 4 hook-engineered scripts with on-screen text, captions, hashtags</p>
+        </div>
+        <div class="ip">$440 / mo</div>
+      </div>
+      <div class="invest-row">
+        <div>
+          <h4>Therapy Intake Landing Page</h4>
+          <p>One-time · Designed in your voice, mobile-first, no automation tools</p>
+        </div>
+        <div class="ip">$220</div>
+      </div>
+      <div class="invest-row">
+        <div>
+          <h4>Growth Partnership</h4>
+          <p>Commission and milestone model · Scales with your intake results</p>
+        </div>
+        <div class="ip">DM to discuss</div>
+      </div>
+      <div class="invest-row">
+        <div>
+          <h4>Premium Partnership</h4>
+          <p>Full-service · Daily publishing, DM triage, trend routing</p>
+        </div>
+        <div class="ip">Custom scope</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 05 CTA -->
+<section class="s-cta-sec">
+  <span class="sec-label" style="display:block;text-align:center">05 / Let's talk</span>
+  <h2>Just DM me.</h2>
+  <p class="deck">Tell me what has been frustrating, what has been working, what you want to build next. I will listen and we will figure out what makes sense from there. No pitch, no agenda — just a conversation.</p>
+  <a href="https://www.instagram.com/evelyn.contentally/" class="btn" target="_blank" rel="noopener">DM me on Instagram</a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>Prepared for <strong>@everpaththerapy</strong> by <strong>Evelyn</strong></p>
+  <p style="margin-top:8px;font-size:12px">The sample content in this proposal was written for your voice and your audience. It is yours to use regardless of whether we work together.</p>
+</footer>
+
+</body>
+</html>
