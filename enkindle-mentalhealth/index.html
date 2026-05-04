@@ -7,273 +7,327 @@
 <title>A proposal for @enkindle_mentalhealth</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 :root {
-  --hero-bg:   #1F1508;
-  --hero-txt:  #F5ECD8;
-  --bg:        #FAF8F3;
-  --bg-alt:    #F0EBE0;
-  --ink:       #1A1209;
-  --muted:     #6E6050;
-  --amber:     #C4763E;
-  --amber-lt:  #FAEEDE;
+  --hero-bg:   #1E2329;
+  --hero-txt:  #F4F0E6;
+  --bg:        #F7F4EE;
+  --bg-alt:    #EDE9DE;
+  --bg-sage:   #E5EDDF;
+  --ink:       #1A1814;
+  --muted:     #6B6055;
+  --copper:    #B86B3C;
+  --copper-lt: #FAE8DA;
   --card:      #FFFFFF;
-  --lbl:       #9A8268;
+  --lbl:       #9A8070;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--ink);font-family:'DM Sans',system-ui,sans-serif;font-size:16px;line-height:1.75;-webkit-font-smoothing:antialiased}
+body{background:var(--bg);color:var(--ink);font-family:'Outfit',system-ui,sans-serif;font-size:16px;line-height:1.75;-webkit-font-smoothing:antialiased}
 
 /* HERO */
-.hero{background:var(--hero-bg);color:var(--hero-txt);padding:108px 40px 128px;text-align:center}
-.hero .eye{display:block;font:600 9px/1 'DM Sans',sans-serif;letter-spacing:.34em;text-transform:uppercase;color:rgba(245,236,216,.28);margin-bottom:60px}
-.hero h1{font-family:'Instrument Serif',Georgia,serif;font-style:italic;font-size:clamp(48px,9.5vw,96px);line-height:.98;color:var(--hero-txt);margin-bottom:6px}
-.hero h1 em{color:#E0A05A;font-style:italic}
-.hero .deck{font-size:clamp(15px,1.9vw,17.5px);color:rgba(245,236,216,.6);max-width:500px;margin:36px auto 0;line-height:1.72}
-.hero .by{display:block;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:rgba(245,236,216,.2);margin-top:64px}
+.hero{background:var(--hero-bg);color:var(--hero-txt);padding:120px 40px 144px;text-align:center}
+.hero .eye{display:block;font:500 9px/1 'Outfit',sans-serif;letter-spacing:.38em;text-transform:uppercase;color:rgba(244,240,230,.22);margin-bottom:68px}
+.hero h1{font-family:'Fraunces',Georgia,serif;font-style:italic;font-size:clamp(50px,10vw,100px);line-height:.96;color:var(--hero-txt);margin-bottom:8px}
+.hero h1 em{color:#C88A50;font-style:italic}
+.hero .deck{font-size:clamp(15px,1.9vw,18px);color:rgba(244,240,230,.5);max-width:500px;margin:44px auto 0;line-height:1.8;font-weight:300}
+.hero .by{display:block;font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:rgba(244,240,230,.16);margin-top:76px}
 
 /* LAYOUT */
-.wrap{max-width:760px;margin:0 auto;padding:0 36px}
-.sec{padding:96px 0}
+.wrap{max-width:760px;margin:0 auto;padding:0 40px}
+.sec{padding:108px 0}
 .sec.alt{background:var(--bg-alt)}
-.sec.warm{background:var(--amber-lt)}
+.sec.dark{background:var(--hero-bg)}
 
 /* TYPE */
-.lbl{font:600 9px/1 'DM Sans',sans-serif;letter-spacing:.32em;text-transform:uppercase;color:var(--lbl);margin-bottom:26px}
-.sec h2{font-family:'Instrument Serif',Georgia,serif;font-style:italic;font-size:clamp(30px,5vw,52px);line-height:1.08;color:var(--ink);margin-bottom:28px}
-.sec p{font-size:16.5px;color:var(--muted);line-height:1.82;max-width:640px}
-.sec p+p{margin-top:16px}
+.lbl{font:500 9px/1 'Outfit',sans-serif;letter-spacing:.36em;text-transform:uppercase;color:var(--lbl);margin-bottom:30px;display:block}
+.sec h2{font-family:'Fraunces',Georgia,serif;font-style:italic;font-size:clamp(32px,5.5vw,56px);line-height:1.06;color:var(--ink);margin-bottom:34px}
+.sec.dark h2{color:var(--hero-txt)}
+.sec p{font-size:17px;color:var(--muted);line-height:1.86;max-width:640px;font-weight:300}
+.sec p+p{margin-top:20px}
+.quote{font-family:'Fraunces',Georgia,serif;font-style:italic;font-size:20px;color:var(--copper);line-height:1.58;margin:38px 0;padding:22px 28px;background:var(--copper-lt);border-radius:10px}
 
 /* STATS */
-.stats{display:flex;gap:14px;flex-wrap:wrap;margin:44px 0 8px}
-.stat{background:var(--card);border-radius:14px;padding:22px 26px;flex:1;min-width:160px}
-.stat .n{font-family:'Instrument Serif',Georgia,serif;font-size:38px;color:var(--amber);line-height:1}
-.stat .d{font-size:13px;color:var(--muted);margin-top:6px;line-height:1.5}
+.stats{display:flex;gap:14px;flex-wrap:wrap;margin:50px 0 14px}
+.stat{background:var(--card);border-radius:14px;padding:24px 28px;flex:1;min-width:158px}
+.stat .n{font-family:'Fraunces',Georgia,serif;font-size:42px;color:var(--copper);line-height:1}
+.stat .d{font-size:13px;color:var(--muted);margin-top:8px;line-height:1.52;font-weight:300}
 
-/* OFFERS */
-.offers{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:52px}
-@media(max-width:620px){.offers{grid-template-columns:1fr}}
-.offer{background:var(--card);border-radius:18px;padding:38px 34px}
-.offer.feat{background:var(--hero-bg);color:var(--hero-txt)}
-.offer .otag{font:600 9px/1 'DM Sans',sans-serif;letter-spacing:.28em;text-transform:uppercase;color:var(--amber);margin-bottom:18px}
-.offer.feat .otag{color:#E0A05A}
-.offer h3{font-family:'Instrument Serif',Georgia,serif;font-style:italic;font-size:27px;line-height:1.15;margin-bottom:22px;color:var(--ink)}
-.offer.feat h3{color:var(--hero-txt)}
-.offer ul{list-style:none;padding:0;font-size:14.5px;color:var(--muted);line-height:1.62}
-.offer.feat ul{color:rgba(245,236,216,.7)}
-.offer ul li{padding:6px 0 6px 18px;position:relative}
-.offer ul li::before{content:'';position:absolute;left:0;top:50%;transform:translateY(-50%);width:5px;height:5px;border-radius:50%;background:var(--amber)}
-.offer.feat ul li::before{background:#E0A05A}
-.offer .price{font-family:'Instrument Serif',Georgia,serif;font-size:40px;color:var(--amber);margin-top:30px;line-height:1}
-.offer.feat .price{color:#E0A05A}
-.offer .pnote{font-size:12px;color:var(--lbl);margin-top:5px}
-.offer.feat .pnote{color:rgba(245,236,216,.35)}
+/* OBSERVATIONS */
+.obs{display:flex;flex-direction:column;gap:24px;margin-top:54px}
+.ob{background:var(--card);border-radius:18px;padding:44px 44px 48px}
+@media(max-width:600px){.ob{padding:34px 30px 38px}}
+.ob-num{font:500 9.5px/1 'Outfit',sans-serif;letter-spacing:.3em;text-transform:uppercase;color:var(--copper);margin-bottom:16px;display:block}
+.ob h3{font-family:'Fraunces',Georgia,serif;font-style:italic;font-size:25px;line-height:1.2;margin-bottom:16px;color:var(--ink)}
+.ob p{font-size:15.5px;color:var(--muted);line-height:1.8;font-weight:300}
+.evidence{font-size:13px;color:var(--lbl);margin-top:22px;background:var(--bg-alt);padding:13px 20px;border-radius:8px;line-height:1.62;font-weight:300}
 
-/* SAMPLES */
-.samples{display:flex;flex-direction:column;gap:28px;margin-top:52px}
-.sample{background:var(--card);border-radius:18px;padding:42px 42px 48px}
-@media(max-width:600px){.sample{padding:32px 28px 36px}}
-.stag{font:600 9px/1 'DM Sans',sans-serif;letter-spacing:.28em;text-transform:uppercase;color:var(--amber);margin-bottom:10px}
-.sample h4{font-family:'Instrument Serif',Georgia,serif;font-style:italic;font-size:23px;color:var(--ink);margin-bottom:20px}
-.slbl{font-size:11px;text-transform:uppercase;letter-spacing:.18em;color:var(--lbl);margin-bottom:10px}
-.hook-box{font-size:14px;font-style:italic;color:var(--muted);background:var(--bg-alt);border-radius:8px;padding:13px 18px;margin-bottom:26px;line-height:1.65}
-.script{font-size:15.5px;line-height:2;color:var(--ink);white-space:pre-line}
+/* SERVICES */
+.services{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:58px}
+@media(max-width:640px){.services{grid-template-columns:1fr}}
+.svc{background:var(--card);border-radius:18px;padding:40px 36px}
+.svc .stag{font:500 9px/1 'Outfit',sans-serif;letter-spacing:.3em;text-transform:uppercase;color:var(--copper);margin-bottom:16px;display:block}
+.svc h3{font-family:'Fraunces',Georgia,serif;font-style:italic;font-size:23px;line-height:1.22;margin-bottom:20px;color:var(--ink)}
+.svc ul{list-style:none;padding:0;font-size:14.5px;color:var(--muted);line-height:1.66;font-weight:300}
+.svc ul li{padding:5px 0 5px 20px;position:relative}
+.svc ul li::before{content:'';position:absolute;left:0;top:50%;transform:translateY(-50%);width:4px;height:4px;border-radius:50%;background:var(--copper)}
+.svc .invest{font-family:'Fraunces',Georgia,serif;font-size:16px;color:var(--copper);margin-top:28px;font-style:italic}
+
+/* SAMPLE */
+.sample-wrap{margin-top:58px}
+.sample-card{background:var(--card);border-radius:18px;padding:50px 50px 56px}
+@media(max-width:600px){.sample-card{padding:36px 30px 42px}}
+.sample-tag{font:500 9px/1 'Outfit',sans-serif;letter-spacing:.3em;text-transform:uppercase;color:var(--copper);margin-bottom:12px;display:block}
+.sample-title{font-family:'Fraunces',Georgia,serif;font-style:italic;font-size:26px;color:var(--ink);margin-bottom:30px}
+.slbl{font-size:10.5px;text-transform:uppercase;letter-spacing:.2em;color:var(--lbl);margin-bottom:10px;display:block}
+.hook-box{font-size:14px;font-style:italic;color:var(--muted);background:var(--bg-alt);border-radius:8px;padding:14px 20px;margin-bottom:30px;line-height:1.68;font-weight:300}
+.script-text{font-size:16px;line-height:2.1;color:var(--ink);white-space:pre-line;font-weight:300}
+.sample-note{font-size:14px;color:var(--lbl);line-height:1.78;margin-top:38px;background:var(--bg-alt);border-radius:8px;padding:22px 26px;font-style:italic;font-weight:300}
+
+/* WHY DIFFERENT */
+.why-list{display:flex;flex-direction:column;gap:28px;margin-top:52px}
+.why-item{display:flex;gap:28px;align-items:flex-start}
+.why-num{font-family:'Fraunces',Georgia,serif;font-style:italic;font-size:44px;color:rgba(244,240,230,.1);line-height:1;flex-shrink:0;width:52px}
+.why-body h4{font-family:'Fraunces',Georgia,serif;font-style:italic;font-size:20px;color:var(--hero-txt);margin-bottom:8px}
+.why-body p{font-size:15px;color:rgba(244,240,230,.45);line-height:1.76;font-weight:300}
 
 /* CTA */
-.cta{background:var(--hero-bg);padding:104px 40px;text-align:center}
-.cta h2{font-family:'Instrument Serif',Georgia,serif;font-style:italic;font-size:clamp(34px,6vw,62px);color:var(--hero-txt);margin-bottom:22px;line-height:1.06}
-.cta p{font-size:16px;color:rgba(245,236,216,.58);max-width:440px;margin:0 auto 48px;line-height:1.72}
-.btn{display:inline-block;background:var(--amber);color:#fff;text-decoration:none;font:600 13.5px/1 'DM Sans',sans-serif;letter-spacing:.08em;padding:18px 48px;border-radius:100px;transition:opacity .2s}
+.cta-sec{padding:128px 40px;text-align:center}
+.cta-sec h2{font-family:'Fraunces',Georgia,serif;font-style:italic;font-size:clamp(36px,6.5vw,68px);color:var(--ink);margin-bottom:26px;line-height:1.05}
+.cta-sec p{font-size:16.5px;color:var(--muted);max-width:420px;margin:0 auto 54px;line-height:1.78;font-weight:300}
+.btn{display:inline-block;background:var(--copper);color:#fff;text-decoration:none;font:500 13px/1 'Outfit',sans-serif;letter-spacing:.1em;padding:20px 52px;border-radius:100px;transition:opacity .2s}
 .btn:hover{opacity:.82}
-.cta-note{display:block;font-size:11px;color:rgba(245,236,216,.22);margin-top:22px;letter-spacing:.1em}
+.cta-note{display:block;font-size:11px;color:var(--lbl);margin-top:22px;letter-spacing:.12em}
 
-footer{background:var(--hero-bg);padding:24px;text-align:center;font-size:11px;color:rgba(245,236,216,.15);letter-spacing:.1em;border-top:none}
+footer{background:var(--hero-bg);padding:30px;text-align:center;font-size:11px;color:rgba(244,240,230,.13);letter-spacing:.12em}
 </style>
 </head>
 <body>
 
 <!-- HERO -->
 <section class="hero">
-  <span class="eye">For Katie Pankonin &nbsp; @enkindle_mentalhealth</span>
-  <h1>Your formula is<br><em>already working.</em></h1>
-  <p class="deck">This is a proposal for what happens when you give it a system.</p>
+  <span class="eye">For Katie Pankonin &nbsp;&nbsp; @enkindle_mentalhealth</span>
+  <h1>You have the formula.<br><em>Here is the system.</em></h1>
+  <p class="deck">A proposal written after reading 12 posts, 15 captions, and sitting with what your account is quietly building toward.</p>
   <span class="by">Prepared by Evelyn</span>
 </section>
 
-<!-- OBSERVATION -->
+<!-- I SEE YOU -->
 <section class="sec">
   <div class="wrap">
-    <p class="lbl">What I see</p>
+    <span class="lbl">What I noticed</span>
     <h2>The analogy engine is your unfair advantage.</h2>
+
+    <p>You called yourself "a sucker for a kitschy mental health reminder" in the caption for one of your top-performing reels. That line stuck with me. Because "kitschy" is doing something very specific. It is naming the exact register you live in: clinical knowledge delivered without the clinical armor. Biology before psychology. The feeling, not the fixing.</p>
+
+    <p>Every time you run that format, the numbers say yes. The unmet needs balloon reel hit 7,397 views. Biology before psychology hit 3,078. Dark humor in the therapy room: 4,298. That is not luck. That is a pattern you found, and then occasionally found again, without a system holding it together.</p>
+
+    <div class="quote">"Almost got lost in the analogy sauce."</div>
+
+    <p>You know what your formula is. What is missing is volume on that formula, a grief pillar that actually matches what your bio says about you, and a series structure that makes your voice compound instead of starting over with every post. That is what this proposal is about.</p>
+  </div>
+</section>
+
+<!-- AUDIT + OBSERVATIONS -->
+<section class="sec alt">
+  <div class="wrap">
+    <span class="lbl">The audit</span>
+    <h2>Three things I saw.</h2>
 
     <div class="stats">
       <div class="stat">
         <div class="n">7,397</div>
-        <div class="d">views on the unmet needs reel</div>
+        <div class="d">views on the unmet needs reel, your top performer</div>
       </div>
       <div class="stat">
-        <div class="n">4,298</div>
-        <div class="d">views on dark humor in the therapy room</div>
+        <div class="n">1.3%</div>
+        <div class="d">avg engagement rate, above industry average for 14.8K</div>
       </div>
       <div class="stat">
-        <div class="n">3,078</div>
-        <div class="d">views on biology before psychology</div>
+        <div class="n">47</div>
+        <div class="d">likes on your last meme dump, a 5x drop from your reel average</div>
       </div>
     </div>
 
-    <p>Every time you use the kitschy analogy format, it works. Clear concept. Warm delivery. Audience stays. These are not lucky posts. They are a pattern.</p>
-    <p>What is missing: volume on that formula, a grief content pillar that actually matches what your bio says about you, and a series structure that makes your voice compound instead of starting over with every post.</p>
-    <p>That is what this proposal is about.</p>
-  </div>
-</section>
+    <div class="obs">
 
-<!-- OFFER -->
-<section class="sec alt">
-  <div class="wrap">
-    <p class="lbl">The offer</p>
-    <h2>Two ways to work together.</h2>
-
-    <div class="offers">
-      <div class="offer">
-        <div class="otag">Option 1</div>
-        <h3>Reel Script Pack</h3>
-        <ul>
-          <li>4 reel scripts written in your exact voice</li>
-          <li>Analogy formula throughout. Kitschy, clinical, ready to film.</li>
-          <li>2 grief-specific reels</li>
-          <li>2 relatable mental health reels</li>
-          <li>Hook copy included for each</li>
-        </ul>
-        <div class="price">$360</div>
-        <div class="pnote">One-time delivery</div>
+      <div class="ob">
+        <span class="ob-num">01 / 03</span>
+        <h3>Your analogy format is not a style choice. It is your entire growth engine.</h3>
+        <p>The kitschy analogy reels consistently hit 1,500 to 7,400 views. Your non-analogy content sits under 2,000 and often under 500. The formula is not random. But right now you are running it on instinct, not a system. One or two per week when the data suggests it could carry your entire content schedule and still not feel repetitive, because the analogy is the container, not the topic.</p>
+        <div class="evidence">Unmet needs reel: 7,397 views / 312 likes. Biology before psychology: 3,078 views / 258 likes. Fear before bravery: 1,503 views / 135 likes. Meme dump: 47 likes. The gap between your formula and everything else is not small.</div>
       </div>
 
-      <div class="offer feat">
-        <div class="otag">Option 2</div>
-        <h3>Script Pack<br>+ Grief Series</h3>
-        <ul>
-          <li>Everything in Option 1</li>
-          <li>Grief Looks Like: a 6-episode grief series</li>
-          <li>Episode title, opening hook, and core message for each</li>
-          <li>A ready-to-post content pillar that owns your stated niche</li>
-          <li>Posting cadence suggestion included</li>
-        </ul>
-        <div class="price">$500</div>
-        <div class="pnote">One-time delivery</div>
+      <div class="ob">
+        <span class="ob-num">02 / 03</span>
+        <h3>Your bio says grief. Your top posts are almost all general mental health.</h3>
+        <p>Your bio leads with "chatting all things grief" and you are a licensed clinical social worker who has clearly thought deeply about loss. But in your top 10 performers, grief-specific content is nearly absent. The "onionest of onions" reel was one day old at audit time so it cannot be judged yet. But the pattern holds: your stated specialty and your highest-performing content are not the same thing. That is not a mistake. That is the clearest opportunity in your account.</p>
+        <div class="evidence">0 of your top 5 reels are grief-specific. 1 of your top 8 posts references grief directly. Your niche and your content are not yet pointed at the same thing.</div>
       </div>
+
+      <div class="ob">
+        <span class="ob-num">03 / 03</span>
+        <h3>You have an audience that shows up. You don't have a series that gives them something to return to.</h3>
+        <p>Your pinned intro post has 35 comments. That is a warm, invested audience who said something when you asked them to. But every reel you post starts over. No recurring series, no named arc, nothing your audience can follow week to week. A grief series could give that audience a throughline. Right now your voice compounds inside each reel. It doesn't compound across them.</p>
+        <div class="evidence">35 comments on pinned intro, the highest comment count in your visible feed. No recurring series in feed. Strong engagement on the warm community side, underutilized as a content architecture tool.</div>
+      </div>
+
     </div>
   </div>
 </section>
 
-<!-- SAMPLES -->
+<!-- SERVICES -->
 <section class="sec">
   <div class="wrap">
-    <p class="lbl">Sample work</p>
-    <h2>Three scripts in your voice.</h2>
-    <p>Written the way you think and talk. Film them as-is or adjust anything you want.</p>
+    <span class="lbl">What we could build</span>
+    <h2>Four ways I can help.</h2>
+    <p>These are the areas where the audit shows the clearest gap between what you have and what your account is capable of. You don't have to do all four.</p>
 
-    <div class="samples">
+    <!-- STUDENT: thay gia cu the vao placeholder [Investment: let's talk] -->
+    <div class="services">
 
-      <div class="sample">
-        <div class="stag">Sample 01 / Grief</div>
-        <h4>The Wet Dog Theory of Grief</h4>
-        <div class="slbl">Hook</div>
-        <div class="hook-box">Nobody explains grief like this, but I think everyone needs to hear it.</div>
-        <div class="slbl">Script</div>
-        <div class="script">Nobody warns you that grief doesn't follow you around crying.
-
-Sometimes it just sits quietly in the corner.
-And you think you're fine.
-You're functioning. You're present.
-
-And then it stands up, shakes itself off, and soaks you.
-
-In the middle of a work meeting.
-On a random Tuesday.
-When someone says a word that sounds like their name.
-
-That is not a sign that something is wrong.
-That is not falling apart.
-
-That is grief being exactly what grief is.
-
-It doesn't ask permission.
-It doesn't read the room.
-It just shakes.
-
-And the kindest thing you can do is let it.</div>
+      <div class="svc">
+        <span class="stag">Service 01</span>
+        <h3>Instagram Landing Page</h3>
+        <ul>
+          <li>A branded bio link page built to capture therapy inquiries</li>
+          <li>Designed to match your warm, kitschy clinical aesthetic</li>
+          <li>Converts reel viewers into actual client contacts</li>
+          <li>Replaces Linktree with something that looks and sounds like you</li>
+        </ul>
+        <div class="invest">[Investment: let's talk]</div>
       </div>
 
-      <div class="sample">
-        <div class="stag">Sample 02 / Mental Health</div>
-        <h4>The Thought vs. The Unmet Need (Part 2)</h4>
-        <div class="slbl">Hook</div>
-        <div class="hook-box">There's a reason some things keep coming back no matter how many times you let them go.</div>
-        <div class="slbl">Script</div>
-        <div class="script">A thought?
-
-You can acknowledge it, thank it for its contribution,
-and watch it float right on by.
-
-Classic mindfulness. It works.
-
-An unmet need?
-
-An unmet need is not floating anywhere.
-
-It will text you at 11pm.
-It will sit next to you at family dinner.
-It will show up in your body as tension, withdrawal,
-or that one thing you keep doing
-that you wish you would stop doing.
-
-Because an unmet need is not a thought.
-It is information.
-
-And information doesn't disappear when you ignore it.
-
-It just gets louder until you listen.</div>
+      <div class="svc">
+        <span class="stag">Service 02</span>
+        <h3>Content Strategy</h3>
+        <ul>
+          <li>Analogy formula mapped into a repeatable posting system</li>
+          <li>Grief as a named content pillar with arc and cadence</li>
+          <li>Content calendar that keeps your formula working without burnout</li>
+          <li>Positioning guide for the AZ therapist-creator space</li>
+        </ul>
+        <div class="invest">[Investment: let's talk]</div>
       </div>
 
-      <div class="sample">
-        <div class="stag">Sample 03 / Grief</div>
-        <h4>Grief Doesn't Require a Death</h4>
-        <div class="slbl">Hook</div>
-        <div class="hook-box">A non-clinical check-in for anyone who might be grieving something they haven't named yet.</div>
-        <div class="slbl">Script</div>
-        <div class="script">Grief doesn't require a death.
-
-You can grieve a version of yourself you had to let go of.
-A relationship that ended differently than you planned.
-A future you had fully mapped out.
-A parent who is still alive but hasn't been present in years.
-
-If you've been feeling something you can't quite name.
-If something feels off and you keep waiting for it to pass.
-If you're fine, but also somehow not.
-
-It might be grief.
-
-And it counts.
-
-Whatever it is.
-It counts.</div>
+      <div class="svc">
+        <span class="stag">Service 03</span>
+        <h3>Grief Series Scripts</h3>
+        <ul>
+          <li>A named grief series built to give your audience a throughline</li>
+          <li>Episode titles, opening hooks, and full scripts for each</li>
+          <li>Written in your voice, the kitschy analogy register, not therapy-speak</li>
+          <li>A content pillar that directly owns your stated specialty</li>
+        </ul>
+        <div class="invest">[Investment: let's talk]</div>
       </div>
 
+      <div class="svc">
+        <span class="stag">Service 04</span>
+        <h3>Reel Script Pack</h3>
+        <ul>
+          <li>4 to 8 reel scripts per month, written in your exact voice</li>
+          <li>Each one runs the analogy format your top posts use</li>
+          <li>Hook, script, and caption copy included for each</li>
+          <li>Film them as-is or adjust anything, they are yours</li>
+        </ul>
+        <div class="invest">[Investment: let's talk]</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SAMPLE -->
+<section class="sec alt">
+  <div class="wrap">
+    <span class="lbl">Sample work</span>
+    <h2>A reel script in your voice.</h2>
+    <p>Written after reading 15 of your captions and auditing the rhythm, vocabulary, and structure of your top posts. Not your topic. Your voice.</p>
+
+    <div class="sample-wrap">
+      <div class="sample-card">
+        <span class="sample-tag">Sample / Grief Reel</span>
+        <div class="sample-title">The Group Chat</div>
+
+        <span class="slbl">Caption</span>
+        <div class="hook-box">Been sitting with this analogy for a while. Grief is the onionest of onions but the group chat thing... yeah.</div>
+
+        <span class="slbl">Script</span>
+        <div class="script-text">When someone you love dies, your brain doesn't leave the group chat.
+
+You still want to tag them in things.
+You still save articles to share later.
+You still catch yourself calculating
+whether it's their time zone.
+
+That is not something going wrong.
+That is a brain that loved someone.
+
+The relationship doesn't end when the person does.
+It just goes quiet.
+
+And sometimes the hardest part of grief
+is sitting with all the notifications
+you never got to send.</div>
+
+        <div class="sample-note">This was written after reading 15 of your captions. Every choice was intentional: the short punchy lines, the self-aware caption that sounds like you talking to yourself before pressing post, the clinical reframe that lands without a single piece of therapy jargon. If we work together, every script goes through that same audit before it reaches you.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY DIFFERENT -->
+<section class="sec dark">
+  <div class="wrap">
+    <span class="lbl" style="color:rgba(244,240,230,.22)">Why this is different</span>
+    <h2>What I do before I pitch anything.</h2>
+
+    <div class="why-list">
+      <div class="why-item">
+        <div class="why-num">1</div>
+        <div class="why-body">
+          <h4>I read first.</h4>
+          <p>Every proposal I write starts with the actual account: the captions, the numbers, the patterns. Nothing in this document is a template. It is what your specific account is missing.</p>
+        </div>
+      </div>
+      <div class="why-item">
+        <div class="why-num">2</div>
+        <div class="why-body">
+          <h4>I clone voice, not topic.</h4>
+          <p>The sample above is not just on-brand. It is written so it could slide into your feed without anyone noticing it wasn't yours. That is the standard every piece gets held to before it goes to you.</p>
+        </div>
+      </div>
+      <div class="why-item">
+        <div class="why-num">3</div>
+        <div class="why-body">
+          <h4>I don't pitch generic mental health content.</h4>
+          <p>Your meme dump got 47 likes. Your analogy reels get 3,000 plus. I know which format to build a system around. It is not the template.</p>
+        </div>
+      </div>
+      <div class="why-item">
+        <div class="why-num">4</div>
+        <div class="why-body">
+          <h4>No call needed to start.</h4>
+          <p>Everything is here. If it resonates, a DM is enough. We can figure out which piece makes the most sense to start with and go from there.</p>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- CTA -->
-<section class="cta">
-  <h2>If this feels right,<br>send me a message.</h2>
-  <p>No call needed. Just a DM. We can figure out which option fits and go from there.</p>
+<!-- STUDENT: thay link Instagram cua em vao day -->
+<section class="cta-sec">
+  <h2>If this feels right,<br>send a message.</h2>
+  <p>No commitment needed. Just a DM. We can figure out which piece makes the most sense to start with.</p>
   <a href="https://www.instagram.com/humblefx_8" class="btn" target="_blank" rel="noopener">DM @humblefx_8 on Instagram</a>
   <span class="cta-note">@humblefx_8</span>
 </section>
 
-<footer>Prepared by Evelyn</footer>
+<!-- STUDENT: thay ten cua em vao footer neu can -->
+<footer>Prepared by Evelyn &nbsp; &nbsp; @enkindle_mentalhealth &nbsp; &nbsp; Written specifically for this account. Not a template.</footer>
 
 </body>
 </html>
