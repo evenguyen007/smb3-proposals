@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Content Proposal — @drkellyleech</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy:   #1B2B3A;
+    --navy2:  #243547;
+    --sage:   #6B9080;
+    --sage-lt:#E8EEE9;
+    --sand:   #C9B49A;
+    --cream:  #F6F3EE;
+    --white:  #FFFFFF;
+    --ink:    #1B2B3A;
+    --muted:  #6B7685;
+  }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* HERO */
+  .hero {
+    background: var(--navy);
+    padding: 80px 48px 72px;
+    text-align: center;
+  }
+  .hero-tag {
+    display: inline-block;
+    background: var(--sage);
+    color: var(--white);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    padding: 6px 16px;
+    border-radius: 100px;
+    margin-bottom: 36px;
+  }
+  .hero h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(34px, 5vw, 56px);
+    color: var(--white);
+    line-height: 1.15;
+    max-width: 720px;
+    margin: 0 auto 20px;
+  }
+  .hero h1 em {
+    color: var(--sand);
+    font-style: italic;
+  }
+  .hero-sub {
+    font-size: 16px;
+    color: rgba(255,255,255,0.62);
+    font-weight: 300;
+    max-width: 480px;
+    margin: 0 auto;
+    line-height: 1.7;
+  }
+
+  /* WRAPPER */
+  .wrap {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+
+  /* SECTION: NOTICED */
+  .noticed {
+    background: var(--white);
+    padding: 80px 0;
+  }
+  .section-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--sage);
+    margin-bottom: 28px;
+  }
+  .noticed h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(26px, 3.5vw, 38px);
+    line-height: 1.25;
+    color: var(--navy);
+    max-width: 620px;
+    margin-bottom: 36px;
+  }
+  .noticed-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  @media (max-width: 600px) { .noticed-grid { grid-template-columns: 1fr; } }
+  .noticed-card {
+    background: var(--cream);
+    border-radius: 12px;
+    padding: 28px 28px 24px;
+  }
+  .noticed-card .num {
+    font-family: 'DM Serif Display', serif;
+    font-size: 36px;
+    color: var(--sage);
+    line-height: 1;
+    margin-bottom: 10px;
+  }
+  .noticed-card p {
+    font-size: 14.5px;
+    line-height: 1.7;
+    color: var(--ink);
+  }
+  .noticed-card p strong {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 4px;
+    color: var(--navy);
+  }
+
+  /* SECTION: OPPORTUNITY */
+  .opportunity {
+    background: var(--sage-lt);
+    padding: 80px 0;
+  }
+  .opportunity h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(24px, 3vw, 34px);
+    line-height: 1.3;
+    color: var(--navy);
+    max-width: 580px;
+    margin-bottom: 16px;
+  }
+  .opportunity p {
+    font-size: 15px;
+    line-height: 1.8;
+    color: var(--ink);
+    max-width: 620px;
+    margin-bottom: 0;
+  }
+
+  /* SECTION: SAMPLE CAROUSEL */
+  .sample {
+    background: var(--navy);
+    padding: 80px 0;
+  }
+  .sample .section-label { color: var(--sand); }
+  .sample h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(24px, 3vw, 36px);
+    color: var(--white);
+    margin-bottom: 12px;
+  }
+  .sample-intro {
+    font-size: 14.5px;
+    color: rgba(255,255,255,0.55);
+    margin-bottom: 40px;
+    font-weight: 300;
+  }
+
+  /* Carousel preview */
+  .carousel-wrap {
+    display: flex;
+    gap: 14px;
+    overflow-x: auto;
+    padding-bottom: 12px;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+  .carousel-wrap::-webkit-scrollbar { height: 4px; }
+  .carousel-wrap::-webkit-scrollbar-track { background: rgba(255,255,255,0.08); border-radius: 4px; }
+  .carousel-wrap::-webkit-scrollbar-thumb { background: var(--sage); border-radius: 4px; }
+
+  .slide {
+    min-width: 260px;
+    max-width: 260px;
+    height: 330px;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 26px 22px 22px;
+    scroll-snap-align: start;
+    flex-shrink: 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .slide-num {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    opacity: 0.55;
+  }
+  .slide-body {
+    flex: 1;
+    display: flex;
+    align-items: center;
+  }
+  .slide-footer {
+    font-size: 10.5px;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    opacity: 0.4;
+  }
+
+  .slide-1 {
+    background: #F5F0E8;
+    color: var(--navy);
+  }
+  .slide-1 .slide-body p {
+    font-family: 'DM Serif Display', serif;
+    font-size: 21px;
+    line-height: 1.35;
+    color: var(--navy);
+  }
+  .slide-1 .slide-body p em { color: var(--sage); font-style: italic; }
+
+  .slide-2 {
+    background: var(--sage);
+    color: var(--white);
+  }
+  .slide-2 .slide-num { color: rgba(255,255,255,0.6); }
+  .slide-2 .slide-body {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 10px;
+  }
+  .slide-2 .tag {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    background: rgba(255,255,255,0.2);
+    border-radius: 6px;
+    padding: 4px 10px;
+    color: var(--white);
+  }
+  .slide-2 .slide-body h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 20px;
+    line-height: 1.3;
+    font-weight: 400;
+  }
+  .slide-2 .slide-body p {
+    font-size: 13px;
+    line-height: 1.65;
+    opacity: 0.85;
+  }
+  .slide-2 .slide-footer { color: rgba(255,255,255,0.4); }
+
+  .slide-3 {
+    background: #243547;
+    color: var(--white);
+  }
+  .slide-3 .slide-num { color: rgba(255,255,255,0.45); }
+  .slide-3 .slide-body {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 14px;
+  }
+  .slide-3 .slide-body p.intro {
+    font-size: 13px;
+    color: var(--sand);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  .slide-3 .slide-body ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+  }
+  .slide-3 .slide-body ul li {
+    font-size: 13px;
+    line-height: 1.55;
+    opacity: 0.88;
+    padding-left: 14px;
+    position: relative;
+  }
+  .slide-3 .slide-body ul li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 7px;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--sage);
+  }
+  .slide-3 .slide-footer { color: rgba(255,255,255,0.35); }
+
+  .slide-4 {
+    background: #F5F0E8;
+    color: var(--navy);
+  }
+  .slide-4 .slide-body {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 12px;
+  }
+  .slide-4 .slide-body .eyebrow {
+    font-size: 11.5px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--sage);
+  }
+  .slide-4 .slide-body h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 18px;
+    line-height: 1.4;
+    font-weight: 400;
+  }
+  .slide-4 .slide-body p {
+    font-size: 13px;
+    line-height: 1.65;
+    color: var(--muted);
+  }
+
+  .slide-5 {
+    background: var(--sage);
+    color: var(--white);
+  }
+  .slide-5 .slide-num { color: rgba(255,255,255,0.6); }
+  .slide-5 .slide-body {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 14px;
+  }
+  .slide-5 .slide-body .eyebrow {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    opacity: 0.7;
+  }
+  .slide-5 .slide-body blockquote {
+    font-family: 'DM Serif Display', serif;
+    font-size: 17px;
+    line-height: 1.5;
+    font-style: italic;
+    font-weight: 400;
+    border: none;
+    padding: 0;
+  }
+  .slide-5 .slide-body p {
+    font-size: 13px;
+    line-height: 1.65;
+    opacity: 0.82;
+  }
+  .slide-5 .slide-footer { color: rgba(255,255,255,0.4); }
+
+  .slide-6 {
+    background: var(--navy);
+    color: var(--white);
+    border: 1.5px solid rgba(255,255,255,0.12);
+  }
+  .slide-6 .slide-num { color: rgba(255,255,255,0.4); }
+  .slide-6 .slide-body {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 16px;
+  }
+  .slide-6 .slide-body h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 20px;
+    line-height: 1.35;
+    font-weight: 400;
+  }
+  .slide-6 .cta-chip {
+    background: var(--sage);
+    color: var(--white);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    padding: 8px 16px;
+    border-radius: 100px;
+  }
+  .slide-6 .slide-body p {
+    font-size: 12.5px;
+    line-height: 1.6;
+    opacity: 0.65;
+  }
+  .slide-6 .slide-footer { color: rgba(255,255,255,0.3); }
+
+  /* SECTION: SERVICES */
+  .services {
+    background: var(--white);
+    padding: 80px 0;
+  }
+  .services h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(26px, 3.5vw, 38px);
+    color: var(--navy);
+    margin-bottom: 12px;
+  }
+  .services-intro {
+    font-size: 15px;
+    color: var(--muted);
+    max-width: 560px;
+    line-height: 1.7;
+    margin-bottom: 44px;
+  }
+  .services-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+  }
+  @media (max-width: 600px) { .services-grid { grid-template-columns: 1fr; } }
+  .service-card {
+    background: var(--cream);
+    border-radius: 14px;
+    padding: 30px 28px;
+  }
+  .service-icon {
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    background: var(--sage);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+  }
+  .service-icon svg { width: 18px; height: 18px; fill: none; stroke: white; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+  .service-card h3 {
+    font-size: 15.5px;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 8px;
+  }
+  .service-card p {
+    font-size: 13.5px;
+    color: var(--muted);
+    line-height: 1.7;
+  }
+  .service-card .dm-tag {
+    display: inline-block;
+    margin-top: 14px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--sage);
+  }
+
+  /* LANDING PAGE ADD-ON */
+  .addon {
+    background: var(--sage-lt);
+    padding: 80px 0;
+  }
+  .addon-card {
+    background: var(--white);
+    border-radius: 20px;
+    padding: 48px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 32px;
+    align-items: center;
+  }
+  @media (max-width: 640px) {
+    .addon-card { grid-template-columns: 1fr; text-align: center; }
+    .addon-price { text-align: center !important; }
+  }
+  .addon-card h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 26px;
+    color: var(--navy);
+    margin-bottom: 10px;
+  }
+  .addon-card p {
+    font-size: 14.5px;
+    color: var(--muted);
+    line-height: 1.75;
+    max-width: 440px;
+  }
+  .addon-price {
+    text-align: right;
+    flex-shrink: 0;
+  }
+  .addon-price .amount {
+    font-family: 'DM Serif Display', serif;
+    font-size: 48px;
+    color: var(--navy);
+    line-height: 1;
+  }
+  .addon-price .per {
+    font-size: 12px;
+    color: var(--muted);
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    margin-top: 4px;
+  }
+  .addon-price .badge {
+    display: inline-block;
+    background: var(--sage);
+    color: var(--white);
+    font-size: 10.5px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 5px 12px;
+    border-radius: 100px;
+    margin-top: 12px;
+  }
+
+  /* SECTION: CTA */
+  .cta-section {
+    background: var(--navy2);
+    padding: 88px 0;
+    text-align: center;
+  }
+  .cta-section h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(28px, 4vw, 46px);
+    color: var(--white);
+    line-height: 1.2;
+    max-width: 600px;
+    margin: 0 auto 16px;
+  }
+  .cta-section h2 em {
+    color: var(--sand);
+    font-style: italic;
+  }
+  .cta-section p {
+    font-size: 15px;
+    color: rgba(255,255,255,0.55);
+    font-weight: 300;
+    max-width: 440px;
+    margin: 0 auto 36px;
+    line-height: 1.7;
+  }
+  .cta-btn {
+    display: inline-block;
+    background: var(--sage);
+    color: var(--white);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    padding: 16px 36px;
+    border-radius: 100px;
+    transition: opacity 0.2s;
+  }
+  .cta-btn:hover { opacity: 0.88; }
+  .cta-note {
+    margin-top: 18px;
+    font-size: 12.5px;
+    color: rgba(255,255,255,0.28);
+    font-weight: 300;
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--navy);
+    padding: 28px 32px;
+    text-align: center;
+    font-size: 12px;
+    color: rgba(255,255,255,0.22);
+    font-weight: 300;
+    letter-spacing: 0.3px;
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-tag">Content Proposal</div>
+  <h1>Dr Kelly Leech, your content is already <em>working.</em> Let's make it spread.</h1>
+  <p class="hero-sub">A strategy built specifically for @drkellyleech — clinical credibility, practical tools, and content that reaches the therapists who need it.</p>
+</section>
+
+<!-- NOTICED -->
+<section class="noticed">
+  <div class="wrap">
+    <p class="section-label">What we noticed</p>
+    <h2>You have a top post sitting at 11% of your total following. On a single carousel.</h2>
+    <div class="noticed-grid">
+      <div class="noticed-card">
+        <div class="num">639</div>
+        <p><strong>Likes on your "I don't know" carousel</strong>That's 11% of your entire following on one post. The content is there. The formula is there. It just needs to run more often.</p>
+      </div>
+      <div class="noticed-card">
+        <div class="num">151</div>
+        <p><strong>Comments on your Part 3 Toolbox reel</strong>Your multi-part series format drives comment loops that almost nothing else on Instagram can. That's a repeatable system.</p>
+      </div>
+      <div class="noticed-card">
+        <div class="num">5 posts/wk</div>
+        <p><strong>Your recent posting cadence</strong>You're ramping up in April and May. The momentum is real. Consistency at this level is where accounts break into new follower tiers.</p>
+      </div>
+      <div class="noticed-card">
+        <div class="num">0</div>
+        <p><strong>Consistent supervision content in your feed</strong>You offer online supervision in Australia and it's barely visible. That's a recurring, high-value service with almost no content behind it.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OPPORTUNITY -->
+<section class="opportunity">
+  <div class="wrap">
+    <p class="section-label">The real gap</p>
+    <h2>Your best posts all open with a specific in-session moment. Most of your posts don't.</h2>
+    <p>The difference between your 639-like post and your 7-like post isn't quality. It's the hook. "I don't know is often a protective strategy" lands because a therapist reading it has heard that sentence in the last 48 hours. "The Attack Protector is the part of us that steps in when we feel vulnerable" is a definition. Definitions don't go viral. Moments do. Every carousel we write starts from a moment.</p>
+  </div>
+</section>
+
+<!-- SAMPLE CAROUSEL -->
+<section class="sample">
+  <div class="wrap">
+    <p class="section-label">Sample content</p>
+    <h2>Carousel: When a client gets it — but nothing shifts</h2>
+    <p class="sample-intro">Written for your therapist audience. Clinically specific, scenario-led, designed to save and share.</p>
+
+    <div class="carousel-wrap">
+
+      <!-- Slide 1 -->
+      <div class="slide slide-1">
+        <span class="slide-num">01 / 06</span>
+        <div class="slide-body">
+          <p>Your client can explain their patterns perfectly.<br><br><em>And nothing changes.</em></p>
+        </div>
+        <span class="slide-footer">@drkellyleech</span>
+      </div>
+
+      <!-- Slide 2 -->
+      <div class="slide slide-2">
+        <span class="slide-num">02 / 06</span>
+        <div class="slide-body">
+          <span class="tag">What's happening</span>
+          <h3>A thinking part is doing all the work.</h3>
+          <p>It's articulate, insightful, and organised. It's also keeping the real material at arm's length. The client is talking about their experience instead of being in contact with it.</p>
+        </div>
+        <span class="slide-footer">@drkellyleech</span>
+      </div>
+
+      <!-- Slide 3 -->
+      <div class="slide slide-3">
+        <span class="slide-num">03 / 06</span>
+        <div class="slide-body">
+          <p class="intro">Signs you're in it</p>
+          <ul>
+            <li>Session feels like an interview, not a process</li>
+            <li>Client links everything back to childhood with no emotional shift</li>
+            <li>You keep waiting for something to land and it doesn't</li>
+            <li>Client leaves feeling understood but unchanged</li>
+          </ul>
+        </div>
+        <span class="slide-footer">@drkellyleech</span>
+      </div>
+
+      <!-- Slide 4 -->
+      <div class="slide slide-4">
+        <span class="slide-num">04 / 06</span>
+        <div class="slide-body">
+          <span class="eyebrow">The shift</span>
+          <h3>Stop asking why. Start asking where.</h3>
+          <p>Instead of "what do you think is happening?" try "where do you notice that in your body right now?" The goal isn't more understanding. It's contact.</p>
+        </div>
+        <span class="slide-footer">@drkellyleech</span>
+      </div>
+
+      <!-- Slide 5 -->
+      <div class="slide slide-5">
+        <span class="slide-num">05 / 06</span>
+        <div class="slide-body">
+          <span class="eyebrow">Remember</span>
+          <blockquote>"Insight is important. But insight on its own doesn't create change. The shift happens when the client can access the part, feel it in the body, and stay with it safely."</blockquote>
+          <p>That's where the work becomes embodied.</p>
+        </div>
+        <span class="slide-footer">@drkellyleech</span>
+      </div>
+
+      <!-- Slide 6 -->
+      <div class="slide slide-6">
+        <span class="slide-num">06 / 06</span>
+        <div class="slide-body">
+          <h3>Save this for your next stuck session.</h3>
+          <span class="cta-chip">Comment "Guide"</span>
+          <p>For a free Stabilisation Starter Guide with simple in-session tools you can use straight away.</p>
+        </div>
+        <span class="slide-footer">@drkellyleech</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services">
+  <div class="wrap">
+    <p class="section-label">What we do</p>
+    <h2>Content built for clinicians who teach clinicians.</h2>
+    <p class="services-intro">Every piece is written with your dual role in mind: you're both the educator and the practitioner. The content reflects that.</p>
+    <div class="services-grid">
+
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M7 8h10M7 12h7"/></svg>
+        </div>
+        <h3>Feed Carousels + Captions</h3>
+        <p>Scenario-led carousels targeting your therapist audience. Every Slide 1 opens with a moment, not a definition. Captions include your comment trigger CTAs.</p>
+        <span class="dm-tag">DM for details</span>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+        </div>
+        <h3>Reel Scripts + Direction</h3>
+        <p>Multi-part talking-head scripts using your proven series format. You film, we write every word and structure the hook-to-reveal arc that drives comments.</p>
+        <span class="dm-tag">DM for details</span>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 20V10"/><path d="M18 20V4"/><path d="M6 20v-4"/></svg>
+        </div>
+        <h3>Funnel Content Strategy</h3>
+        <p>Posts designed specifically to drive Stabilisation Guide downloads and Toolbox sales. Comment triggers, save hooks, and CTAs woven naturally into the content.</p>
+        <span class="dm-tag">DM for details</span>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+        </div>
+        <h3>Supervision Content Pillar</h3>
+        <p>Monthly content warming your supervision offer — honest reflections, anonymised supervisee moments, and "what belongs in supervision" posts that prime your audience without selling.</p>
+        <span class="dm-tag">DM for details</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- LANDING PAGE ADD-ON -->
+<section class="addon">
+  <div class="wrap">
+    <p class="section-label">Add-on</p>
+    <div class="addon-card">
+      <div>
+        <h3>Landing Page — delivered in 24 hours</h3>
+        <p>A single-page, mobile-optimised landing page for your Toolbox, your free Guide, or a future offer. Designed to match your brand, written in your voice, ready to send in your next DM or bio link.</p>
+      </div>
+      <div class="addon-price">
+        <div class="amount">$250</div>
+        <div class="per">one-time</div>
+        <div class="badge">24hr turnaround</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="wrap">
+    <h2>Ready to turn your best content into a <em>system?</em></h2>
+    <p>DM me and let's talk about what makes sense for where you are right now.</p>
+    <a href="https://www.instagram.com/evelyn.contentally" class="cta-btn" target="_blank">DM @evelyn.contentally</a>
+    <p class="cta-note">No calls. No forms. Just a conversation.</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  Prepared for @drkellyleech by Evelyn
+</footer>
+
+</body>
+</html>
