@@ -214,6 +214,44 @@
     }
     .card.dark .card-desc { color: rgba(250,248,243,0.6); }
 
+    .card-turnaround {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      background: var(--amber);
+      color: var(--forest);
+      padding: 4px 10px;
+      margin-bottom: 16px;
+    }
+
+    .card-list {
+      list-style: none;
+      padding: 0;
+      margin-bottom: 22px;
+    }
+    .card-list li {
+      font-size: 13px;
+      font-weight: 300;
+      line-height: 1.6;
+      color: var(--text-soft);
+      padding: 5px 0 5px 16px;
+      position: relative;
+    }
+    .card-list li::before {
+      content: "·";
+      position: absolute;
+      left: 0;
+      color: var(--sage);
+      font-weight: 700;
+      font-size: 16px;
+      line-height: 1.4;
+    }
+    .card.dark .card-list li { color: rgba(250,248,243,0.6); }
+    .card.dark .card-list li::before { color: rgba(200,151,74,0.7); }
+    .card.priced .card-list li::before { color: var(--amber); }
+
     .card-price {
       font-size: 12px;
       font-weight: 700;
@@ -527,49 +565,85 @@
     <div class="card priced">
       <span class="card-num">01</span>
       <h3 class="card-name">Landing Page</h3>
-      <p class="card-desc">A single, focused page that communicates your offer and earns the scroll. Built in your visual language, optimized for mobile, designed to convert the people your content is already warming up.</p>
+      <span class="card-turnaround">Delivered within 24 hrs</span>
+      <ul class="card-list">
+        <li>Single focused page, mobile-first</li>
+        <li>Built in your visual brand language</li>
+        <li>Converts content-warmed traffic into inquiries</li>
+        <li>Copy written to match your voice and niche</li>
+      </ul>
       <p class="card-price">From $200 · scope over DM</p>
     </div>
 
     <div class="card">
       <span class="card-num">02</span>
       <h3 class="card-name">Content Strategy</h3>
-      <p class="card-desc">A 30-day content plan with pillar topics, a hook bank built from your proven patterns, and a posting cadence mapped to your intake goals. So the next 30 days post themselves.</p>
+      <ul class="card-list">
+        <li>30-day plan with pillar topics and themes</li>
+        <li>Hook bank built from your proven patterns</li>
+        <li>Posting cadence mapped to intake goals</li>
+        <li>So the next 30 days post themselves</li>
+      </ul>
       <p class="card-price">Investment: let's talk over DM</p>
     </div>
 
     <div class="card priced">
       <span class="card-num">03</span>
       <h3 class="card-name">Lead Magnet PDF</h3>
-      <p class="card-desc">A designed, branded freebie your audience actually saves and shares. A gentle entry point into your world and a reason to stay connected long after the post is gone. The missing piece in your current funnel.</p>
+      <ul class="card-list">
+        <li>Branded freebie your audience saves and shares</li>
+        <li>8 to 12 pages, fully designed in your palette</li>
+        <li>Gentle entry point into your world</li>
+        <li>The missing piece in your current funnel</li>
+      </ul>
       <p class="card-price">From $200 · scope over DM</p>
     </div>
 
     <div class="card">
       <span class="card-num">04</span>
       <h3 class="card-name">Carousel Pack</h3>
-      <p class="card-desc">Four fully designed carousels per month, researched, written, and built to rank in the save-and-share tier. Each one engineered to earn comments, not just impressions.</p>
+      <ul class="card-list">
+        <li>4 fully designed carousels per month</li>
+        <li>Researched, written, and ready to post</li>
+        <li>Built for the save-and-share tier</li>
+        <li>Engineered to earn comments, not just impressions</li>
+      </ul>
       <p class="card-price">Investment: let's talk over DM</p>
     </div>
 
     <div class="card">
       <span class="card-num">05</span>
       <h3 class="card-name">Reel + Story Pack</h3>
-      <p class="card-desc">Four reel scripts per month with hook-engineered openers, on-screen text, and captions ready to post, plus story sequences that extend your podcast reach between publishing days.</p>
+      <ul class="card-list">
+        <li>4 reel scripts with hook-engineered openers</li>
+        <li>On-screen text and captions included</li>
+        <li>Story sequences for between posting days</li>
+        <li>Extends your podcast reach every week</li>
+      </ul>
       <p class="card-price">Investment: let's talk over DM</p>
     </div>
 
     <div class="card">
       <span class="card-num">06</span>
       <h3 class="card-name">Growth Partnership</h3>
-      <p class="card-desc">For creators at the inflection point. We tie a portion of my work to your growth milestones. Not a flat rate but a shared stake in what you build. Full structure on the intro call.</p>
+      <ul class="card-list">
+        <li>Tied to your actual growth milestones</li>
+        <li>Commission-based, not a flat rate</li>
+        <li>Shared stake in what you build</li>
+        <li>Full structure walked through on the intro call</li>
+      </ul>
       <p class="card-price">Commission-based · milestones over DM</p>
     </div>
 
     <div class="card dark">
       <span class="card-num">07</span>
       <h3 class="card-name">Premium Retainer</h3>
-      <p class="card-desc">Full-cycle content management. DM triage, daily publishing, trend routing, and a dedicated strategist working inside your brand every day. Reserved for ongoing partners.</p>
+      <ul class="card-list">
+        <li>DM triage and daily publishing</li>
+        <li>Trend routing and content calendar</li>
+        <li>Dedicated strategist inside your brand</li>
+        <li>Reserved for ongoing partners</li>
+      </ul>
       <p class="card-price">Custom scope · not publicly quoted</p>
     </div>
 
