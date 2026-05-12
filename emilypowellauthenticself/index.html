@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>A Proposal for @emilypowellauthenticself</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:       #1C2D40;
+      --navy-mid:   #243648;
+      --ivory:      #FAF8F7;
+      --ivory-warm: #F4EDE9;
+      --rose:       #C4857A;
+      --rose-light: #FAF0EE;
+      --sage:       #8BA89A;
+      --sage-light: #EFF5F2;
+      --text:       #1C2D40;
+      --text-soft:  #5C6E78;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--ivory);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* HERO */
+    .hero {
+      background: var(--navy);
+      color: var(--ivory);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 80px 10%;
+    }
+
+    .hero-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--rose);
+      margin-bottom: 36px;
+    }
+
+    .hero-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(46px, 7.5vw, 96px);
+      font-weight: 400;
+      line-height: 1.06;
+      color: var(--ivory);
+      max-width: 860px;
+      margin-bottom: 32px;
+    }
+
+    .hero-title em {
+      font-style: italic;
+      color: var(--rose);
+    }
+
+    .hero-sub {
+      font-size: 17px;
+      font-weight: 300;
+      color: rgba(250,248,247,0.55);
+      max-width: 480px;
+      line-height: 1.85;
+      margin-bottom: 56px;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      background: var(--rose);
+      color: var(--ivory);
+      padding: 15px 42px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 12px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+    .btn-primary:hover { background: #b5766b; }
+
+    /* SECTIONS */
+    .section        { padding: 100px 10%; }
+    .section-rose   { background: var(--rose-light); }
+    .section-sage   { background: var(--sage-light); }
+    .section-navy   { background: var(--navy); color: var(--ivory); }
+    .section-white  { background: #fff; }
+    .section-warm   { background: var(--ivory-warm); }
+
+    /* TYPE */
+    .eyebrow {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--rose);
+      margin-bottom: 18px;
+    }
+    .section-navy .eyebrow { color: var(--sage); }
+    .section-sage .eyebrow { color: var(--navy); opacity: 0.45; }
+
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(34px, 4.8vw, 60px);
+      font-weight: 400;
+      line-height: 1.16;
+      margin-bottom: 24px;
+      max-width: 700px;
+    }
+    .section-navy .section-title { color: var(--ivory); }
+
+    .section-title em { font-style: italic; color: var(--rose); }
+    .section-navy .section-title em { color: var(--rose); }
+
+    .body-text {
+      font-size: 17px;
+      font-weight: 300;
+      line-height: 1.9;
+      color: var(--text-soft);
+      max-width: 620px;
+    }
+    .section-navy .body-text { color: rgba(250,248,247,0.6); }
+
+    /* OBSERVATION GRID */
+    .obs-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 56px 80px;
+      margin-top: 72px;
+    }
+    @media(max-width:768px){ .obs-grid { grid-template-columns: 1fr; gap: 48px; } }
+
+    .obs-block .stat {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 60px;
+      font-weight: 500;
+      color: var(--rose);
+      line-height: 1;
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    .obs-block h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      font-weight: 500;
+      color: var(--navy);
+      margin-bottom: 12px;
+      line-height: 1.3;
+    }
+
+    .obs-block p {
+      font-size: 15px;
+      font-weight: 300;
+      line-height: 1.9;
+      color: var(--text-soft);
+    }
+
+    /* SAMPLE SECTIONS */
+    .sample-label {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      background: var(--rose);
+      color: var(--ivory);
+      padding: 5px 12px;
+      margin-bottom: 28px;
+    }
+
+    .script-block {
+      background: #fff;
+      padding: 48px 52px;
+      max-width: 760px;
+      margin-top: 16px;
+    }
+    @media(max-width:640px){ .script-block { padding: 32px 24px; } }
+
+    .script-block .script-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 26px;
+      font-weight: 500;
+      color: var(--navy);
+      margin-bottom: 28px;
+      line-height: 1.25;
+    }
+
+    .script-line {
+      font-size: 15px;
+      font-weight: 300;
+      line-height: 2;
+      color: var(--text-soft);
+      margin-bottom: 18px;
+    }
+
+    .script-line strong {
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .script-stage {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--rose);
+      margin-top: 24px;
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    /* CAPTION CARDS */
+    .captions-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      margin-top: 48px;
+    }
+
+    .caption-card {
+      background: #fff;
+      padding: 36px 32px;
+    }
+
+    .caption-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 13px;
+      color: var(--rose);
+      display: block;
+      margin-bottom: 20px;
+      font-style: italic;
+    }
+
+    .caption-text {
+      font-size: 14px;
+      font-weight: 300;
+      line-height: 1.95;
+      color: var(--text-soft);
+      white-space: pre-line;
+    }
+
+    .caption-tags {
+      font-size: 12px;
+      color: var(--sage);
+      margin-top: 16px;
+      font-weight: 400;
+    }
+
+    /* SERVICE CARDS */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+      margin-top: 64px;
+    }
+
+    .card {
+      background: #ffffff;
+      padding: 38px 32px;
+    }
+    .card.priced { background: var(--rose-light); }
+    .card.dark   { background: var(--navy); }
+
+    .card-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 13px;
+      font-style: italic;
+      color: var(--rose);
+      margin-bottom: 18px;
+      display: block;
+    }
+    .card.dark .card-num { color: rgba(250,248,247,0.3); }
+
+    .card-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px;
+      font-weight: 500;
+      color: var(--navy);
+      margin-bottom: 12px;
+      line-height: 1.3;
+    }
+    .card.dark .card-name { color: var(--ivory); }
+
+    .card-desc {
+      font-size: 13px;
+      font-weight: 300;
+      line-height: 1.9;
+      color: var(--text-soft);
+      margin-bottom: 20px;
+    }
+    .card.dark .card-desc { color: rgba(250,248,247,0.55); }
+
+    .card-turnaround {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      background: var(--rose);
+      color: var(--ivory);
+      padding: 4px 10px;
+      margin-bottom: 16px;
+    }
+
+    .card-list {
+      list-style: none;
+      padding: 0;
+      margin-bottom: 20px;
+    }
+    .card-list li {
+      font-size: 13px;
+      font-weight: 300;
+      line-height: 1.6;
+      color: var(--text-soft);
+      padding: 5px 0 5px 16px;
+      position: relative;
+    }
+    .card-list li::before {
+      content: "·";
+      position: absolute;
+      left: 0;
+      color: var(--rose);
+      font-weight: 700;
+      font-size: 16px;
+      line-height: 1.35;
+    }
+    .card.dark .card-list li { color: rgba(250,248,247,0.55); }
+    .card.dark .card-list li::before { color: rgba(196,133,122,0.6); }
+    .card.priced .card-list li::before { color: var(--rose); }
+
+    .card-price {
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      color: var(--navy);
+    }
+    .card-price-note {
+      font-size: 11px;
+      font-weight: 400;
+      color: var(--text-soft);
+      display: block;
+      margin-top: 4px;
+    }
+    .card-dm {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--rose);
+    }
+
+    /* CTA */
+    .cta-wrap {
+      max-width: 640px;
+    }
+
+    .btn-cta {
+      display: inline-block;
+      background: var(--rose);
+      color: var(--ivory);
+      padding: 16px 48px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 12px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-top: 48px;
+    }
+    .btn-cta:hover { background: #b5766b; }
+
+    .byline {
+      margin-top: 24px;
+      font-size: 13px;
+      font-weight: 300;
+      color: rgba(250,248,247,0.35);
+    }
+  </style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <p class="hero-label">A Content Proposal for @emilypowellauthenticself</p>
+  <h1 class="hero-title">Your parts work<br>content<br><em>already knows</em><br>how to go viral.</h1>
+  <p class="hero-sub">This is a proposal for content strategy that speaks IFS fluently and brings Emily's authentic voice to the people who are still searching for it.</p>
+  <a href="https://www.instagram.com/evelyn.contentally/" class="btn-primary" target="_blank">Let's begin</a>
+</section>
+
+<!-- WHAT I NOTICED -->
+<section class="section section-white">
+  <p class="eyebrow">What I noticed</p>
+  <h2 class="section-title">The demand is already there.<br><em>The supply just needs to catch up.</em></h2>
+  <p class="body-text">I spent time in your content, your captions, and your comments. Here is what the data actually says.</p>
+
+  <div class="obs-grid">
+    <div class="obs-block">
+      <span class="stat">5.51%</span>
+      <h3>Your audience does not scroll past you.</h3>
+      <p>A 5.51% engagement rate at 43K followers is genuinely strong. The benchmark is 1 to 3%. This is a community that feels understood, not just entertained.</p>
+    </div>
+    <div class="obs-block">
+      <span class="stat">2.1M</span>
+      <h3>Your viral ceiling is already proven.</h3>
+      <p>One IFS Reel on protective parts hit 2.1 million views and 126K likes. That was not luck. That was the right concept, framed in plain language, posted on International Women's Day. You can replicate it.</p>
+    </div>
+    <div class="obs-block">
+      <span class="stat">0</span>
+      <h3>You have no comment triggers. At all.</h3>
+      <p>At 43K followers, a single "Comment PARTS and I'll DM you" call to action could generate hundreds of warm leads per week. Every post ends at "link in bio." That is a gap worth closing.</p>
+    </div>
+    <div class="obs-block">
+      <span class="stat">1.6x</span>
+      <h3>One post per week is leaving reach on the table.</h3>
+      <p>Your audience and your viral history say 3 to 4 posts a week is achievable. The only constraint is production time. That is exactly what I exist to solve.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SAMPLE: REEL SCRIPT -->
+<section class="section section-rose">
+  <p class="eyebrow">Sample work</p>
+  <h2 class="section-title">A Reel script,<br><em>written in your voice.</em></h2>
+  <p class="body-text">This is ready to film. Talking head, original audio, no graphics needed. Formatted around your highest-performing content theme: protective parts that have been working too hard for too long.</p>
+
+  <div class="script-block">
+    <h3 class="script-title">The Part That Has to Do It Alone</h3>
+
+    <span class="script-stage">Hook</span>
+    <p class="script-line">That part of you that says "I don't need anyone, I've got this"?</p>
+    <p class="script-line">That's not independence. That's a protective part.</p>
+
+    <span class="script-stage">Build</span>
+    <p class="script-line">In IFS, we call it a protector. And here's what it figured out, probably when you were pretty young:</p>
+    <p class="script-line">If you relied on people, you got hurt. Or let down. Or left.</p>
+    <p class="script-line">So a part of you decided: I'll just do it alone. It's safer that way.</p>
+
+    <span class="script-stage">Reframe</span>
+    <p class="script-line">And that part has been so, so good at its job. It kept you functional. It kept you moving. It probably helped you build a really impressive life on the outside.</p>
+    <p class="script-line">But underneath it, there's usually a younger part that actually did need someone, and didn't get what it needed.</p>
+    <p class="script-line">That younger part is still in there. Still waiting to be tended to.</p>
+
+    <span class="script-stage">Landing</span>
+    <p class="script-line">The work in IFS isn't to get rid of the protector. It's to help it understand:</p>
+    <p class="script-line"><strong>You're not that young anymore. You have different resources now. You don't have to do it alone.</strong></p>
+    <p class="script-line">Save this if that landed somewhere. Follow for more IFS therapy content.</p>
+  </div>
+</section>
+
+<!-- SAMPLE: CAPTION PACK -->
+<section class="section section-white">
+  <p class="eyebrow">Sample work</p>
+  <h2 class="section-title">Three captions,<br><em>ready to post.</em></h2>
+  <p class="body-text">Each one is written to match your voice: direct, validating, and grounded in IFS. No generic wellness copy, no affirmations that float.</p>
+
+  <div class="captions-grid">
+    <div class="caption-card">
+      <span class="caption-num">Caption 01 — Setting boundaries</span>
+      <p class="caption-text">Setting a boundary is not a communication skill.
+
+It is a nervous system shift.
+
+For a lot of us, the words are not the hard part. The hard part is getting our body to believe that our needs are allowed to take up space. That saying no will not cost us the relationship. That we will not be abandoned for being honest.
+
+That shift takes time. And it takes a nervous system that has finally learned it is safe enough to try.
+
+That is the real work.</p>
+      <p class="caption-tags">#ifstherapy #boundaries #therapyfyp #traumahealing #attachmentwounds</p>
+    </div>
+
+    <div class="caption-card">
+      <span class="caption-num">Caption 02 — Urgency + nervous system</span>
+      <p class="caption-text">The urgency you feel is not a character flaw.
+
+It was learned.
+
+Maybe you grew up around someone whose emotions were unpredictable, and your body learned to stay one step ahead just to feel safe. Maybe you were rewarded for moving fast and doing more. Maybe slowing down never actually felt like an option.
+
+So now your nervous system runs on that same frequency, even when there is nothing to outrun.
+
+The good news: what was learned can be unlearned. Slowly. With your body's help. Not by trying harder.
+
+#nervoussystemhealing #highfunctioninganxiety #traumatherapy #therapyfyp #ifstherapy</p>
+      <p class="caption-tags"></p>
+    </div>
+
+    <div class="caption-card">
+      <span class="caption-num">Caption 03 — Relational healing</span>
+      <p class="caption-text">Something shifts when you find a relationship where care does not come with conditions.
+
+Where you don't have to earn it, maintain it, or brace for it to be taken away.
+
+It can feel disorienting at first. Suspicious, even. A part of you keeps waiting for the catch.
+
+But slowly, with enough consistency, the nervous system starts to update.
+
+And that is relational healing. Not insight. Not reframing. A lived, felt experience of something different.
+
+That is what we do at ASTC.
+
+#relationaltherapy #traumahealing #ifstherapy #therapyfyp #attachment</p>
+      <p class="caption-tags"></p>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="section section-warm">
+  <p class="eyebrow">What we can build together</p>
+  <h2 class="section-title">Services designed<br>for how you <em>actually</em> work.</h2>
+  <p class="body-text">Whether you want full support or a specific deliverable, every option is built around your voice, your modalities, and the audience you have already earned.</p>
+
+  <div class="services-grid">
+
+    <div class="card">
+      <span class="card-num">01</span>
+      <h3 class="card-name">Full Content Strategy Package</h3>
+      <p class="card-desc">Monthly end-to-end content support. I handle the writing, the strategy, and the structure. You show up and film.</p>
+      <ul class="card-list">
+        <li>4 Reel scripts per month, written in your voice</li>
+        <li>2 IFS explainer carousels per month</li>
+        <li>Caption writing for all posts</li>
+        <li>Monthly content calendar with hook suggestions</li>
+        <li>Comment trigger strategy built in</li>
+      </ul>
+      <p class="card-dm">DM to chat pricing</p>
+    </div>
+
+    <div class="card">
+      <span class="card-num">02</span>
+      <h3 class="card-name">Monthly Carousel Creation</h3>
+      <p class="card-desc">Two save-worthy IFS explainer carousels per month. Built to compound. These are the posts that keep working six months after they go up.</p>
+      <ul class="card-list">
+        <li>2 educational carousels per month</li>
+        <li>IFS, somatic, or attachment topics</li>
+        <li>Copy structured for slides, not paragraphs</li>
+        <li>Hook slide written to earn the save</li>
+      </ul>
+      <p class="card-dm">DM to chat pricing</p>
+    </div>
+
+    <div class="card">
+      <span class="card-num">03</span>
+      <h3 class="card-name">Reel Script Pack</h3>
+      <p class="card-desc">Four talking-head scripts per month, tailored to your highest-performing themes. Batch film in one afternoon.</p>
+      <ul class="card-list">
+        <li>4 Reel scripts per month</li>
+        <li>Original audio format</li>
+        <li>Hook, build, landing — structured for watch time</li>
+        <li>IFS and attachment language throughout</li>
+      </ul>
+      <p class="card-dm">DM to chat pricing</p>
+    </div>
+
+    <div class="card priced">
+      <span class="card-num">04</span>
+      <span class="card-turnaround">Delivered in 24 hrs</span>
+      <h3 class="card-name">Landing Page</h3>
+      <p class="card-desc">A single, polished landing page for a consult offer, group program, or service. Ready to send. Ready to convert.</p>
+      <ul class="card-list">
+        <li>Fully written and designed</li>
+        <li>Styled to match your brand</li>
+        <li>Mobile-ready, self-contained file</li>
+        <li>Delivered within 24 hours of brief</li>
+      </ul>
+      <p class="card-price">$250 <span class="card-price-note">flat rate, one-time</span></p>
+    </div>
+
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="section section-navy">
+  <div class="cta-wrap">
+    <p class="eyebrow">Ready when you are</p>
+    <h2 class="section-title">Let's get your work<br>in front of the people<br>who <em>need</em> it.</h2>
+    <p class="body-text">You have already built something real. A 43K community, a viral ceiling, a voice that lands. The next step is more consistent, more strategic, and more of what is already working.</p>
+    <a href="https://www.instagram.com/evelyn.contentally/" class="btn-cta" target="_blank">Send me a DM on Instagram</a>
+    <p class="byline">Evelyn, Content Strategist</p>
+  </div>
+</section>
+
+</body>
+</html>
