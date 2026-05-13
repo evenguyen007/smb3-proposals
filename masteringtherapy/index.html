@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Content Partnership Proposal for @masteringtherapy</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --forest: #1D3A36;
+  --forest-deep: #122622;
+  --sage: #4A7A6E;
+  --sage-light: #8BB5A8;
+  --sage-wash: #EAF2EE;
+  --parchment: #F3EDE3;
+  --cream: #FDFAF6;
+  --amber: #C4924A;
+  --amber-light: #E8C98C;
+  --text: #1D3A36;
+  --text-mid: #4A6360;
+  --text-light: #7A9B93;
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--parchment);
+  color: var(--text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* HERO */
+.hero {
+  background: var(--forest);
+  padding: 88px 24px 80px;
+  text-align: center;
+}
+
+.hero-eyebrow {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--sage-light);
+  margin-bottom: 24px;
+}
+
+.hero h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(38px, 6.5vw, 64px);
+  font-weight: 300;
+  line-height: 1.1;
+  color: #fff;
+  max-width: 660px;
+  margin: 0 auto 28px;
+}
+
+.hero h1 em {
+  font-style: italic;
+  color: var(--amber-light);
+}
+
+.hero-sub {
+  font-size: 15px;
+  font-weight: 300;
+  color: var(--sage-light);
+  max-width: 500px;
+  margin: 0 auto;
+  line-height: 1.8;
+}
+
+/* LAYOUT */
+.container {
+  max-width: 740px;
+  margin: 0 auto;
+  padding: 0 28px;
+}
+
+.section { padding: 72px 0; }
+.section-cream { background: var(--cream); padding: 72px 0; }
+.section-sage { background: var(--sage-wash); padding: 72px 0; }
+.section-forest { background: var(--forest); padding: 72px 0; }
+.section-deep { background: var(--forest-deep); padding: 72px 0; }
+
+/* TYPE */
+.eyebrow {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--amber);
+  margin-bottom: 14px;
+  display: block;
+}
+
+.eyebrow-light {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--sage-light);
+  margin-bottom: 14px;
+  display: block;
+}
+
+h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(30px, 4.5vw, 44px);
+  font-weight: 400;
+  line-height: 1.2;
+  color: var(--forest);
+  margin-bottom: 20px;
+}
+
+h2.on-dark { color: #fff; }
+
+h3 {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--forest);
+  margin-bottom: 8px;
+}
+
+p {
+  font-size: 15px;
+  line-height: 1.8;
+  color: var(--text-mid);
+  margin-bottom: 16px;
+}
+
+p.lead {
+  font-size: 17px;
+  color: var(--text);
+  line-height: 1.9;
+}
+
+p.on-dark { color: var(--sage-light); }
+p:last-child { margin-bottom: 0; }
+
+/* STATS */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin: 44px 0 0;
+}
+
+.stat {
+  background: var(--cream);
+  padding: 30px 18px;
+  border-radius: 14px;
+  text-align: center;
+}
+
+.stat-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 38px;
+  font-weight: 500;
+  color: var(--forest);
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.stat-label {
+  font-size: 12px;
+  color: var(--text-light);
+  line-height: 1.5;
+}
+
+/* PULL QUOTE */
+.pull-quote {
+  background: var(--forest);
+  border-radius: 16px;
+  padding: 36px 40px;
+  margin: 48px 0;
+}
+
+.pull-quote p {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  font-style: italic;
+  font-weight: 300;
+  color: #fff;
+  line-height: 1.65;
+  margin: 0;
+}
+
+.pull-quote p span { color: var(--amber-light); }
+
+/* WHAT CHANGED BLOCK */
+.gap-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin: 40px 0;
+}
+
+.gap-card {
+  background: var(--cream);
+  border-radius: 12px;
+  padding: 26px 22px;
+}
+
+.gap-card.contrast {
+  background: var(--forest);
+}
+
+.gap-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--amber);
+  margin-bottom: 10px;
+}
+
+.gap-label.light { color: var(--sage-light); }
+
+.gap-metric {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 32px;
+  font-weight: 500;
+  color: var(--forest);
+  line-height: 1;
+  margin-bottom: 6px;
+}
+
+.gap-metric.light { color: #fff; }
+
+.gap-desc {
+  font-size: 13px;
+  color: var(--text-light);
+  line-height: 1.5;
+}
+
+.gap-desc.light { color: var(--sage-light); }
+
+/* SERVICES */
+.services {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin: 40px 0;
+}
+
+.svc {
+  background: var(--cream);
+  border-radius: 14px;
+  padding: 28px 24px;
+}
+
+.svc-icon {
+  width: 40px;
+  height: 40px;
+  background: var(--sage-wash);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+  font-size: 20px;
+}
+
+.svc h3 { margin-bottom: 6px; }
+
+.svc p {
+  font-size: 13px;
+  color: var(--text-mid);
+  margin: 0 0 12px;
+  line-height: 1.6;
+}
+
+.svc-qty {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 600;
+  background: var(--amber);
+  color: #fff;
+  padding: 3px 12px;
+  border-radius: 20px;
+}
+
+/* SAMPLE CAROUSEL */
+.carousel-scroll {
+  overflow-x: auto;
+  padding: 4px 0 20px;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: var(--sage-light) transparent;
+}
+
+.carousel-row {
+  display: flex;
+  gap: 10px;
+  width: max-content;
+}
+
+.slide {
+  width: 200px;
+  aspect-ratio: 4/5;
+  border-radius: 14px;
+  padding: 22px 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-shrink: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.slide-dark { background: var(--forest); }
+.slide-light { background: var(--cream); }
+.slide-amber { background: var(--amber); }
+
+.slide-num {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  color: var(--sage-light);
+  opacity: 0.65;
+}
+
+.slide-num-light { color: var(--text-light); opacity: 1; }
+.slide-num-amber { color: rgba(255,255,255,0.6); opacity: 1; }
+
+.slide-tag {
+  display: inline-block;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  background: rgba(255,255,255,0.1);
+  color: var(--amber-light);
+  padding: 4px 10px;
+  border-radius: 20px;
+  width: fit-content;
+}
+
+.slide-tag-light {
+  background: var(--sage-wash);
+  color: var(--sage);
+}
+
+.slide-tag-amber {
+  background: rgba(255,255,255,0.2);
+  color: #fff;
+}
+
+.slide-body {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.slide-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 1.3;
+  color: #fff;
+}
+
+.slide-title-dark { color: var(--forest); font-size: 15px; }
+.slide-title-amber { color: #fff; font-size: 16px; }
+
+.slide-sub {
+  font-size: 11px;
+  color: var(--text-light);
+  line-height: 1.55;
+}
+
+.slide-sub-dark { color: rgba(255,255,255,0.55); font-size: 11px; }
+
+.slide-rule {
+  width: 28px;
+  height: 2px;
+  background: var(--amber);
+  border-radius: 2px;
+}
+
+.slide-rule-light {
+  background: var(--sage-light);
+}
+
+.slide-rule-amber {
+  background: rgba(255,255,255,0.4);
+}
+
+.slide-author {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: rgba(255,255,255,0.7);
+}
+
+/* PRICING */
+.price-card {
+  background: var(--cream);
+  border-radius: 20px;
+  padding: 44px 40px;
+  max-width: 500px;
+  margin: 44px auto 0;
+}
+
+.price-tag {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--amber);
+  margin-bottom: 10px;
+}
+
+.price-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 58px;
+  font-weight: 400;
+  color: var(--forest);
+  line-height: 1;
+}
+
+.price-period {
+  font-size: 14px;
+  color: var(--text-light);
+  margin-bottom: 32px;
+  margin-top: 4px;
+}
+
+.price-list {
+  list-style: none;
+  margin-bottom: 28px;
+}
+
+.price-list li {
+  font-size: 14px;
+  color: var(--text-mid);
+  padding: 11px 0;
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  line-height: 1.55;
+}
+
+.price-list li::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  background: var(--amber);
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-top: 5px;
+}
+
+.addons-box {
+  background: var(--sage-wash);
+  border-radius: 12px;
+  padding: 18px 22px;
+}
+
+.addons-box p {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-light);
+  margin-bottom: 10px;
+}
+
+.addons-box ul {
+  list-style: none;
+}
+
+.addons-box ul li {
+  font-size: 13px;
+  color: var(--text-mid);
+  padding: 5px 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.addons-box ul li span {
+  font-weight: 500;
+  color: var(--sage);
+}
+
+/* CTA */
+.cta-section {
+  background: var(--forest-deep);
+  padding: 80px 28px;
+  text-align: center;
+}
+
+.cta-section h2 {
+  color: #fff;
+  max-width: 560px;
+  margin: 0 auto 16px;
+}
+
+.cta-section p {
+  color: var(--sage-light);
+  max-width: 440px;
+  margin: 0 auto 40px;
+}
+
+.cta-btn {
+  display: inline-block;
+  background: var(--amber);
+  color: #fff;
+  padding: 16px 40px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 15px;
+  letter-spacing: 0.02em;
+  transition: opacity 0.18s;
+}
+
+.cta-btn:hover { opacity: 0.85; }
+
+.cta-note {
+  margin-top: 22px;
+  font-size: 13px;
+  color: #3A5552;
+}
+
+/* FOOTER */
+footer {
+  background: #0F1B19;
+  padding: 24px;
+  text-align: center;
+}
+
+footer p {
+  font-size: 12px;
+  color: #2A3F3C;
+  margin: 0;
+}
+
+/* RESPONSIVE */
+@media (max-width: 580px) {
+  .hero { padding: 64px 20px 60px; }
+  .stats { grid-template-columns: 1fr; gap: 10px; }
+  .gap-grid { grid-template-columns: 1fr; }
+  .services { grid-template-columns: 1fr; }
+  .price-card { padding: 32px 24px; }
+  .pull-quote { padding: 28px 24px; }
+  .slide { width: 164px; padding: 18px 14px; }
+  .slide-title { font-size: 14px; }
+  .slide-title-dark { font-size: 13px; }
+}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <p class="hero-eyebrow">For Dr Natalie Stott &nbsp;·&nbsp; @masteringtherapy</p>
+  <h1>Your best content<br>is also your <em>rarest.</em></h1>
+  <p class="hero-sub">A proposal for turning your highest-performing format into a consistent monthly content system.</p>
+</section>
+
+
+<!-- WHAT I NOTICED -->
+<section class="section">
+  <div class="container">
+    <span class="eyebrow">What I noticed</span>
+    <h2>Your carousel got 4,038 likes.<br>Your reels average 30.</h2>
+    <p class="lead">That is not a fluke. That is a signal.</p>
+    <p>On May 8, you posted a carousel about creative therapy approaches. It pulled 4,038 likes and 244 comments from an 11.5K audience. That is a 35x multiple over your typical reel performance. And it happened because carousels give your audience something to save, share with colleagues, and come back to. They are the format that turns viral followers into a real community.</p>
+    <p>The gap is not your ideas or your credibility. Both are clearly strong. The gap is consistency in the format that actually converts.</p>
+
+    <div class="gap-grid">
+      <div class="gap-card contrast">
+        <div class="gap-label light">Your carousel (May 8)</div>
+        <div class="gap-metric light">4,038</div>
+        <div class="gap-desc light">likes on one carousel post</div>
+      </div>
+      <div class="gap-card">
+        <div class="gap-label">Typical reel average</div>
+        <div class="gap-metric">30</div>
+        <div class="gap-desc">likes on recent short-form video</div>
+      </div>
+      <div class="gap-card">
+        <div class="gap-label">Carousels in last 20 posts</div>
+        <div class="gap-metric">2</div>
+        <div class="gap-desc">out of 20 recent posts</div>
+      </div>
+      <div class="gap-card contrast">
+        <div class="gap-label light">The opportunity</div>
+        <div class="gap-metric light">35×</div>
+        <div class="gap-desc light">higher engagement per carousel vs. reel</div>
+      </div>
+    </div>
+
+    <div class="pull-quote">
+      <p>Your viral reel brought the followers. <span>Carousels are what make them stay.</span> Right now you are posting the harder format more often than the one that works best.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- THE CONTEXT -->
+<section class="section-cream">
+  <div class="container">
+    <span class="eyebrow">The bigger picture</span>
+    <h2>You have the authority.<br>The system just needs building.</h2>
+    <p>Your March reel ("I rarely ask how are you at the start of sessions") hit 242,000 views and 16,000 likes. That brought a significant wave of new followers who arrived because of one piece of content and do not yet know who you are beyond it.</p>
+    <p>The work now is converting that reach into a loyal audience of therapists who follow you for your ideas, trust your expertise, and eventually move into your ecosystem: podcast, courses, supervision, whatever comes next.</p>
+    <p>Carousels do that. A well-designed educational carousel with strong visual identity and a clear takeaway is something a therapist will save for their supervision notes, share with a colleague, or pin on their phone. Reels get views. Carousels build community.</p>
+
+    <div class="stats">
+      <div class="stat">
+        <div class="stat-num">11.5K</div>
+        <div class="stat-label">followers to build<br>depth with</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">71</div>
+        <div class="stat-label">posts on a growing<br>account</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">242K</div>
+        <div class="stat-label">views on your<br>top reel</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- SERVICES -->
+<section class="section-sage">
+  <div class="container">
+    <span class="eyebrow">What is included</span>
+    <h2>A full content system,<br>built around your voice.</h2>
+    <p>Every deliverable is designed to work together: carousels that educate, reels that attract, a brand identity that makes it all look like it belongs to the same person, and a lead magnet that turns your best content into an asset.</p>
+
+    <div class="services">
+      <div class="svc">
+        <div class="svc-icon">🗂️</div>
+        <h3>Carousels</h3>
+        <p>Educational carousel posts built around your proven content themes: therapy technique breakdowns, clinical insight lists, behind-the-scenes of private practice.</p>
+        <span class="svc-qty">4 per month</span>
+      </div>
+      <div class="svc">
+        <div class="svc-icon">🎬</div>
+        <h3>Reel Scripts</h3>
+        <p>Hook-first short-form video scripts written in your voice, drawing from your strongest content angles so every reel has a clear opening and a reason to keep watching.</p>
+        <span class="svc-qty">2 per month</span>
+      </div>
+      <div class="svc">
+        <div class="svc-icon">🎨</div>
+        <h3>Brand Kit</h3>
+        <p>A complete visual identity system built once at onboarding: color palette, typography, slide templates, and layout rules so all your content looks unmistakably yours.</p>
+        <span class="svc-qty">One-time setup</span>
+      </div>
+      <div class="svc">
+        <div class="svc-icon">📄</div>
+        <h3>Lead Magnet PDF</h3>
+        <p>A downloadable therapy resource, designed and written for you, that gives your audience something to save, share, and opt-in for. Turns your content into an email-building asset.</p>
+        <span class="svc-qty">Add-on</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- SAMPLE CAROUSEL -->
+<section class="section-cream">
+  <div class="container">
+    <span class="eyebrow">Sample work</span>
+    <h2>What a carousel for<br>@masteringtherapy looks like.</h2>
+    <p>Built in your exact content voice, using a topic from your best-performing posts. This is the format and design style I would use for every carousel in your monthly package.</p>
+  </div>
+
+  <div class="container" style="max-width:100%; padding: 32px 28px 0;">
+    <div class="carousel-scroll">
+      <div class="carousel-row">
+
+        <!-- Slide 1: Cover -->
+        <div class="slide slide-dark">
+          <div>
+            <span class="slide-tag">Therapy Insight</span>
+          </div>
+          <div class="slide-body">
+            <div class="slide-rule"></div>
+            <div class="slide-title">5 Signs of Client Progress You Might Be Missing</div>
+            <div class="slide-sub slide-sub-dark">Swipe to rethink what counts as change</div>
+          </div>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="slide slide-light">
+          <div>
+            <div class="slide-num slide-num-light">01 / 05</div>
+          </div>
+          <div class="slide-body">
+            <div class="slide-rule slide-rule-light"></div>
+            <div class="slide-title slide-title-dark">They say "I don't know" and stay with it.</div>
+            <div class="slide-sub">They are no longer performing certainty to protect the relationship. That is trust.</div>
+          </div>
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="slide slide-light">
+          <div>
+            <div class="slide-num slide-num-light">02 / 05</div>
+          </div>
+          <div class="slide-body">
+            <div class="slide-rule slide-rule-light"></div>
+            <div class="slide-title slide-title-dark">They push back on you.</div>
+            <div class="slide-sub">A client who challenges you has a relationship strong enough to hold disagreement. That is a milestone.</div>
+          </div>
+        </div>
+
+        <!-- Slide 4 -->
+        <div class="slide slide-light">
+          <div>
+            <div class="slide-num slide-num-light">03 / 05</div>
+          </div>
+          <div class="slide-body">
+            <div class="slide-rule slide-rule-light"></div>
+            <div class="slide-title slide-title-dark">They show up on their hardest weeks.</div>
+            <div class="slide-sub">Not because it feels good. Because they trust the container you have built together.</div>
+          </div>
+        </div>
+
+        <!-- Slide 5 -->
+        <div class="slide slide-light">
+          <div>
+            <div class="slide-num slide-num-light">04 / 05</div>
+          </div>
+          <div class="slide-body">
+            <div class="slide-rule slide-rule-light"></div>
+            <div class="slide-title slide-title-dark">They name their own patterns before you do.</div>
+            <div class="slide-sub">Internalisation in action. The therapeutic conversation is happening inside them now, not just in the room.</div>
+          </div>
+        </div>
+
+        <!-- Slide 6 -->
+        <div class="slide slide-light">
+          <div>
+            <div class="slide-num slide-num-light">05 / 05</div>
+          </div>
+          <div class="slide-body">
+            <div class="slide-rule slide-rule-light"></div>
+            <div class="slide-title slide-title-dark">They feel something they would have numbed before.</div>
+            <div class="slide-sub">The nervous system is learning that it is safe to feel. That is some of the deepest progress there is.</div>
+          </div>
+        </div>
+
+        <!-- Slide 7: CTA -->
+        <div class="slide slide-amber">
+          <div>
+            <span class="slide-tag slide-tag-amber">Save this</span>
+          </div>
+          <div class="slide-body">
+            <div class="slide-rule slide-rule-amber"></div>
+            <div class="slide-title slide-title-amber">Save this for your next case review or supervision.</div>
+            <div class="slide-author">@masteringtherapy</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <p style="font-size:12px; color: var(--text-light); margin-top: 12px; padding: 0 4px;">Scroll to see all slides &rarr;</p>
+  </div>
+</section>
+
+
+<!-- INVESTMENT -->
+<section class="section">
+  <div class="container">
+    <span class="eyebrow">Investment</span>
+    <h2>Clear scope.<br>No surprises.</h2>
+    <p>The Starter package is built for accounts that need a consistent content system first, then scale from there. Brand kit is included in your first month so we start with a proper visual foundation.</p>
+
+    <div class="price-card">
+      <div class="price-tag">Starter Package</div>
+      <div class="price-num">$400</div>
+      <div class="price-period">per month</div>
+      <ul class="price-list">
+        <li>4 educational carousels per month, designed and written to your voice</li>
+        <li>2 reel scripts per month, hook-first and aligned to your best content angles</li>
+        <li>Brand kit included in month one: palette, fonts, slide templates</li>
+        <li>Content strategy alignment call to start so nothing goes off-brief</li>
+        <li>Revisions included on every deliverable</li>
+      </ul>
+      <div class="addons-box">
+        <p>Optional add-ons</p>
+        <ul>
+          <li>Lead Magnet PDF (designed + written) <span>$200</span></li>
+          <li>Additional carousels <span>$100 each</span></li>
+          <li>Additional reel scripts <span>$90 each</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- CTA -->
+<section class="cta-section">
+  <span class="eyebrow-light" style="display:block; text-align:center; margin-bottom:20px;">Ready when you are</span>
+  <h2 class="on-dark" style="max-width:560px; margin:0 auto 16px;">Let's build the content system that works while you are in session.</h2>
+  <p class="on-dark" style="max-width:440px; margin:0 auto 40px;">Send me a message on Instagram and we can talk through what makes most sense for where you are right now.</p>
+  <a href="https://www.instagram.com/evelyn.contentally" class="cta-btn" target="_blank">DM @evelyn.contentally</a>
+  <p class="cta-note">No pressure, no calls. Just a conversation.</p>
+</section>
+
+
+<footer>
+  <p>Prepared for @masteringtherapy by @evelyn.contentally</p>
+</footer>
+
+</body>
+</html>
