@@ -399,12 +399,44 @@ p:last-child { margin-bottom: 0; }
 }
 
 /* PRICING */
+.price-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin: 44px 0 0;
+  align-items: start;
+}
+
 .price-card {
   background: var(--cream);
   border-radius: 20px;
-  padding: 44px 40px;
-  max-width: 500px;
-  margin: 44px auto 0;
+  padding: 36px 32px;
+}
+
+.price-card.featured {
+  background: var(--forest);
+}
+
+.price-card.featured .price-tag { color: var(--amber-light); }
+.price-card.featured .price-num { color: #fff; }
+.price-card.featured .price-period { color: var(--sage-light); }
+.price-card.featured .price-list li { color: var(--sage-light); }
+.price-card.featured .price-list li::before { background: var(--amber-light); }
+.price-card.featured .delivery-note { background: rgba(255,255,255,0.08); color: var(--amber-light); }
+
+.delivery-note {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: var(--sage-wash);
+  color: var(--sage);
+  padding: 5px 12px;
+  border-radius: 20px;
+  margin-bottom: 20px;
 }
 
 .price-tag {
@@ -547,7 +579,8 @@ footer p {
   .stats { grid-template-columns: 1fr; gap: 10px; }
   .gap-grid { grid-template-columns: 1fr; }
   .services { grid-template-columns: 1fr; }
-  .price-card { padding: 32px 24px; }
+  .price-grid { grid-template-columns: 1fr; }
+  .price-card { padding: 28px 22px; }
   .pull-quote { padding: 28px 24px; }
   .slide { width: 164px; padding: 18px 14px; }
   .slide-title { font-size: 14px; }
@@ -776,27 +809,45 @@ footer p {
   <div class="container">
     <span class="eyebrow">Investment</span>
     <h2>Clear scope.<br>No surprises.</h2>
-    <p>The Starter package is built for accounts that need a consistent content system first, then scale from there. Brand kit is included in your first month so we start with a proper visual foundation.</p>
+    <p>Two ways to work together. The monthly package builds your long-term content system. The landing page is a standalone deliverable if you have something to launch or promote right now.</p>
 
-    <div class="price-card">
-      <div class="price-tag">Starter Package</div>
-      <div class="price-num">$400</div>
-      <div class="price-period">per month</div>
-      <ul class="price-list">
-        <li>4 educational carousels per month, designed and written to your voice</li>
-        <li>2 reel scripts per month, hook-first and aligned to your best content angles</li>
-        <li>Brand kit included in month one: palette, fonts, slide templates</li>
-        <li>Content strategy alignment call to start so nothing goes off-brief</li>
-        <li>Revisions included on every deliverable</li>
-      </ul>
-      <div class="addons-box">
-        <p>Optional add-ons</p>
-        <ul>
-          <li>Lead Magnet PDF (designed + written) <span>$200</span></li>
-          <li>Additional carousels <span>$100 each</span></li>
-          <li>Additional reel scripts <span>$90 each</span></li>
+    <div class="price-grid">
+
+      <div class="price-card">
+        <div class="price-tag">Starter Package</div>
+        <div class="price-num">$400</div>
+        <div class="price-period">per month</div>
+        <span class="delivery-note">Delivered within 1 week</span>
+        <ul class="price-list">
+          <li>4 educational carousels per month, designed and written to your voice</li>
+          <li>2 reel scripts per month, hook-first and aligned to your best content angles</li>
+          <li>Brand kit included in month one: palette, fonts, slide templates</li>
+          <li>Content strategy alignment call to start so nothing goes off-brief</li>
+          <li>Revisions included on every deliverable</li>
+        </ul>
+        <div class="addons-box">
+          <p>Optional add-ons</p>
+          <ul>
+            <li>Lead Magnet PDF (designed + written) <span>$200</span></li>
+            <li>Additional carousels <span>$100 each</span></li>
+            <li>Additional reel scripts <span>$90 each</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="price-card featured">
+        <div class="price-tag">Landing Page</div>
+        <div class="price-num">$200</div>
+        <div class="price-period">one-time</div>
+        <span class="delivery-note">Delivered in 24 hrs</span>
+        <ul class="price-list">
+          <li>Custom-designed to your brief, your brand, your offer</li>
+          <li>Full copy written and included</li>
+          <li>Responsive HTML, ready to publish anywhere</li>
+          <li>One revision round included</li>
         </ul>
       </div>
+
     </div>
   </div>
 </section>
