@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,13 +7,13 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg:        #f6f2ed;
-      --ink:       #2b2724;
-      --hero:      #9e6b57;
-      --soft:      #ede7df;
-      --highlight: #7a5244;
-      --muted:     #7c6e66;
-      --card:      #e8e0d5;
+      --bg:        #f3f2ec;
+      --ink:       #282b20;
+      --hero:      #6b7a3e;
+      --soft:      #e6e9d4;
+      --highlight: #4e5c2a;
+      --muted:     #797d65;
+      --card:      #dde0c8;
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -35,7 +35,6 @@
       padding: 0 32px;
     }
 
-    /* SECTION LABEL */
     .section-label {
       font-family: 'Inter', sans-serif;
       font-size: 10px;
@@ -79,7 +78,7 @@
       font-weight: 300;
       font-style: italic;
       color: var(--hero);
-      line-height: 1.5;
+      line-height: 1.55;
       max-width: 560px;
       margin-bottom: 40px;
     }
@@ -97,7 +96,7 @@
       object-position: center 20%;
       margin-top: 60px;
       border-radius: 4px;
-      filter: brightness(0.97) saturate(0.9);
+      filter: brightness(0.97) saturate(0.85);
     }
 
     /* SECTIONS */
@@ -109,10 +108,6 @@
       background: var(--soft);
       margin: 0 -100vw;
       padding: 80px 100vw;
-    }
-
-    section.alt .container {
-      max-width: 780px;
     }
 
     h2 {
@@ -204,30 +199,29 @@
     }
 
     .obs-evidence {
-      font-size: 12px;
-      font-weight: 500;
-      letter-spacing: 0.06em;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
       color: var(--muted);
-      margin-bottom: 6px;
+      margin-bottom: 5px;
     }
 
     .obs-data {
-      font-size: 14px;
-      color: var(--hero);
-      font-style: italic;
       font-family: 'Cormorant Garamond', serif;
       font-size: 16px;
+      font-style: italic;
+      color: var(--hero);
       margin-bottom: 14px;
     }
 
     .obs-opp-label {
-      font-size: 12px;
-      font-weight: 500;
-      letter-spacing: 0.06em;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
       color: var(--muted);
-      margin-bottom: 6px;
+      margin-bottom: 5px;
     }
 
     .obs-opp {
@@ -273,7 +267,7 @@
 
     .service-card.premium .service-num {
       color: var(--soft);
-      opacity: 0.5;
+      opacity: 0.45;
     }
 
     .service-name {
@@ -325,16 +319,17 @@
     }
 
     .service-invest {
-      font-size: 12px;
+      font-size: 11px;
       font-weight: 600;
-      letter-spacing: 0.08em;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: var(--hero);
+      color: var(--muted);
+      margin-bottom: 4px;
     }
 
     .service-card.premium .service-invest {
       color: var(--soft);
-      opacity: 0.6;
+      opacity: 0.5;
     }
 
     .service-price {
@@ -342,7 +337,6 @@
       font-size: 20px;
       font-weight: 400;
       color: var(--hero);
-      margin-top: 4px;
     }
 
     .service-card.premium .service-price {
@@ -357,18 +351,18 @@
     .free-badge {
       display: inline-block;
       background: var(--hero);
-      color: white;
+      color: #f3f2ec;
       font-size: 10px;
       font-weight: 600;
       letter-spacing: 0.14em;
       text-transform: uppercase;
       padding: 5px 12px;
       border-radius: 2px;
-      margin-bottom: 32px;
+      margin-bottom: 36px;
     }
 
     .sample-block {
-      margin-bottom: 60px;
+      margin-bottom: 64px;
     }
 
     .sample-title {
@@ -376,7 +370,7 @@
       font-size: 24px;
       font-weight: 600;
       color: var(--ink);
-      margin-bottom: 8px;
+      margin-bottom: 6px;
     }
 
     .sample-format {
@@ -390,13 +384,13 @@
 
     .slides {
       display: grid;
-      gap: 12px;
+      gap: 10px;
       margin-bottom: 28px;
     }
 
     .slide {
       background: var(--card);
-      padding: 24px 28px;
+      padding: 22px 26px;
       border-radius: 4px;
     }
 
@@ -427,7 +421,7 @@
 
     .slide.cover-slide .slide-num {
       color: var(--soft);
-      opacity: 0.5;
+      opacity: 0.45;
     }
 
     .slide.cover-slide .slide-text {
@@ -444,7 +438,7 @@
       letter-spacing: 0.14em;
       text-transform: uppercase;
       color: var(--muted);
-      margin-bottom: 14px;
+      margin-bottom: 12px;
     }
 
     .caption-box {
@@ -453,19 +447,18 @@
       border-radius: 4px;
       font-size: 14px;
       font-weight: 300;
-      line-height: 1.75;
+      line-height: 1.8;
       color: var(--ink);
       white-space: pre-line;
     }
 
     .sample-note {
-      margin-top: 24px;
-      font-size: 13px;
-      font-style: italic;
+      margin-top: 22px;
       font-family: 'Cormorant Garamond', serif;
       font-size: 16px;
+      font-style: italic;
       color: var(--muted);
-      line-height: 1.6;
+      line-height: 1.65;
     }
 
     /* WHY DIFFERENT */
@@ -489,7 +482,7 @@
       font-size: 28px;
       font-weight: 300;
       color: var(--hero);
-      opacity: 0.5;
+      opacity: 0.45;
       flex-shrink: 0;
       line-height: 1.1;
       min-width: 28px;
@@ -499,10 +492,6 @@
     .cta-section {
       text-align: center;
       padding: 100px 32px;
-    }
-
-    .cta-section h2 {
-      margin-bottom: 20px;
     }
 
     .cta-body {
@@ -517,7 +506,7 @@
     .cta-btn {
       display: inline-block;
       background: var(--highlight);
-      color: #f6f2ed;
+      color: #f3f2ec;
       text-decoration: none;
       font-size: 12px;
       font-weight: 600;
@@ -551,21 +540,15 @@
     .footer-note {
       font-size: 12px;
       color: var(--soft);
-      opacity: 0.5;
+      opacity: 0.45;
       letter-spacing: 0.06em;
     }
-
-    /* UTILITIES */
-    .spacer { height: 1px; }
-    .text-muted { color: var(--muted); }
 
     @media (max-width: 600px) {
       .hero { padding: 64px 24px 56px; }
       section { padding: 56px 0; }
       .container { padding: 0 24px; }
-      .obs-card { padding: 24px; }
-      .service-card { padding: 22px; }
-      .slide { padding: 20px 22px; }
+      .obs-card, .service-card, .slide { padding: 22px; }
     }
   </style>
 </head>
@@ -573,10 +556,10 @@
 
 <!-- HERO -->
 <div class="hero">
-  <p class="hero-eyebrow">Proposal rieng cho</p>
+  <p class="hero-eyebrow">A proposal for</p>
   <h1 class="hero-name">@healingwithcierra</h1>
   <p class="hero-tagline">
-    Mot de xuat danh rieng cho Cierra, nguoi da bien dieu ma nguoi khac goi la "qua nhay cam" thanh ca mot su nghiep.
+    For Cierra, who turned what others called "too sensitive" into an entire career worth building.
   </p>
   <p class="hero-meta">Evelyn &nbsp;&middot;&nbsp; Content Ally</p>
   <img
@@ -587,65 +570,63 @@
   >
 </div>
 
-<!-- SECTION 01: EM DA THAY CHI -->
+<!-- SECTION 01: I SEE YOU -->
 <section>
   <div class="container">
-    <p class="section-label">01 &nbsp;/&nbsp; Em da thay chi</p>
-    <h2>Chi Cierra, <em>em da doc.</em></h2>
+    <p class="section-label">01 &nbsp;/&nbsp; I see you</p>
+    <h2>Cierra, <em>I actually read you.</em></h2>
 
-    <p>Em da xem lai toan bo content cua chi truoc khi viet bat cu dieu gi. Khong phai de tim diem yeu de pitch, ma vi em that su muon hieu chi truoc.</p>
+    <p>I spent a few hours going through your content before writing a single word of this. Not to find something to pitch, but because I genuinely wanted to understand your brand before saying anything about it.</p>
 
-    <p>Va dieu em thay ro nhat la: chi khong lam nghe nay vi no trendy hay vi no ra tien tot. Chi lam vi chi hieu, tu trong nguoi, cam giac bi goi la "qua nhay cam" ma khong ai dung ve phia minh. Trong bai Reel viral nhat cua chi, chi viet:</p>
+    <p>What I found is that you didn't choose this work because it was trending or because the market was right. You chose it because you understood, from the inside, what it feels like to be told you're "too much" with no one standing in your corner. Your most viral Reel puts it plainly:</p>
 
     <blockquote>
       "Turns out 'too sensitive' was never the problem.. it was the room. Now it's my entire career."
-      <cite>@healingwithcierra &nbsp;&middot;&nbsp; tháng 3, 2026</cite>
+      <cite>@healingwithcierra &nbsp;&middot;&nbsp; March 2026</cite>
     </blockquote>
 
-    <p>Cau do khong phai marketing. Do la mot nguoi da chon nganh nghe tu vet thuong cua chinh minh, va chon no voi ca su tu tin va biet on day.</p>
+    <p>That's not a brand statement. That's someone who built a practice from the exact wound they know how to heal.</p>
 
-    <p>Chi moi tot nghiep Masters, mo private practice trong vong chua day mot nam, va dang xay dung mot brand hoan toan tu dau, chi co giong noi cua minh va niem tin rang "you are not broken." Em nghi do la dieu dang duoc nhieu nguoi hon biet den, va em nghi content cua chi dang gap nhung rao can rat cu the ngan dieu do.</p>
-
-    <p>Em da ghi lai 3 dieu em thay. Khong phai de phan tich, ma vi em muon chi thay rang em da thuc su ngoi doc.</p>
+    <p>You graduated your Masters last year, opened a private practice within the year, and you're building this entirely from scratch, no agency, no big team, just your voice and the belief that "you are not broken." I think that story deserves a bigger audience than it currently has. And I think there are some very specific, fixable reasons it doesn't yet.</p>
   </div>
 </section>
 
 <!-- SECTION 02: 3 OBSERVATIONS -->
 <section class="alt">
   <div class="container">
-    <p class="section-label">02 &nbsp;/&nbsp; 3 dieu em quan sat</p>
-    <h2>Nhung dieu em <em>nhin thay</em> trong account cua chi.</h2>
+    <p class="section-label">02 &nbsp;/&nbsp; 3 things I noticed</p>
+    <h2>What I saw when I <em>audited your account.</em></h2>
 
     <div class="obs-grid">
 
       <div class="obs-card">
         <div class="obs-number">01</div>
-        <div class="obs-title">Carousel cua chi dang hoat dong tot hon Reels gan 2 lan, nhung chi chiem 11% noi dung.</div>
-        <p class="obs-body">Trong 100 bai duoc phan tich, moi carousel cua chi nhan trung binh 10.3 binh luan, trong khi Reels chi dat 4.7. Bai IFS / inner child cua chi dat 21 binh luan, vuot hon hau het moi Reel trong cung giai doan. Nhung hien tai chi dang dang Reels 79% thoi gian.</p>
-        <p class="obs-evidence">Bang chung</p>
-        <p class="obs-data">Carousel avg: 10.3 comments / Reels avg: 4.7 comments. Format hieu qua nhat cua chi lai la format chi su dung it nhat.</p>
-        <p class="obs-opp-label">Co hoi</p>
-        <p class="obs-opp">Tang len 2 den 3 carousels moi tuan co the lam tang engagement dang ke ma khong can them Reels hay thay doi cach chi suy nghi ve content.</p>
+        <div class="obs-title">Your carousels are outperforming your Reels nearly 2 to 1, but they're only 11% of your content.</div>
+        <p class="obs-body">Across 100 posts analyzed, your carousels averaged 10.3 comments each. Your Reels averaged 4.7. Your IFS and inner child carousel alone received 21 comments, outperforming almost every Reel in the same period. But right now you're posting Reels 79% of the time.</p>
+        <p class="obs-evidence">The data</p>
+        <p class="obs-data">Carousel avg: 10.3 comments &nbsp;&middot;&nbsp; Reel avg: 4.7 comments. Your highest-engagement format is your least-used one.</p>
+        <p class="obs-opp-label">The opportunity</p>
+        <p class="obs-opp">Moving to 2 to 3 carousels per week could meaningfully increase engagement without changing how you think about content or adding more to your plate.</p>
       </div>
 
       <div class="obs-card">
         <div class="obs-number">02</div>
-        <div class="obs-title">Chi khong co lead magnet. Follower warm dang mat chua kip chao.</div>
-        <p class="obs-body">100% CTA cua chi deu la "link in bio to book a consultation." Day la mot buoc qua lon doi voi nguoi chi moi biet den chi. Ho doc content, cam nhan, muon tim hieu them, nhung khong co buoc tiep theo nao ngoai viec tu nhien book mot buoi tri lieu.</p>
-        <p class="obs-evidence">Bang chung</p>
-        <p class="obs-data">Khong co email opt-in, khong co freebie, khong co lead capture. Nguoi follow chi ma chua san sang book co the ro di bat cu luc nao.</p>
-        <p class="obs-opp-label">Co hoi</p>
-        <p class="obs-opp">Mot free guide don gian, vi du "5 signs you're people-pleasing in your relationships," ket hop email opt-in se giu warm traffic o lai va nuoi duong ho thanh khach hang theo thoi gian.</p>
+        <div class="obs-title">You have no lead magnet. Warm followers have nowhere to go.</div>
+        <p class="obs-body">Every CTA on your account points to "link in bio to book a consultation." That's a big ask for someone who just discovered you. They read your content, feel something, want to stay connected, but there's no next step short of booking therapy. People who aren't ready yet quietly disappear.</p>
+        <p class="obs-evidence">The data</p>
+        <p class="obs-data">100% of your CTAs lead directly to a consultation booking. No email opt-in, no freebie, no soft entry point.</p>
+        <p class="obs-opp-label">The opportunity</p>
+        <p class="obs-opp">A simple free guide, something like "5 signs you're people-pleasing in your relationships," paired with an email opt-in, would keep warm traffic in your world long after the post is gone.</p>
       </div>
 
       <div class="obs-card">
         <div class="obs-number">03</div>
-        <div class="obs-title">Framing "currently accepting new clients" dang vo tinh lam yeu di authority cua chi.</div>
-        <p class="obs-body">Cau nay xuat hien trong gan moi bai dang. Y dinh tot, nhung hieu ung nguoc lai: nghe co ve chi dang cho khach hang thay vi khach hang dang tim chi. Hai bai Reels viral nhat cua chi (101K va 79K views) khong co pitch nao. Content ca nhan, khong selling, lai keo nhieu nguoi nhat.</p>
-        <p class="obs-evidence">Bang chung</p>
-        <p class="obs-data">101K views va 79K views la hai bai Reels khong co "currently accepting clients." Cac bai co cau nay thuong chi dat 200 den 1,000 views.</p>
-        <p class="obs-opp-label">Co hoi</p>
-        <p class="obs-opp">Thay bang "A few spots are now open" va chi dung 1 lan moi tuan. De phan noi dung con lai xay dung authority thay vi pitch.</p>
+        <div class="obs-title">"Currently accepting new clients" in almost every post is quietly working against your authority.</div>
+        <p class="obs-body">The intention is good, but the effect is the opposite of what you want: it signals that you're waiting for clients, not that clients are trying to find you. Your two most viral Reels, 101K and 79K views, had no pitch at all. Personal content with no selling pulled the most people.</p>
+        <p class="obs-evidence">The data</p>
+        <p class="obs-data">Your 101K and 79K view Reels both had short, personal captions with no availability CTA. Your typical Reels with the phrase average 200 to 1,000 views.</p>
+        <p class="obs-opp-label">The opportunity</p>
+        <p class="obs-opp">Replace it with "A few spots are now open" and use it once per week. Let the rest of your content do the authority-building work it's actually good at.</p>
       </div>
 
     </div>
@@ -655,102 +636,102 @@
 <!-- SECTION 03: SERVICES -->
 <section>
   <div class="container">
-    <p class="section-label">03 &nbsp;/&nbsp; Day la dieu em co the lam cung chi</p>
-    <h2>Dich vu em <em>offer.</em></h2>
-    <p>Moi dich vu duoi day deu duoc thiet ke voi brand cua chi trong dau, khong phai cho tat ca moi nguoi.</p>
+    <p class="section-label">03 &nbsp;/&nbsp; What I can do with you</p>
+    <h2>Services built around <em>your brand, not a template.</em></h2>
+    <p>Everything below is designed with your voice and your goals in mind. Nothing here is copy-pasted from another client.</p>
 
     <div class="service-grid">
 
       <!-- LANDING PAGE -->
       <div class="service-card">
-        <p class="service-num">Dich vu 01</p>
+        <p class="service-num">Service 01</p>
         <p class="service-name">Instagram Landing Page</p>
         <ul class="service-bullets">
-          <li>Mini-site gan vao bio, tham hoa mau sac va giong noi cua chi</li>
-          <li>Nut CTA dan den consultation booking va email opt-in</li>
-          <li>Mobile-first, load nhanh, khong can code</li>
-          <li>Giao trong 24 gio sau khi xac nhan</li>
+          <li>A bio link mini-site that mirrors your brand colors and voice</li>
+          <li>CTA buttons routing to your consultation booking and email opt-in</li>
+          <li>Mobile-first, fast-loading, no code required on your end</li>
+          <li>Delivered within 24 hours of confirmation</li>
         </ul>
-        <p class="service-invest">Dau tu</p>
-        <p class="service-price">$250 &nbsp;&middot;&nbsp; nhan trong 24h</p>
+        <p class="service-invest">Investment</p>
+        <p class="service-price">$250 &nbsp;&middot;&nbsp; delivered in 24h</p>
       </div>
 
       <!-- START PACKAGE -->
       <div class="service-card">
-        <p class="service-num">Dich vu 02</p>
+        <p class="service-num">Service 02</p>
         <p class="service-name">Start Package</p>
         <ul class="service-bullets">
-          <li>Goi intro linh hoat, phu hop voi nhu cau va pham vi hien tai cua chi</li>
-          <li>Co the bao gom: strategy, carousels, captions, hoac bat ky ket hop nao phu hop</li>
-          <li>Em se hoi them ve muc tieu cua chi truoc khi de xuat scope cu the</li>
+          <li>A flexible intro scope built around what you actually need right now</li>
+          <li>Can include strategy, carousels, captions, or any combination that fits</li>
+          <li>I'll ask a few questions before proposing a scope so nothing is wasted</li>
         </ul>
-        <p class="service-invest">Dau tu</p>
-        <p class="service-price">Quoted theo scope sau khi noi chuyen</p>
+        <p class="service-invest">Investment</p>
+        <p class="service-price">Quoted to your scope after we talk</p>
       </div>
 
       <!-- STRATEGY -->
       <div class="service-card">
-        <p class="service-num">Dich vu 03</p>
+        <p class="service-num">Service 03</p>
         <p class="service-name">Content Strategy</p>
         <ul class="service-bullets">
-          <li>Lap ke hoach tru cot noi dung, lich dang, va dinh vi brand</li>
-          <li>Xac dinh format nao phu hop nhat voi muc tieu cua chi trong tung thoi diem</li>
-          <li>Xay dung he thong de chi (hoac em) co the chay theo tuan</li>
+          <li>Content pillar planning, posting calendar, and brand positioning</li>
+          <li>Identifying which formats to prioritize based on your actual data</li>
+          <li>A system you (or I) can execute week over week without starting from scratch</li>
         </ul>
-        <p class="service-invest">Dau tu</p>
-        <p class="service-price">Lien he qua DM</p>
+        <p class="service-invest">Investment</p>
+        <p class="service-price">Let's talk over DM</p>
       </div>
 
       <!-- CAROUSEL + POST -->
       <div class="service-card">
-        <p class="service-num">Dich vu 04</p>
+        <p class="service-num">Service 04</p>
         <p class="service-name">Content Execution<br>Carousel + Post</p>
         <ul class="service-bullets">
-          <li>Viet va thiet ke carousel theo giong noi cua chi, khong theo template cua em</li>
-          <li>Single-post captions phu hop voi tung format va muc tieu</li>
-          <li>Qua bo check giong noi truoc khi gui chi</li>
+          <li>Carousels written and designed in your voice, not mine</li>
+          <li>Single-post captions matched to each format and goal</li>
+          <li>Every piece goes through a voice-check before it reaches you</li>
         </ul>
-        <p class="service-invest">Dau tu</p>
-        <p class="service-price">Lien he qua DM</p>
+        <p class="service-invest">Investment</p>
+        <p class="service-price">Let's talk over DM</p>
       </div>
 
       <!-- REELS + STORIES -->
       <div class="service-card">
-        <p class="service-num">Dich vu 05</p>
+        <p class="service-num">Service 05</p>
         <p class="service-name">Content Execution<br>Reels + Stories</p>
         <ul class="service-bullets">
-          <li>Reel scripts voi hook da duoc engineer cho chi, khong phai hook chung chung</li>
-          <li>On-screen text, caption, va hashtag set hoan chinh</li>
-          <li>Story frames giu dung mau sac va nang luong cua brand chi</li>
+          <li>Reel scripts with hooks engineered for your specific audience, not generic</li>
+          <li>Full package: on-screen text, caption, and hashtag set</li>
+          <li>Story frames that hold your brand's color and energy</li>
         </ul>
-        <p class="service-invest">Dau tu</p>
-        <p class="service-price">Lien he qua DM</p>
+        <p class="service-invest">Investment</p>
+        <p class="service-price">Let's talk over DM</p>
       </div>
 
       <!-- GROWTH PARTNERSHIP -->
       <div class="service-card">
-        <p class="service-num">Dich vu 06</p>
+        <p class="service-num">Service 06</p>
         <p class="service-name">Growth Partnership</p>
         <ul class="service-bullets">
-          <li>Mo hinh hop tac dua tren ket qua, khong phai gio lam viec</li>
-          <li>Em chia se trong su tang truong cua chi thay vi charge theo bai</li>
-          <li>Phu hop khi chi da co nen tang va muon scale nhanh hon</li>
+          <li>A results-based model, not billed by the hour or post</li>
+          <li>I share in your growth rather than charging a flat rate</li>
+          <li>Best fit when you already have a foundation and want to scale it</li>
         </ul>
-        <p class="service-invest">Dau tu</p>
-        <p class="service-price">Commission / milestone, trao doi qua DM</p>
+        <p class="service-invest">Investment</p>
+        <p class="service-price">Commission / milestone, discussed over DM</p>
       </div>
 
       <!-- PREMIUM RETAINER -->
       <div class="service-card premium wide">
-        <p class="service-num">Dich vu 07</p>
+        <p class="service-num">Service 07</p>
         <p class="service-name">Premium Retainer</p>
         <ul class="service-bullets">
-          <li>Toan bo he sinh thai noi dung: tu strategy den execution den publish hang ngay</li>
-          <li>DM triage, auto-posting, trend routing, va bao cao hang tuan</li>
-          <li>Chi chi can focus vao viec lam tri lieu, phan con lai em lo</li>
+          <li>Full content ecosystem: strategy through execution through daily publishing</li>
+          <li>DM triage, trend routing, auto-posting, and weekly reporting</li>
+          <li>You focus on your clients. I handle everything else.</li>
         </ul>
-        <p class="service-invest">Dau tu</p>
-        <p class="service-price">Custom scope, khong quote cong khai. Danh cho ongoing partner.</p>
+        <p class="service-invest">Investment</p>
+        <p class="service-price">Custom scope. Reserved for ongoing partners. Not publicly quoted.</p>
       </div>
 
     </div>
@@ -760,19 +741,19 @@
 <!-- SECTION 04: SAMPLES -->
 <section class="alt">
   <div class="container">
-    <p class="section-label">04 &nbsp;/&nbsp; Sample em da viet thu cho chi</p>
-    <h2>Hai bai chi co the <em>dung ngay.</em></h2>
+    <p class="section-label">04 &nbsp;/&nbsp; Samples I wrote for you</p>
+    <h2>Two posts you can <em>use right now.</em></h2>
 
     <div class="sample-intro">
-      <p>Em viet hai carousel nay sau khi doc qua 20+ captions cua chi. Muc tieu khong phai la viet giong style cua em, ma la mirror lai nhip cau, tu quen, va cach mo bai cua chi, de chi thay day co the la con cua chinh chi, khong phai cua ai khac.</p>
-      <p>Ca hai bai nay la cua chi de dung mien phi, bat ke chi quyet dinh co hop tac voi em hay khong.</p>
+      <p>I wrote both of these after reading through 20 or more of your captions in full. The goal wasn't to write in my style, it was to mirror your sentence rhythm, your vocabulary, and the way you open a post, so that if you dropped either of these into your feed unannounced, it would feel like yours.</p>
+      <p>Both samples are free to use as-is, regardless of whether we work together.</p>
     </div>
 
     <span class="free-badge">Free to use &nbsp;&middot;&nbsp; No strings attached</span>
 
     <!-- SAMPLE 1 -->
     <div class="sample-block">
-      <p class="sample-title">Sample 1: Carousel</p>
+      <p class="sample-title">Sample 1 &nbsp;&mdash;&nbsp; Carousel</p>
       <p class="sample-format">7 slides &nbsp;&middot;&nbsp; People-pleasing + Nervous system</p>
 
       <div class="slides">
@@ -809,7 +790,7 @@
       <p class="caption-label">Caption</p>
       <div class="caption-box">Sometimes the body knows before the mind does.
 
-If you've been noticing these patterns in your relationships, you're not alone in them. Many people who struggled with people-pleasing carry these responses long before they have the words for what's happening.
+If you've been noticing these patterns in your relationships, you're not alone in them. Many people who struggle with people-pleasing carry these responses long before they have the words for what's happening.
 
 These patterns often develop as ways to stay safe. And with time, support, and a lot of self-compassion, they can shift.
 
@@ -819,12 +800,12 @@ If you're ready to gently explore this work, I'm currently accepting new clients
 
 #peoplepleasing #boundaries #nervoussystemhealing #healingjourney #ontariotherapist</div>
 
-      <p class="sample-note">Em viet sample nay sau khi doc 20+ bai cua chi. Em co y mirror cach chi viet, nhat la cau mo bai ngan + expand, cach dung "often" / "can" / "may have" de giu do chinh xac lam sang, va cach ket bai voi validation truoc khi CTA. Neu minh lam viec cung nhau, moi tuan chi se co 4 den 8 piece nhu nay, tat ca deu qua bo check giong noi nay truoc khi gui chi.</p>
+      <p class="sample-note">I wrote this after reading 20 or more of your posts in full. I mirrored the short opening followed by the expansion, the use of "often" and "can" and "may have" to stay clinically honest, and the validation-before-CTA close. If we work together, every piece goes through this same voice check before it reaches you.</p>
     </div>
 
     <!-- SAMPLE 2 -->
     <div class="sample-block">
-      <p class="sample-title">Sample 2: Carousel</p>
+      <p class="sample-title">Sample 2 &nbsp;&mdash;&nbsp; Carousel</p>
       <p class="sample-format">7 slides &nbsp;&middot;&nbsp; Self-trust + Attachment healing</p>
 
       <div class="slides">
@@ -850,7 +831,7 @@ If you're ready to gently explore this work, I'm currently accepting new clients
         </div>
         <div class="slide">
           <p class="slide-num">Slide 6</p>
-          <p class="slide-text">It looks like choosing the steadier, calmer relationship over the one that felt like love because the intensity was familiar.<br><br>And trusting that calm can be enough. That steady can be safe.</p>
+          <p class="slide-text">It looks like choosing the steadier, calmer relationship over the one that felt like love because the intensity was so familiar.<br><br>And trusting that calm can be enough. That steady can be safe.</p>
         </div>
         <div class="slide">
           <p class="slide-num">Slide 7</p>
@@ -861,7 +842,7 @@ If you're ready to gently explore this work, I'm currently accepting new clients
       <p class="caption-label">Caption</p>
       <div class="caption-box">One of the most common things I hear is: "I finally found something calm and steady, so why does it feel so strange?"
 
-For many people, a regulated and consistent relationship can feel unfamiliar at first. Not wrong, just new. If you've spent time in relationships where intensity felt like love, it makes sense that calm might take some getting used to. Your nervous system is adjusting to something it hasn't felt before.
+For many people, a regulated and consistent relationship can feel unfamiliar at first. Not wrong, just new. If you've spent time in relationships where intensity felt like love, it makes sense that calm might take some adjusting. Your nervous system is learning something it hasn't experienced before.
 
 Rebuilding self-trust often shows up in the quiet moments. The pause before you answer. The day you didn't over-explain. The time you let yourself need something.
 
@@ -871,15 +852,14 @@ If this resonates, I'm currently accepting new clients in my private practice in
 
 #selftrust #attachmenthealing #healingjourney #ontariotherapist #burlingtonontario</div>
 
-      <p class="sample-note">Sample nay lay goc do tu Opportunities trong audit, mot goc chi chua lam thanh carousel: "self-trust trong healing" voi khung nhin somatic thay vi chi cognitive. Em dung cau mo voi "One of the most common things I hear is" vi day la pattern chi da dung trong nhieu bai Reel cua chi khi mo bai bang cam xuc thay vi information.</p>
+      <p class="sample-note">This angle came directly from your SWOT opportunities: self-trust in healing, framed from a somatic perspective rather than only a cognitive one. You've talked about secure attachment in Reels but haven't yet done a carousel on what it actually feels like in the body. This is that post.</p>
     </div>
 
-    <!-- CLIENT IMAGE -->
     <img
       src="aesthetic/top3.jpg"
       onerror="this.style.display='none'"
       alt=""
-      style="width:100%; max-height:360px; object-fit:cover; object-position:center 30%; border-radius:4px; filter:brightness(0.97) saturate(0.88); margin-top:12px;"
+      style="width:100%; max-height:360px; object-fit:cover; object-position:center 30%; border-radius:4px; filter:brightness(0.97) saturate(0.82); margin-top:12px;"
     >
 
   </div>
@@ -888,25 +868,25 @@ If this resonates, I'm currently accepting new clients in my private practice in
 <!-- SECTION 05: WHY DIFFERENT -->
 <section>
   <div class="container">
-    <p class="section-label">05 &nbsp;/&nbsp; Tai sao em khac</p>
-    <h2>Khong phai ai cung <em>doc truoc khi pitch.</em></h2>
+    <p class="section-label">05 &nbsp;/&nbsp; Why I'm different</p>
+    <h2>Not everyone <em>reads before they pitch.</em></h2>
 
     <ul class="diff-list">
       <li>
         <span class="diff-num">01</span>
-        <span>Em doc content cua chi truoc khi viet bat cu dieu gi. Hai bai sample tren duoc viet sau khi em doc 20+ bai day du, khong chi scan qua. Do la cach em biet chi dung "often" va "can" de giu do chinh xac lam sang, ma em khong bao gio dung "will" khi chi chua dung.</span>
+        <span>I read your content before writing a single word of this. The two samples above were written after reading 20 or more of your captions in full, not skimmed. That's how I knew you use "often" and "can" and "may" to stay clinically precise, and that you never make absolute claims about mental health outcomes.</span>
       </li>
       <li>
         <span class="diff-num">02</span>
-        <span>Em hieu su khac biet giua giong noi va topic. Nhieu SMM co the phan tich nhu cau cua audience chi, nhung em tap trung vao nhip cau, tu quen, va cach chi mo bai, vi do la thu ma follower cua chi nhan ra va tin tuong, ngay ca khi ho chua biet tai sao.</span>
+        <span>I understand the difference between your voice and your topics. A lot of content writers can analyze your audience's needs. I focus on your sentence rhythm, your specific vocabulary, and the way you open a post, because that's what your followers recognize and trust, even when they can't explain why.</span>
       </li>
       <li>
         <span class="diff-num">03</span>
-        <span>Em hieu chi ang xay dung mot private practice o dau tu, khong phai mot influencer brand. Content phai phuc vu viec xay dung su tin tuong va uy tin, khong chi de ra so.</span>
+        <span>I understand you're building a private practice, not an influencer brand. Content for you has to serve trust-building and referrals, not just impressions. Those are different goals and they require different decisions.</span>
       </li>
       <li>
         <span class="diff-num">04</span>
-        <span>Khong co template. Moi bai em viet cho chi se khac voi bai em viet cho bat ky ai khac. Vi brand cua chi la cua chi, khong phai cua em.</span>
+        <span>No templates. Every piece I write for you will be different from anything I write for anyone else, because your brand is yours, not mine.</span>
       </li>
     </ul>
   </div>
@@ -915,19 +895,21 @@ If this resonates, I'm currently accepting new clients in my private practice in
 <!-- SECTION 06: CTA -->
 <div class="cta-section">
   <div class="container">
-    <p class="section-label" style="text-align:center;">06 &nbsp;/&nbsp; Buoc tiep theo</p>
-    <h2 style="text-align:center;">Neu chi muon <em>noi chuyen them.</em></h2>
-    <p class="cta-body">Khong can commit, khong can prep. Chi can reply vao DM cua chi tu em, va minh co the noi chuyen 15 phut ve nhung gi chi dang can nhat luc nay.</p>
+    <p class="section-label" style="text-align:center;">06 &nbsp;/&nbsp; What happens next</p>
+    <h2 style="text-align:center;">If anything here <em>resonates.</em></h2>
+    <p class="cta-body">No commitment, no prep needed. Just reply to my DM and we can talk for 15 minutes about what you actually need right now. No pressure either way.</p>
+    <!-- STUDENT: thay link booking / DM vao day -->
     <a class="cta-btn" href="https://www.instagram.com/evelyn.contentally/" target="_blank" rel="noopener">
-      Nhan tin cho Evelyn
+      DM Evelyn
     </a>
   </div>
 </div>
 
 <!-- FOOTER -->
 <footer>
+  <!-- STUDENT: thay ten cua em vao day -->
   <p class="footer-name">Evelyn &nbsp;&middot;&nbsp; Content Ally</p>
-  <p class="footer-note">De xuat nay duoc viet rieng cho @healingwithcierra. Khong template.</p>
+  <p class="footer-note">This proposal was written specifically for @healingwithcierra. Not a template.</p>
 </footer>
 
 </body>
